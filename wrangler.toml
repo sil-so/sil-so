@@ -1,0 +1,10 @@
+name = "sil-so"
+main = "_worker.js"
+compatibility_date = "2025-07-04"
+
+[site]
+bucket = "./public"
+
+[[routes]]
+pattern = "sil.so/*"
+zone_name = "sil.so"
