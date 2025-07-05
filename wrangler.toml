@@ -2,12 +2,13 @@ name = "sil-so"
 main = "index.js"
 compatibility_date = "2025-07-04"
 
-[observability.logs]
-enabled = true
-
 [site]
 bucket = "./public"
 
 [[routes]]
 pattern = "sil.so/*"
+zone_name = "sil.so"
+
+[[routes]]
+pattern = "www.sil.so/*"
 zone_name = "sil.so"
