@@ -2,6 +2,9 @@ name = "sil-so"
 main = "worker.js"
 compatibility_date = "2025-07-05"
 
+[observability.logs]
+enabled = true
+
 [assets]
 directory = "public"
 binding = "ASSETS"
