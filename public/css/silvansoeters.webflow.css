@@ -2320,6 +2320,13 @@ figcaption {
   inset: 0%;
 }
 
+.footer_credits {
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  display: flex;
+}
+
 @media screen and (min-width: 1440px) {
   .background-image, .background-image_color {
     z-index: 0;
