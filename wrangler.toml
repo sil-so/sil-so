@@ -1,14 +1,14 @@
 name = "sil-so"
-main = "index.js"
-compatibility_date = "2025-07-04"
+main = "worker.js"
+compatibility_date = "2025-07-05"
 
-[site]
-bucket = "./public"
+[assets]
+directory = "public"
+binding = "ASSETS"
 
-[[routes]]
-pattern = "sil.so/*"
-zone_name = "sil.so"
-
-[[routes]]
-pattern = "www.sil.so/*"
-zone_name = "sil.so"
+[env.production]
+workers_dev = false
+routes = [
+  "sil.so/*",
+  "www.sil.so/*"
+]
