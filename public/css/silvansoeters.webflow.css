@@ -1618,8 +1618,8 @@ figcaption {
 .header_portrait {
   z-index: 1;
   border: var(--border-width--border-1-5) none var(--base-color-neutral--sand-7);
-  opacity: .9;
-  filter: contrast(103%);
+  opacity: .85;
+  filter: contrast(110%);
   border-radius: 50vw;
   justify-content: flex-start;
   align-items: center;
