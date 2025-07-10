@@ -1903,7 +1903,7 @@ figcaption {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 7.5rem;
+  width: 5rem;
   position: relative;
 }
 
@@ -2916,7 +2916,7 @@ figcaption {
   }
 
   .loader_content-wrapper {
-    width: 6rem;
+    width: 4rem;
   }
 
   .footer_component {
@@ -3156,10 +3156,6 @@ figcaption {
 
   .header_top {
     margin-bottom: .25rem;
-  }
-
-  .loader_content-wrapper {
-    width: 5rem;
   }
 
   .icons_component {
