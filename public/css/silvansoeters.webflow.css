@@ -45,6 +45,7 @@
   --base-color-brand--grey-1: #f3f3f3;
   --border-color--border-tertiary: var(--base-color-neutral--grey-1);
   --base-color-neutral--grey-1: #f3f3f3;
+  --base-color-brand--blue: #6b78f1;
   --background-color--background-warning: var(--base-color-system--warning-yellow);
   --text-color--text-warning: var(--base-color-system--warning-yellow-dark);
   --border-width--border-1: 1px;
@@ -58,7 +59,6 @@
   --base-color-system--success-green-dark: #a0af54;
   --base-color-brand--dark-yellow: #be9207;
   --base-color-brand--yellow: #eccb60;
-  --base-color-brand--blue: #6b78f1;
   --border-width--border-2: 2px;
   --base-color-brand--grey-2: #d9d9d9;
   --base-color-brand--grey-3: #bbb;
@@ -1248,6 +1248,11 @@ figcaption {
   display: flex;
 }
 
+.button.is-tertiary {
+  color: var(--base-color-brand--blue);
+  background-color: #0000;
+}
+
 .fs-styleguide_classes {
   grid-column-gap: 1px;
   grid-row-gap: 1px;
@@ -2035,7 +2040,6 @@ figcaption {
   border-top-right-radius: var(--border-radius--border-radius-30);
   border-bottom-left-radius: var(--border-radius--border-radius-30);
   border-bottom-right-radius: var(--border-radius--border-radius-30);
-  background-color: var(--base-color-brand--dark-blue);
   color: var(--base-color-brand--blue);
   letter-spacing: .4px;
   border-top-color: color-mix(in srgb, var(--base-color-brand--blue), transparent 70%);
@@ -2043,7 +2047,7 @@ figcaption {
   border-bottom-color: color-mix(in srgb, var(--base-color-brand--blue), transparent 70%);
   border-left-color: color-mix(in srgb, var(--base-color-brand--blue), transparent 70%);
   margin: .55rem;
-  padding: .25rem .5rem;
+  padding: .25rem;
   font-size: .65rem;
   font-weight: 600;
   position: absolute;
@@ -2965,11 +2969,6 @@ figcaption {
     margin: 1.5rem;
   }
 
-  .accordion_wrapper {
-    grid-column-gap: .75rem;
-    grid-row-gap: .75rem;
-  }
-
   .accordion_header, .accordion_body {
     padding-top: .75rem;
     padding-bottom: .75rem;
@@ -3147,8 +3146,8 @@ figcaption {
   }
 
   .work_list {
-    grid-column-gap: 1rem;
-    grid-row-gap: 1rem;
+    grid-column-gap: .75rem;
+    grid-row-gap: .75rem;
     grid-template-rows: auto;
     grid-template-columns: 1fr;
     grid-auto-columns: 1fr;
@@ -3198,6 +3197,8 @@ figcaption {
   }
 
   .accordion_wrapper {
+    grid-column-gap: .75rem;
+    grid-row-gap: .75rem;
     width: 100%;
   }
 
