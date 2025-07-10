@@ -2381,6 +2381,13 @@ figcaption {
   display: none;
 }
 
+.logos_grid {
+  grid-column-gap: 1.5rem;
+  grid-row-gap: 1.5rem;
+  flex-flow: wrap;
+  display: flex;
+}
+
 @media screen and (min-width: 1440px) {
   .background-image, .background-image_color {
     z-index: 0;
@@ -2850,6 +2857,10 @@ figcaption {
     font-size: 1rem;
   }
 
+  .icon-height-medium {
+    height: 1.5rem;
+  }
+
   .padding-section-medium {
     padding-top: 3rem;
     padding-bottom: 3rem;
@@ -2972,6 +2983,11 @@ figcaption {
   .accordion_header, .accordion_body {
     padding-top: .75rem;
     padding-bottom: .75rem;
+  }
+
+  .logos_grid {
+    grid-column-gap: 1.25rem;
+    grid-row-gap: 1.25rem;
   }
 }
 
@@ -3200,6 +3216,15 @@ figcaption {
 
   .accordion_question {
     flex: 0 100%;
+  }
+
+  .logos_grid {
+    grid-template-rows: auto auto;
+    grid-template-columns: auto auto auto auto 1fr;
+    grid-auto-columns: 1fr;
+    justify-content: start;
+    place-items: start;
+    display: grid;
   }
 }
 
