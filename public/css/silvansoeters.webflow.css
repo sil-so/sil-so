@@ -2980,9 +2980,14 @@ figcaption {
     margin: 1.5rem;
   }
 
-  .accordion_header, .accordion_body {
+  .accordion_header {
     padding-top: .75rem;
     padding-bottom: .75rem;
+  }
+
+  .accordion_body {
+    padding-top: .75rem;
+    padding-bottom: 1.5rem;
   }
 
   .logos_grid {
