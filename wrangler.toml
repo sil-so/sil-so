@@ -10,6 +10,7 @@ directory = "public"
 binding = "ASSETS"
 
 [env.production]
+name = "sil-so"
 workers_dev = false
 routes = [
   "sil.so/*",
