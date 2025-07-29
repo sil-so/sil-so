@@ -1758,6 +1758,9 @@ figcaption {
   grid-auto-columns: 1fr;
   align-items: stretch;
   text-decoration: none;
+  transition-property: background-color;
+  transition-duration: .22s;
+  transition-timing-function: ease-in-out;
   display: grid;
   overflow: hidden;
 }
@@ -1884,6 +1887,10 @@ figcaption {
   min-width: 100%;
   text-decoration: none;
   display: flex;
+}
+
+.accordion_item.js-accordion-item {
+  transition: background-color .22s ease-in-out;
 }
 
 .preloader {
