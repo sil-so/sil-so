@@ -1887,11 +1887,11 @@ figcaption {
 }
 
 .preloader {
-  z-index: 9999;
+  z-index: 0;
   justify-content: center;
   align-items: center;
   height: 100dvh;
-  display: none;
+  display: flex;
   position: fixed;
   inset: 0%;
   overflow: hidden;
@@ -1903,7 +1903,7 @@ figcaption {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 5rem;
+  width: 5.5rem;
   position: relative;
 }
 
@@ -2386,6 +2386,10 @@ figcaption {
   grid-row-gap: 1.5rem;
   flex-flow: wrap;
   display: flex;
+}
+
+.card-blur {
+  filter: blur(30px);
 }
 
 @media screen and (min-width: 1440px) {
