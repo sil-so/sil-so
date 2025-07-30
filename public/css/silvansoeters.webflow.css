@@ -54,8 +54,10 @@
   --border-radius--border-radius-20: 1.25rem;
   --base-color-brand--grey-45: #9f9d9673;
   --base-color-neutral--sand-7: #494844;
+  --base-color-brand--paper-20: #fffcf033;
   --base-color-brand--grey: #9f9d96;
   --base-color-brand--grey-4: #616161;
+  --base-color-brand--paper-10: #fffcf01a;
   --base-color-system--success-green-dark: #a0af54;
   --base-color-brand--dark-yellow: #be9207;
   --base-color-brand--yellow: #eccb60;
@@ -68,7 +70,6 @@
   --base-color-brand--dark-red: #8a0b0b;
   --base-color-brand--orange-text: #ec8b49;
   --base-color-brand--paper-5: #fffcf00d;
-  --base-color-brand--paper-15: #fffcf026;
   --base-color-neutral--sand-1: #111110;
   --base-color-neutral--sand-12: #eeeeec;
   --base-color-neutral--sand-11: #b5b3ad;
@@ -1637,17 +1638,9 @@ figcaption {
 
 .social_link {
   z-index: 999999;
-  border-top-style: none;
-  border-top-width: var(--border-width--border-1-5);
-  border-right-style: none;
-  border-right-width: var(--border-width--border-1-5);
-  border-bottom-style: none;
-  border-bottom-width: var(--border-width--border-1-5);
-  border-left-style: none;
-  border-left-width: var(--border-width--border-1-5);
   color: var(--base-color-brand--paper);
   background-color: color-mix(in srgb, var(--base-color-brand--paper), transparent 90%);
-  border-color: #f3f3f34d;
+  border: 1px #000;
   border-radius: 50%;
   flex: none;
   justify-content: center;
@@ -1656,17 +1649,15 @@ figcaption {
   width: 2.25rem;
   height: 2.25rem;
   padding: 0;
-  transition-property: all;
-  transition-duration: .35s;
-  transition-timing-function: cubic-bezier(.86, 0, .07, 1);
+  transition-property: background-color;
+  transition-duration: .22s;
+  transition-timing-function: ease-in-out;
   display: flex;
 }
 
 .social_link:hover {
-  box-shadow: none;
+  background-color: var(--base-color-brand--paper-20);
   color: var(--base-color-brand--paper);
-  background-color: color-mix(in srgb, var(--base-color-brand--paper), transparent 80%);
-  border-color: #f3f3f34d;
 }
 
 .social_link.w--current {
@@ -1763,6 +1754,10 @@ figcaption {
   transition-timing-function: ease-in-out;
   display: grid;
   overflow: hidden;
+}
+
+.card-row34_card-horizontal:hover {
+  background-color: var(--base-color-brand--paper-10);
 }
 
 .card-row34_card-horizontal-image-wrapper {
@@ -1893,12 +1888,16 @@ figcaption {
   transition: background-color .22s ease-in-out;
 }
 
+.accordion_item.js-accordion-item:hover {
+  background-color: var(--base-color-brand--paper-10);
+}
+
 .preloader {
-  z-index: 0;
+  z-index: 999;
   justify-content: center;
   align-items: center;
   height: 100dvh;
-  display: flex;
+  display: none;
   position: fixed;
   inset: 0%;
   overflow: hidden;
