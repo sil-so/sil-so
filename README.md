@@ -1,4 +1,4 @@
-I'm **Sil**van **So**eters – a creative professional based in Rotterdam 🇳🇱, focusing on (full-stack) web development and design.
+I'm **Sil**van **So**eters – a multifaceted creative based in Rotterdam 🇳🇱
 
 ---
 
@@ -10,7 +10,7 @@ Personal AI art curator (*web app*) → <a href="https://curatyy.ai" target="_bl
 
 AI domain name generator (*web app*) → <a href="https://warp.domains" target="_blank">Warp Domains</a>
 
-**Work inquiry:** <a href="mailto:project@sil.so?subject=Project Inquiry | sil.so">project@sil.so</a>
+**Hire me:** <a href="mailto:project@sil.so?subject=Project Inquiry | sil.so">project@sil.so</a>
 
 ### Socials
 
