@@ -1,21 +1,43 @@
-I'm **Sil**van **So**eters – a multifaceted creative based in Rotterdam 🇳🇱
+Hey! I'm Silvan – a solo maker based in Rotterdam 🇳🇱
+
+### 🌱 Projects
+- **Epochs time tracker**  
+  desktop app for ActivityWatch  
+  *coming soon*
+
+- **[FlowTube](https://flowtu.be)**  
+  Webflow-to-GitHub sync  
+  *Free Chrome extension*
+  
+  <a href="https://www.uneed.best/tool/flowtube">
+    <img src="https://www.uneed.best/EMBED1B.png" target="_blank" alt="Uneed Embed Badge" height="36"/>
+  </a>
+
+- **[WARP](https://warp.domains)**  
+  AI domain name generator  
+  *web app*
+  
+  <a href="https://www.uneed.best/tool/warp-domains">
+    <img src="https://www.uneed.best/EMBED1B.png" target="_blank" alt="Uneed Embed Badge" height="36"/>
+  </a>
+
+- **[Curatyy](https://curatyy.ai)**  
+  personal AI art curator  
+  *web app*
+
+### 💼 Hire me
+- [hello@sil.so](mailto:hello@sil.so?subject=Project%20Inquiry%20%7C%20sil.so)
+
+### 💬 Links
+- [𝕏 (Twitter)](https://x.com/_silso)  
+- [Instagram](https://instagram.com/__silso)  
+- [LinkedIn](https://linkedin.com/in/silvansoeters)  
+- [BlueSky](https://bsky.app/profile/sil.so)  
+- [Webflow](https://webflow.com/silso)  
+- [YouTube](https://www.youtube.com/@sil-so)
 
 ---
 
-### Projects
-
-Webflow-to-GitHub automator (*Chrome extension*) → <a href="https://flowtu.be" target="_blank">FlowTube</a>
-
-Personal AI art curator (*web app*) → <a href="https://curatyy.ai" target="_blank">Curatyy AI</a>
-
-AI domain name generator (*web app*) → <a href="https://warp.domains" target="_blank">Warp Domains</a>
-
-**Hire me:** <a href="mailto:project@sil.so?subject=Project Inquiry | sil.so">project@sil.so</a>
-
-### Socials
-
-<a href="https://x.com/_silso" target="_blank">𝕏 (Twitter)</a> / <a href="https://instagram.com/__silso" target="_blank">Instagram</a> ✏️ 🎞️ / <a href="https://linkedin.com/in/silvansoeters" target="_blank">LinkedIn</a> / <a href="https://bsky.app/profile/sil.so" target="_blank">BlueSky</a> / <a href="https://webflow.com/silso" target="_blank">Webflow</a> / <a href="https://www.youtube.com/@sil-so" target="_blank">Youtube</a>
-
----
-
-<a href="https://ko-fi.com/M4M11AXHXH" target="_blank"><img class="button-hover" height="36" style="border:0px;height:36px;" src="https://storage.ko-fi.com/cdn/kofi1.png?v=6" border="0" alt="Buy Me a Coffee at ko-fi.com"></a>
+<a href="https://ko-fi.com/M4M11AXHXH">
+    <img src="https://storage.ko-fi.com/cdn/kofi1.png?v=6" alt="Buy Me a Coffee" height="36">
+</a>
