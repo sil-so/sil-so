@@ -1,10 +1,6 @@
 Hey! I'm Silvan – a solo maker based in Rotterdam 🇳🇱
 
 ### 🌱 Projects
-- **Epochs time tracker**  
-  desktop app for ActivityWatch  
-  *coming soon*
-
 - **[FlowTube](https://flowtu.be)**  
   Webflow-to-GitHub sync  
   *Free Chrome extension*
