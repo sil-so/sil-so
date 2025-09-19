@@ -2313,7 +2313,9 @@ figcaption {
   inset: 0%;
 }
 
-.div-block-4 {
+.inline-link {
+  grid-column-gap: .25rem;
+  grid-row-gap: .25rem;
   justify-content: flex-start;
   align-items: center;
   display: flex;
