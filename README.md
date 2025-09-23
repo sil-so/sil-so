@@ -3,13 +3,7 @@
 
 <br>
 
-**Name:** Silvan Soeters  
-**Year:** 1994  
-**Location:** Rotterdam, NL  
-**Expertise:**  
-- Development (*website, web app*)
-- Design (*web, logo, graphic*)
-- Photography
+Hey! I'm Silvan. A passionate maker from Rotterdam.
 
 </details>
 
@@ -18,38 +12,24 @@
 
 <br>
 
-- **[sil.so](https://sil.so)** · portfolio website  
-- **[flowtu.be](https://flowtu.be)** · Webflow-to-GitHub sync (*Chrome extension*)  
-- **[warp.domains](https://warp.domains)** · AI domain name generator (*web app*)  
-- **[curatyy.ai](https://curatyy.ai)** · personal AI art curator (*web app*)  
+**[sil.so](https://sil.so)** · Personal website  
+**[flowtu.be](https://flowtu.be)** · Webflow-to-GitHub sync (*Chrome extension*)  
+**[warp.domains](https://warp.domains)** · AI domain name generator (*web app*)  
+**[curatyy.ai](https://curatyy.ai)** · AI art curation (*web app*)  
 
 </details>
 
 <details>
-<summary>🟢 Hire me</summary>
+<summary>🔗 Links</summary>
 
 <br>
 
-[project@sil.so](mailto:project@sil.so?subject=Project%20Inquiry%20%7C%20sil.so)
+[𝕏 / Twitter](https://x.com/_silso)  
+[Instagram](https://instagram.com/__silso)  
+[LinkedIn](https://linkedin.com/in/silvansoeters)  
+[BlueSky](https://bsky.app/profile/sil.so)  
+[Ko-Fi](https://ko-fi.com/M4M11AXHXH)  
 
-</details>
-
-<details>
-<summary>💬 Links</summary>
-
-<br>
-
-[𝕏](https://x.com/_silso) | [Instagram](https://instagram.com/__silso) | [LinkedIn](https://linkedin.com/in/silvansoeters) | [BlueSky](https://bsky.app/profile/sil.so) | [Webflow](https://webflow.com/silso) | [YouTube](https://www.youtube.com/@sil-so)  
-
-</details>
-
-<details>
-<summary>☕ Support</summary>
-
-<br>
-
-<a href="https://ko-fi.com/M4M11AXHXH">
-    <img src="https://storage.ko-fi.com/cdn/kofi1.png?v=6" alt="Buy Me a Coffee" height="36">
-</a>
+[hello@sil.so](mailto:hello@sil.so?subject=Contact%20%7C%20sil.so)  
 
 </details>
