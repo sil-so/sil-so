@@ -27,7 +27,7 @@ Hey! I'm Silvan. A passionate maker from Rotterdam.
 
 <br>
 
-[Support My Work](https://ko-fi.com/M4M11AXHXH)  
+[support my work](https://ko-fi.com/M4M11AXHXH)  
 
 [hello@sil.so](mailto:hello@sil.so?subject=Contact%20%7C%20sil.so)  
 
