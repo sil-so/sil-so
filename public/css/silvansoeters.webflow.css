@@ -58,7 +58,10 @@
   --base-color-brand--grey: #9f9d96;
   --base-color-brand--grey-4: #616161;
   --base-color-brand--paper-10: #fffcf01a;
+  --base-color-system--success-green-darker: #536907;
+  --base-color-system--focus-state: #2d62ff;
   --base-color-system--success-green-dark: #a0af54;
+  --base-color-brand--light-blue: #9da6f3;
   --base-color-brand--dark-yellow: #be9207;
   --base-color-brand--yellow: #eccb60;
   --border-width--border-2: 2px;
@@ -83,9 +86,7 @@
   --base-color-system--warning-yellow-dark: #5e5515;
   --base-color-system--error-red: #f8e4e4;
   --base-color-system--error-red-dark: #3b0b0b;
-  --base-color-system--focus-state: #2d62ff;
   --base-color-system--focus-outline: #0e36ff;
-  --base-color-system--success-green-darker: #536907;
   --background-color--background-sand-12: var(--base-color-brand--grey-1);
   --background-color--background-white: var(--base-color-neutral--grey-1);
   --border-color--border-alternate: var(--base-color-neutral--sand-3);
@@ -1853,6 +1854,10 @@ figcaption {
   display: flex;
 }
 
+.label-1_content.is-booked {
+  background-color: color-mix(in srgb, var(--base-color-system--focus-state), black 35%);
+}
+
 .text-color-success {
   color: var(--text-color--text-success);
 }
@@ -1863,6 +1868,11 @@ figcaption {
   width: 8px;
   height: 8px;
   box-shadow: 0 0 9px 2px #00e485;
+}
+
+.label-1_dot.is-booked {
+  background-color: var(--base-color-brand--light-blue);
+  box-shadow: 0 0 9px 2px #aeb4f1;
 }
 
 .accordion_item {
@@ -2398,6 +2408,10 @@ figcaption {
 
 .card-blur {
   filter: blur(30px);
+}
+
+.text-color-light-blue {
+  color: var(--base-color-brand--light-blue);
 }
 
 @media screen and (min-width: 1440px) {
