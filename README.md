@@ -3,7 +3,7 @@
 
 <br>
 
-Hey! I'm Silvan. A passionate maker from Rotterdam.
+Hey, I'm Silvan - a passionate maker from Rotterdam.
 
 </details>
 
