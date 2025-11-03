@@ -1,22 +1,16 @@
-<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g clip-path="url(#clip0_1_22)">
-<mask id="mask0_1_22" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="48" height="48">
-<path d="M43.9999 0H4C1.79086 0 0 1.79086 0 4V44C0 46.2091 1.79086 48 4 48H43.9999C46.209 48 47.9999 46.2091 47.9999 44V4C47.9999 1.79086 46.209 0 43.9999 0Z" fill="white" style="fill:white;fill-opacity:1;"/>
+<svg viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<title>Wized Finsweet</title>
+<mask id="mask0_8692_22337" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="21" height="20">
+<path d="M18.544 0H1.68582C0.754771 0 0 0.746195 0 1.66667V18.3333C0 19.2538 0.754771 20 1.68582 20H18.544C19.475 20 20.2298 19.2538 20.2298 18.3333V1.66667C20.2298 0.746195 19.475 0 18.544 0Z" fill="white" style="fill:white;fill-opacity:1;"/>
 </mask>
-<g mask="url(#mask0_1_22)">
-<path d="M47.9999 0H0V48H47.9999V0Z" fill="#6E30F7" style="fill:#6E30F7;fill:color(display-p3 0.4314 0.1882 0.9686);fill-opacity:1;"/>
-<mask id="mask1_1_22" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="10" y="11" width="29" height="25">
-<path d="M38.8462 11H10V36H38.8462V11Z" fill="white" style="fill:white;fill-opacity:1;"/>
+<g mask="url(#mask0_8692_22337)">
+<path d="M20.2298 0H0V20H20.2298V0Z" fill="#6E30F7" style="fill:#6E30F7;fill:color(display-p3 0.4314 0.1882 0.9686);fill-opacity:1;"/>
+<mask id="mask1_8692_22337" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="4" y="4" width="13" height="12">
+<path d="M16.3723 4.58594H4.21484V15.0026H16.3723V4.58594Z" fill="white" style="fill:white;fill-opacity:1;"/>
 </mask>
-<g mask="url(#mask1_1_22)">
-<path d="M27.0974 19.1951V35.4573C27.0974 35.7561 26.857 36 26.5626 36H10.5349C10.2404 36 10.0001 35.7561 10.0001 35.4573V27.8659C10.0001 27.5671 10.2404 27.3232 10.5349 27.3232H17.9448C18.2753 27.3232 18.5457 27.0488 18.5457 26.7134V19.1951C18.5457 18.8963 18.7861 18.6524 19.0806 18.6524H26.5626C26.857 18.6524 27.0974 18.8963 27.0974 19.1951Z" fill="white" style="fill:white;fill-opacity:1;"/>
-<path d="M38.8462 11.6098V27.7317C38.8462 28.0671 38.5758 28.3415 38.2452 28.3415H30.9015C30.571 28.3415 30.3005 28.0671 30.3005 27.7317V11.6098C30.3005 11.2683 30.571 11 30.9015 11H38.2452C38.5758 11 38.8462 11.2683 38.8462 11.6098Z" fill="white" style="fill:white;fill-opacity:1;"/>
+<g mask="url(#mask1_8692_22337)">
+<path d="M11.4206 8.00346V14.7794C11.4206 14.9039 11.3193 15.0055 11.1952 15.0055H4.44024C4.31613 15.0055 4.21484 14.9039 4.21484 14.7794V11.6163C4.21484 11.4918 4.31613 11.3902 4.44024 11.3902H7.56318C7.70248 11.3902 7.81644 11.2758 7.81644 11.1361V8.00346C7.81644 7.87897 7.91775 7.77734 8.04188 7.77734H11.1952C11.3193 7.77734 11.4206 7.87897 11.4206 8.00346Z" fill="white" style="fill:white;fill-opacity:1;"/>
+<path d="M16.3721 4.84003V11.5575C16.3721 11.6973 16.2581 11.8116 16.1188 11.8116H13.0237C12.8844 11.8116 12.7705 11.6973 12.7705 11.5575V4.84003C12.7705 4.69773 12.8844 4.58594 13.0237 4.58594H16.1188C16.2581 4.58594 16.3721 4.69773 16.3721 4.84003Z" fill="white" style="fill:white;fill-opacity:1;"/>
 </g>
 </g>
-</g>
-<defs>
-<clipPath id="clip0_1_22">
-<rect width="48" height="48" fill="white" style="fill:white;fill-opacity:1;"/>
-</clipPath>
-</defs>
 </svg>

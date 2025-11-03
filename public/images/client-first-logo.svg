@@ -1,0 +1,11 @@
+<svg viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<title>Client-First Finsweet</title>
+<mask id="mask0_8692_22245" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="21" height="20">
+<path d="M18.47 0H1.67909C0.751755 0 0 0.746191 0 1.66666V18.3333C0 19.2538 0.751755 20 1.67909 20H18.47C19.3973 20 20.1491 19.2538 20.1491 18.3333V1.66666C20.1491 0.746191 19.3973 0 18.47 0Z" fill="white" style="fill:white;fill-opacity:1;"/>
+</mask>
+<g mask="url(#mask0_8692_22245)">
+<path d="M20.1491 0H0V20H20.1491V0Z" fill="#2D62FF" style="fill:#2D62FF;fill:color(display-p3 0.1765 0.3843 1.0000);fill-opacity:1;"/>
+<path d="M15.9519 12.5H4.19824V14.375H15.9519V12.5Z" fill="white" style="fill:white;fill-opacity:1;"/>
+<path d="M9.23561 7.29102H4.19824V9.16605H9.23561V7.29102Z" fill="white" style="fill:white;fill-opacity:1;"/>
+</g>
+</svg>
