@@ -1,4 +1,4 @@
-<!DOCTYPE html><!--  This site was created in Webflow. https://webflow.com  --><!--  Last Published: Mon Nov 03 2025 21:50:55 GMT+0000 (Coordinated Universal Time)  -->
+<!DOCTYPE html><!--  This site was created in Webflow. https://webflow.com  --><!--  Last Published: Tue Nov 04 2025 18:02:28 GMT+0000 (Coordinated Universal Time)  -->
 <html data-wf-page="68f51dd3ecb1bbf09a500c6a" data-wf-site="68f14b22eeb3be0d67216878" lang="en">
 <head>
   <meta charset="utf-8">
@@ -22,17 +22,7 @@
   <link href="images/webclip.png" rel="apple-touch-icon">
   <link href="https://sil.so" rel="canonical">
   <meta name="theme-color" content="#f2f0e5">
-  <meta name="format-detection" content="telephone=no">
-  <script>
-  window.op = window.op||function(...args){(window.op.q=window.op.q||[]).push(args);};
-  window.op('init', {
-    clientId: '51458045-6a8b-4ee4-b4e9-1de6e8cd853f',
-    trackScreenViews: true,
-    trackOutgoingLinks: true,
-    trackAttributes: true,
-  });
-</script>
-  <script src="https://openpanel.dev/op1.js" defer=""></script><!--  Finsweet Attributes  -->
+  <meta name="format-detection" content="telephone=no"><!--  Finsweet Attributes  -->
   <script async="" type="module" src="https://cdn.jsdelivr.net/npm/@finsweet/attributes@2/attributes.js" fs-scrolldisable="" fs-selectcustom="" fs-smartlightbox=""></script>
   <script src="https://cdn.prod.website-files.com/68f14b22eeb3be0d67216878%2F6544eda5f000985a163a8687%2F6903c22d35d58c313a26c2bd%2Ffinsweetcomponentsconfig-1.0.19.js" type="module" async="" siteid="68f14b22eeb3be0d67216878" finsweet="components"></script>
 </head>
@@ -1830,6 +1820,23 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 </script> -->
+  <script src="https://unpkg.com/posthog-js"></script>
+  <script>
+(function() {
+  posthog.init('phc_F9ogAuAg2LoKAf3rZRSrx5BNXCVfZ90Yl5ynpTW0h9V', {
+    api_host: 'https://eu.posthog.com',
+    autocapture: true,
+    capture_pageview: true,
+    capture_pageleave: true,
+    session_recording: {
+      maskAllInputs: true,
+      maskAllText: false
+    },
+    persistence: 'localStorage+cookie',
+    disable_session_recording: false
+  });
+})();
+</script>
   <script>
 (function () {
   var host = location.hostname;
