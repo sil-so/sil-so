@@ -1,4 +1,4 @@
-<!DOCTYPE html><!--  This site was created in Webflow. https://webflow.com  --><!--  Last Published: Wed Nov 05 2025 12:07:30 GMT+0000 (Coordinated Universal Time)  -->
+<!DOCTYPE html><!--  This site was created in Webflow. https://webflow.com  --><!--  Last Published: Wed Nov 05 2025 18:29:43 GMT+0000 (Coordinated Universal Time)  -->
 <html data-wf-page="68f51dd3ecb1bbf09a500c6a" data-wf-site="68f14b22eeb3be0d67216878" lang="en">
 <head>
   <meta charset="utf-8">
@@ -24,21 +24,21 @@
   <meta name="theme-color" content="#f2f0e5">
   <meta name="format-detection" content="telephone=no">
   <script>
-  !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.async=!0,p.src=(s.api_host||"https://eu.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;void 0!==a?u=e[a]=[]:a="posthog";u.people=u.people||[];u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e};u.people.toString=function(){return u.toString(1)+".people (stub)"};o="capture identify alias people.set people.set_once set_config register unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset onFeatureFlags getFeatureFlag getFeatureFlagPayload isFeatureEnabled groupUpdate groupUpdateOnce loadToolbar".split(" ");for(n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
-  const params = new URLSearchParams(window.location.search);
-  if (!params.has('me')) {
-    posthog.init('phc_F9ogAuAg2LoKAf3rZRSrx5BNXCVfZ90Yl5ynpTW0h9V', {
-      api_host: 'https://pha.sil.so',
-      ui_host:  'https://eu.posthog.com',
-      autocapture: true,
-      capture_pageview: true,
-      capture_pageleave: true,
-      session_recording: {
-        maskAllInputs: true
-      },
-      persistence: 'localStorage'
-    });
-  }
+!function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.async=!0,p.src=(s.api_host||"https://eu.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;void 0!==a?u=e[a]=[]:a="posthog";u.people=u.people||[];u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e};u.people.toString=function(){return u.toString(1)+".people (stub)"};o="capture identify alias people.set people.set_once set_config register unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset onFeatureFlags getFeatureFlag getFeatureFlagPayload isFeatureEnabled groupUpdate groupUpdateOnce loadToolbar".split(" ");for(n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+if (
+  !location.hostname.match(/webflow\.(com|io)$/) &&
+  !new URLSearchParams(location.search).has('me')
+) {
+  posthog.init('phc_F9ogAuAg2LoKAf3rZRSrx5BNXCVfZ90Yl5ynpTW0h9V', {
+    api_host: 'https://pha.sil.so',
+    ui_host: 'https://eu.posthog.com',
+    autocapture: true,
+    capture_pageview: true,
+    capture_pageleave: true,
+    session_recording: { maskAllInputs: true },
+    persistence: 'localStorage'
+  });
+}
 </script><!--  Finsweet Attributes  -->
   <script async="" type="module" src="https://cdn.jsdelivr.net/npm/@finsweet/attributes@2/attributes.js" fs-scrolldisable="" fs-selectcustom="" fs-smartlightbox=""></script>
   <script src="https://cdn.prod.website-files.com/68f14b22eeb3be0d67216878%2F6544eda5f000985a163a8687%2F6903c22d35d58c313a26c2bd%2Ffinsweetcomponentsconfig-1.0.19.js" type="module" async="" siteid="68f14b22eeb3be0d67216878" finsweet="components"></script>
@@ -340,7 +340,7 @@
 }
 </style>
         </div>
-        <dialog data-wf--modal--variant="side-panel" data-modal-target="modal-tool-flowtube" data-show-in-designer="false" class="modal_dialog" id="">
+        <dialog data-wf--modal--variant="side-panel" data-modal-target="modal-tool-flowtube" data-show-in-designer="false" class="modal_dialog w-variant-64d721f5-b4dd-3c38-f86e-906842e3022d" id="">
           <div class="modal_inner w-variant-64d721f5-b4dd-3c38-f86e-906842e3022d">
             <div data-modal-close="" id="" style="background: color-mix(in hsl, color-mix(in hsl, #EDCB60 70%, black 30%), transparent 30%);" class="modal_backdrop"></div>
             <div class="modal_content w-variant-64d721f5-b4dd-3c38-f86e-906842e3022d">
@@ -348,7 +348,9 @@
                 <div class="modal_close"><button data-wf--button--variant="tertiary" class="button w-variant-3b368cd3-8fb5-ee57-18ef-16c61d0f857e" id="" style="" data-modal-close="">
                     <div class="btn-icon">
                       <div data-wf--icon--color="inherit" id="" style="" class="icon-color"><span data-wf--icon-size--variant="1-2-em" class="icon ph-bold ph-x">​</span></div>
-                    </div>
+                    </div><span class="u-link-cover">
+                      <div class="u-sr-only">Close</div>
+                    </span>
                   </button></div>
                 <div class="modal_slot w-variant-64d721f5-b4dd-3c38-f86e-906842e3022d">
                   <div data-wf--image--aspect-ratio="custom-aspect-ratio" class="img-component w-variant-0375267a-29ec-433a-03b2-8f111c99a60b" id="" style="aspect-ratio: 81 / 26; width: 4rem;"><img src="images/flowtube-logo-silso.svg" loading="lazy" width="Auto" data-wf--image-fit--image-fit="contain" alt="" fetchpriority="" class="u-img-cover w-variant-dca0525b-42c5-e447-2394-3c602ef5dcf3">
@@ -391,7 +393,7 @@
             </div>
           </div>
         </dialog>
-        <dialog data-wf--modal--variant="side-panel" data-modal-target="modal-tool-warpdomains" data-show-in-designer="false" class="modal_dialog" id="">
+        <dialog data-wf--modal--variant="side-panel" data-modal-target="modal-tool-warpdomains" data-show-in-designer="false" class="modal_dialog w-variant-64d721f5-b4dd-3c38-f86e-906842e3022d" id="">
           <div class="modal_inner w-variant-64d721f5-b4dd-3c38-f86e-906842e3022d">
             <div data-modal-close="" id="" style="background: color-mix(in hsl, color-mix(in hsl, #2C62F5 70%, black 30%), transparent 30%);" class="modal_backdrop"></div>
             <div class="modal_content w-variant-64d721f5-b4dd-3c38-f86e-906842e3022d">
@@ -399,7 +401,9 @@
                 <div class="modal_close"><button data-wf--button--variant="tertiary" class="button w-variant-3b368cd3-8fb5-ee57-18ef-16c61d0f857e" id="" style="" data-modal-close="">
                     <div class="btn-icon">
                       <div data-wf--icon--color="inherit" id="" style="" class="icon-color"><span data-wf--icon-size--variant="1-2-em" class="icon ph-bold ph-x">​</span></div>
-                    </div>
+                    </div><span class="u-link-cover">
+                      <div class="u-sr-only">Close</div>
+                    </span>
                   </button></div>
                 <div class="modal_slot w-variant-64d721f5-b4dd-3c38-f86e-906842e3022d">
                   <div data-wf--image--aspect-ratio="custom-aspect-ratio" class="img-component w-variant-0375267a-29ec-433a-03b2-8f111c99a60b" id="" style="aspect-ratio: 48 / 34; width: 4rem;"><img src="images/warp-domains-logo-silso.svg" loading="lazy" width="Auto" data-wf--image-fit--image-fit="contain" alt="" fetchpriority="" class="u-img-cover w-variant-dca0525b-42c5-e447-2394-3c602ef5dcf3">
@@ -444,7 +448,7 @@
             </div>
           </div>
         </dialog>
-        <dialog data-wf--modal--variant="side-panel" data-modal-target="modal-tool-curatyy" data-show-in-designer="false" class="modal_dialog" id="">
+        <dialog data-wf--modal--variant="side-panel" data-modal-target="modal-tool-curatyy" data-show-in-designer="false" class="modal_dialog w-variant-64d721f5-b4dd-3c38-f86e-906842e3022d" id="">
           <div class="modal_inner w-variant-64d721f5-b4dd-3c38-f86e-906842e3022d">
             <div data-modal-close="" id="" style="background: color-mix(in hsl, color-mix(in hsl, #4D196C 70%, black 30%), transparent 30%);" class="modal_backdrop"></div>
             <div class="modal_content w-variant-64d721f5-b4dd-3c38-f86e-906842e3022d">
@@ -452,7 +456,9 @@
                 <div class="modal_close"><button data-wf--button--variant="tertiary" class="button w-variant-3b368cd3-8fb5-ee57-18ef-16c61d0f857e" id="" style="" data-modal-close="">
                     <div class="btn-icon">
                       <div data-wf--icon--color="inherit" id="" style="" class="icon-color"><span data-wf--icon-size--variant="1-2-em" class="icon ph-bold ph-x">​</span></div>
-                    </div>
+                    </div><span class="u-link-cover">
+                      <div class="u-sr-only">Close</div>
+                    </span>
                   </button></div>
                 <div class="modal_slot w-variant-64d721f5-b4dd-3c38-f86e-906842e3022d">
                   <div data-wf--image--aspect-ratio="custom-aspect-ratio" class="img-component w-variant-0375267a-29ec-433a-03b2-8f111c99a60b" id="" style="aspect-ratio: 31 / 27; width: 4rem;"><img src="images/curatyy-ai-logo-silso.svg" loading="lazy" width="Auto" data-wf--image-fit--image-fit="contain" alt="" fetchpriority="" class="u-img-cover w-variant-dca0525b-42c5-e447-2394-3c602ef5dcf3">
@@ -508,7 +514,7 @@
             </div>
           </div>
         </dialog>
-        <dialog data-wf--modal--variant="side-panel" data-modal-target="modal-client-sr" data-show-in-designer="false" class="modal_dialog" id="">
+        <dialog data-wf--modal--variant="side-panel" data-modal-target="modal-client-sr" data-show-in-designer="false" class="modal_dialog w-variant-64d721f5-b4dd-3c38-f86e-906842e3022d" id="">
           <div class="modal_inner w-variant-64d721f5-b4dd-3c38-f86e-906842e3022d">
             <div data-modal-close="" id="" style="background: color-mix(in hsl, color-mix(in hsl, #609F7E 70%, black 30%), transparent 30%);" class="modal_backdrop"></div>
             <div class="modal_content w-variant-64d721f5-b4dd-3c38-f86e-906842e3022d">
@@ -516,7 +522,9 @@
                 <div class="modal_close"><button data-wf--button--variant="tertiary" class="button w-variant-3b368cd3-8fb5-ee57-18ef-16c61d0f857e" id="" style="" data-modal-close="">
                     <div class="btn-icon">
                       <div data-wf--icon--color="inherit" id="" style="" class="icon-color"><span data-wf--icon-size--variant="1-2-em" class="icon ph-bold ph-x">​</span></div>
-                    </div>
+                    </div><span class="u-link-cover">
+                      <div class="u-sr-only">Close</div>
+                    </span>
                   </button></div>
                 <div class="modal_slot w-variant-64d721f5-b4dd-3c38-f86e-906842e3022d">
                   <div data-wf--image--aspect-ratio="custom-aspect-ratio" class="img-component w-variant-0375267a-29ec-433a-03b2-8f111c99a60b" id="" style="aspect-ratio: 300 / 80; width: 4rem;"><img src="images/stottercentrum-rotterdam-logo-silso.svg" loading="lazy" width="Auto" data-wf--image-fit--image-fit="contain" alt="" fetchpriority="" class="u-img-cover w-variant-dca0525b-42c5-e447-2394-3c602ef5dcf3">
@@ -565,7 +573,7 @@
             </div>
           </div>
         </dialog>
-        <dialog data-wf--modal--variant="side-panel" data-modal-target="modal-client-vdw" data-show-in-designer="false" class="modal_dialog" id="">
+        <dialog data-wf--modal--variant="side-panel" data-modal-target="modal-client-vdw" data-show-in-designer="false" class="modal_dialog w-variant-64d721f5-b4dd-3c38-f86e-906842e3022d" id="">
           <div class="modal_inner w-variant-64d721f5-b4dd-3c38-f86e-906842e3022d">
             <div data-modal-close="" id="" style="background: color-mix(in hsl, color-mix(in hsl, #696A67 70%, black 30%), transparent 30%);" class="modal_backdrop"></div>
             <div class="modal_content w-variant-64d721f5-b4dd-3c38-f86e-906842e3022d">
@@ -573,7 +581,9 @@
                 <div class="modal_close"><button data-wf--button--variant="tertiary" class="button w-variant-3b368cd3-8fb5-ee57-18ef-16c61d0f857e" id="" style="" data-modal-close="">
                     <div class="btn-icon">
                       <div data-wf--icon--color="inherit" id="" style="" class="icon-color"><span data-wf--icon-size--variant="1-2-em" class="icon ph-bold ph-x">​</span></div>
-                    </div>
+                    </div><span class="u-link-cover">
+                      <div class="u-sr-only">Close</div>
+                    </span>
                   </button></div>
                 <div class="modal_slot w-variant-64d721f5-b4dd-3c38-f86e-906842e3022d">
                   <div data-wf--image--aspect-ratio="custom-aspect-ratio" class="img-component w-variant-0375267a-29ec-433a-03b2-8f111c99a60b" id="" style="aspect-ratio: 24 / 18; width: 4rem;"><img src="images/vdw-logo-silso.svg" loading="lazy" width="Auto" data-wf--image-fit--image-fit="contain" alt="" fetchpriority="" class="u-img-cover w-variant-dca0525b-42c5-e447-2394-3c602ef5dcf3">
@@ -622,7 +632,7 @@
             </div>
           </div>
         </dialog>
-        <dialog data-wf--modal--variant="side-panel" data-modal-target="modal-card-contact" data-show-in-designer="false" class="modal_dialog" id="modal-contact-form">
+        <dialog data-wf--modal--variant="side-panel" data-modal-target="modal-card-contact" data-show-in-designer="false" class="modal_dialog w-variant-64d721f5-b4dd-3c38-f86e-906842e3022d" id="modal-contact-form">
           <div class="modal_inner w-variant-64d721f5-b4dd-3c38-f86e-906842e3022d">
             <div data-modal-close="" id="" style="background: color-mix(in hsl, color-mix(in hsl, var(--colors--background-tertiary) 70%, black 30%), transparent 30%);" class="modal_backdrop"></div>
             <div class="modal_content w-variant-64d721f5-b4dd-3c38-f86e-906842e3022d">
@@ -630,7 +640,9 @@
                 <div class="modal_close"><button data-wf--button--variant="tertiary" class="button w-variant-3b368cd3-8fb5-ee57-18ef-16c61d0f857e" id="" style="" data-modal-close="">
                     <div class="btn-icon">
                       <div data-wf--icon--color="inherit" id="" style="" class="icon-color"><span data-wf--icon-size--variant="1-2-em" class="icon ph-bold ph-x">​</span></div>
-                    </div>
+                    </div><span class="u-link-cover">
+                      <div class="u-sr-only">Close</div>
+                    </span>
                   </button></div>
                 <div class="modal_slot w-variant-64d721f5-b4dd-3c38-f86e-906842e3022d">
                   <div>
@@ -691,7 +703,7 @@
             </div>
           </div>
         </dialog>
-        <dialog data-wf--modal--variant="side-panel" data-modal-target="modal-service-website" data-show-in-designer="false" class="modal_dialog" id="">
+        <dialog data-wf--modal--variant="side-panel" data-modal-target="modal-service-website" data-show-in-designer="false" class="modal_dialog w-variant-64d721f5-b4dd-3c38-f86e-906842e3022d" id="">
           <div class="modal_inner w-variant-64d721f5-b4dd-3c38-f86e-906842e3022d">
             <div data-modal-close="" id="" style="background: color-mix(in hsl, color-mix(in hsl, var(--colors--background-tertiary) 70%, black 30%), transparent 30%);" class="modal_backdrop"></div>
             <div class="modal_content w-variant-64d721f5-b4dd-3c38-f86e-906842e3022d">
@@ -699,7 +711,9 @@
                 <div class="modal_close"><button data-wf--button--variant="tertiary" class="button w-variant-3b368cd3-8fb5-ee57-18ef-16c61d0f857e" id="" style="" data-modal-close="">
                     <div class="btn-icon">
                       <div data-wf--icon--color="inherit" id="" style="" class="icon-color"><span data-wf--icon-size--variant="1-2-em" class="icon ph-bold ph-x">​</span></div>
-                    </div>
+                    </div><span class="u-link-cover">
+                      <div class="u-sr-only">Close</div>
+                    </span>
                   </button></div>
                 <div class="modal_slot w-variant-64d721f5-b4dd-3c38-f86e-906842e3022d">
                   <div data-wf--grid---row--column-alignment="top-left" id="" style="" visibility-designer="true" class="row-component">
@@ -747,7 +761,7 @@
             </div>
           </div>
         </dialog>
-        <dialog data-wf--modal--variant="side-panel" data-modal-target="modal-service-webapp" data-show-in-designer="false" class="modal_dialog" id="">
+        <dialog data-wf--modal--variant="side-panel" data-modal-target="modal-service-webapp" data-show-in-designer="false" class="modal_dialog w-variant-64d721f5-b4dd-3c38-f86e-906842e3022d" id="">
           <div class="modal_inner w-variant-64d721f5-b4dd-3c38-f86e-906842e3022d">
             <div data-modal-close="" id="" style="background: color-mix(in hsl, color-mix(in hsl, var(--colors--background-tertiary) 70%, black 30%), transparent 30%);" class="modal_backdrop"></div>
             <div class="modal_content w-variant-64d721f5-b4dd-3c38-f86e-906842e3022d">
@@ -755,7 +769,9 @@
                 <div class="modal_close"><button data-wf--button--variant="tertiary" class="button w-variant-3b368cd3-8fb5-ee57-18ef-16c61d0f857e" id="" style="" data-modal-close="">
                     <div class="btn-icon">
                       <div data-wf--icon--color="inherit" id="" style="" class="icon-color"><span data-wf--icon-size--variant="1-2-em" class="icon ph-bold ph-x">​</span></div>
-                    </div>
+                    </div><span class="u-link-cover">
+                      <div class="u-sr-only">Close</div>
+                    </span>
                   </button></div>
                 <div class="modal_slot w-variant-64d721f5-b4dd-3c38-f86e-906842e3022d">
                   <div data-wf--grid---row--column-alignment="top-left" id="" style="" visibility-designer="true" class="row-component">
@@ -809,7 +825,7 @@
             </div>
           </div>
         </dialog>
-        <dialog data-wf--modal--variant="side-panel" data-modal-target="modal-service-design" data-show-in-designer="false" class="modal_dialog" id="">
+        <dialog data-wf--modal--variant="side-panel" data-modal-target="modal-service-design" data-show-in-designer="false" class="modal_dialog w-variant-64d721f5-b4dd-3c38-f86e-906842e3022d" id="">
           <div class="modal_inner w-variant-64d721f5-b4dd-3c38-f86e-906842e3022d">
             <div data-modal-close="" id="" style="background: color-mix(in hsl, color-mix(in hsl, var(--colors--background-tertiary) 70%, black 30%), transparent 30%);" class="modal_backdrop"></div>
             <div class="modal_content w-variant-64d721f5-b4dd-3c38-f86e-906842e3022d">
@@ -817,7 +833,9 @@
                 <div class="modal_close"><button data-wf--button--variant="tertiary" class="button w-variant-3b368cd3-8fb5-ee57-18ef-16c61d0f857e" id="" style="" data-modal-close="">
                     <div class="btn-icon">
                       <div data-wf--icon--color="inherit" id="" style="" class="icon-color"><span data-wf--icon-size--variant="1-2-em" class="icon ph-bold ph-x">​</span></div>
-                    </div>
+                    </div><span class="u-link-cover">
+                      <div class="u-sr-only">Close</div>
+                    </span>
                   </button></div>
                 <div class="modal_slot w-variant-64d721f5-b4dd-3c38-f86e-906842e3022d">
                   <div data-wf--grid---row--column-alignment="top-left" id="" style="" visibility-designer="true" class="row-component">
@@ -1687,34 +1705,46 @@ html:not(.wf-design-mode) [fs-tabs-element="content"] > .is-tab-hidden {
               <div class="slot cc-column">
                 <ul role="list" class="footer-social_list w-list-unstyled">
                   <li class="u-mb-0 u-d-inline-flex">
-                    <a href="https://www.instagram.com/silvansoeters/" target="_blank" class="footer-social_link u-d-inline-flex w-inline-block"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 28 28" fill="none" class="u-w-100">
+                    <a href="https://www.instagram.com/silvansoeters/" target="_blank" class="footer-social_link u-d-inline-flex w-inline-block">
+                      <div class="u-sr-only">Instagram</div><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 28 28" fill="none" class="u-w-100">
                         <path fill-rule="evenodd" clip-rule="evenodd" d="M18.3776 4.06445H9.3021C6.16942 4.06445 3.62988 6.60399 3.62988 9.73667V18.8122C3.62988 21.9449 6.16942 24.4844 9.3021 24.4844H18.3776C21.5103 24.4844 24.0499 21.9449 24.0499 18.8122V9.73667C24.0499 6.60399 21.5103 4.06445 18.3776 4.06445ZM22.0646 18.8122C22.0583 20.8458 20.4112 22.4929 18.3776 22.4991H9.3021C7.26844 22.4929 5.62139 20.8458 5.61516 18.8122V9.73667C5.62139 7.70301 7.26844 6.05596 9.3021 6.04973H18.3776C20.4112 6.05596 22.0583 7.70301 22.0646 9.73667V18.8122ZM19.2285 10.0203C19.855 10.0203 20.3629 9.51236 20.3629 8.88583C20.3629 8.2593 19.855 7.75139 19.2285 7.75139C18.6019 7.75139 18.094 8.2593 18.094 8.88583C18.094 9.51236 18.6019 10.0203 19.2285 10.0203ZM13.8399 9.16945C11.0205 9.16945 8.73487 11.455 8.73487 14.2744C8.73487 17.0939 11.0205 19.3794 13.8399 19.3794C16.6593 19.3794 18.9449 17.0939 18.9449 14.2744C18.9479 12.9196 18.411 11.6194 17.453 10.6613C16.4949 9.7033 15.1947 9.16643 13.8399 9.16945ZM10.7201 14.2744C10.7201 15.9974 12.1169 17.3942 13.8399 17.3942C15.5629 17.3942 16.9596 15.9974 16.9596 14.2744C16.9596 12.5514 15.5629 11.1547 13.8399 11.1547C12.1169 11.1547 10.7201 12.5514 10.7201 14.2744Z" fill="currentColor"></path>
-                      </svg></a>
+                      </svg>
+                    </a>
                   </li>
                   <li class="u-mb-0 u-d-inline-flex">
-                    <a href="https://x.com/silvansoeters" target="_blank" class="footer-social_link u-d-inline-flex w-inline-block"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 28 28" fill="none" class="u-w-100">
+                    <a href="https://x.com/silvansoeters" target="_blank" class="footer-social_link u-d-inline-flex w-inline-block">
+                      <div class="u-sr-only">X/Twitter</div><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 28 28" fill="none" class="u-w-100">
                         <path d="M19.4853 5.19922H22.6165L15.7757 12.8878L23.8233 23.3503H17.5221L12.5867 17.0049L6.93964 23.3503H3.80655L11.1234 15.1265L3.40332 5.19922H9.86448L14.3256 10.9992L19.4853 5.19922ZM18.3862 21.5073H20.1214L8.92171 6.94544H7.05986L18.3862 21.5073Z" fill="currentColor"></path>
-                      </svg></a>
+                      </svg>
+                    </a>
                   </li>
                   <li class="u-mb-0 u-d-inline-flex">
-                    <a href="https://bsky.app/profile/sil.so" target="_blank" class="footer-social_link u-d-inline-flex w-inline-block"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 28 28" fill="none" class="u-w-100">
+                    <a href="https://bsky.app/profile/sil.so" target="_blank" class="footer-social_link u-d-inline-flex w-inline-block">
+                      <div class="u-sr-only">Bluesky</div><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 28 28" fill="none" class="u-w-100">
                         <path d="M18.8527 15.5679C18.719 15.5517 18.5813 15.5355 18.4476 15.5152C18.5853 15.5314 18.719 15.5517 18.8527 15.5679ZM13.9997 12.8295C12.9424 10.7756 10.0662 6.94751 7.39261 5.05977C4.82838 3.24901 3.85211 3.56093 3.20801 3.8526C2.46669 4.18883 2.33301 5.32714 2.33301 5.99554C2.33301 6.66394 2.70164 11.4886 2.94065 12.2947C3.73058 14.9562 6.55002 15.8555 9.14667 15.5638C9.28035 15.5436 9.41403 15.5274 9.55176 15.5071C9.41808 15.5274 9.2844 15.5476 9.14667 15.5638C5.34285 16.131 1.96437 17.5164 6.39609 22.4463C11.2694 27.4938 13.072 21.3647 13.9997 18.2577C14.9273 21.3647 15.9927 27.271 21.5182 22.4463C25.6663 18.2577 22.6565 16.1269 18.8527 15.5638C18.719 15.5476 18.5813 15.5314 18.4476 15.5112C18.5853 15.5274 18.719 15.5476 18.8527 15.5638C21.4493 15.8514 24.2647 14.9521 25.0587 12.2947C25.2977 11.4886 25.6663 6.66799 25.6663 5.99554C25.6663 5.32308 25.5327 4.18477 24.7913 3.8526C24.1513 3.56498 23.171 3.24901 20.6108 5.05977C17.9331 6.94751 15.057 10.7756 13.9997 12.8295Z" fill="currentColor"></path>
-                      </svg></a>
+                      </svg>
+                    </a>
                   </li>
                   <li class="u-mb-0 u-d-inline-flex">
-                    <a href="https://www.linkedin.com/in/silvansoeters/" target="_blank" class="footer-social_link u-d-inline-flex w-inline-block"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 28 28" fill="none" class="u-w-100">
+                    <a href="https://www.linkedin.com/in/silvansoeters/" target="_blank" class="footer-social_link u-d-inline-flex w-inline-block">
+                      <div class="u-sr-only">Linkedin</div><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 28 28" fill="none" class="u-w-100">
                         <path fill-rule="evenodd" clip-rule="evenodd" d="M5.55811 4.06445C4.6183 4.06445 3.85645 4.82631 3.85645 5.76612V22.7828C3.85645 23.7225 4.6183 24.4844 5.55811 24.4844H22.5747C23.5145 24.4844 24.2764 23.7225 24.2764 22.7828V5.76612C24.2764 4.82631 23.5145 4.06445 22.5747 4.06445H5.55811ZM10.1194 8.60531C10.1258 9.69012 9.31381 10.3586 8.35023 10.3538C7.4425 10.349 6.65122 9.62631 6.65601 8.60691C6.6608 7.64812 7.41857 6.87759 8.40288 6.89992C9.40154 6.92226 10.1258 7.65451 10.1194 8.60531ZM14.3837 11.7353H11.5249H11.5233V21.4459H14.5448V21.2194C14.5448 20.7884 14.5445 20.3573 14.5441 19.9261C14.5432 18.776 14.5422 17.6247 14.5481 16.4749C14.5497 16.1957 14.5624 15.9054 14.6342 15.6389C14.9038 14.6435 15.7988 14.0006 16.7975 14.1586C17.4388 14.259 17.8631 14.6308 18.0417 15.2354C18.1519 15.6134 18.2014 16.0202 18.2061 16.4143C18.2191 17.6028 18.2172 18.7912 18.2154 19.9798C18.2147 20.3993 18.2141 20.819 18.2141 21.2386V21.4443H21.2452V21.2114C21.2452 20.6987 21.245 20.186 21.2446 19.6734C21.244 18.392 21.2434 17.1107 21.2468 15.8289C21.2484 15.2497 21.1862 14.6786 21.0442 14.1187C20.832 13.2859 20.3933 12.5967 19.6802 12.099C19.1745 11.7448 18.6193 11.5167 17.9987 11.4912C17.9281 11.4883 17.8568 11.4844 17.7852 11.4805C17.4679 11.4634 17.1454 11.446 16.8421 11.5071C15.9742 11.681 15.2118 12.0783 14.6358 12.7786C14.5689 12.8589 14.5034 12.9404 14.4057 13.0622L14.3837 13.0897V11.7353ZM6.89861 21.4491H9.90577V11.7416H6.89861V21.4491Z" fill="currentColor"></path>
-                      </svg></a>
+                      </svg>
+                    </a>
                   </li>
                   <li class="u-mb-0 u-d-inline-flex">
-                    <a href="https://github.com/sil-so" target="_blank" class="footer-social_link u-d-inline-flex w-inline-block"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" class="u-w-100 iconify iconify--bx" width="100%" preserveaspectratio="xMidYMid meet" viewbox="0 0 24 24">
+                    <a href="https://github.com/sil-so" target="_blank" class="footer-social_link u-d-inline-flex w-inline-block">
+                      <div class="u-sr-only">GitHub</div><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" class="u-w-100 iconify iconify--bx" width="100%" preserveaspectratio="xMidYMid meet" viewbox="0 0 24 24">
                         <path fill-rule="evenodd" clip-rule="evenodd" d="M12.026 2c-5.509 0-9.974 4.465-9.974 9.974c0 4.406 2.857 8.145 6.821 9.465c.499.09.679-.217.679-.481c0-.237-.008-.865-.011-1.696c-2.775.602-3.361-1.338-3.361-1.338c-.452-1.152-1.107-1.459-1.107-1.459c-.905-.619.069-.605.069-.605c1.002.07 1.527 1.028 1.527 1.028c.89 1.524 2.336 1.084 2.902.829c.091-.645.351-1.085.635-1.334c-2.214-.251-4.542-1.107-4.542-4.93c0-1.087.389-1.979 1.024-2.675c-.101-.253-.446-1.268.099-2.64c0 0 .837-.269 2.742 1.021a9.582 9.582 0 0 1 2.496-.336a9.554 9.554 0 0 1 2.496.336c1.906-1.291 2.742-1.021 2.742-1.021c.545 1.372.203 2.387.099 2.64c.64.696 1.024 1.587 1.024 2.675c0 3.833-2.33 4.675-4.552 4.922c.355.308.675.916.675 1.846c0 1.334-.012 2.41-.012 2.737c0 .267.178.577.687.479C19.146 20.115 22 16.379 22 11.974C22 6.465 17.535 2 12.026 2z" fill="currentColor"></path>
-                      </svg></a>
+                      </svg>
+                    </a>
                   </li>
                   <li class="u-mb-0 u-d-inline-flex">
-                    <a href="https://www.youtube.com/@sil-so" target="_blank" class="footer-social_link u-d-inline-flex w-inline-block"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 28 28" fill="none" class="u-w-100">
+                    <a href="https://www.youtube.com/@sil-so" target="_blank" class="footer-social_link u-d-inline-flex w-inline-block">
+                      <div class="u-sr-only">Youtube</div><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 28 28" fill="none" class="u-w-100">
                         <path d="M25.1756 8.55778C25.0464 8.07837 24.7939 7.64115 24.4432 7.28966C24.0925 6.93817 23.6559 6.68466 23.1767 6.55435C21.4002 6.06654 14.2929 6.0586 14.2929 6.0586C14.2929 6.0586 7.18678 6.05066 5.40911 6.51692C4.93029 6.65322 4.49454 6.91032 4.14371 7.26353C3.79288 7.61675 3.53874 8.05422 3.40568 8.53396C2.93716 10.3105 2.93262 13.9952 2.93262 13.9952C2.93262 13.9952 2.92808 17.698 3.3932 19.4564C3.65412 20.4286 4.41987 21.1966 5.39323 21.4587C7.18791 21.9465 14.2759 21.9544 14.2759 21.9544C14.2759 21.9544 21.3832 21.9624 23.1597 21.4972C23.639 21.3672 24.0761 21.1142 24.4276 20.7635C24.7792 20.4127 25.0331 19.9762 25.1643 19.4972C25.6339 17.7218 25.6374 14.0383 25.6374 14.0383C25.6374 14.0383 25.66 10.3343 25.1756 8.55778ZM12.0195 17.4087L12.0252 10.602L17.9322 14.011L12.0195 17.4087Z" fill="currentColor"></path>
-                      </svg></a>
+                      </svg>
+                    </a>
                   </li>
                 </ul>
               </div>
