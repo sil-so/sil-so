@@ -1,4 +1,4 @@
-<!DOCTYPE html><!--  This site was created in Webflow. https://webflow.com  --><!--  Last Published: Wed Nov 05 2025 18:29:43 GMT+0000 (Coordinated Universal Time)  -->
+<!DOCTYPE html><!--  This site was created in Webflow. https://webflow.com  --><!--  Last Published: Fri Nov 07 2025 15:15:43 GMT+0000 (Coordinated Universal Time)  -->
 <html data-wf-page="68f51dd3ecb1bbf09a500c6a" data-wf-site="68f14b22eeb3be0d67216878" lang="en">
 <head>
   <meta charset="utf-8">
@@ -328,19 +328,39 @@ if (
     </header>
     <main class="page-main">
       <div>
-        <div class="u-embed-css full-screen-2 w-embed">
+        <div class="u-embed-css w-embed">
           <style>
+/* your existing */
 .modal_dialog::backdrop { opacity: 0; }
-.wf-design-mode [data-show-in-designer="true"] {
-	display: block;
+.wf-design-mode [data-show-in-designer="true"] { display: block; }
+.modal_scroll { -webkit-overflow-scrolling: touch; contain: layout paint; }
+/* ---- Anti-flicker: ensure safe initial states when a dialog opens ---- */
+/* never let CSS transitions fight GSAP */
+.modal_dialog[open] .modal_backdrop,
+.modal_dialog[open] .modal_content,
+.modal_dialog[open] .modal_slot { transition: none; will-change: opacity, transform; }
+/* Start states applied when dialog becomes [open] */
+.modal_dialog[open] .modal_backdrop { opacity: 0; }
+/* side-panel variant */
+.modal_dialog[open][data-wf--modal--variant="side-panel"] .modal_content {
+  transform: translateX(100%);
 }
-.modal_scroll {
-	-webkit-overflow-scrolling: touch;
-  contain: layout paint;
+/* full-screen variant */
+.modal_dialog[open][data-wf--modal--variant="full-screen"] .modal_content {
+  opacity: 0;
+}
+.modal_dialog[open][data-wf--modal--variant="full-screen"] .modal_slot {
+  opacity: 0;
+  transform: translateY(2rem);
+}
+/* default variant */
+.modal_dialog[open]:not([data-wf--modal--variant="side-panel"]):not([data-wf--modal--variant="full-screen"]) .modal_content {
+  opacity: 0;
+  transform: translateY(6rem);
 }
 </style>
         </div>
-        <dialog data-wf--modal--variant="side-panel" data-modal-target="modal-tool-flowtube" data-show-in-designer="false" class="modal_dialog w-variant-64d721f5-b4dd-3c38-f86e-906842e3022d" id="">
+        <dialog data-wf--modal--variant="side-panel" data-modal-target="modal-tool-flowtube" data-show-in-designer="false" class="modal_dialog" id="">
           <div class="modal_inner w-variant-64d721f5-b4dd-3c38-f86e-906842e3022d">
             <div data-modal-close="" id="" style="background: color-mix(in hsl, color-mix(in hsl, #EDCB60 70%, black 30%), transparent 30%);" class="modal_backdrop"></div>
             <div class="modal_content w-variant-64d721f5-b4dd-3c38-f86e-906842e3022d">
@@ -393,7 +413,7 @@ if (
             </div>
           </div>
         </dialog>
-        <dialog data-wf--modal--variant="side-panel" data-modal-target="modal-tool-warpdomains" data-show-in-designer="false" class="modal_dialog w-variant-64d721f5-b4dd-3c38-f86e-906842e3022d" id="">
+        <dialog data-wf--modal--variant="side-panel" data-modal-target="modal-tool-warpdomains" data-show-in-designer="false" class="modal_dialog" id="">
           <div class="modal_inner w-variant-64d721f5-b4dd-3c38-f86e-906842e3022d">
             <div data-modal-close="" id="" style="background: color-mix(in hsl, color-mix(in hsl, #2C62F5 70%, black 30%), transparent 30%);" class="modal_backdrop"></div>
             <div class="modal_content w-variant-64d721f5-b4dd-3c38-f86e-906842e3022d">
@@ -448,7 +468,7 @@ if (
             </div>
           </div>
         </dialog>
-        <dialog data-wf--modal--variant="side-panel" data-modal-target="modal-tool-curatyy" data-show-in-designer="false" class="modal_dialog w-variant-64d721f5-b4dd-3c38-f86e-906842e3022d" id="">
+        <dialog data-wf--modal--variant="side-panel" data-modal-target="modal-tool-curatyy" data-show-in-designer="false" class="modal_dialog" id="">
           <div class="modal_inner w-variant-64d721f5-b4dd-3c38-f86e-906842e3022d">
             <div data-modal-close="" id="" style="background: color-mix(in hsl, color-mix(in hsl, #4D196C 70%, black 30%), transparent 30%);" class="modal_backdrop"></div>
             <div class="modal_content w-variant-64d721f5-b4dd-3c38-f86e-906842e3022d">
@@ -514,7 +534,7 @@ if (
             </div>
           </div>
         </dialog>
-        <dialog data-wf--modal--variant="side-panel" data-modal-target="modal-client-sr" data-show-in-designer="false" class="modal_dialog w-variant-64d721f5-b4dd-3c38-f86e-906842e3022d" id="">
+        <dialog data-wf--modal--variant="side-panel" data-modal-target="modal-client-sr" data-show-in-designer="false" class="modal_dialog" id="">
           <div class="modal_inner w-variant-64d721f5-b4dd-3c38-f86e-906842e3022d">
             <div data-modal-close="" id="" style="background: color-mix(in hsl, color-mix(in hsl, #609F7E 70%, black 30%), transparent 30%);" class="modal_backdrop"></div>
             <div class="modal_content w-variant-64d721f5-b4dd-3c38-f86e-906842e3022d">
@@ -573,7 +593,7 @@ if (
             </div>
           </div>
         </dialog>
-        <dialog data-wf--modal--variant="side-panel" data-modal-target="modal-client-vdw" data-show-in-designer="false" class="modal_dialog w-variant-64d721f5-b4dd-3c38-f86e-906842e3022d" id="">
+        <dialog data-wf--modal--variant="side-panel" data-modal-target="modal-client-vdw" data-show-in-designer="false" class="modal_dialog" id="">
           <div class="modal_inner w-variant-64d721f5-b4dd-3c38-f86e-906842e3022d">
             <div data-modal-close="" id="" style="background: color-mix(in hsl, color-mix(in hsl, #696A67 70%, black 30%), transparent 30%);" class="modal_backdrop"></div>
             <div class="modal_content w-variant-64d721f5-b4dd-3c38-f86e-906842e3022d">
@@ -632,7 +652,7 @@ if (
             </div>
           </div>
         </dialog>
-        <dialog data-wf--modal--variant="side-panel" data-modal-target="modal-card-contact" data-show-in-designer="false" class="modal_dialog w-variant-64d721f5-b4dd-3c38-f86e-906842e3022d" id="modal-contact-form">
+        <dialog data-wf--modal--variant="side-panel" data-modal-target="modal-card-contact" data-show-in-designer="false" class="modal_dialog" id="modal-contact-form">
           <div class="modal_inner w-variant-64d721f5-b4dd-3c38-f86e-906842e3022d">
             <div data-modal-close="" id="" style="background: color-mix(in hsl, color-mix(in hsl, var(--colors--background-tertiary) 70%, black 30%), transparent 30%);" class="modal_backdrop"></div>
             <div class="modal_content w-variant-64d721f5-b4dd-3c38-f86e-906842e3022d">
@@ -703,7 +723,7 @@ if (
             </div>
           </div>
         </dialog>
-        <dialog data-wf--modal--variant="side-panel" data-modal-target="modal-service-website" data-show-in-designer="false" class="modal_dialog w-variant-64d721f5-b4dd-3c38-f86e-906842e3022d" id="">
+        <dialog data-wf--modal--variant="side-panel" data-modal-target="modal-service-website" data-show-in-designer="false" class="modal_dialog" id="">
           <div class="modal_inner w-variant-64d721f5-b4dd-3c38-f86e-906842e3022d">
             <div data-modal-close="" id="" style="background: color-mix(in hsl, color-mix(in hsl, var(--colors--background-tertiary) 70%, black 30%), transparent 30%);" class="modal_backdrop"></div>
             <div class="modal_content w-variant-64d721f5-b4dd-3c38-f86e-906842e3022d">
@@ -761,7 +781,7 @@ if (
             </div>
           </div>
         </dialog>
-        <dialog data-wf--modal--variant="side-panel" data-modal-target="modal-service-webapp" data-show-in-designer="false" class="modal_dialog w-variant-64d721f5-b4dd-3c38-f86e-906842e3022d" id="">
+        <dialog data-wf--modal--variant="side-panel" data-modal-target="modal-service-webapp" data-show-in-designer="false" class="modal_dialog" id="">
           <div class="modal_inner w-variant-64d721f5-b4dd-3c38-f86e-906842e3022d">
             <div data-modal-close="" id="" style="background: color-mix(in hsl, color-mix(in hsl, var(--colors--background-tertiary) 70%, black 30%), transparent 30%);" class="modal_backdrop"></div>
             <div class="modal_content w-variant-64d721f5-b4dd-3c38-f86e-906842e3022d">
@@ -825,7 +845,7 @@ if (
             </div>
           </div>
         </dialog>
-        <dialog data-wf--modal--variant="side-panel" data-modal-target="modal-service-design" data-show-in-designer="false" class="modal_dialog w-variant-64d721f5-b4dd-3c38-f86e-906842e3022d" id="">
+        <dialog data-wf--modal--variant="side-panel" data-modal-target="modal-service-design" data-show-in-designer="false" class="modal_dialog" id="">
           <div class="modal_inner w-variant-64d721f5-b4dd-3c38-f86e-906842e3022d">
             <div data-modal-close="" id="" style="background: color-mix(in hsl, color-mix(in hsl, var(--colors--background-tertiary) 70%, black 30%), transparent 30%);" class="modal_backdrop"></div>
             <div class="modal_content w-variant-64d721f5-b4dd-3c38-f86e-906842e3022d">
@@ -1918,123 +1938,179 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 </style>
-  <!--  Modals  -->
   <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const modalSystem = { list:{}, open(id){ this.list[id]?.open?.() }, closeAll(){ Object.values(this.list).forEach(m=>m.close?.()) } };
-    function createModals() {
-      document.querySelectorAll(".modal_dialog").forEach(function (modal) {
-        if (modal.dataset.scriptInitialized) return;
-        modal.dataset.scriptInitialized = "true";
-        const modalId = modal.getAttribute("data-modal-target");
-        const variant = modal.getAttribute("data-wf--modal--variant");
-        let lastFocusedElement;
-        if (typeof gsap !== "undefined") {
-          const backdrop = modal.querySelector(".modal_backdrop");
-          const content  = modal.querySelector(".modal_content");
-          const slot     = modal.querySelector(".modal_slot");
-          // Build timeline (paused by default)
-          const tl = gsap.timeline({ paused: true, onReverseComplete: resetModal });
-          if (variant === "side-panel") {
-            tl.fromTo(backdrop, { opacity: 0 }, { opacity: 1, duration: 0.3, ease: "power1.out" });
-            tl.from(content, { xPercent: 100, duration: 0.3, ease: "power1.out", immediateRender: false }, "<");
-          } 
-          else if (variant === "full-screen") {
-            tl.set(backdrop, { opacity: 0 });
-            tl.from(content, { opacity: 0, duration: 0.2, ease: "power1.out", immediateRender: false });
-            tl.from(slot, { opacity: 0, y: "2rem", duration: 0.2, ease: "power1.out", immediateRender: false }, "<0.1");
-          } 
-          else {
-            tl.fromTo(backdrop, { opacity: 0 }, { opacity: 1, duration: 0.3, ease: "power1.out" });
-            tl.from(content, { opacity: 0, y: "6rem", duration: 0.3, ease: "power1.out", immediateRender: false }, "<");
-          }
-          modal.tl = tl;
-          const cfFormSubmitBtn = modal.querySelector('[cf-form-submit="trigger"]');
-          if (cfFormSubmitBtn) {
-            cfFormSubmitBtn.addEventListener("click", (e) => e.stopPropagation(), true);
-          }
+document.addEventListener("DOMContentLoaded", function () {
+  // Public API
+  const modalSystem = {
+    list: {},
+    open(id){ this.list[id]?.open?.(); },
+    close(id){ this.list[id]?.close?.(); },
+    closeAll(){ Object.values(this.list).forEach(m => m.close?.()); }
+  };
+  window.modalSystem = modalSystem;
+  // Scroll lock helpers (when Lenis isn't present)
+  function lockScroll() {
+    const sw = window.innerWidth - document.documentElement.clientWidth;
+    if (sw > 0) document.body.style.paddingRight = sw + "px";
+    document.documentElement.style.overflow = "hidden";
+  }
+  function unlockScroll() {
+    document.documentElement.style.overflow = "";
+    document.body.style.paddingRight = "";
+  }
+  function createModals() {
+    document.querySelectorAll(".modal_dialog").forEach(function (modal) {
+      if (modal.dataset.scriptInitialized) return;
+      modal.dataset.scriptInitialized = "true";
+      // Keep this a <dialog> element for .showModal() support
+      // Required structure inside each modal_dialog:
+      // .modal_backdrop, .modal_content, optional .modal_slot
+      const modalId = modal.getAttribute("data-modal-target");
+      const variant = modal.getAttribute("data-wf--modal--variant");
+      let lastFocusedElement;
+      // Build GSAP timeline only if gsap exists
+      if (typeof gsap !== "undefined") {
+        const backdrop = modal.querySelector(".modal_backdrop");
+        const content  = modal.querySelector(".modal_content");
+        const slot     = modal.querySelector(".modal_slot");
+        // Reset callback after reverse animation completes
+        const tl = gsap.timeline({ paused: true, onReverseComplete: resetModal });
+        // Use set+to to avoid immediateRender flashes
+        if (variant === "side-panel") {
+          gsap.set(backdrop, { opacity: 0 });
+          gsap.set(content,  { xPercent: 100 });
+          tl.to(backdrop, { opacity: 1, duration: 0.3, ease: "power1.out" })
+            .to(content,  { xPercent: 0, duration: 0.3, ease: "power1.out" }, "<");
         }
-        function resetModal() {
-          if (typeof lenis !== "undefined" && lenis.start) lenis.start();
-          else document.body.style.overflow = "";
-          modal.close();
-          if (lastFocusedElement) lastFocusedElement.focus();
-          window.dispatchEvent(new CustomEvent("modal-close", { detail: { modal } }));
+        else if (variant === "full-screen") {
+          gsap.set(content, { opacity: 0 });
+          if (slot) gsap.set(slot, { opacity: 0, y: "2rem" });
+          tl.to(content, { opacity: 1, duration: 0.2, ease: "power1.out" })
+            .to(slot || content, { opacity: 1, y: 0, duration: 0.2, ease: "power1.out" }, "<0.1");
         }
-        function openModal() {
-          if (typeof lenis !== "undefined" && lenis.stop) lenis.stop();
-          else document.body.style.overflow = "hidden";
-          lastFocusedElement = document.activeElement;
-          modal.showModal();
-          // Fix: refresh and restart GSAP each time
-          if (typeof gsap !== "undefined" && modal.tl) {
-            modal.tl.pause(0).invalidate().play(0);
-          }
-          modal.querySelectorAll("[data-modal-scroll]").forEach((el) => (el.scrollTop = 0));
-          window.dispatchEvent(new CustomEvent("modal-open", { detail: { modal } }));
+        else {
+          gsap.set(backdrop, { opacity: 0 });
+          gsap.set(content,  { opacity: 0, y: "6rem" });
+          tl.to(backdrop, { opacity: 1, duration: 0.3, ease: "power1.out" })
+            .to(content,  { opacity: 1, y: 0, duration: 0.3, ease: "power1.out" }, "<");
         }
-        function closeModal() {
-          if (typeof gsap !== "undefined") modal.tl.reverse();
-          else resetModal();
+        modal.tl = tl;
+        // If using CF submit triggers inside, stop propagation so it doesn't close
+        const cfFormSubmitBtn = modal.querySelector('[cf-form-submit="trigger"]');
+        if (cfFormSubmitBtn) {
+          cfFormSubmitBtn.addEventListener("click", (e) => e.stopPropagation(), true);
         }
-        if (new URLSearchParams(location.search).get("modal-id") === modalId) {
+      }
+      function resetModal() {
+        // Unlock scroll
+        if (typeof lenis !== "undefined" && lenis.start) lenis.start();
+        else unlockScroll();
+        modal.close();
+        if (lastFocusedElement && typeof lastFocusedElement.focus === "function") {
+          lastFocusedElement.focus();
+        }
+        window.dispatchEvent(new CustomEvent("modal-close", { detail: { modal } }));
+      }
+      function openModal() {
+        // Guard: if already open, just restart animation
+        if (modal.open) {
+          if (typeof gsap !== "undefined" && modal.tl) modal.tl.restart(true, false);
+          return;
+        }
+        // Lock scroll
+        if (typeof lenis !== "undefined" && lenis.stop) lenis.stop();
+        else lockScroll();
+        lastFocusedElement = document.activeElement;
+        // If there's no GSAP, ensure we don't keep things hidden by CSS start states
+        if (typeof gsap === "undefined") modal.classList.add("modal_no_anim");
+        else modal.classList.remove("modal_no_anim");
+        // Hide for first paint after showModal to avoid one-frame flash
+        modal.style.visibility = "hidden";
+        modal.showModal();
+        // Double rAF ensures styles are committed before revealing + animating
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            modal.style.visibility = "";
+            if (typeof gsap !== "undefined" && modal.tl) {
+              modal.tl.restart(true, false); // from start, no immediateRender
+            }
+          });
+        });
+        // Reset any internal scroll containers
+        modal.querySelectorAll("[data-modal-scroll]").forEach((el) => (el.scrollTop = 0));
+        window.dispatchEvent(new CustomEvent("modal-open", { detail: { modal } }));
+      }
+      function closeModal() {
+        if (typeof gsap !== "undefined" && modal.tl) modal.tl.reverse();
+        else resetModal();
+      }
+      // Open via URL ?modal-id=<id>
+      try {
+        const qp = new URLSearchParams(location.search);
+        if (qp.get("modal-id") === modalId) {
           openModal();
           const u = new URL(location.href);
           u.searchParams.delete("modal-id");
           history.replaceState({}, "", u);
         }
-        modal.addEventListener("cancel", (e) => { e.preventDefault(); closeModal(); });
-        let isPointerDownOnBackdrop = false;
-        modal.addEventListener("pointerdown", (e) => {
-          const onBackdrop = (e.target === modal) || !!e.target.closest(".modal_backdrop");
-          const insideContent = !!e.target.closest(".modal_content");
-          isPointerDownOnBackdrop = onBackdrop && !insideContent;
-        });
-        modal.addEventListener("pointerup", (e) => {
-          if (!isPointerDownOnBackdrop) return;
-          const releasedOnBackdrop = (e.target === modal) || !!e.target.closest(".modal_backdrop");
-          if (releasedOnBackdrop) closeModal();
-          isPointerDownOnBackdrop = false;
-        });
-        modal.addEventListener("click", (e) => {
-          const closeEl = e.target.closest("[data-modal-close]");
-          if (closeEl) {
-            e.preventDefault();
-            e.stopPropagation();
-            closeModal();
-            return;
-          }
-        });
-        modal.querySelectorAll('form[method="dialog"]').forEach((frm) => {
-          frm.addEventListener("submit", (e) => { e.preventDefault(); closeModal(); });
-        });
-        document.addEventListener("click", (e) => {
-          const trigger = e.target.closest("[data-modal-trigger='" + modalId + "']");
-          if (!trigger) return;
-          e.preventDefault();
-          const currentModal = e.target.closest(".modal_dialog");
-          if (currentModal && currentModal !== modal) {
-            const currentId = currentModal.getAttribute("data-modal-target");
-            const currentInstance = window.modalSystem?.list?.[currentId];
-            const onClosed = (evt) => {
-              if (evt.detail?.modal === currentModal) {
-                window.removeEventListener("modal-close", onClosed);
-                openModal();
-              }
-            };
-            window.addEventListener("modal-close", onClosed, { once: true });
-            currentInstance?.close();
-            return;
-          }
-          openModal();
-        });
-        modalSystem.list[modalId] = { open: openModal, close: closeModal };
+      } catch(e) { /* noop for old browsers */ }
+      // Esc key (cancel) should animate out
+      modal.addEventListener("cancel", (e) => { e.preventDefault(); closeModal(); });
+      // Click on backdrop to close (but not when dragging from content to backdrop)
+      let isPointerDownOnBackdrop = false;
+      modal.addEventListener("pointerdown", (e) => {
+        const onBackdrop = (e.target === modal) || !!e.target.closest(".modal_backdrop");
+        const insideContent = !!e.target.closest(".modal_content");
+        isPointerDownOnBackdrop = onBackdrop && !insideContent;
       });
-    }
-    createModals();
-    window.modalSystem = modalSystem;
-  });
-  </script>
+      modal.addEventListener("pointerup", (e) => {
+        if (!isPointerDownOnBackdrop) return;
+        const releasedOnBackdrop = (e.target === modal) || !!e.target.closest(".modal_backdrop");
+        if (releasedOnBackdrop) closeModal();
+        isPointerDownOnBackdrop = false;
+      });
+      // Any [data-modal-close] inside the modal
+      modal.addEventListener("click", (e) => {
+        const closeEl = e.target.closest("[data-modal-close]");
+        if (closeEl) {
+          e.preventDefault();
+          e.stopPropagation();
+          closeModal();
+        }
+      });
+      // <form method="dialog"> should close with animation
+      modal.querySelectorAll('form[method="dialog"]').forEach((frm) => {
+        frm.addEventListener("submit", (e) => { e.preventDefault(); closeModal(); });
+      });
+      // Triggers anywhere on the document that target THIS modal
+      document.addEventListener("click", (e) => {
+        const trigger = e.target.closest("[data-modal-trigger='" + modalId + "']");
+        if (!trigger) return;
+        e.preventDefault();
+        // If the click came from inside another open modal, handoff after it closes
+        const currentModal = e.target.closest(".modal_dialog");
+        if (currentModal && currentModal !== modal) {
+          const currentId = currentModal.getAttribute("data-modal-target");
+          const currentInstance = window.modalSystem?.list?.[currentId];
+          const onClosed = (evt) => {
+            if (evt.detail?.modal === currentModal) {
+              window.removeEventListener("modal-close", onClosed);
+              openModal();
+            }
+          };
+          window.addEventListener("modal-close", onClosed, { once: true });
+          currentInstance?.close();
+          return;
+        }
+        openModal();
+      });
+      // Register with system
+      modalSystem.list[modalId] = { open: openModal, close: closeModal };
+    });
+  }
+  createModals();
+});
+</script>
   <script src="https://cdn.jsdelivr.net/gh/sil-so/cf-sde@0.0.1/cloudflare-turnstile-handler.js"></script>
   <!--  Turnstile re-init on modal open  -->
   <script>
