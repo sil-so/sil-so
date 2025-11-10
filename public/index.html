@@ -1,4 +1,4 @@
-<!DOCTYPE html><!--  This site was created in Webflow. https://webflow.com  --><!--  Last Published: Mon Nov 10 2025 06:46:46 GMT+0000 (Coordinated Universal Time)  -->
+<!DOCTYPE html><!--  This site was created in Webflow. https://webflow.com  --><!--  Last Published: Mon Nov 10 2025 07:07:03 GMT+0000 (Coordinated Universal Time)  -->
 <html data-wf-page="68f51dd3ecb1bbf09a500c6a" data-wf-site="68f14b22eeb3be0d67216878" lang="en">
 <head>
   <meta charset="utf-8">
@@ -300,6 +300,12 @@ if (
 	}
   button[data-btn-small="true"]:not(:has(.btn-text:not([hidden]):not(.w-condition-invisible):not([aria-hidden="true"]):not(:empty))) {
     padding: var(--_components---button-small--vertical-padding);
+  }
+  /* Lists */
+  @media (max-width: 767px) {
+    #faq-list .row {
+      gap: var(--_layout---grid--gap-sm) !important;
+    }
   }
 </style>
       </div>
@@ -931,7 +937,7 @@ if (
             </div>
             <div data-wf--spacer--size="main" class="spacer-component" id="" style=""></div>
             <div data-wf--grid---row--column-alignment="top-left" id="" style="" visibility-designer="true" class="row-component">
-              <div class="row">
+              <div class="row row-gap-md">
                 <div data-wf--grid---column--column-size="6-12" class="col w-variant-52b169ce-f9c2-1128-cb8d-e5acee9f9159" id="" style="" visibility-designer="true">
                   <div class="slot cc-column">
                     <div data-wf--card--hover-style="none" class="card u-mode-invert u-bg-white200" id="" style="border: none;">
@@ -1303,7 +1309,7 @@ if (
                   </div>
                   <div data-wf--spacer--size="medium" class="spacer-component w-variant-60e88f1c-8990-2b60-1d3a-e5ec07d412dc" id="" style=""></div>
                   <div data-wf--grid---row--column-alignment="top-between" id="faq-list" style="" visibility-designer="true" class="row-component">
-                    <div class="row w-variant-5d43bd90-6372-654d-731d-541adec41264">
+                    <div class="row w-variant-5d43bd90-6372-654d-731d-541adec41264 row-gap-md">
                       <div data-wf--grid---column--column-size="6-12" class="col w-variant-52b169ce-f9c2-1128-cb8d-e5acee9f9159" id="" style="" visibility-designer="true">
                         <div class="slot cc-column">
                           <div class="list-component" id="" style="">
@@ -1466,7 +1472,7 @@ if (
                           <div class="fs-instagramfeed-1_label">posts</div>
                         </div>
                       </div>
-                      <div data-wf--button--variant="primary" class="button" id="" style="" fs-instagramfeed-element="follow-button">
+                      <div data-wf--button--variant="primary-frost" class="button w-variant-2903cfee-10df-fe21-9ec5-2b11ee4b1b5f" id="" style="" fs-instagramfeed-element="follow-button">
                         <div aria-hidden="true" class="btn-text">@silvansoeters</div>
                         <a href="#" class="u-link-cover w-inline-block">
                           <div class="u-sr-only">@silvansoeters</div>
@@ -1554,11 +1560,6 @@ if (
 [fs-tabs-element="content"] > * { align-self: start; } /* no stretch */
 html:not(.wf-design-mode) [fs-tabs-element="content"] > .is-tab-hidden {
   display: none !important;
-}
-@media (max-width: 767px) {
-  #faq-list .row {
-    gap: var(--_layout---spacing--margin-sm) !important;
-  }
 }
 /* Active text color */
 .tabs-1_nav-item.is-tab-active { color: var(--button-primary--text); }

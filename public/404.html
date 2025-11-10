@@ -1,4 +1,4 @@
-<!DOCTYPE html><!--  This site was created in Webflow. https://webflow.com  --><!--  Last Published: Mon Nov 10 2025 06:46:46 GMT+0000 (Coordinated Universal Time)  -->
+<!DOCTYPE html><!--  This site was created in Webflow. https://webflow.com  --><!--  Last Published: Mon Nov 10 2025 07:07:03 GMT+0000 (Coordinated Universal Time)  -->
 <html data-wf-page="68f14b24eeb3be0d67216943" data-wf-site="68f14b22eeb3be0d67216878" lang="en">
 <head>
   <meta charset="utf-8">
@@ -293,6 +293,12 @@ if (
 	}
   button[data-btn-small="true"]:not(:has(.btn-text:not([hidden]):not(.w-condition-invisible):not([aria-hidden="true"]):not(:empty))) {
     padding: var(--_components---button-small--vertical-padding);
+  }
+  /* Lists */
+  @media (max-width: 767px) {
+    #faq-list .row {
+      gap: var(--_layout---grid--gap-sm) !important;
+    }
   }
 </style>
       </div>
