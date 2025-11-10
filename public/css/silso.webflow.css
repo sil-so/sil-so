@@ -136,7 +136,6 @@
   --_components---input--line-height: 1.5em;
   --_components---input--font-weight: 400;
   --_components---input--letter-spacing: 0em;
-  --colors--border: var(--_color---swatch--black);
   --_color---swatch--grey: silver;
   --_components---input-label--font: var(--_typography---fonts--primary-font);
   --_components---input-label--font-size: .9rem;
@@ -146,6 +145,7 @@
   --_typography---paragraph-xs--font-size: clamp(var(--_typography---paragraph-xs--font-size-min-rem) * 1rem, ((var(--_typography---paragraph-xs--font-size-min-rem)  - ((var(--_typography---paragraph-xs--font-size-max-rem)  - var(--_typography---paragraph-xs--font-size-min-rem)) / (var(--_layout---fluid--max)  - var(--_layout---fluid--min)) * var(--_layout---fluid--min))) * 1rem + ((var(--_typography---paragraph-xs--font-size-max-rem)  - var(--_typography---paragraph-xs--font-size-min-rem)) / (var(--_layout---fluid--max)  - var(--_layout---fluid--min))) * 100vw), var(--_typography---paragraph-xs--font-size-max-rem) * 1rem);
   --_color---neutral--mid-gray\<deleted\|variable-65f33ecd\>: #888680;
   --colors--border-tertiary: var(--colors--primary-accent);
+  --colors--border: var(--_color---swatch--black);
   --_color---swatch--primary-accent: #142020;
   --_typography---eyebrow--bottom-margin: 1.3em;
   --_typography---eyebrow--font-size: clamp(var(--_typography---eyebrow--font-size-min-rem) * 1rem, ((var(--_typography---eyebrow--font-size-min-rem)  - ((var(--_typography---eyebrow--font-size-max-rem)  - var(--_typography---eyebrow--font-size-min-rem)) / (var(--_layout---fluid--max)  - var(--_layout---fluid--min)) * var(--_layout---fluid--min))) * 1rem + ((var(--_typography---eyebrow--font-size-max-rem)  - var(--_typography---eyebrow--font-size-min-rem)) / (var(--_layout---fluid--max)  - var(--_layout---fluid--min))) * 100vw), var(--_typography---eyebrow--font-size-max-rem) * 1rem);
@@ -548,8 +548,8 @@ figcaption {
   --button-tertiary--border-hover: var(--button-tertiary--background-hover);
   --button-tertiary--background-hover: var(--_color---swatch--black);
   --button-tertiary--text-hover: var(--_color---swatch--white-200);
-  --colors--border: var(--_color---swatch--black);
   --colors--border-tertiary: var(--colors--primary-accent);
+  --colors--border: var(--_color---swatch--black);
   --colors--border-secondary: var(--_color---swatch--grey);
   --colors--background-primary: var(--_color---swatch--white-100);
   --colors--background-quartenary: var(--_color---swatch--black);
@@ -607,8 +607,8 @@ figcaption {
   --button-tertiary--border-hover: var(--button-tertiary--background-hover);
   --button-tertiary--background-hover: var(--_color---swatch--white-100);
   --button-tertiary--text-hover: var(--_color---swatch--primary-accent);
-  --colors--border: var(--_color---swatch--white-200);
   --colors--border-tertiary: var(--_color---swatch--primary-accent);
+  --colors--border: var(--_color---swatch--white-200);
   --colors--border-secondary: var(--_color---swatch--grey);
   --colors--background-primary: var(--_color---swatch--black);
   --colors--background-quartenary: var(--_color---swatch--black);
@@ -646,8 +646,8 @@ figcaption {
   --button-tertiary--border-hover: var(--button-tertiary--background-hover);
   --button-tertiary--background-hover: var(--_color---swatch--black);
   --button-tertiary--text-hover: var(--_color---swatch--white-200);
-  --colors--border: var(--_color---swatch--black);
   --colors--border-tertiary: var(--colors--primary-accent);
+  --colors--border: var(--_color---swatch--black);
   --colors--border-secondary: var(--_color---swatch--grey);
   --colors--background-primary: var(--_color---swatch--white-100);
   --colors--background-quartenary: var(--_color---swatch--black);
@@ -679,8 +679,8 @@ figcaption {
   --button-tertiary--border-hover: var(--button-tertiary--background-hover);
   --button-tertiary--background-hover: var(--_color---swatch--white-100);
   --button-tertiary--text-hover: var(--_color---swatch--primary-accent);
-  --colors--border: var(--_color---swatch--white-200);
   --colors--border-tertiary: var(--_color---swatch--primary-accent);
+  --colors--border: var(--_color---swatch--white-200);
   --colors--border-secondary: var(--_color---swatch--grey);
   --colors--background-primary: var(--_color---swatch--black);
   --colors--background-quartenary: var(--_color---swatch--black);
@@ -712,8 +712,8 @@ figcaption {
   --button-tertiary--border-hover: var(--button-tertiary--background-hover);
   --button-tertiary--background-hover: var(--_color---swatch--black);
   --button-tertiary--text-hover: var(--_color---swatch--white-200);
-  --colors--border: var(--_color---swatch--grey);
   --colors--border-tertiary: var(--_color---swatch--grey);
+  --colors--border: var(--_color---swatch--grey);
   --colors--border-secondary: var(--_color---swatch--grey);
   --colors--background-primary: var(--_color---swatch--white-100);
   --colors--background-quartenary: var(--_color---swatch--white-100);
@@ -745,8 +745,8 @@ figcaption {
   --button-tertiary--border-hover: var(--button-tertiary--background-hover);
   --button-tertiary--background-hover: var(--_color---swatch--black);
   --button-tertiary--text-hover: var(--_color---swatch--white-200);
-  --colors--border: var(--_color---swatch--white-200);
   --colors--border-tertiary: var(--_color---swatch--white-200);
+  --colors--border: var(--_color---swatch--white-200);
   --colors--border-secondary: var(--_color---swatch--white-200);
   --colors--background-primary: var(--_color---swatch--primary-accent);
   --colors--background-quartenary: var(--_color---swatch--primary-accent);
@@ -1327,13 +1327,9 @@ figcaption {
   inset: 0%;
 }
 
-.input:hover {
+.input:hover, .input:focus {
   box-shadow: 0 0 0 var(--_components---global--border-width) var(--button-primary--border);
   border-color: #0000;
-}
-
-.input:focus {
-  border-color: var(--colors--border);
 }
 
 .input::placeholder {
@@ -2247,8 +2243,8 @@ figcaption {
   --button-tertiary--border-hover: var(--button-tertiary--background-hover);
   --button-tertiary--background-hover: var(--_color---swatch--white-100);
   --button-tertiary--text-hover: var(--_color---swatch--primary-accent);
-  --colors--border: var(--_color---swatch--white-200);
   --colors--border-tertiary: var(--_color---swatch--primary-accent);
+  --colors--border: var(--_color---swatch--white-200);
   --colors--border-secondary: var(--_color---swatch--grey);
   --colors--background-primary: var(--_color---swatch--black);
   --colors--background-quartenary: var(--_color---swatch--black);
@@ -2606,8 +2602,8 @@ figcaption {
   --button-tertiary--border-hover: var(--button-tertiary--background-hover);
   --button-tertiary--background-hover: var(--_color---swatch--black);
   --button-tertiary--text-hover: var(--_color---swatch--white-200);
-  --colors--border: var(--_color---swatch--black);
   --colors--border-tertiary: var(--colors--primary-accent);
+  --colors--border: var(--_color---swatch--black);
   --colors--border-secondary: var(--_color---swatch--grey);
   --colors--background-primary: var(--_color---swatch--white-100);
   --colors--background-quartenary: var(--_color---swatch--black);
@@ -2641,8 +2637,8 @@ figcaption {
   --button-tertiary--border-hover: var(--button-tertiary--background-hover);
   --button-tertiary--background-hover: var(--_color---swatch--white-100);
   --button-tertiary--text-hover: var(--_color---swatch--primary-accent);
-  --colors--border: var(--_color---swatch--white-200);
   --colors--border-tertiary: var(--_color---swatch--primary-accent);
+  --colors--border: var(--_color---swatch--white-200);
   --colors--border-secondary: var(--_color---swatch--grey);
   --colors--background-primary: var(--_color---swatch--black);
   --colors--background-quartenary: var(--_color---swatch--black);
@@ -2676,8 +2672,8 @@ figcaption {
   --button-tertiary--border-hover: var(--button-tertiary--background-hover);
   --button-tertiary--background-hover: var(--_color---swatch--black);
   --button-tertiary--text-hover: var(--_color---swatch--white-200);
-  --colors--border: var(--_color---swatch--grey);
   --colors--border-tertiary: var(--_color---swatch--grey);
+  --colors--border: var(--_color---swatch--grey);
   --colors--border-secondary: var(--_color---swatch--grey);
   --colors--background-primary: var(--_color---swatch--white-100);
   --colors--background-quartenary: var(--_color---swatch--white-100);
@@ -2711,8 +2707,8 @@ figcaption {
   --button-tertiary--border-hover: var(--button-tertiary--background-hover);
   --button-tertiary--background-hover: var(--_color---swatch--black);
   --button-tertiary--text-hover: var(--_color---swatch--white-200);
-  --colors--border: var(--_color---swatch--white-200);
   --colors--border-tertiary: var(--_color---swatch--white-200);
+  --colors--border: var(--_color---swatch--white-200);
   --colors--border-secondary: var(--_color---swatch--white-200);
   --colors--background-primary: var(--_color---swatch--primary-accent);
   --colors--background-quartenary: var(--_color---swatch--primary-accent);
@@ -4284,8 +4280,8 @@ figcaption {
   --button-tertiary--border-hover: var(--button-tertiary--background-hover);
   --button-tertiary--background-hover: var(--_color---swatch--white-100);
   --button-tertiary--text-hover: var(--_color---swatch--primary-accent);
-  --colors--border: var(--_color---swatch--white-200);
   --colors--border-tertiary: var(--_color---swatch--primary-accent);
+  --colors--border: var(--_color---swatch--white-200);
   --colors--border-secondary: var(--_color---swatch--grey);
   --colors--background-primary: var(--_color---swatch--black);
   --colors--background-quartenary: var(--_color---swatch--black);
@@ -4317,8 +4313,8 @@ figcaption {
   --button-tertiary--border-hover: var(--button-tertiary--background-hover);
   --button-tertiary--background-hover: var(--_color---swatch--white-100);
   --button-tertiary--text-hover: var(--_color---swatch--primary-accent);
-  --colors--border: var(--_color---swatch--white-200);
   --colors--border-tertiary: var(--_color---swatch--primary-accent);
+  --colors--border: var(--_color---swatch--white-200);
   --colors--border-secondary: var(--_color---swatch--grey);
   --colors--background-primary: var(--_color---swatch--black);
   --colors--background-quartenary: var(--_color---swatch--black);
