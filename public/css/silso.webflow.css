@@ -81,7 +81,7 @@
   --_components---button--letter-spacing: 0em;
   --colors--primary-accent: var(--_color---swatch--primary-accent);
   --_components---card--padding: clamp(var(--_components---card--padding-min-rem) * 1rem, ((var(--_components---card--padding-min-rem)  - ((var(--_components---card--padding-max-rem)  - var(--_components---card--padding-min-rem)) / (var(--_layout---fluid--max)  - var(--_layout---fluid--min)) * var(--_layout---fluid--min))) * 1rem + ((var(--_components---card--padding-max-rem)  - var(--_components---card--padding-min-rem)) / (var(--_layout---fluid--max)  - var(--_layout---fluid--min))) * 100vw), var(--_components---card--padding-max-rem) * 1rem);
-  --_components---card--border-radius: 1.75rem;
+  --_components---card--border-radius: 1.5rem;
   --colors--text-secondary: var(--_color---swatch--grey);
   --_typography---eyebrow--font-weight: 500;
   --_components---section--padding: clamp(var(--_components---section--padding-min-rem) * 1rem, ((var(--_components---section--padding-min-rem)  - ((var(--_components---section--padding-max-rem)  - var(--_components---section--padding-min-rem)) / (var(--_layout---fluid--max)  - var(--_layout---fluid--min)) * var(--_layout---fluid--min))) * 1rem + ((var(--_components---section--padding-max-rem)  - var(--_components---section--padding-min-rem)) / (var(--_layout---fluid--max)  - var(--_layout---fluid--min))) * 100vw), var(--_components---section--padding-max-rem) * 1rem);
@@ -1886,7 +1886,7 @@ figcaption {
 }
 
 .u-mb-0 {
-  margin-bottom: 0;
+  margin-bottom: 0 !important;
 }
 
 .u-mb-md {
@@ -4601,8 +4601,11 @@ figcaption {
 
 .fs-instagramfeed-1_item-base {
   z-index: -1;
+  grid-column-gap: .5rem;
+  grid-row-gap: .5rem;
   border: var(--_components---card--border-width) solid var(--colors--border);
   border-radius: var(--_components---card--border-radius);
+  flex-flow: row;
   justify-content: center;
   align-items: center;
   display: flex;
@@ -5261,8 +5264,12 @@ figcaption {
     height: 3rem;
   }
 
-  .fs-instagramfeed-1_header, .fs-instagramfeed-1_list {
+  .fs-instagramfeed-1_header {
     grid-template-columns: 1fr;
+  }
+
+  .fs-instagramfeed-1_list {
+    grid-template-columns: 1fr 1fr;
   }
 }
 
@@ -5488,10 +5495,6 @@ figcaption {
   .header_logo {
     width: 2.5rem;
     height: 3rem;
-  }
-
-  .fs-instagramfeed-1_list {
-    grid-template-columns: 1fr;
   }
 }
 
