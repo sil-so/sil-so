@@ -1,4 +1,4 @@
-<!DOCTYPE html><!--  This site was created in Webflow. https://webflow.com  --><!--  Last Published: Mon Nov 10 2025 07:07:03 GMT+0000 (Coordinated Universal Time)  -->
+<!DOCTYPE html><!--  This site was created in Webflow. https://webflow.com  --><!--  Last Published: Mon Nov 10 2025 14:28:57 GMT+0000 (Coordinated Universal Time)  -->
 <html data-wf-page="68f14b24eeb3be0d67216943" data-wf-site="68f14b22eeb3be0d67216878" lang="en">
 <head>
   <meta charset="utf-8">
@@ -34,7 +34,7 @@ if (
   });
 }
 </script>
-  <script src="https://cdn.prod.website-files.com/68f14b22eeb3be0d67216878%2F6544eda5f000985a163a8687%2F69117c70831f21f8cbe21838%2Ffinsweetcomponentsconfig-1.0.23.js" type="module" async="" siteid="68f14b22eeb3be0d67216878" finsweet="components"></script>
+  <script src="https://cdn.prod.website-files.com/68f14b22eeb3be0d67216878%2F6544eda5f000985a163a8687%2F6911e3968df5e0003f2766ff%2Ffinsweetcomponentsconfig-1.0.28.js" type="module" async="" siteid="68f14b22eeb3be0d67216878" finsweet="components"></script>
 </head>
 <body>
   <div class="page-wrapper cc-utility">
@@ -50,6 +50,19 @@ if (
   html, body {
     height: 100%;
     overflow: hidden;
+  }
+  :is(h1, h2, h3, h4, h5, h6, blockquote) {
+    display: flow-root;
+  }
+  :is(h1, h2, h3, h4, h5, h6, blockquote)::before {
+    content: "";
+    display: table;
+    margin-bottom: calc(-0.5lh + 0.51em);
+  }
+  :is(h1, h2, h3, h4, h5, h6, blockquote)::after {
+    content: "";
+    display: table;
+    margin-bottom: calc(-0.5lh + 0.28em);
   }
   /* Reset apple form styles */
   input, textarea, select { 

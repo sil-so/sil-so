@@ -1,4 +1,4 @@
-<!DOCTYPE html><!--  This site was created in Webflow. https://webflow.com  --><!--  Last Published: Mon Nov 10 2025 07:07:03 GMT+0000 (Coordinated Universal Time)  -->
+<!DOCTYPE html><!--  This site was created in Webflow. https://webflow.com  --><!--  Last Published: Mon Nov 10 2025 14:28:57 GMT+0000 (Coordinated Universal Time)  -->
 <html data-wf-page="68f51dd3ecb1bbf09a500c6a" data-wf-site="68f14b22eeb3be0d67216878" lang="en">
 <head>
   <meta charset="utf-8">
@@ -41,7 +41,7 @@ if (
 }
 </script><!--  Finsweet Attributes  -->
   <script async="" type="module" src="https://cdn.jsdelivr.net/npm/@finsweet/attributes@2/attributes.js" fs-scrolldisable="" fs-selectcustom="" fs-smartlightbox=""></script>
-  <script src="https://cdn.prod.website-files.com/68f14b22eeb3be0d67216878%2F6544eda5f000985a163a8687%2F69117c70831f21f8cbe21838%2Ffinsweetcomponentsconfig-1.0.23.js" type="module" async="" siteid="68f14b22eeb3be0d67216878" finsweet="components"></script>
+  <script src="https://cdn.prod.website-files.com/68f14b22eeb3be0d67216878%2F6544eda5f000985a163a8687%2F6911e3968df5e0003f2766ff%2Ffinsweetcomponentsconfig-1.0.28.js" type="module" async="" siteid="68f14b22eeb3be0d67216878" finsweet="components"></script>
 </head>
 <body>
   <div class="page-wrapper u-minh-100vh">
@@ -57,6 +57,19 @@ if (
   html, body {
     height: 100%;
     overflow: hidden;
+  }
+  :is(h1, h2, h3, h4, h5, h6, blockquote) {
+    display: flow-root;
+  }
+  :is(h1, h2, h3, h4, h5, h6, blockquote)::before {
+    content: "";
+    display: table;
+    margin-bottom: calc(-0.5lh + 0.51em);
+  }
+  :is(h1, h2, h3, h4, h5, h6, blockquote)::after {
+    content: "";
+    display: table;
+    margin-bottom: calc(-0.5lh + 0.28em);
   }
   /* Reset apple form styles */
   input, textarea, select { 
@@ -310,25 +323,65 @@ if (
 </style>
       </div>
     </div>
-    <header class="fs-marquee-1_hero">
-      <div fs-marquee-type="static" fs-marquee-element="marquee" fs-marquee-instance="fs-marquee-1" class="fs-marquee-1_instance">
-        <div fs-marquee-element="wrapper" class="fs-marquee-1_list-wrapper">
-          <div fs-marquee-element="list" class="fs-marquee-1_list">
-            <div fs-marquee-element="item" class="fs-marquee-1_item">
-              <div class="header_logo w-embed"><svg width="100%" height="100%" viewbox="0 0 19 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <title>Logo</title>
-                  <path d="M16.7375 0.0639034C16.8541 0.040438 17.8551 -0.163736 18.0088 0.308528C18.1603 0.770482 17.1531 1.17293 17.0368 1.21891C15.8968 1.68124 4.57911 6.26855 15.983 10.8949C24.6682 14.2754 12.8335 23.144 2.81464 25.8893C2.70115 25.9202 1.73803 26.183 1.47379 25.7697C1.21422 25.3644 2.11994 24.915 2.22462 24.8637C3.32843 24.308 12.8378 19.5328 3.01838 14.9504C-6.3303 9.91196 8.25146 1.79854 16.7375 0.0639034Z" fill="currentColor"></path>
-                </svg></div>
-              <h1 class="fs-marquee-1_heading u-mb-0"><span class="u-text-black">silso</span> creative studio</h1>
-            </div>
-            <div fs-marquee-element="item" class="fs-marquee-1_item">
-              <div class="header_logo w-embed"><svg width="100%" height="100%" viewbox="0 0 19 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <title>Logo</title>
-                  <path d="M16.7375 0.0639034C16.8541 0.040438 17.8551 -0.163736 18.0088 0.308528C18.1603 0.770482 17.1531 1.17293 17.0368 1.21891C15.8968 1.68124 4.57911 6.26855 15.983 10.8949C24.6682 14.2754 12.8335 23.144 2.81464 25.8893C2.70115 25.9202 1.73803 26.183 1.47379 25.7697C1.21422 25.3644 2.11994 24.915 2.22462 24.8637C3.32843 24.308 12.8378 19.5328 3.01838 14.9504C-6.3303 9.91196 8.25146 1.79854 16.7375 0.0639034Z" fill="currentColor"></path>
-                </svg></div>
-              <div class="fs-marquee-1_heading"><span class="u-text-black">silso</span> creative studio</div>
+    <div fs-marquee-type="static" fs-marquee-element="marquee" fs-marquee-instance="fs-marquee-7" class="fs-marquee-7_instance">
+      <div fs-marquee-element="wrapper" class="fs-marquee-7_list-wrapper">
+        <div fs-marquee-element="list" class="fs-marquee-7_list">
+          <div fs-marquee-element="item" class="fs-marquee-1_item">
+            <div class="header_logo w-embed"><svg width="100%" height="100%" viewbox="0 0 19 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <title>Logo</title>
+                <path d="M16.7375 0.0639034C16.8541 0.040438 17.8551 -0.163736 18.0088 0.308528C18.1603 0.770482 17.1531 1.17293 17.0368 1.21891C15.8968 1.68124 4.57911 6.26855 15.983 10.8949C24.6682 14.2754 12.8335 23.144 2.81464 25.8893C2.70115 25.9202 1.73803 26.183 1.47379 25.7697C1.21422 25.3644 2.11994 24.915 2.22462 24.8637C3.32843 24.308 12.8378 19.5328 3.01838 14.9504C-6.3303 9.91196 8.25146 1.79854 16.7375 0.0639034Z" fill="currentColor"></path>
+              </svg></div>
+            <div class="fs-marquee-1_heading"><span class="u-text-black">silso</span> creative studio</div>
+          </div>
+          <div fs-marquee-element="item" class="fs-marquee-1_item">
+            <div class="header_logo w-embed"><svg width="100%" height="100%" viewbox="0 0 19 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <title>Logo</title>
+                <path d="M16.7375 0.0639034C16.8541 0.040438 17.8551 -0.163736 18.0088 0.308528C18.1603 0.770482 17.1531 1.17293 17.0368 1.21891C15.8968 1.68124 4.57911 6.26855 15.983 10.8949C24.6682 14.2754 12.8335 23.144 2.81464 25.8893C2.70115 25.9202 1.73803 26.183 1.47379 25.7697C1.21422 25.3644 2.11994 24.915 2.22462 24.8637C3.32843 24.308 12.8378 19.5328 3.01838 14.9504C-6.3303 9.91196 8.25146 1.79854 16.7375 0.0639034Z" fill="currentColor"></path>
+              </svg></div>
+            <div class="fs-marquee-1_heading"><span class="u-text-black">silso</span> creative studio</div>
+          </div>
+          <div fs-marquee-element="item" class="fs-marquee-1_item">
+            <div class="header_logo w-embed"><svg width="100%" height="100%" viewbox="0 0 19 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <title>Logo</title>
+                <path d="M16.7375 0.0639034C16.8541 0.040438 17.8551 -0.163736 18.0088 0.308528C18.1603 0.770482 17.1531 1.17293 17.0368 1.21891C15.8968 1.68124 4.57911 6.26855 15.983 10.8949C24.6682 14.2754 12.8335 23.144 2.81464 25.8893C2.70115 25.9202 1.73803 26.183 1.47379 25.7697C1.21422 25.3644 2.11994 24.915 2.22462 24.8637C3.32843 24.308 12.8378 19.5328 3.01838 14.9504C-6.3303 9.91196 8.25146 1.79854 16.7375 0.0639034Z" fill="currentColor"></path>
+              </svg></div>
+            <div class="fs-marquee-1_heading"><span class="u-text-black">silso</span> creative studio</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <header data-wf--section--color-mode="base" class="section cc-themed u-p-0" id="" style="">
+      <div class="container">
+        <div class="slot cc-section">
+          <div data-wf--grid---row--column-alignment="top-left" id="" style="" visibility-designer="true" class="row-component">
+            <div class="row">
+              <div data-wf--grid---column--column-size="6-12" class="col w-variant-52b169ce-f9c2-1128-cb8d-e5acee9f9159 col-sm-10" id="" style="" visibility-designer="true">
+                <div class="slot cc-column">
+                  <div data-wf--heading--alignment="left-align" id="" style="" class="heading-component">
+                    <h1 class="eyebrow">Silvan Soeters</h1>
+                  </div>
+                  <div data-wf--heading--alignment="left-align" id="" style="" class="heading-component">
+                    <h2 class="u-text-pretty">Webflow Developer and Designer based in Rotterdam</h2>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
+          <div data-wf--spacer--size="medium" class="spacer-component w-variant-60e88f1c-8990-2b60-1d3a-e5ec07d412dc" id="" style=""></div>
+          <div data-wf--grid---row--column-alignment="top-left" id="" style="" visibility-designer="true" class="row-component">
+            <div class="row  ">
+              <div data-wf--grid---column--column-size="6-12" class="col w-variant-52b169ce-f9c2-1128-cb8d-e5acee9f9159" id="" style="" visibility-designer="true">
+                <div class="slot cc-column">
+                  <div data-wf--rich-text--alignment="left-align" class="rich-text-component paragraph-lg u-text-balance" id="" style="">
+                    <div class="rich-text w-richtext">
+                      <p><strong>Since 2014</strong>, I&#x27;ve been building for the web – first at creative agencies, now independently. My work spans <em>websites</em>, <em>web apps</em>, and <em>branding</em>.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div data-wf--spacer--size="main" class="spacer-component" id="" style=""></div>
         </div>
       </div>
     </header>
@@ -366,7 +419,7 @@ if (
 }
 </style>
         </div>
-        <dialog data-wf--modal--variant="side-panel" data-modal-target="modal-tool-flowtube" data-show-in-designer="false" class="modal_dialog" id="">
+        <dialog data-wf--modal--variant="side-panel" data-modal-target="modal-tool-flowtube" data-show-in-designer="false" class="modal_dialog w-variant-64d721f5-b4dd-3c38-f86e-906842e3022d" id="">
           <div class="modal_inner w-variant-64d721f5-b4dd-3c38-f86e-906842e3022d">
             <div data-modal-close="" id="" style="background: color-mix(in hsl, color-mix(in hsl, #EDCB60 70%, black 30%), transparent 30%);" class="modal_backdrop w-variant-64d721f5-b4dd-3c38-f86e-906842e3022d"></div>
             <div class="modal_content w-variant-64d721f5-b4dd-3c38-f86e-906842e3022d">
@@ -419,7 +472,7 @@ if (
             </div>
           </div>
         </dialog>
-        <dialog data-wf--modal--variant="side-panel" data-modal-target="modal-tool-warpdomains" data-show-in-designer="false" class="modal_dialog" id="">
+        <dialog data-wf--modal--variant="side-panel" data-modal-target="modal-tool-warpdomains" data-show-in-designer="false" class="modal_dialog w-variant-64d721f5-b4dd-3c38-f86e-906842e3022d" id="">
           <div class="modal_inner w-variant-64d721f5-b4dd-3c38-f86e-906842e3022d">
             <div data-modal-close="" id="" style="background: color-mix(in hsl, color-mix(in hsl, #2C62F5 70%, black 30%), transparent 30%);" class="modal_backdrop w-variant-64d721f5-b4dd-3c38-f86e-906842e3022d"></div>
             <div class="modal_content w-variant-64d721f5-b4dd-3c38-f86e-906842e3022d">
@@ -474,7 +527,7 @@ if (
             </div>
           </div>
         </dialog>
-        <dialog data-wf--modal--variant="side-panel" data-modal-target="modal-tool-curatyy" data-show-in-designer="false" class="modal_dialog" id="">
+        <dialog data-wf--modal--variant="side-panel" data-modal-target="modal-tool-curatyy" data-show-in-designer="false" class="modal_dialog w-variant-64d721f5-b4dd-3c38-f86e-906842e3022d" id="">
           <div class="modal_inner w-variant-64d721f5-b4dd-3c38-f86e-906842e3022d">
             <div data-modal-close="" id="" style="background: color-mix(in hsl, color-mix(in hsl, #4D196C 70%, black 30%), transparent 30%);" class="modal_backdrop w-variant-64d721f5-b4dd-3c38-f86e-906842e3022d"></div>
             <div class="modal_content w-variant-64d721f5-b4dd-3c38-f86e-906842e3022d">
@@ -540,7 +593,7 @@ if (
             </div>
           </div>
         </dialog>
-        <dialog data-wf--modal--variant="side-panel" data-modal-target="modal-client-sr" data-show-in-designer="false" class="modal_dialog" id="">
+        <dialog data-wf--modal--variant="side-panel" data-modal-target="modal-client-sr" data-show-in-designer="false" class="modal_dialog w-variant-64d721f5-b4dd-3c38-f86e-906842e3022d" id="">
           <div class="modal_inner w-variant-64d721f5-b4dd-3c38-f86e-906842e3022d">
             <div data-modal-close="" id="" style="background: color-mix(in hsl, color-mix(in hsl, #609F7E 70%, black 30%), transparent 30%);" class="modal_backdrop w-variant-64d721f5-b4dd-3c38-f86e-906842e3022d"></div>
             <div class="modal_content w-variant-64d721f5-b4dd-3c38-f86e-906842e3022d">
@@ -599,7 +652,7 @@ if (
             </div>
           </div>
         </dialog>
-        <dialog data-wf--modal--variant="side-panel" data-modal-target="modal-client-vdw" data-show-in-designer="false" class="modal_dialog" id="">
+        <dialog data-wf--modal--variant="side-panel" data-modal-target="modal-client-vdw" data-show-in-designer="false" class="modal_dialog w-variant-64d721f5-b4dd-3c38-f86e-906842e3022d" id="">
           <div class="modal_inner w-variant-64d721f5-b4dd-3c38-f86e-906842e3022d">
             <div data-modal-close="" id="" style="background: color-mix(in hsl, color-mix(in hsl, #696A67 70%, black 30%), transparent 30%);" class="modal_backdrop w-variant-64d721f5-b4dd-3c38-f86e-906842e3022d"></div>
             <div class="modal_content w-variant-64d721f5-b4dd-3c38-f86e-906842e3022d">
@@ -658,7 +711,7 @@ if (
             </div>
           </div>
         </dialog>
-        <dialog data-wf--modal--variant="side-panel" data-modal-target="modal-card-contact" data-show-in-designer="false" class="modal_dialog" id="modal-contact-form">
+        <dialog data-wf--modal--variant="side-panel" data-modal-target="modal-card-contact" data-show-in-designer="false" class="modal_dialog w-variant-64d721f5-b4dd-3c38-f86e-906842e3022d" id="modal-contact-form">
           <div class="modal_inner w-variant-64d721f5-b4dd-3c38-f86e-906842e3022d">
             <div data-modal-close="" id="" style="background: color-mix(in hsl, color-mix(in hsl, var(--colors--background-tertiary) 70%, black 30%), transparent 30%);" class="modal_backdrop w-variant-64d721f5-b4dd-3c38-f86e-906842e3022d"></div>
             <div class="modal_content w-variant-64d721f5-b4dd-3c38-f86e-906842e3022d">
@@ -729,7 +782,7 @@ if (
             </div>
           </div>
         </dialog>
-        <dialog data-wf--modal--variant="side-panel" data-modal-target="modal-service-website" data-show-in-designer="false" class="modal_dialog" id="">
+        <dialog data-wf--modal--variant="side-panel" data-modal-target="modal-service-website" data-show-in-designer="false" class="modal_dialog w-variant-64d721f5-b4dd-3c38-f86e-906842e3022d" id="">
           <div class="modal_inner w-variant-64d721f5-b4dd-3c38-f86e-906842e3022d">
             <div data-modal-close="" id="" style="background: color-mix(in hsl, color-mix(in hsl, var(--colors--background-tertiary) 70%, black 30%), transparent 30%);" class="modal_backdrop w-variant-64d721f5-b4dd-3c38-f86e-906842e3022d"></div>
             <div class="modal_content w-variant-64d721f5-b4dd-3c38-f86e-906842e3022d">
@@ -787,7 +840,7 @@ if (
             </div>
           </div>
         </dialog>
-        <dialog data-wf--modal--variant="side-panel" data-modal-target="modal-service-webapp" data-show-in-designer="false" class="modal_dialog" id="">
+        <dialog data-wf--modal--variant="side-panel" data-modal-target="modal-service-webapp" data-show-in-designer="false" class="modal_dialog w-variant-64d721f5-b4dd-3c38-f86e-906842e3022d" id="">
           <div class="modal_inner w-variant-64d721f5-b4dd-3c38-f86e-906842e3022d">
             <div data-modal-close="" id="" style="background: color-mix(in hsl, color-mix(in hsl, var(--colors--background-tertiary) 70%, black 30%), transparent 30%);" class="modal_backdrop w-variant-64d721f5-b4dd-3c38-f86e-906842e3022d"></div>
             <div class="modal_content w-variant-64d721f5-b4dd-3c38-f86e-906842e3022d">
@@ -851,7 +904,7 @@ if (
             </div>
           </div>
         </dialog>
-        <dialog data-wf--modal--variant="side-panel" data-modal-target="modal-service-design" data-show-in-designer="false" class="modal_dialog" id="">
+        <dialog data-wf--modal--variant="side-panel" data-modal-target="modal-service-design" data-show-in-designer="false" class="modal_dialog w-variant-64d721f5-b4dd-3c38-f86e-906842e3022d" id="">
           <div class="modal_inner w-variant-64d721f5-b4dd-3c38-f86e-906842e3022d">
             <div data-modal-close="" id="" style="background: color-mix(in hsl, color-mix(in hsl, var(--colors--background-tertiary) 70%, black 30%), transparent 30%);" class="modal_backdrop w-variant-64d721f5-b4dd-3c38-f86e-906842e3022d"></div>
             <div class="modal_content w-variant-64d721f5-b4dd-3c38-f86e-906842e3022d">
@@ -908,35 +961,6 @@ if (
         <div class="container">
           <div class="slot cc-section">
             <div data-wf--grid---row--column-alignment="top-left" id="" style="" visibility-designer="true" class="row-component">
-              <div class="row">
-                <div data-wf--grid---column--column-size="6-12" class="col w-variant-52b169ce-f9c2-1128-cb8d-e5acee9f9159 col-sm-10" id="" style="" visibility-designer="true">
-                  <div class="slot cc-column">
-                    <div data-wf--eyebrow--alignment="left" class="eyebrow-component" id="" style="">
-                      <div class="eyebrow"><strong>Sil</strong>van <strong>So</strong>eters</div>
-                    </div>
-                    <div data-wf--heading--alignment="left-align" id="" style="" class="heading-component">
-                      <h2 class="u-text-pretty">Webflow Developer and Designer based in Rotterdam</h2>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div data-wf--spacer--size="medium" class="spacer-component w-variant-60e88f1c-8990-2b60-1d3a-e5ec07d412dc" id="" style=""></div>
-            <div data-wf--grid---row--column-alignment="top-left" id="" style="" visibility-designer="true" class="row-component">
-              <div class="row  ">
-                <div data-wf--grid---column--column-size="6-12" class="col w-variant-52b169ce-f9c2-1128-cb8d-e5acee9f9159" id="" style="" visibility-designer="true">
-                  <div class="slot cc-column">
-                    <div data-wf--rich-text--alignment="left-align" class="rich-text-component paragraph-lg u-text-balance" id="" style="">
-                      <div class="rich-text w-richtext">
-                        <p><strong>Since 2014</strong>, I&#x27;ve been building for the web – first at creative agencies, now independently. My work spans <em>websites</em>, <em>web apps</em>, and <em>branding</em>.</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div data-wf--spacer--size="main" class="spacer-component" id="" style=""></div>
-            <div data-wf--grid---row--column-alignment="top-left" id="" style="" visibility-designer="true" class="row-component">
               <div class="row row-gap-md">
                 <div data-wf--grid---column--column-size="6-12" class="col w-variant-52b169ce-f9c2-1128-cb8d-e5acee9f9159" id="" style="" visibility-designer="true">
                   <div class="slot cc-column">
@@ -961,7 +985,7 @@ if (
                                   <div class="u-h-100">
                                     <div data-wf--card--hover-style="none" class="card" id="" style="border: none !important;">
                                       <div class="slot cc-card">
-                                        <div data-wf--image--aspect-ratio="5x4" class="img-component w-variant-3c2a94e6-c27c-b071-32f1-d3566fc86d5e" id="" style="border: none !important;"><img src="images/home-office-2-workspace-silso.avif" loading="eager" width="Auto" data-wf--image-fit--image-fit="cover---top-left" alt="Home office creative workspace Silvan Soeters - Silso" fetchpriority="" class="u-img-cover w-variant-109354ec-e18b-6d34-fc97-2bd60ed75688">
+                                        <div data-wf--image--aspect-ratio="5x4" class="img-component w-variant-3c2a94e6-c27c-b071-32f1-d3566fc86d5e" id="" style="border: none !important;"><img src="images/home-office-4-workspace-silso.avif" loading="eager" width="Auto" data-wf--image-fit--image-fit="cover---top-left" alt="" fetchpriority="" class="u-img-cover w-variant-109354ec-e18b-6d34-fc97-2bd60ed75688">
                                           <div style="" class="img-component_bg-overlay"></div>
                                         </div>
                                       </div>
@@ -1691,7 +1715,7 @@ html:not(.wf-design-mode) [fs-tabs-element="content"] > .is-tab-hidden {
                 <div data-wf--grid---row--column-alignment="top-left" id="" style="" visibility-designer="true" class="row-component">
                   <div class="row row-gap-button">
                     <div data-wf--grid---column--column-size="shrink" class="col w-variant-63569d8e-a8ac-61e1-0666-21eb6073c541" id="" style="" visibility-designer="true">
-                      <div class="slot cc-column"><button fs-marquee-element="marquee" fs-marquee-instance="fs-marquee-2" fs-marquee-type="static" id="" data-modal-trigger="modal-card-contact" class="fs-marquee-2_button">
+                      <div class="slot cc-column"><button fs-marquee-element="marquee" fs-marquee-instance="fs-marquee-6" fs-marquee-type="static" id="" data-modal-trigger="modal-card-contact" class="fs-marquee-2_button">
                           <div fs-marquee-element="wrapper" class="fs-marquee-2_wrapper">
                             <div fs-marquee-element="list" class="fs-marquee-2_list">
                               <div fs-marquee-element="item" class="fs-marquee-2_item">
@@ -2065,93 +2089,6 @@ document.addEventListener("DOMContentLoaded", function () {
     );
     new UniversalFormSecurityHandler();
   });
-</script>
-  <script>
-(function () {
-  function fix(instance) {
-    if (!instance) return;
-    const list = instance.querySelector('[fs-marquee-element="list"]');
-    if (!list) return;
-    // 1) Pick the single, real H1 we want to keep (prefer one in a non-hidden item)
-    const realH1 =
-      list.querySelector('[fs-marquee-element="item"][aria-hidden="false"] h1') ||
-      list.querySelector('[fs-marquee-element="item"]:not([aria-hidden="true"]) h1') ||
-      list.querySelector('[fs-marquee-element="item"] h1');
-    if (!realH1) return;
-    // 2) Demote ONLY headings inside items that are aria-hidden="true" (clones)
-    list.querySelectorAll('[fs-marquee-element="item"][aria-hidden="true"] h1').forEach(h1 => {
-      if (h1 === realH1) return; // extra safety
-      const div = document.createElement('div');
-      div.className = h1.className;
-      div.setAttribute('role', 'presentation');
-      div.innerHTML = h1.innerHTML;
-      h1.replaceWith(div);
-    });
-  }
-  // Run for all marquee instances
-  function run(root = document) {
-    root.querySelectorAll('[fs-marquee-instance]').forEach(fix);
-  }
-  // Initial + after load
-  run();
-  addEventListener('DOMContentLoaded', run);
-  addEventListener('load', run);
-  // Watch for re-cloning / breakpoint changes
-  const mo = new MutationObserver(muts => {
-    for (const m of muts) {
-      if (m.type === 'childList' || (m.type === 'attributes' && m.attributeName === 'aria-hidden')) {
-        run(m.target instanceof Element ? m.target : document);
-      }
-    }
-  });
-  mo.observe(document.documentElement, {
-    subtree: true,
-    childList: true,
-    attributes: true,
-    attributeFilter: ['aria-hidden']
-  });
-})();
-</script>
-  <script>
-(function () {
-  const LIST = '[fs-marquee-element="list"]';
-  function snapTransform(list) {
-    const t = getComputedStyle(list).transform;
-    if (!t || t === 'none') return;
-    // parse matrix(a,b,c,d,tx,ty) OR translateX(px)
-    let tx = 0;
-    if (t.startsWith('matrix')) {
-      const parts = t.match(/matrix\([^,]+,[^,]+,[^,]+,[^,]+,([-\d.]+),([-\d.]+)\)/);
-      if (!parts) return;
-      tx = parseFloat(parts[1] || '0');
-    } else {
-      const m = t.match(/translateX\(([-\d.]+)px\)/);
-      if (!m) return;
-      tx = parseFloat(m[1] || '0');
-    }
-    const snapped = Math.round(tx);
-    if (snapped !== tx) {
-      // prevent feedback loops
-      if (list.__snapped === snapped) return;
-      list.style.transform = `translate3d(${snapped}px,0,0)`;
-      list.__snapped = snapped;
-    }
-  }
-  function attach(instance) {
-    const list = instance.querySelector(LIST);
-    if (!list) return;
-    // initial snap
-    requestAnimationFrame(() => snapTransform(list));
-    // watch for Finsweet animation updates (style changes)
-    const mo = new MutationObserver(muts => {
-      for (const m of muts) if (m.attributeName === 'style') snapTransform(list);
-    });
-    mo.observe(list, { attributes: true, attributeFilter: ['style'] });
-  }
-  // attach to all marquees
-  document.querySelectorAll('[fs-marquee-instance]').forEach(attach);
-  addEventListener('load', () => document.querySelectorAll('[fs-marquee-instance]').forEach(attach));
-})();
 </script>
 </body>
 </html>
