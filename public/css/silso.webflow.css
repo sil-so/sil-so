@@ -48,8 +48,8 @@
   --_typography---h2--font: var(--_typography---fonts--primary-font);
   --_typography---h2--font-size: clamp(var(--_typography---h2--font-size-min-rem) * 1rem, ((var(--_typography---h2--font-size-min-rem)  - ((var(--_typography---h2--font-size-max-rem)  - var(--_typography---h2--font-size-min-rem)) / (var(--_layout---fluid--max)  - var(--_layout---fluid--min)) * var(--_layout---fluid--min))) * 1rem + ((var(--_typography---h2--font-size-max-rem)  - var(--_typography---h2--font-size-min-rem)) / (var(--_layout---fluid--max)  - var(--_layout---fluid--min))) * 100vw), var(--_typography---h2--font-size-max-rem) * 1rem);
   --_typography---h2--line-height: 1.1;
-  --_typography---h2--font-weight: 650;
-  --_typography---h2--letter-spacing: -.02em;
+  --_typography---h2--font-weight: 680;
+  --_typography---h2--letter-spacing: 0em;
   --_typography---h3--bottom-margin: .3em;
   --_typography---h3--font: var(--_typography---fonts--primary-font);
   --_typography---h3--font-size: clamp(var(--_typography---h3--font-size-min-rem) * 1rem, ((var(--_typography---h3--font-size-min-rem)  - ((var(--_typography---h3--font-size-max-rem)  - var(--_typography---h3--font-size-min-rem)) / (var(--_layout---fluid--max)  - var(--_layout---fluid--min)) * var(--_layout---fluid--min))) * 1rem + ((var(--_typography---h3--font-size-max-rem)  - var(--_typography---h3--font-size-min-rem)) / (var(--_layout---fluid--max)  - var(--_layout---fluid--min))) * 100vw), var(--_typography---h3--font-size-max-rem) * 1rem);
@@ -580,7 +580,7 @@ figcaption {
 .section.cc-footer:where(.w-variant-03470b75-1c46-84c5-1d69-d2bb1e4cbe42) {
   --colors--background-secondary: var(--_color---swatch--black);
   --colors--text: var(--_color---swatch--white-200);
-  --button-primary--font-weight: 590;
+  --button-primary--font-weight: 650;
   --colors--primary-accent: var(--_color---swatch--primary-accent);
   --colors--text-secondary: var(--_color---swatch--white-200);
   --button-primary--border: var(--button-primary--background);
@@ -589,7 +589,7 @@ figcaption {
   --button-secondary--border: var(--button-secondary--text);
   --button-secondary--background: transparent;
   --button-secondary--text: var(--_color---swatch--white-100);
-  --button-secondary--font-weight-secondary: 550;
+  --button-secondary--font-weight-secondary: 690;
   --button-tertiary--border: var(--button-tertiary--background);
   --button-tertiary--background: var(--_color---swatch--white-200);
   --button-tertiary--text: var(--_color---swatch--primary-accent);
@@ -652,7 +652,7 @@ figcaption {
 .section.cc-themed:where(.w-variant-ffdae436-6d76-12b6-39d6-0e4201c47aad) {
   --colors--background-secondary: var(--_color---swatch--black);
   --colors--text: var(--_color---swatch--white-200);
-  --button-primary--font-weight: 590;
+  --button-primary--font-weight: 650;
   --colors--primary-accent: var(--_color---swatch--primary-accent);
   --colors--text-secondary: var(--_color---swatch--white-200);
   --button-primary--border: var(--button-primary--background);
@@ -661,7 +661,7 @@ figcaption {
   --button-secondary--border: var(--button-secondary--text);
   --button-secondary--background: transparent;
   --button-secondary--text: var(--_color---swatch--white-100);
-  --button-secondary--font-weight-secondary: 550;
+  --button-secondary--font-weight-secondary: 690;
   --button-tertiary--border: var(--button-tertiary--background);
   --button-tertiary--background: var(--_color---swatch--white-200);
   --button-tertiary--text: var(--_color---swatch--primary-accent);
@@ -2211,7 +2211,7 @@ figcaption {
 .nav:where(.w-variant-b23b0bfb-3285-ab6f-754f-ce412db82d06) {
   --colors--background-secondary: var(--_color---swatch--black);
   --colors--text: var(--_color---swatch--white-200);
-  --button-primary--font-weight: 590;
+  --button-primary--font-weight: 650;
   --colors--primary-accent: var(--_color---swatch--primary-accent);
   --colors--text-secondary: var(--_color---swatch--white-200);
   --button-primary--border: var(--button-primary--background);
@@ -2220,7 +2220,7 @@ figcaption {
   --button-secondary--border: var(--button-secondary--text);
   --button-secondary--background: transparent;
   --button-secondary--text: var(--_color---swatch--white-100);
-  --button-secondary--font-weight-secondary: 550;
+  --button-secondary--font-weight-secondary: 690;
   --button-tertiary--border: var(--button-tertiary--background);
   --button-tertiary--background: var(--_color---swatch--white-200);
   --button-tertiary--text: var(--_color---swatch--primary-accent);
@@ -2605,7 +2605,7 @@ figcaption {
   color: var(--colors--text);
   --colors--background-secondary: var(--_color---swatch--black);
   --colors--text: var(--_color---swatch--white-200);
-  --button-primary--font-weight: 590;
+  --button-primary--font-weight: 650;
   --colors--primary-accent: var(--_color---swatch--primary-accent);
   --colors--text-secondary: var(--_color---swatch--white-200);
   --button-primary--border: var(--button-primary--background);
@@ -2614,7 +2614,7 @@ figcaption {
   --button-secondary--border: var(--button-secondary--text);
   --button-secondary--background: transparent;
   --button-secondary--text: var(--_color---swatch--white-100);
-  --button-secondary--font-weight-secondary: 550;
+  --button-secondary--font-weight-secondary: 690;
   --button-tertiary--border: var(--button-tertiary--background);
   --button-tertiary--background: var(--_color---swatch--white-200);
   --button-tertiary--text: var(--_color---swatch--primary-accent);
@@ -4261,7 +4261,7 @@ figcaption {
   color: var(--colors--text);
   --colors--background-secondary: var(--_color---swatch--black);
   --colors--text: var(--_color---swatch--white-200);
-  --button-primary--font-weight: 590;
+  --button-primary--font-weight: 650;
   --colors--primary-accent: var(--_color---swatch--primary-accent);
   --colors--text-secondary: var(--_color---swatch--white-200);
   --button-primary--border: var(--button-primary--background);
@@ -4270,7 +4270,7 @@ figcaption {
   --button-secondary--border: var(--button-secondary--text);
   --button-secondary--background: transparent;
   --button-secondary--text: var(--_color---swatch--white-100);
-  --button-secondary--font-weight-secondary: 550;
+  --button-secondary--font-weight-secondary: 690;
   --button-tertiary--border: var(--button-tertiary--background);
   --button-tertiary--background: var(--_color---swatch--white-200);
   --button-tertiary--text: var(--_color---swatch--primary-accent);
@@ -4294,7 +4294,7 @@ figcaption {
 .u-mode-invert3 {
   --colors--background-secondary: var(--_color---swatch--black);
   --colors--text: var(--_color---swatch--white-200);
-  --button-primary--font-weight: 590;
+  --button-primary--font-weight: 650;
   --colors--primary-accent: var(--_color---swatch--primary-accent);
   --colors--text-secondary: var(--_color---swatch--white-200);
   --button-primary--border: var(--button-primary--background);
@@ -4303,7 +4303,7 @@ figcaption {
   --button-secondary--border: var(--button-secondary--text);
   --button-secondary--background: transparent;
   --button-secondary--text: var(--_color---swatch--white-100);
-  --button-secondary--font-weight-secondary: 550;
+  --button-secondary--font-weight-secondary: 690;
   --button-tertiary--border: var(--button-tertiary--background);
   --button-tertiary--background: var(--_color---swatch--white-200);
   --button-tertiary--text: var(--_color---swatch--primary-accent);
@@ -4471,11 +4471,11 @@ figcaption {
 }
 
 .fs-instagramfeed-1_list {
-  grid-column-gap: var(--_layout---grid--gap-sm);
-  grid-row-gap: var(--_layout---grid--gap-sm);
+  grid-column-gap: var(--_layout---grid--gap-md);
+  grid-row-gap: var(--_layout---grid--gap-md);
   flex-flow: row;
   grid-template-rows: auto;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-auto-columns: 1fr;
   justify-content: flex-start;
   place-items: start stretch;
@@ -4674,12 +4674,16 @@ figcaption {
 
 .fs-marquee-8_heading {
   font-family: var(--_typography---fonts--primary-font);
-  color: var(--_color---swatch--white-200);
+  color: var(--_color---swatch--grey);
   font-size: var(--_typography---h2--font-size);
   line-height: var(--_typography---h2--line-height);
   font-weight: var(--_typography---h2--font-weight);
   writing-mode: vertical-rl;
   flex: none;
+}
+
+.u-h-1 {
+  height: 1px;
 }
 
 @media screen and (max-width: 991px) {
@@ -4997,7 +5001,6 @@ figcaption {
   }
 
   .fs-instagramfeed-1_list {
-    grid-template-columns: 1fr 1fr 1fr;
     grid-auto-columns: 1fr;
   }
 }
@@ -5309,6 +5312,8 @@ figcaption {
   }
 
   .fs-instagramfeed-1_list {
+    grid-column-gap: var(--_layout---grid--gap-xs);
+    grid-row-gap: var(--_layout---grid--gap-xs);
     grid-template-columns: 1fr 1fr;
   }
 
