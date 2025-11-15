@@ -1,4 +1,4 @@
-<!DOCTYPE html><!--  This site was created in Webflow. https://webflow.com  --><!--  Last Published: Sat Nov 15 2025 01:23:44 GMT+0000 (Coordinated Universal Time)  -->
+<!DOCTYPE html><!--  This site was created in Webflow. https://webflow.com  --><!--  Last Published: Sat Nov 15 2025 02:30:25 GMT+0000 (Coordinated Universal Time)  -->
 <html data-wf-page="68f14b24eeb3be0d67216943" data-wf-site="68f14b22eeb3be0d67216878" lang="en">
 <head>
   <meta charset="utf-8">
@@ -34,7 +34,7 @@ if (
   });
 }
 </script>
-  <script src="https://cdn.prod.website-files.com/68f14b22eeb3be0d67216878%2F6544eda5f000985a163a8687%2F6917c9d19543c5f2e9b07645%2Ffinsweetcomponentsconfig-1.0.29.js" type="module" async="" siteid="68f14b22eeb3be0d67216878" finsweet="components"></script>
+  <script src="https://cdn.prod.website-files.com/68f14b22eeb3be0d67216878%2F6544eda5f000985a163a8687%2F6917da110aeccb340da3ab5b%2Ffinsweetcomponentsconfig-1.0.32.js" type="module" async="" siteid="68f14b22eeb3be0d67216878" finsweet="components"></script>
 </head>
 <body>
   <div class="page-wrapper cc-utility">
@@ -211,6 +211,28 @@ if (
   }
   .u-bg-transparent {
   	background-color: transparent;
+  }
+  .scroll-container {
+    overflow: auto;
+    scrollbar-gutter: stable;
+    /* Firefox */
+    scrollbar-width: thin;
+    scrollbar-color: color-mix(in srgb, var(--button-primary--background) 30%, transparent) transparent;
+  }
+  /* WebKit/Blink (Chrome, Edge, Safari, ...) */
+  .scroll-container::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  .scroll-container::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .scroll-container::-webkit-scrollbar-thumb {
+		background: color-mix(in srgb, var(--button-primary--background) 30%, transparent);
+    border-radius: 999px;
+  }
+  .scroll-container::-webkit-scrollbar-thumb:hover {
+    background: var(--_color---swatch--grey);
   }
 </style>
       </div>
