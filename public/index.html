@@ -1,4 +1,4 @@
-<!DOCTYPE html><!--  This site was created in Webflow. https://webflow.com  --><!--  Last Published: Sun Nov 30 2025 05:47:12 GMT+0000 (Coordinated Universal Time)  -->
+<!DOCTYPE html><!--  This site was created in Webflow. https://webflow.com  --><!--  Last Published: Sun Nov 30 2025 08:33:30 GMT+0000 (Coordinated Universal Time)  -->
 <html data-wf-page="691924e41a8dc9bab2bb569b" data-wf-site="691924e21a8dc9bab2bb563e" lang="en">
 <head>
   <meta charset="utf-8">
@@ -20,6 +20,16 @@
   <link href="images/favicon.ico" rel="shortcut icon" type="image/x-icon">
   <link href="images/webclip.png" rel="apple-touch-icon">
   <link href="https://sil.so" rel="canonical">
+  <script>
+(function() {
+  if (window.location.hostname.endsWith('webflow.io')) {
+    var urlParams = new URLSearchParams(window.location.search);
+    if (!urlParams.has('stay')) {
+      window.location.replace('https://sil.so');
+    }
+  }
+})();
+</script>
   <script>
 !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.async=!0,p.src=(s.api_host||"https://eu.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;void 0!==a?u=e[a]=[]:a="posthog";u.people=u.people||[];u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e};u.people.toString=function(){return u.toString(1)+".people (stub)"};o="capture identify alias people.set people.set_once set_config register unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset onFeatureFlags getFeatureFlag getFeatureFlagPayload isFeatureEnabled groupUpdate groupUpdateOnce loadToolbar".split(" ");for(n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
 if (
@@ -1652,12 +1662,17 @@ html.wf-design-mode .masonry-container {
     margin: 0 !important;
     isolation: isolate;
     aspect-ratio: 1 / 1;
-    padding: var(--_components---card--padding);
     box-sizing: border-box;
+}
+[data-stack-grid="true"] {
+	padding: calc(var(--_components---card--padding-small) * 2);
+}
+.cols-3 [data-stack-grid="true"] {
+	padding: calc(var(--_components---card--padding-small) * 2.5);
 }
 @media screen and (max-width: 768px) {
     [data-stack-grid="true"] {
-        padding: calc(var(--_components---card--padding-small) * 5.5);
+        padding: calc(var(--_components---card--padding-small) * 4.5);
     }
     .cols-2 [data-stack-grid="true"] {
         padding: calc(var(--_components---card--padding-small) * 2.5);
@@ -2055,6 +2070,12 @@ html.wf-design-mode .masonry-container {
           <div class="modal-scroll">
             <div class="modal-content">
               <div class="slot cc-modal">
+                <div class="ipad-mockup u-mb-sm">
+                  <div data-wf--inline-video--playback-control-position="bottom-right" id="" class="inline-video_component ipad-landscape-screen" style="aspect-ratio: 1366 / 1024;" data-video="component"><img alt="FlowTube website, Silvan Soeters, silso" loading="eager" src="images/flowtube-webflow-to-github-chrome-extension-webdesign-silvan-soeters.webp" sizes="(max-width: 479px) 92vw, (max-width: 767px) 95vw, (max-width: 991px) 96vw, (max-width: 1443px) 97vw, 1400px" srcset="images/flowtube-webflow-to-github-chrome-extension-webdesign-silvan-soeters-p-500.webp 500w, images/flowtube-webflow-to-github-chrome-extension-webdesign-silvan-soeters-p-800.webp 800w, images/flowtube-webflow-to-github-chrome-extension-webdesign-silvan-soeters-p-1080.webp 1080w, images/flowtube-webflow-to-github-chrome-extension-webdesign-silvan-soeters-p-1600.webp 1600w, images/flowtube-webflow-to-github-chrome-extension-webdesign-silvan-soeters-p-2000.webp 2000w, images/flowtube-webflow-to-github-chrome-extension-webdesign-silvan-soeters.webp 2186w" class="inline-video_poster"><video muted="" loop="" playsinline="true" preload="none" class="inline-video_video" data-video-desktop-only="false" data-video-scroll-in-play="true" data-video-hover="false" data-video="video">
+                      <source data-src="https://cdn.sil.so/flowtube-website-silvan-soeters.mp4" type="video/mp4">
+                    </video></div><img src="images/ipad-pro.svg" loading="lazy" alt="" class="ipad-shape">
+                </div>
+                <div data-wf--spacer--settings-size="small" class="spacer-component w-variant-e4fc4cad-f8e2-63d7-bb51-6c5b9af34c38" id="" style=""></div>
                 <div data-wf--image--settings-aspect-ratio="custom-aspect-ratio" class="img-component w-variant-0375267a-29ec-433a-03b2-8f111c99a60b" id="" style="aspect-ratio: 81 / 26; width: auto; height: 1.25rem; border-radius: 0;"><img src="images/flowtube-logo-silso.svg" loading="eager" width="Auto" data-wf--image-fit--image-fit="cover---center" alt="FlowTube logo" fetchpriority="" class="u-img-cover">
                   <div id="" style="background-color: color-mix(in hsl, var(--_color---neutral--dark) 60%, transparent 40%)" class="img-component_bg-overlay"></div>
                 </div>
@@ -2097,6 +2118,12 @@ html.wf-design-mode .masonry-container {
           <div class="modal-scroll">
             <div class="modal-content">
               <div class="slot cc-modal">
+                <div class="ipad-mockup u-mb-sm">
+                  <div data-wf--inline-video--playback-control-position="bottom-right" id="" class="inline-video_component ipad-landscape-screen" style="aspect-ratio: 1366 / 1024;" data-video="component"><img alt="Warp Domains website, Silvan Soeters, silso" loading="eager" src="images/warp-domains-webdesign-silvan-soeters.webp" sizes="(max-width: 479px) 92vw, (max-width: 767px) 95vw, (max-width: 991px) 96vw, (max-width: 1443px) 97vw, 1400px" srcset="images/warp-domains-webdesign-silvan-soeters-p-500.webp 500w, images/warp-domains-webdesign-silvan-soeters-p-800.webp 800w, images/warp-domains-webdesign-silvan-soeters-p-1080.webp 1080w, images/warp-domains-webdesign-silvan-soeters-p-1600.webp 1600w, images/warp-domains-webdesign-silvan-soeters-p-2000.webp 2000w, images/warp-domains-webdesign-silvan-soeters.webp 2186w" class="inline-video_poster"><video muted="" loop="" playsinline="true" preload="none" class="inline-video_video" data-video-desktop-only="false" data-video-scroll-in-play="true" data-video-hover="false" data-video="video">
+                      <source data-src="https://cdn.sil.so/warp-domains-website-silvan-soeters.mp4" type="video/mp4">
+                    </video></div><img src="images/ipad-pro.svg" loading="lazy" alt="" class="ipad-shape">
+                </div>
+                <div data-wf--spacer--settings-size="small" class="spacer-component w-variant-e4fc4cad-f8e2-63d7-bb51-6c5b9af34c38" id="" style=""></div>
                 <div data-wf--image--settings-aspect-ratio="custom-aspect-ratio" class="img-component w-variant-0375267a-29ec-433a-03b2-8f111c99a60b" id="" style="aspect-ratio: 48 / 34; width: auto; height: 2rem; border-radius: 0;"><img src="images/warp-domains-logo-silso.svg" loading="eager" width="Auto" data-wf--image-fit--image-fit="cover---center" alt="Warp Domains logo" fetchpriority="" class="u-img-cover">
                   <div id="" style="background-color: color-mix(in hsl, var(--_color---neutral--dark) 60%, transparent 40%)" class="img-component_bg-overlay"></div>
                 </div>
@@ -2141,6 +2168,12 @@ html.wf-design-mode .masonry-container {
           <div class="modal-scroll">
             <div class="modal-content">
               <div class="slot cc-modal">
+                <div class="ipad-mockup u-mb-sm">
+                  <div data-wf--inline-video--playback-control-position="bottom-right" id="" class="inline-video_component ipad-landscape-screen" style="aspect-ratio: 1366 / 1024;" data-video="component"><img alt="Curatyy AI art website, Silvan Soeters, silso" loading="eager" src="images/curatyy-ai-art-webdesign-silvan-soeters.webp" sizes="(max-width: 479px) 92vw, (max-width: 767px) 95vw, (max-width: 991px) 96vw, (max-width: 1443px) 97vw, 1400px" srcset="images/curatyy-ai-art-webdesign-silvan-soeters-p-500.webp 500w, images/curatyy-ai-art-webdesign-silvan-soeters-p-800.webp 800w, images/curatyy-ai-art-webdesign-silvan-soeters-p-1080.webp 1080w, images/curatyy-ai-art-webdesign-silvan-soeters-p-1600.webp 1600w, images/curatyy-ai-art-webdesign-silvan-soeters-p-2000.webp 2000w, images/curatyy-ai-art-webdesign-silvan-soeters.webp 2186w" class="inline-video_poster"><video muted="" loop="" playsinline="true" preload="none" class="inline-video_video" data-video-desktop-only="false" data-video-scroll-in-play="true" data-video-hover="false" data-video="video">
+                      <source data-src="https://cdn.sil.so/curatyy-art-website-silvan-soeters.mp4" type="video/mp4">
+                    </video></div><img src="images/ipad-pro.svg" loading="lazy" alt="" class="ipad-shape">
+                </div>
+                <div data-wf--spacer--settings-size="small" class="spacer-component w-variant-e4fc4cad-f8e2-63d7-bb51-6c5b9af34c38" id="" style=""></div>
                 <div data-wf--image--settings-aspect-ratio="custom-aspect-ratio" class="img-component w-variant-0375267a-29ec-433a-03b2-8f111c99a60b" id="" style="aspect-ratio: 31 / 27; width: auto; height: 2rem; border-radius: 0;"><img src="images/curatyy-ai-logo-silso.svg" loading="eager" width="Auto" data-wf--image-fit--image-fit="cover---center" alt="Curatyy AI logo" fetchpriority="" class="u-img-cover">
                   <div id="" style="background-color: color-mix(in hsl, var(--_color---neutral--dark) 60%, transparent 40%)" class="img-component_bg-overlay"></div>
                 </div>
@@ -2183,6 +2216,12 @@ html.wf-design-mode .masonry-container {
           <div class="modal-scroll">
             <div class="modal-content">
               <div class="slot cc-modal">
+                <div class="ipad-mockup u-mb-sm">
+                  <div data-wf--inline-video--playback-control-position="bottom-right" id="" class="inline-video_component ipad-landscape-screen" style="aspect-ratio: 1366 / 1024;" data-video="component"><img alt="Van Drunen Woondecoratie website, Silvan Soeters, silso" loading="eager" src="images/van-drunen-woondecoratie-webdesign-silvan-soeters.webp" sizes="(max-width: 479px) 92vw, (max-width: 767px) 95vw, (max-width: 991px) 96vw, (max-width: 1443px) 97vw, 1400px" srcset="images/van-drunen-woondecoratie-webdesign-silvan-soeters-p-500.webp 500w, images/van-drunen-woondecoratie-webdesign-silvan-soeters-p-800.webp 800w, images/van-drunen-woondecoratie-webdesign-silvan-soeters-p-1080.webp 1080w, images/van-drunen-woondecoratie-webdesign-silvan-soeters-p-1600.webp 1600w, images/van-drunen-woondecoratie-webdesign-silvan-soeters-p-2000.webp 2000w, images/van-drunen-woondecoratie-webdesign-silvan-soeters.webp 2186w" class="inline-video_poster"><video muted="" loop="" playsinline="true" preload="none" class="inline-video_video" data-video-desktop-only="false" data-video-scroll-in-play="true" data-video-hover="false" data-video="video">
+                      <source data-src="https://cdn.sil.so/van-drunen-woondecoratie-website-silvan-soeters.mp4" type="video/mp4">
+                    </video></div><img src="images/ipad-pro.svg" loading="lazy" alt="" class="ipad-shape">
+                </div>
+                <div data-wf--spacer--settings-size="small" class="spacer-component w-variant-e4fc4cad-f8e2-63d7-bb51-6c5b9af34c38" id="" style=""></div>
                 <div data-wf--image--settings-aspect-ratio="custom-aspect-ratio" class="img-component w-variant-0375267a-29ec-433a-03b2-8f111c99a60b" id="" style="aspect-ratio: 140 / 150; width: auto; height: 2.5rem; border-radius: 0;"><img src="images/vdw-logo.svg" loading="eager" width="Auto" data-wf--image-fit--image-fit="cover---center" alt="Van Drunen Woondecoratie logo" fetchpriority="" class="u-img-cover">
                   <div id="" style="background-color: color-mix(in hsl, var(--_color---neutral--dark) 60%, transparent 40%)" class="img-component_bg-overlay"></div>
                 </div>
@@ -2224,6 +2263,12 @@ html.wf-design-mode .masonry-container {
           <div class="modal-scroll">
             <div class="modal-content">
               <div class="slot cc-modal">
+                <div class="ipad-mockup u-mb-sm">
+                  <div data-wf--inline-video--playback-control-position="bottom-right" id="" class="inline-video_component ipad-landscape-screen" style="aspect-ratio: 1366 / 1024;" data-video="component"><img alt="Stottercentrum Rotterdam website, Silvan Soeters, silso" loading="eager" src="images/stottercentrum-rotterdam-webdesign-silvan-soeters.webp" sizes="(max-width: 479px) 92vw, (max-width: 767px) 95vw, (max-width: 991px) 96vw, (max-width: 1443px) 97vw, 1400px" srcset="images/stottercentrum-rotterdam-webdesign-silvan-soeters-p-500.webp 500w, images/stottercentrum-rotterdam-webdesign-silvan-soeters-p-800.webp 800w, images/stottercentrum-rotterdam-webdesign-silvan-soeters-p-1080.webp 1080w, images/stottercentrum-rotterdam-webdesign-silvan-soeters-p-1600.webp 1600w, images/stottercentrum-rotterdam-webdesign-silvan-soeters-p-2000.webp 2000w, images/stottercentrum-rotterdam-webdesign-silvan-soeters.webp 2186w" class="inline-video_poster"><video muted="" loop="" playsinline="true" preload="none" class="inline-video_video" data-video-desktop-only="false" data-video-scroll-in-play="true" data-video-hover="false" data-video="video">
+                      <source data-src="https://cdn.sil.so/stottercentrum-rotterdam-website-silvan-soeters.mp4" type="video/mp4">
+                    </video></div><img src="images/ipad-pro.svg" loading="lazy" alt="" class="ipad-shape">
+                </div>
+                <div data-wf--spacer--settings-size="small" class="spacer-component w-variant-e4fc4cad-f8e2-63d7-bb51-6c5b9af34c38" id="" style=""></div>
                 <div data-wf--image--settings-aspect-ratio="custom-aspect-ratio" class="img-component w-variant-0375267a-29ec-433a-03b2-8f111c99a60b" id="" style="aspect-ratio: 300 / 80; width: auto; height: 1.25rem; border-radius: 0;"><img src="images/stottercentrum-rotterdam-logo-silso.svg" loading="eager" width="Auto" data-wf--image-fit--image-fit="cover---center" alt="Stottercentrum Rotterdam logo" fetchpriority="" class="u-img-cover">
                   <div id="" style="background-color: color-mix(in hsl, var(--_color---neutral--dark) 60%, transparent 40%)" class="img-component_bg-overlay"></div>
                 </div>
@@ -2973,8 +3018,8 @@ html.wf-design-mode .masonry-container {
                 </button>
               </div>
             </div>
-            <div class="masonry-item">
-              <div data-wf--card--settings-variant="none" class="card u-h-100 u-bg-solid" id="" style="">
+            <div data-wf--masonry-cta--variant="hoverable" class="masonry-item">
+              <div class="card w-variant-92b32e98-ada3-3db7-94e3-73a405863338 u-h-100 u-bg-solid" id="" style="">
                 <div class="slot cc-card">
                   <div data-wf--card-body--variant="base" class="card-body">
                     <div class="slot cc-card-body">

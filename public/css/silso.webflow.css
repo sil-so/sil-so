@@ -115,6 +115,7 @@
   --_components---card--border-radius: 1.5rem;
   --colors--background-2\<deleted\|variable-c0d67656-a3fd-08cc-8b6c-e547c202831d\>: var(--lightningcss-light, var(--_color---neutral--dark\<deleted\|variable-53d573b6\>)) var(--lightningcss-dark, var(--_color---neutral--light\<deleted\|variable-f16457a0\>));
   --background--muted: var(--lightningcss-light, var(--_color---light--light-2)) var(--lightningcss-dark, var(--_color---dark--dark-2));
+  --background--solid-secondary: var(--lightningcss-light, var(--_color---light--light-10)) var(--lightningcss-dark, var(--_color---dark--dark-10));
   --_components---card--padding: clamp(var(--_components---card--padding-min-rem) * 1rem, ((var(--_components---card--padding-min-rem)  - ((var(--_components---card--padding-max-rem)  - var(--_components---card--padding-min-rem)) / (var(--_layout---fluid--max)  - var(--_layout---fluid--min)) * var(--_layout---fluid--min))) * 1rem + ((var(--_components---card--padding-max-rem)  - var(--_components---card--padding-min-rem)) / (var(--_layout---fluid--max)  - var(--_layout---fluid--min))) * 100vw), var(--_components---card--padding-max-rem) * 1rem);
   --_components---card--padding-small: clamp(var(--_components---card--padding-small-min-rem) * 1rem, ((var(--_components---card--padding-small-min-rem)  - ((var(--_components---card--padding-small-max-rem)  - var(--_components---card--padding-small-min-rem)) / (var(--_layout---fluid--max)  - var(--_layout---fluid--min)) * var(--_layout---fluid--min))) * 1rem + ((var(--_components---card--padding-small-max-rem)  - var(--_components---card--padding-small-min-rem)) / (var(--_layout---fluid--max)  - var(--_layout---fluid--min))) * 100vw), var(--_components---card--padding-small-max-rem) * 1rem);
   --_components---input--bottom-margin: 1rem;
@@ -195,7 +196,7 @@
   --_typography---paragraph-xs--font-weight: 400;
   --_typography---paragraph-xs--letter-spacing: 0em;
   --background--card: var(--lightningcss-light, var(--_color---light--light-3)) var(--lightningcss-dark, var(--_color---dark--dark-3));
-  --background--solid: var(--lightningcss-light, var(--_color---light--light-9)) var(--lightningcss-dark, var(--_color---dark--dark-9));
+  --background--solid-primary: var(--lightningcss-light, var(--_color---light--light-9)) var(--lightningcss-dark, var(--_color---dark--dark-9));
   --_components---image--border-radius-small: .625rem;
   --_layout---fluid--max: 90;
   --_typography---fonts--secondary-font: "Inter Variablefont Opsz Wght", Arial, sans-serif;
@@ -554,6 +555,7 @@ figcaption {
   --border--default: var(--lightningcss-light, var(--_color---light--light-6)) var(--lightningcss-dark, var(--_color---dark--dark-6));
   --colors--background-2\<deleted\|variable-c0d67656-a3fd-08cc-8b6c-e547c202831d\>: var(--lightningcss-light, var(--_color---neutral--dark\<deleted\|variable-53d573b6\>)) var(--lightningcss-dark, var(--_color---neutral--light\<deleted\|variable-f16457a0\>));
   --background--muted: var(--lightningcss-light, var(--_color---light--light-2)) var(--lightningcss-dark, var(--_color---dark--dark-2));
+  --background--solid-secondary: var(--lightningcss-light, var(--_color---light--light-10)) var(--lightningcss-dark, var(--_color---dark--dark-10));
   --border--input: var(--lightningcss-light, var(--_color---light--light-7)) var(--lightningcss-dark, var(--_color---dark--dark-7));
   --foreground--muted: var(--lightningcss-light, var(--_color---light--light-11)) var(--lightningcss-dark, var(--_color---dark--dark-11));
   --colors--primary-accent-dark\<deleted\|variable-a961bcf0-49c2-f8dd-291d-886c4a2afb3c\>: var(--_color---neutral--mid-dark\<deleted\|variable-35755b90-8ee6-83e7-b09b-fd6e59aab6f1\>);
@@ -563,7 +565,7 @@ figcaption {
   --success--foreground: var(--lightningcss-light, var(--_color---light--green-11)) var(--lightningcss-dark, var(--_color---dark--green-11));
   --success--background: var(--lightningcss-light, var(--_color---light--green-2)) var(--lightningcss-dark, var(--_color---dark--green-2));
   --background--card: var(--lightningcss-light, var(--_color---light--light-3)) var(--lightningcss-dark, var(--_color---dark--dark-3));
-  --background--solid: var(--lightningcss-light, var(--_color---light--light-9)) var(--lightningcss-dark, var(--_color---dark--dark-9));
+  --background--solid-primary: var(--lightningcss-light, var(--_color---light--light-9)) var(--lightningcss-dark, var(--_color---dark--dark-9));
   --utility--scrollbar: var(--lightningcss-light, var(--_color---light--light-6)) var(--lightningcss-dark, var(--_color---dark--dark-6));
   --text-selection--background: var(--lightningcss-light, var(--_color---light--light-12)) var(--lightningcss-dark, var(--_color---dark--dark-12));
   --text-selection--foreground: var(--lightningcss-light, var(--_color---light--light-1)) var(--lightningcss-dark, var(--_color---dark--dark-1));
@@ -608,6 +610,7 @@ figcaption {
   --border--default: var(--_color---neutral--lighter\<deleted\|variable-0065a3d9\>);
   --colors--background-2\<deleted\|variable-c0d67656-a3fd-08cc-8b6c-e547c202831d\>: var(--_color---neutral--lighter\<deleted\|variable-0065a3d9\>);
   --background--muted: var(--_color---neutral--dark\<deleted\|variable-53d573b6\>);
+  --background--solid-secondary: var(--lightningcss-light, var(--_color---light--light-10)) var(--lightningcss-dark, var(--_color---dark--dark-10));
   --border--input: var(--_color---neutral--lighter\<deleted\|variable-0065a3d9\>);
   --foreground--muted: var(--_color---neutral--lighter\<deleted\|variable-0065a3d9\>);
   --colors--primary-accent-dark\<deleted\|variable-a961bcf0-49c2-f8dd-291d-886c4a2afb3c\>: var(--_color---neutral--light\<deleted\|variable-f16457a0\>);
@@ -617,7 +620,7 @@ figcaption {
   --success--foreground: var(--lightningcss-light, var(--_color---light--green-11)) var(--lightningcss-dark, var(--_color---dark--green-11));
   --success--background: var(--lightningcss-light, var(--_color---light--green-2)) var(--lightningcss-dark, var(--_color---dark--green-2));
   --background--card: var(--lightningcss-light, var(--_color---light--light-3)) var(--lightningcss-dark, var(--_color---dark--dark-3));
-  --background--solid: var(--lightningcss-light, var(--_color---light--light-9)) var(--lightningcss-dark, var(--_color---dark--dark-9));
+  --background--solid-primary: var(--lightningcss-light, var(--_color---light--light-9)) var(--lightningcss-dark, var(--_color---dark--dark-9));
   --utility--scrollbar: var(--lightningcss-light, var(--_color---light--light-6)) var(--lightningcss-dark, var(--_color---dark--dark-6));
   --text-selection--background: var(--lightningcss-light, var(--_color---light--light-12)) var(--lightningcss-dark, var(--_color---dark--dark-12));
   --text-selection--foreground: var(--lightningcss-light, var(--_color---light--light-1)) var(--lightningcss-dark, var(--_color---dark--dark-1));
@@ -649,6 +652,7 @@ figcaption {
   --border--default: var(--lightningcss-light, var(--_color---light--light-6)) var(--lightningcss-dark, var(--_color---dark--dark-6));
   --colors--background-2\<deleted\|variable-c0d67656-a3fd-08cc-8b6c-e547c202831d\>: var(--lightningcss-light, var(--_color---neutral--dark\<deleted\|variable-53d573b6\>)) var(--lightningcss-dark, var(--_color---neutral--light\<deleted\|variable-f16457a0\>));
   --background--muted: var(--lightningcss-light, var(--_color---light--light-2)) var(--lightningcss-dark, var(--_color---dark--dark-2));
+  --background--solid-secondary: var(--lightningcss-light, var(--_color---light--light-10)) var(--lightningcss-dark, var(--_color---dark--dark-10));
   --border--input: var(--lightningcss-light, var(--_color---light--light-7)) var(--lightningcss-dark, var(--_color---dark--dark-7));
   --foreground--muted: var(--lightningcss-light, var(--_color---light--light-11)) var(--lightningcss-dark, var(--_color---dark--dark-11));
   --colors--primary-accent-dark\<deleted\|variable-a961bcf0-49c2-f8dd-291d-886c4a2afb3c\>: var(--_color---neutral--mid-dark\<deleted\|variable-35755b90-8ee6-83e7-b09b-fd6e59aab6f1\>);
@@ -658,7 +662,7 @@ figcaption {
   --success--foreground: var(--lightningcss-light, var(--_color---light--green-11)) var(--lightningcss-dark, var(--_color---dark--green-11));
   --success--background: var(--lightningcss-light, var(--_color---light--green-2)) var(--lightningcss-dark, var(--_color---dark--green-2));
   --background--card: var(--lightningcss-light, var(--_color---light--light-3)) var(--lightningcss-dark, var(--_color---dark--dark-3));
-  --background--solid: var(--lightningcss-light, var(--_color---light--light-9)) var(--lightningcss-dark, var(--_color---dark--dark-9));
+  --background--solid-primary: var(--lightningcss-light, var(--_color---light--light-9)) var(--lightningcss-dark, var(--_color---dark--dark-9));
   --utility--scrollbar: var(--lightningcss-light, var(--_color---light--light-6)) var(--lightningcss-dark, var(--_color---dark--dark-6));
   --text-selection--background: var(--lightningcss-light, var(--_color---light--light-12)) var(--lightningcss-dark, var(--_color---dark--dark-12));
   --text-selection--foreground: var(--lightningcss-light, var(--_color---light--light-1)) var(--lightningcss-dark, var(--_color---dark--dark-1));
@@ -688,6 +692,7 @@ figcaption {
   --border--default: var(--lightningcss-light, var(--_color---neutral--lighter\<deleted\|variable-0065a3d9\>)) var(--lightningcss-dark, var(--_color---neutral--dark\<deleted\|variable-53d573b6\>));
   --colors--background-2\<deleted\|variable-c0d67656-a3fd-08cc-8b6c-e547c202831d\>: var(--lightningcss-light, var(--_color---neutral--dark\<deleted\|variable-53d573b6\>)) var(--lightningcss-dark, var(--_color---neutral--light\<deleted\|variable-f16457a0\>));
   --background--muted: var(--lightningcss-light, var(--_color---neutral--mid-dark\<deleted\|variable-35755b90-8ee6-83e7-b09b-fd6e59aab6f1\>)) var(--lightningcss-dark, var(--_color---neutral--lighter\<deleted\|variable-0065a3d9\>));
+  --background--solid-secondary: var(--lightningcss-light, var(--_color---light--light-10)) var(--lightningcss-dark, var(--_color---dark--dark-10));
   --border--input: var(--lightningcss-light, var(--_color---neutral--lighter\<deleted\|variable-0065a3d9\>)) var(--lightningcss-dark, var(--_color---neutral--dark\<deleted\|variable-53d573b6\>));
   --foreground--muted: var(--lightningcss-light, var(--_color---neutral--lighter\<deleted\|variable-0065a3d9\>)) var(--lightningcss-dark, var(--_color---neutral--dark\<deleted\|variable-53d573b6\>));
   --colors--primary-accent-dark\<deleted\|variable-a961bcf0-49c2-f8dd-291d-886c4a2afb3c\>: var(--_color---neutral--mid-dark\<deleted\|variable-35755b90-8ee6-83e7-b09b-fd6e59aab6f1\>);
@@ -697,7 +702,7 @@ figcaption {
   --success--foreground: var(--lightningcss-light, var(--_color---light--green-11)) var(--lightningcss-dark, var(--_color---dark--green-11));
   --success--background: var(--lightningcss-light, var(--_color---light--green-2)) var(--lightningcss-dark, var(--_color---dark--green-2));
   --background--card: var(--lightningcss-light, var(--_color---light--light-3)) var(--lightningcss-dark, var(--_color---dark--dark-3));
-  --background--solid: var(--lightningcss-light, var(--_color---light--light-9)) var(--lightningcss-dark, var(--_color---dark--dark-9));
+  --background--solid-primary: var(--lightningcss-light, var(--_color---light--light-9)) var(--lightningcss-dark, var(--_color---dark--dark-9));
   --utility--scrollbar: var(--lightningcss-light, var(--_color---neutral--lighter\<deleted\|variable-0065a3d9\>)) var(--lightningcss-dark, var(--_color---neutral--dark\<deleted\|variable-53d573b6\>));
   --text-selection--background: var(--lightningcss-light, var(--_color---light--light-12)) var(--lightningcss-dark, var(--_color---dark--dark-12));
   --text-selection--foreground: var(--lightningcss-light, var(--_color---light--light-1)) var(--lightningcss-dark, var(--_color---dark--dark-1));
@@ -727,6 +732,7 @@ figcaption {
   --border--default: var(--_color---neutral--lighter\<deleted\|variable-0065a3d9\>);
   --colors--background-2\<deleted\|variable-c0d67656-a3fd-08cc-8b6c-e547c202831d\>: var(--lightningcss-light, var(--_color---neutral--dark\<deleted\|variable-53d573b6\>)) var(--lightningcss-dark, var(--_color---neutral--light\<deleted\|variable-f16457a0\>));
   --background--muted: var(--_color---neutral--gray\<deleted\|variable-65f33ecd\>);
+  --background--solid-secondary: var(--lightningcss-light, var(--_color---light--light-10)) var(--lightningcss-dark, var(--_color---dark--dark-10));
   --border--input: var(--_color---neutral--lighter\<deleted\|variable-0065a3d9\>);
   --foreground--muted: var(--lightningcss-light, var(--_color---neutral--dark\<deleted\|variable-53d573b6\>)) var(--lightningcss-dark, var(--_color---neutral--dark\<deleted\|variable-53d573b6\>));
   --colors--primary-accent-dark\<deleted\|variable-a961bcf0-49c2-f8dd-291d-886c4a2afb3c\>: var(--_color---neutral--mid-dark\<deleted\|variable-35755b90-8ee6-83e7-b09b-fd6e59aab6f1\>);
@@ -736,7 +742,7 @@ figcaption {
   --success--foreground: var(--lightningcss-light, var(--_color---light--green-11)) var(--lightningcss-dark, var(--_color---dark--green-11));
   --success--background: var(--lightningcss-light, var(--_color---light--green-2)) var(--lightningcss-dark, var(--_color---dark--green-2));
   --background--card: var(--lightningcss-light, var(--_color---light--light-3)) var(--lightningcss-dark, var(--_color---dark--dark-3));
-  --background--solid: var(--lightningcss-light, var(--_color---light--light-9)) var(--lightningcss-dark, var(--_color---dark--dark-9));
+  --background--solid-primary: var(--lightningcss-light, var(--_color---light--light-9)) var(--lightningcss-dark, var(--_color---dark--dark-9));
   --utility--scrollbar: var(--_color---neutral--dark\<deleted\|variable-53d573b6\>);
   --text-selection--background: var(--lightningcss-light, var(--_color---light--light-12)) var(--lightningcss-dark, var(--_color---dark--dark-12));
   --text-selection--foreground: var(--lightningcss-light, var(--_color---light--light-1)) var(--lightningcss-dark, var(--_color---dark--dark-1));
@@ -1133,6 +1139,7 @@ figcaption {
   --border--default: var(--lightningcss-light, var(--_color---light--light-6)) var(--lightningcss-dark, var(--_color---dark--dark-6));
   --colors--background-2\<deleted\|variable-c0d67656-a3fd-08cc-8b6c-e547c202831d\>: var(--lightningcss-light, var(--_color---neutral--dark\<deleted\|variable-53d573b6\>)) var(--lightningcss-dark, var(--_color---neutral--light\<deleted\|variable-f16457a0\>));
   --background--muted: var(--lightningcss-light, var(--_color---light--light-2)) var(--lightningcss-dark, var(--_color---dark--dark-2));
+  --background--solid-secondary: var(--lightningcss-light, var(--_color---light--light-10)) var(--lightningcss-dark, var(--_color---dark--dark-10));
   --border--input: var(--lightningcss-light, var(--_color---light--light-7)) var(--lightningcss-dark, var(--_color---dark--dark-7));
   --foreground--muted: var(--lightningcss-light, var(--_color---light--light-11)) var(--lightningcss-dark, var(--_color---dark--dark-11));
   --colors--primary-accent-dark\<deleted\|variable-a961bcf0-49c2-f8dd-291d-886c4a2afb3c\>: var(--_color---neutral--mid-dark\<deleted\|variable-35755b90-8ee6-83e7-b09b-fd6e59aab6f1\>);
@@ -1142,7 +1149,7 @@ figcaption {
   --success--foreground: var(--lightningcss-light, var(--_color---light--green-11)) var(--lightningcss-dark, var(--_color---dark--green-11));
   --success--background: var(--lightningcss-light, var(--_color---light--green-2)) var(--lightningcss-dark, var(--_color---dark--green-2));
   --background--card: var(--lightningcss-light, var(--_color---light--light-3)) var(--lightningcss-dark, var(--_color---dark--dark-3));
-  --background--solid: var(--lightningcss-light, var(--_color---light--light-9)) var(--lightningcss-dark, var(--_color---dark--dark-9));
+  --background--solid-primary: var(--lightningcss-light, var(--_color---light--light-9)) var(--lightningcss-dark, var(--_color---dark--dark-9));
   --utility--scrollbar: var(--lightningcss-light, var(--_color---light--light-6)) var(--lightningcss-dark, var(--_color---dark--dark-6));
   --text-selection--background: var(--lightningcss-light, var(--_color---light--light-12)) var(--lightningcss-dark, var(--_color---dark--dark-12));
   --text-selection--foreground: var(--lightningcss-light, var(--_color---light--light-1)) var(--lightningcss-dark, var(--_color---dark--dark-1));
@@ -1179,6 +1186,7 @@ figcaption {
   --border--default: var(--lightningcss-light, var(--_color---light--light-6)) var(--lightningcss-dark, var(--_color---dark--dark-6));
   --colors--background-2\<deleted\|variable-c0d67656-a3fd-08cc-8b6c-e547c202831d\>: var(--lightningcss-light, var(--_color---neutral--dark\<deleted\|variable-53d573b6\>)) var(--lightningcss-dark, var(--_color---neutral--light\<deleted\|variable-f16457a0\>));
   --background--muted: var(--lightningcss-light, var(--_color---light--light-2)) var(--lightningcss-dark, var(--_color---dark--dark-2));
+  --background--solid-secondary: var(--lightningcss-light, var(--_color---light--light-10)) var(--lightningcss-dark, var(--_color---dark--dark-10));
   --border--input: var(--lightningcss-light, var(--_color---light--light-7)) var(--lightningcss-dark, var(--_color---dark--dark-7));
   --foreground--muted: var(--lightningcss-light, var(--_color---light--light-11)) var(--lightningcss-dark, var(--_color---dark--dark-11));
   --colors--primary-accent-dark\<deleted\|variable-a961bcf0-49c2-f8dd-291d-886c4a2afb3c\>: var(--_color---neutral--mid-dark\<deleted\|variable-35755b90-8ee6-83e7-b09b-fd6e59aab6f1\>);
@@ -1188,7 +1196,7 @@ figcaption {
   --success--foreground: var(--lightningcss-light, var(--_color---light--green-11)) var(--lightningcss-dark, var(--_color---dark--green-11));
   --success--background: var(--lightningcss-light, var(--_color---light--green-2)) var(--lightningcss-dark, var(--_color---dark--green-2));
   --background--card: var(--lightningcss-light, var(--_color---light--light-3)) var(--lightningcss-dark, var(--_color---dark--dark-3));
-  --background--solid: var(--lightningcss-light, var(--_color---light--light-9)) var(--lightningcss-dark, var(--_color---dark--dark-9));
+  --background--solid-primary: var(--lightningcss-light, var(--_color---light--light-9)) var(--lightningcss-dark, var(--_color---dark--dark-9));
   --utility--scrollbar: var(--lightningcss-light, var(--_color---light--light-6)) var(--lightningcss-dark, var(--_color---dark--dark-6));
   --text-selection--background: var(--lightningcss-light, var(--_color---light--light-12)) var(--lightningcss-dark, var(--_color---dark--dark-12));
   --text-selection--foreground: var(--lightningcss-light, var(--_color---light--light-1)) var(--lightningcss-dark, var(--_color---dark--dark-1));
@@ -1251,6 +1259,7 @@ figcaption {
   --border--default: var(--lightningcss-light, var(--_color---neutral--lighter\<deleted\|variable-0065a3d9\>)) var(--lightningcss-dark, var(--_color---neutral--dark\<deleted\|variable-53d573b6\>));
   --colors--background-2\<deleted\|variable-c0d67656-a3fd-08cc-8b6c-e547c202831d\>: var(--lightningcss-light, var(--_color---neutral--dark\<deleted\|variable-53d573b6\>)) var(--lightningcss-dark, var(--_color---neutral--light\<deleted\|variable-f16457a0\>));
   --background--muted: var(--lightningcss-light, var(--_color---neutral--mid-dark\<deleted\|variable-35755b90-8ee6-83e7-b09b-fd6e59aab6f1\>)) var(--lightningcss-dark, var(--_color---neutral--lighter\<deleted\|variable-0065a3d9\>));
+  --background--solid-secondary: var(--lightningcss-light, var(--_color---light--light-10)) var(--lightningcss-dark, var(--_color---dark--dark-10));
   --border--input: var(--lightningcss-light, var(--_color---neutral--lighter\<deleted\|variable-0065a3d9\>)) var(--lightningcss-dark, var(--_color---neutral--dark\<deleted\|variable-53d573b6\>));
   --foreground--muted: var(--lightningcss-light, var(--_color---neutral--lighter\<deleted\|variable-0065a3d9\>)) var(--lightningcss-dark, var(--_color---neutral--dark\<deleted\|variable-53d573b6\>));
   --colors--primary-accent-dark\<deleted\|variable-a961bcf0-49c2-f8dd-291d-886c4a2afb3c\>: var(--_color---neutral--mid-dark\<deleted\|variable-35755b90-8ee6-83e7-b09b-fd6e59aab6f1\>);
@@ -1260,7 +1269,7 @@ figcaption {
   --success--foreground: var(--lightningcss-light, var(--_color---light--green-11)) var(--lightningcss-dark, var(--_color---dark--green-11));
   --success--background: var(--lightningcss-light, var(--_color---light--green-2)) var(--lightningcss-dark, var(--_color---dark--green-2));
   --background--card: var(--lightningcss-light, var(--_color---light--light-3)) var(--lightningcss-dark, var(--_color---dark--dark-3));
-  --background--solid: var(--lightningcss-light, var(--_color---light--light-9)) var(--lightningcss-dark, var(--_color---dark--dark-9));
+  --background--solid-primary: var(--lightningcss-light, var(--_color---light--light-9)) var(--lightningcss-dark, var(--_color---dark--dark-9));
   --utility--scrollbar: var(--lightningcss-light, var(--_color---neutral--lighter\<deleted\|variable-0065a3d9\>)) var(--lightningcss-dark, var(--_color---neutral--dark\<deleted\|variable-53d573b6\>));
   --text-selection--background: var(--lightningcss-light, var(--_color---light--light-12)) var(--lightningcss-dark, var(--_color---dark--dark-12));
   --text-selection--foreground: var(--lightningcss-light, var(--_color---light--light-1)) var(--lightningcss-dark, var(--_color---dark--dark-1));
@@ -1332,6 +1341,7 @@ figcaption {
   --border--default: var(--lightningcss-light, var(--_color---light--light-6)) var(--lightningcss-dark, var(--_color---dark--dark-6));
   --colors--background-2\<deleted\|variable-c0d67656-a3fd-08cc-8b6c-e547c202831d\>: var(--lightningcss-light, var(--_color---neutral--dark\<deleted\|variable-53d573b6\>)) var(--lightningcss-dark, var(--_color---neutral--light\<deleted\|variable-f16457a0\>));
   --background--muted: var(--lightningcss-light, var(--_color---light--light-2)) var(--lightningcss-dark, var(--_color---dark--dark-2));
+  --background--solid-secondary: var(--lightningcss-light, var(--_color---light--light-10)) var(--lightningcss-dark, var(--_color---dark--dark-10));
   --border--input: var(--lightningcss-light, var(--_color---light--light-7)) var(--lightningcss-dark, var(--_color---dark--dark-7));
   --foreground--muted: var(--lightningcss-light, var(--_color---light--light-11)) var(--lightningcss-dark, var(--_color---dark--dark-11));
   --colors--primary-accent-dark\<deleted\|variable-a961bcf0-49c2-f8dd-291d-886c4a2afb3c\>: var(--_color---neutral--mid-dark\<deleted\|variable-35755b90-8ee6-83e7-b09b-fd6e59aab6f1\>);
@@ -1341,7 +1351,7 @@ figcaption {
   --success--foreground: var(--lightningcss-light, var(--_color---light--green-11)) var(--lightningcss-dark, var(--_color---dark--green-11));
   --success--background: var(--lightningcss-light, var(--_color---light--green-2)) var(--lightningcss-dark, var(--_color---dark--green-2));
   --background--card: var(--lightningcss-light, var(--_color---light--light-3)) var(--lightningcss-dark, var(--_color---dark--dark-3));
-  --background--solid: var(--lightningcss-light, var(--_color---light--light-9)) var(--lightningcss-dark, var(--_color---dark--dark-9));
+  --background--solid-primary: var(--lightningcss-light, var(--_color---light--light-9)) var(--lightningcss-dark, var(--_color---dark--dark-9));
   --utility--scrollbar: var(--lightningcss-light, var(--_color---light--light-6)) var(--lightningcss-dark, var(--_color---dark--dark-6));
   --text-selection--background: var(--lightningcss-light, var(--_color---light--light-12)) var(--lightningcss-dark, var(--_color---dark--dark-12));
   --text-selection--foreground: var(--lightningcss-light, var(--_color---light--light-1)) var(--lightningcss-dark, var(--_color---dark--dark-1));
@@ -1377,6 +1387,7 @@ figcaption {
   --border--default: var(--lightningcss-light, var(--_color---light--light-6)) var(--lightningcss-dark, var(--_color---dark--dark-6));
   --colors--background-2\<deleted\|variable-c0d67656-a3fd-08cc-8b6c-e547c202831d\>: var(--lightningcss-light, var(--_color---neutral--dark\<deleted\|variable-53d573b6\>)) var(--lightningcss-dark, var(--_color---neutral--light\<deleted\|variable-f16457a0\>));
   --background--muted: var(--lightningcss-light, var(--_color---light--light-2)) var(--lightningcss-dark, var(--_color---dark--dark-2));
+  --background--solid-secondary: var(--lightningcss-light, var(--_color---light--light-10)) var(--lightningcss-dark, var(--_color---dark--dark-10));
   --border--input: var(--lightningcss-light, var(--_color---light--light-7)) var(--lightningcss-dark, var(--_color---dark--dark-7));
   --foreground--muted: var(--lightningcss-light, var(--_color---light--light-11)) var(--lightningcss-dark, var(--_color---dark--dark-11));
   --colors--primary-accent-dark\<deleted\|variable-a961bcf0-49c2-f8dd-291d-886c4a2afb3c\>: var(--_color---neutral--mid-dark\<deleted\|variable-35755b90-8ee6-83e7-b09b-fd6e59aab6f1\>);
@@ -1386,7 +1397,7 @@ figcaption {
   --success--foreground: var(--lightningcss-light, var(--_color---light--green-11)) var(--lightningcss-dark, var(--_color---dark--green-11));
   --success--background: var(--lightningcss-light, var(--_color---light--green-2)) var(--lightningcss-dark, var(--_color---dark--green-2));
   --background--card: var(--lightningcss-light, var(--_color---light--light-3)) var(--lightningcss-dark, var(--_color---dark--dark-3));
-  --background--solid: var(--lightningcss-light, var(--_color---light--light-9)) var(--lightningcss-dark, var(--_color---dark--dark-9));
+  --background--solid-primary: var(--lightningcss-light, var(--_color---light--light-9)) var(--lightningcss-dark, var(--_color---dark--dark-9));
   --utility--scrollbar: var(--lightningcss-light, var(--_color---light--light-6)) var(--lightningcss-dark, var(--_color---dark--dark-6));
   --text-selection--background: var(--lightningcss-light, var(--_color---light--light-12)) var(--lightningcss-dark, var(--_color---dark--dark-12));
   --text-selection--foreground: var(--lightningcss-light, var(--_color---light--light-1)) var(--lightningcss-dark, var(--_color---dark--dark-1));
@@ -1421,6 +1432,7 @@ figcaption {
   --border--default: var(--lightningcss-light, var(--_color---light--light-6)) var(--lightningcss-dark, var(--_color---dark--dark-6));
   --colors--background-2\<deleted\|variable-c0d67656-a3fd-08cc-8b6c-e547c202831d\>: var(--lightningcss-light, var(--_color---neutral--dark\<deleted\|variable-53d573b6\>)) var(--lightningcss-dark, var(--_color---neutral--light\<deleted\|variable-f16457a0\>));
   --background--muted: var(--lightningcss-light, var(--_color---light--light-2)) var(--lightningcss-dark, var(--_color---dark--dark-2));
+  --background--solid-secondary: var(--lightningcss-light, var(--_color---light--light-10)) var(--lightningcss-dark, var(--_color---dark--dark-10));
   --border--input: var(--lightningcss-light, var(--_color---light--light-7)) var(--lightningcss-dark, var(--_color---dark--dark-7));
   --foreground--muted: var(--lightningcss-light, var(--_color---light--light-11)) var(--lightningcss-dark, var(--_color---dark--dark-11));
   --colors--primary-accent-dark\<deleted\|variable-a961bcf0-49c2-f8dd-291d-886c4a2afb3c\>: var(--_color---neutral--mid-dark\<deleted\|variable-35755b90-8ee6-83e7-b09b-fd6e59aab6f1\>);
@@ -1430,7 +1442,7 @@ figcaption {
   --success--foreground: var(--lightningcss-light, var(--_color---light--green-11)) var(--lightningcss-dark, var(--_color---dark--green-11));
   --success--background: var(--lightningcss-light, var(--_color---light--green-2)) var(--lightningcss-dark, var(--_color---dark--green-2));
   --background--card: var(--lightningcss-light, var(--_color---light--light-3)) var(--lightningcss-dark, var(--_color---dark--dark-3));
-  --background--solid: var(--lightningcss-light, var(--_color---light--light-9)) var(--lightningcss-dark, var(--_color---dark--dark-9));
+  --background--solid-primary: var(--lightningcss-light, var(--_color---light--light-9)) var(--lightningcss-dark, var(--_color---dark--dark-9));
   --utility--scrollbar: var(--lightningcss-light, var(--_color---light--light-6)) var(--lightningcss-dark, var(--_color---dark--dark-6));
   --text-selection--background: var(--lightningcss-light, var(--_color---light--light-12)) var(--lightningcss-dark, var(--_color---dark--dark-12));
   --text-selection--foreground: var(--lightningcss-light, var(--_color---light--light-1)) var(--lightningcss-dark, var(--_color---dark--dark-1));
@@ -1471,6 +1483,10 @@ figcaption {
 
 .card:hover:where(.w-variant-7a49f1e4-82e5-f9b4-164d-70415eb8af86), .card:hover:where(.w-variant-c26a5dd5-d828-f993-f1dd-d1ef3edbf07a), .card:hover:where(.w-variant-9a4cf119-ffa5-0787-a62e-5ea19dfcf668) {
   background-color: var(--background--muted);
+}
+
+.card:hover:where(.w-variant-92b32e98-ada3-3db7-94e3-73a405863338) {
+  background-color: var(--background--solid-secondary);
 }
 
 .card-body {
@@ -2409,7 +2425,7 @@ figcaption {
 }
 
 .modal {
-  z-index: 999;
+  z-index: 99999;
   border: var(--_components---card--border-width) solid var(--border--default);
   border-radius: var(--_components---card--border-radius);
   background-color: var(--background--default);
@@ -2487,6 +2503,7 @@ figcaption {
   --border--default: var(--_color---neutral--lighter\<deleted\|variable-0065a3d9\>);
   --colors--background-2\<deleted\|variable-c0d67656-a3fd-08cc-8b6c-e547c202831d\>: var(--_color---neutral--lighter\<deleted\|variable-0065a3d9\>);
   --background--muted: var(--_color---neutral--dark\<deleted\|variable-53d573b6\>);
+  --background--solid-secondary: var(--lightningcss-light, var(--_color---light--light-10)) var(--lightningcss-dark, var(--_color---dark--dark-10));
   --border--input: var(--_color---neutral--lighter\<deleted\|variable-0065a3d9\>);
   --foreground--muted: var(--_color---neutral--lighter\<deleted\|variable-0065a3d9\>);
   --colors--primary-accent-dark\<deleted\|variable-a961bcf0-49c2-f8dd-291d-886c4a2afb3c\>: var(--_color---neutral--light\<deleted\|variable-f16457a0\>);
@@ -2496,7 +2513,7 @@ figcaption {
   --success--foreground: var(--lightningcss-light, var(--_color---light--green-11)) var(--lightningcss-dark, var(--_color---dark--green-11));
   --success--background: var(--lightningcss-light, var(--_color---light--green-2)) var(--lightningcss-dark, var(--_color---dark--green-2));
   --background--card: var(--lightningcss-light, var(--_color---light--light-3)) var(--lightningcss-dark, var(--_color---dark--dark-3));
-  --background--solid: var(--lightningcss-light, var(--_color---light--light-9)) var(--lightningcss-dark, var(--_color---dark--dark-9));
+  --background--solid-primary: var(--lightningcss-light, var(--_color---light--light-9)) var(--lightningcss-dark, var(--_color---dark--dark-9));
   --utility--scrollbar: var(--lightningcss-light, var(--_color---light--light-6)) var(--lightningcss-dark, var(--_color---dark--dark-6));
   --text-selection--background: var(--lightningcss-light, var(--_color---light--light-12)) var(--lightningcss-dark, var(--_color---dark--dark-12));
   --text-selection--foreground: var(--lightningcss-light, var(--_color---light--light-1)) var(--lightningcss-dark, var(--_color---dark--dark-1));
@@ -2861,6 +2878,7 @@ figcaption {
   --border--default: var(--lightningcss-light, var(--_color---light--light-6)) var(--lightningcss-dark, var(--_color---dark--dark-6));
   --colors--background-2\<deleted\|variable-c0d67656-a3fd-08cc-8b6c-e547c202831d\>: var(--lightningcss-light, var(--_color---neutral--dark\<deleted\|variable-53d573b6\>)) var(--lightningcss-dark, var(--_color---neutral--light\<deleted\|variable-f16457a0\>));
   --background--muted: var(--lightningcss-light, var(--_color---light--light-2)) var(--lightningcss-dark, var(--_color---dark--dark-2));
+  --background--solid-secondary: var(--lightningcss-light, var(--_color---light--light-10)) var(--lightningcss-dark, var(--_color---dark--dark-10));
   --border--input: var(--lightningcss-light, var(--_color---light--light-7)) var(--lightningcss-dark, var(--_color---dark--dark-7));
   --foreground--muted: var(--lightningcss-light, var(--_color---light--light-11)) var(--lightningcss-dark, var(--_color---dark--dark-11));
   --colors--primary-accent-dark\<deleted\|variable-a961bcf0-49c2-f8dd-291d-886c4a2afb3c\>: var(--_color---neutral--mid-dark\<deleted\|variable-35755b90-8ee6-83e7-b09b-fd6e59aab6f1\>);
@@ -2870,7 +2888,7 @@ figcaption {
   --success--foreground: var(--lightningcss-light, var(--_color---light--green-11)) var(--lightningcss-dark, var(--_color---dark--green-11));
   --success--background: var(--lightningcss-light, var(--_color---light--green-2)) var(--lightningcss-dark, var(--_color---dark--green-2));
   --background--card: var(--lightningcss-light, var(--_color---light--light-3)) var(--lightningcss-dark, var(--_color---dark--dark-3));
-  --background--solid: var(--lightningcss-light, var(--_color---light--light-9)) var(--lightningcss-dark, var(--_color---dark--dark-9));
+  --background--solid-primary: var(--lightningcss-light, var(--_color---light--light-9)) var(--lightningcss-dark, var(--_color---dark--dark-9));
   --utility--scrollbar: var(--lightningcss-light, var(--_color---light--light-6)) var(--lightningcss-dark, var(--_color---dark--dark-6));
   --text-selection--background: var(--lightningcss-light, var(--_color---light--light-12)) var(--lightningcss-dark, var(--_color---dark--dark-12));
   --text-selection--foreground: var(--lightningcss-light, var(--_color---light--light-1)) var(--lightningcss-dark, var(--_color---dark--dark-1));
@@ -2902,6 +2920,7 @@ figcaption {
   --border--default: var(--lightningcss-light, var(--_color---neutral--lighter\<deleted\|variable-0065a3d9\>)) var(--lightningcss-dark, var(--_color---neutral--dark\<deleted\|variable-53d573b6\>));
   --colors--background-2\<deleted\|variable-c0d67656-a3fd-08cc-8b6c-e547c202831d\>: var(--lightningcss-light, var(--_color---neutral--dark\<deleted\|variable-53d573b6\>)) var(--lightningcss-dark, var(--_color---neutral--light\<deleted\|variable-f16457a0\>));
   --background--muted: var(--lightningcss-light, var(--_color---neutral--mid-dark\<deleted\|variable-35755b90-8ee6-83e7-b09b-fd6e59aab6f1\>)) var(--lightningcss-dark, var(--_color---neutral--lighter\<deleted\|variable-0065a3d9\>));
+  --background--solid-secondary: var(--lightningcss-light, var(--_color---light--light-10)) var(--lightningcss-dark, var(--_color---dark--dark-10));
   --border--input: var(--lightningcss-light, var(--_color---neutral--lighter\<deleted\|variable-0065a3d9\>)) var(--lightningcss-dark, var(--_color---neutral--dark\<deleted\|variable-53d573b6\>));
   --foreground--muted: var(--lightningcss-light, var(--_color---neutral--lighter\<deleted\|variable-0065a3d9\>)) var(--lightningcss-dark, var(--_color---neutral--dark\<deleted\|variable-53d573b6\>));
   --colors--primary-accent-dark\<deleted\|variable-a961bcf0-49c2-f8dd-291d-886c4a2afb3c\>: var(--_color---neutral--mid-dark\<deleted\|variable-35755b90-8ee6-83e7-b09b-fd6e59aab6f1\>);
@@ -2911,7 +2930,7 @@ figcaption {
   --success--foreground: var(--lightningcss-light, var(--_color---light--green-11)) var(--lightningcss-dark, var(--_color---dark--green-11));
   --success--background: var(--lightningcss-light, var(--_color---light--green-2)) var(--lightningcss-dark, var(--_color---dark--green-2));
   --background--card: var(--lightningcss-light, var(--_color---light--light-3)) var(--lightningcss-dark, var(--_color---dark--dark-3));
-  --background--solid: var(--lightningcss-light, var(--_color---light--light-9)) var(--lightningcss-dark, var(--_color---dark--dark-9));
+  --background--solid-primary: var(--lightningcss-light, var(--_color---light--light-9)) var(--lightningcss-dark, var(--_color---dark--dark-9));
   --utility--scrollbar: var(--lightningcss-light, var(--_color---neutral--lighter\<deleted\|variable-0065a3d9\>)) var(--lightningcss-dark, var(--_color---neutral--dark\<deleted\|variable-53d573b6\>));
   --text-selection--background: var(--lightningcss-light, var(--_color---light--light-12)) var(--lightningcss-dark, var(--_color---dark--dark-12));
   --text-selection--foreground: var(--lightningcss-light, var(--_color---light--light-1)) var(--lightningcss-dark, var(--_color---dark--dark-1));
@@ -2943,6 +2962,7 @@ figcaption {
   --border--default: var(--_color---neutral--lighter\<deleted\|variable-0065a3d9\>);
   --colors--background-2\<deleted\|variable-c0d67656-a3fd-08cc-8b6c-e547c202831d\>: var(--lightningcss-light, var(--_color---neutral--dark\<deleted\|variable-53d573b6\>)) var(--lightningcss-dark, var(--_color---neutral--light\<deleted\|variable-f16457a0\>));
   --background--muted: var(--_color---neutral--gray\<deleted\|variable-65f33ecd\>);
+  --background--solid-secondary: var(--lightningcss-light, var(--_color---light--light-10)) var(--lightningcss-dark, var(--_color---dark--dark-10));
   --border--input: var(--_color---neutral--lighter\<deleted\|variable-0065a3d9\>);
   --foreground--muted: var(--lightningcss-light, var(--_color---neutral--dark\<deleted\|variable-53d573b6\>)) var(--lightningcss-dark, var(--_color---neutral--dark\<deleted\|variable-53d573b6\>));
   --colors--primary-accent-dark\<deleted\|variable-a961bcf0-49c2-f8dd-291d-886c4a2afb3c\>: var(--_color---neutral--mid-dark\<deleted\|variable-35755b90-8ee6-83e7-b09b-fd6e59aab6f1\>);
@@ -2952,7 +2972,7 @@ figcaption {
   --success--foreground: var(--lightningcss-light, var(--_color---light--green-11)) var(--lightningcss-dark, var(--_color---dark--green-11));
   --success--background: var(--lightningcss-light, var(--_color---light--green-2)) var(--lightningcss-dark, var(--_color---dark--green-2));
   --background--card: var(--lightningcss-light, var(--_color---light--light-3)) var(--lightningcss-dark, var(--_color---dark--dark-3));
-  --background--solid: var(--lightningcss-light, var(--_color---light--light-9)) var(--lightningcss-dark, var(--_color---dark--dark-9));
+  --background--solid-primary: var(--lightningcss-light, var(--_color---light--light-9)) var(--lightningcss-dark, var(--_color---dark--dark-9));
   --utility--scrollbar: var(--_color---neutral--dark\<deleted\|variable-53d573b6\>);
   --text-selection--background: var(--lightningcss-light, var(--_color---light--light-12)) var(--lightningcss-dark, var(--_color---dark--dark-12));
   --text-selection--foreground: var(--lightningcss-light, var(--_color---light--light-1)) var(--lightningcss-dark, var(--_color---dark--dark-1));
@@ -2984,6 +3004,7 @@ figcaption {
   --border--default: var(--_color---neutral--gray\<deleted\|variable-65f33ecd\>);
   --colors--background-2\<deleted\|variable-c0d67656-a3fd-08cc-8b6c-e547c202831d\>: var(--_color---neutral--mid-dark\<deleted\|variable-35755b90-8ee6-83e7-b09b-fd6e59aab6f1\>);
   --background--muted: var(--_color---neutral--mid-dark\<deleted\|variable-35755b90-8ee6-83e7-b09b-fd6e59aab6f1\>);
+  --background--solid-secondary: var(--lightningcss-light, var(--_color---light--light-10)) var(--lightningcss-dark, var(--_color---dark--dark-10));
   --border--input: var(--_color---neutral--gray\<deleted\|variable-65f33ecd\>);
   --foreground--muted: var(--_color---neutral--lighter\<deleted\|variable-0065a3d9\>);
   --colors--primary-accent-dark\<deleted\|variable-a961bcf0-49c2-f8dd-291d-886c4a2afb3c\>: var(--_color---neutral--mid-dark\<deleted\|variable-35755b90-8ee6-83e7-b09b-fd6e59aab6f1\>);
@@ -2993,7 +3014,7 @@ figcaption {
   --success--foreground: var(--lightningcss-light, var(--_color---light--green-11)) var(--lightningcss-dark, var(--_color---dark--green-11));
   --success--background: var(--lightningcss-light, var(--_color---light--green-2)) var(--lightningcss-dark, var(--_color---dark--green-2));
   --background--card: var(--lightningcss-light, var(--_color---light--light-3)) var(--lightningcss-dark, var(--_color---dark--dark-3));
-  --background--solid: var(--lightningcss-light, var(--_color---light--light-9)) var(--lightningcss-dark, var(--_color---dark--dark-9));
+  --background--solid-primary: var(--lightningcss-light, var(--_color---light--light-9)) var(--lightningcss-dark, var(--_color---dark--dark-9));
   --utility--scrollbar: var(--lightningcss-light, var(--_color---light--light-6)) var(--lightningcss-dark, var(--_color---dark--dark-6));
   --text-selection--background: var(--lightningcss-light, var(--_color---light--light-12)) var(--lightningcss-dark, var(--_color---dark--dark-12));
   --text-selection--foreground: var(--lightningcss-light, var(--_color---light--light-1)) var(--lightningcss-dark, var(--_color---dark--dark-1));
@@ -3689,6 +3710,7 @@ figcaption {
   --border--default: var(--lightningcss-light, var(--_color---light--light-6)) var(--lightningcss-dark, var(--_color---dark--dark-6));
   --colors--background-2\<deleted\|variable-c0d67656-a3fd-08cc-8b6c-e547c202831d\>: var(--lightningcss-light, var(--_color---neutral--dark\<deleted\|variable-53d573b6\>)) var(--lightningcss-dark, var(--_color---neutral--light\<deleted\|variable-f16457a0\>));
   --background--muted: var(--lightningcss-light, var(--_color---light--light-2)) var(--lightningcss-dark, var(--_color---dark--dark-2));
+  --background--solid-secondary: var(--lightningcss-light, var(--_color---light--light-10)) var(--lightningcss-dark, var(--_color---dark--dark-10));
   --border--input: var(--lightningcss-light, var(--_color---light--light-7)) var(--lightningcss-dark, var(--_color---dark--dark-7));
   --foreground--muted: var(--lightningcss-light, var(--_color---light--light-11)) var(--lightningcss-dark, var(--_color---dark--dark-11));
   --colors--primary-accent-dark\<deleted\|variable-a961bcf0-49c2-f8dd-291d-886c4a2afb3c\>: var(--_color---neutral--mid-dark\<deleted\|variable-35755b90-8ee6-83e7-b09b-fd6e59aab6f1\>);
@@ -3698,7 +3720,7 @@ figcaption {
   --success--foreground: var(--lightningcss-light, var(--_color---light--green-11)) var(--lightningcss-dark, var(--_color---dark--green-11));
   --success--background: var(--lightningcss-light, var(--_color---light--green-2)) var(--lightningcss-dark, var(--_color---dark--green-2));
   --background--card: var(--lightningcss-light, var(--_color---light--light-3)) var(--lightningcss-dark, var(--_color---dark--dark-3));
-  --background--solid: var(--lightningcss-light, var(--_color---light--light-9)) var(--lightningcss-dark, var(--_color---dark--dark-9));
+  --background--solid-primary: var(--lightningcss-light, var(--_color---light--light-9)) var(--lightningcss-dark, var(--_color---dark--dark-9));
   --utility--scrollbar: var(--lightningcss-light, var(--_color---light--light-6)) var(--lightningcss-dark, var(--_color---dark--dark-6));
   --text-selection--background: var(--lightningcss-light, var(--_color---light--light-12)) var(--lightningcss-dark, var(--_color---dark--dark-12));
   --text-selection--foreground: var(--lightningcss-light, var(--_color---light--light-1)) var(--lightningcss-dark, var(--_color---dark--dark-1));
@@ -3901,7 +3923,7 @@ figcaption {
 }
 
 .u-bg-solid {
-  background-color: var(--background--solid);
+  background-color: var(--background--solid-primary);
 }
 
 .stack-component {
@@ -3923,7 +3945,7 @@ figcaption {
   z-index: 21;
   grid-column-gap: .25rem;
   grid-row-gap: .25rem;
-  background-color: color-mix(in srgb, var(--background--solid), transparent 45%);
+  background-color: color-mix(in srgb, var(--background--solid-primary), transparent 45%);
   -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
   pointer-events: none;
@@ -3998,7 +4020,7 @@ figcaption {
 }
 
 .compare-before {
-  background-color: var(--background--solid);
+  background-color: var(--background--solid-primary);
   object-fit: cover;
   -webkit-mask: linear-gradient(to right, #000 0, var(--pos, 50%), transparent 0);
   mask: linear-gradient(to right, #000 0, var(--pos, 50%), transparent 0);
@@ -4008,7 +4030,7 @@ figcaption {
 }
 
 .compare-after {
-  background-color: var(--background--solid);
+  background-color: var(--background--solid-primary);
   object-fit: cover;
   -webkit-mask: linear-gradient(to right, transparent 0, var(--pos, 50%), #000 0);
   mask: linear-gradient(to right, transparent 0, var(--pos, 50%), #000 0);
@@ -4181,6 +4203,7 @@ figcaption {
     --border--default: var(--lightningcss-light, var(--_color---light--light-6)) var(--lightningcss-dark, var(--_color---dark--dark-6));
     --colors--background-2\<deleted\|variable-c0d67656-a3fd-08cc-8b6c-e547c202831d\>: var(--lightningcss-light, var(--_color---neutral--dark\<deleted\|variable-53d573b6\>)) var(--lightningcss-dark, var(--_color---neutral--light\<deleted\|variable-f16457a0\>));
     --background--muted: var(--lightningcss-light, var(--_color---light--light-2)) var(--lightningcss-dark, var(--_color---dark--dark-2));
+    --background--solid-secondary: var(--lightningcss-light, var(--_color---light--light-10)) var(--lightningcss-dark, var(--_color---dark--dark-10));
     --border--input: var(--lightningcss-light, var(--_color---light--light-7)) var(--lightningcss-dark, var(--_color---dark--dark-7));
     --foreground--muted: var(--lightningcss-light, var(--_color---light--light-11)) var(--lightningcss-dark, var(--_color---dark--dark-11));
     --colors--primary-accent-dark\<deleted\|variable-a961bcf0-49c2-f8dd-291d-886c4a2afb3c\>: var(--_color---neutral--mid-dark\<deleted\|variable-35755b90-8ee6-83e7-b09b-fd6e59aab6f1\>);
@@ -4190,7 +4213,7 @@ figcaption {
     --success--foreground: var(--lightningcss-light, var(--_color---light--green-11)) var(--lightningcss-dark, var(--_color---dark--green-11));
     --success--background: var(--lightningcss-light, var(--_color---light--green-2)) var(--lightningcss-dark, var(--_color---dark--green-2));
     --background--card: var(--lightningcss-light, var(--_color---light--light-3)) var(--lightningcss-dark, var(--_color---dark--dark-3));
-    --background--solid: var(--lightningcss-light, var(--_color---light--light-9)) var(--lightningcss-dark, var(--_color---dark--dark-9));
+    --background--solid-primary: var(--lightningcss-light, var(--_color---light--light-9)) var(--lightningcss-dark, var(--_color---dark--dark-9));
     --utility--scrollbar: var(--lightningcss-light, var(--_color---light--light-6)) var(--lightningcss-dark, var(--_color---dark--dark-6));
     --text-selection--background: var(--lightningcss-light, var(--_color---light--light-12)) var(--lightningcss-dark, var(--_color---dark--dark-12));
     --text-selection--foreground: var(--lightningcss-light, var(--_color---light--light-1)) var(--lightningcss-dark, var(--_color---dark--dark-1));
@@ -4221,6 +4244,7 @@ figcaption {
     --border--default: var(--lightningcss-light, var(--_color---light--light-6)) var(--lightningcss-dark, var(--_color---dark--dark-6));
     --colors--background-2\<deleted\|variable-c0d67656-a3fd-08cc-8b6c-e547c202831d\>: var(--lightningcss-light, var(--_color---neutral--dark\<deleted\|variable-53d573b6\>)) var(--lightningcss-dark, var(--_color---neutral--light\<deleted\|variable-f16457a0\>));
     --background--muted: var(--lightningcss-light, var(--_color---light--light-2)) var(--lightningcss-dark, var(--_color---dark--dark-2));
+    --background--solid-secondary: var(--lightningcss-light, var(--_color---light--light-10)) var(--lightningcss-dark, var(--_color---dark--dark-10));
     --border--input: var(--lightningcss-light, var(--_color---light--light-7)) var(--lightningcss-dark, var(--_color---dark--dark-7));
     --foreground--muted: var(--lightningcss-light, var(--_color---light--light-11)) var(--lightningcss-dark, var(--_color---dark--dark-11));
     --colors--primary-accent-dark\<deleted\|variable-a961bcf0-49c2-f8dd-291d-886c4a2afb3c\>: var(--_color---neutral--mid-dark\<deleted\|variable-35755b90-8ee6-83e7-b09b-fd6e59aab6f1\>);
@@ -4230,7 +4254,7 @@ figcaption {
     --success--foreground: var(--lightningcss-light, var(--_color---light--green-11)) var(--lightningcss-dark, var(--_color---dark--green-11));
     --success--background: var(--lightningcss-light, var(--_color---light--green-2)) var(--lightningcss-dark, var(--_color---dark--green-2));
     --background--card: var(--lightningcss-light, var(--_color---light--light-3)) var(--lightningcss-dark, var(--_color---dark--dark-3));
-    --background--solid: var(--lightningcss-light, var(--_color---light--light-9)) var(--lightningcss-dark, var(--_color---dark--dark-9));
+    --background--solid-primary: var(--lightningcss-light, var(--_color---light--light-9)) var(--lightningcss-dark, var(--_color---dark--dark-9));
     --utility--scrollbar: var(--lightningcss-light, var(--_color---light--light-6)) var(--lightningcss-dark, var(--_color---dark--dark-6));
     --text-selection--background: var(--lightningcss-light, var(--_color---light--light-12)) var(--lightningcss-dark, var(--_color---dark--dark-12));
     --text-selection--foreground: var(--lightningcss-light, var(--_color---light--light-1)) var(--lightningcss-dark, var(--_color---dark--dark-1));
@@ -4262,6 +4286,7 @@ figcaption {
     --border--default: var(--lightningcss-light, var(--_color---light--light-6)) var(--lightningcss-dark, var(--_color---dark--dark-6));
     --colors--background-2\<deleted\|variable-c0d67656-a3fd-08cc-8b6c-e547c202831d\>: var(--lightningcss-light, var(--_color---neutral--dark\<deleted\|variable-53d573b6\>)) var(--lightningcss-dark, var(--_color---neutral--light\<deleted\|variable-f16457a0\>));
     --background--muted: var(--lightningcss-light, var(--_color---light--light-2)) var(--lightningcss-dark, var(--_color---dark--dark-2));
+    --background--solid-secondary: var(--lightningcss-light, var(--_color---light--light-10)) var(--lightningcss-dark, var(--_color---dark--dark-10));
     --border--input: var(--lightningcss-light, var(--_color---light--light-7)) var(--lightningcss-dark, var(--_color---dark--dark-7));
     --foreground--muted: var(--lightningcss-light, var(--_color---light--light-11)) var(--lightningcss-dark, var(--_color---dark--dark-11));
     --colors--primary-accent-dark\<deleted\|variable-a961bcf0-49c2-f8dd-291d-886c4a2afb3c\>: var(--_color---neutral--mid-dark\<deleted\|variable-35755b90-8ee6-83e7-b09b-fd6e59aab6f1\>);
@@ -4271,7 +4296,7 @@ figcaption {
     --success--foreground: var(--lightningcss-light, var(--_color---light--green-11)) var(--lightningcss-dark, var(--_color---dark--green-11));
     --success--background: var(--lightningcss-light, var(--_color---light--green-2)) var(--lightningcss-dark, var(--_color---dark--green-2));
     --background--card: var(--lightningcss-light, var(--_color---light--light-3)) var(--lightningcss-dark, var(--_color---dark--dark-3));
-    --background--solid: var(--lightningcss-light, var(--_color---light--light-9)) var(--lightningcss-dark, var(--_color---dark--dark-9));
+    --background--solid-primary: var(--lightningcss-light, var(--_color---light--light-9)) var(--lightningcss-dark, var(--_color---dark--dark-9));
     --utility--scrollbar: var(--lightningcss-light, var(--_color---light--light-6)) var(--lightningcss-dark, var(--_color---dark--dark-6));
     --text-selection--background: var(--lightningcss-light, var(--_color---light--light-12)) var(--lightningcss-dark, var(--_color---dark--dark-12));
     --text-selection--foreground: var(--lightningcss-light, var(--_color---light--light-1)) var(--lightningcss-dark, var(--_color---dark--dark-1));
@@ -4301,6 +4326,7 @@ figcaption {
     --border--default: var(--lightningcss-light, var(--_color---light--light-6)) var(--lightningcss-dark, var(--_color---dark--dark-6));
     --colors--background-2\<deleted\|variable-c0d67656-a3fd-08cc-8b6c-e547c202831d\>: var(--lightningcss-light, var(--_color---neutral--dark\<deleted\|variable-53d573b6\>)) var(--lightningcss-dark, var(--_color---neutral--light\<deleted\|variable-f16457a0\>));
     --background--muted: var(--lightningcss-light, var(--_color---light--light-2)) var(--lightningcss-dark, var(--_color---dark--dark-2));
+    --background--solid-secondary: var(--lightningcss-light, var(--_color---light--light-10)) var(--lightningcss-dark, var(--_color---dark--dark-10));
     --border--input: var(--lightningcss-light, var(--_color---light--light-7)) var(--lightningcss-dark, var(--_color---dark--dark-7));
     --foreground--muted: var(--lightningcss-light, var(--_color---light--light-11)) var(--lightningcss-dark, var(--_color---dark--dark-11));
     --colors--primary-accent-dark\<deleted\|variable-a961bcf0-49c2-f8dd-291d-886c4a2afb3c\>: var(--_color---neutral--mid-dark\<deleted\|variable-35755b90-8ee6-83e7-b09b-fd6e59aab6f1\>);
@@ -4310,7 +4336,7 @@ figcaption {
     --success--foreground: var(--lightningcss-light, var(--_color---light--green-11)) var(--lightningcss-dark, var(--_color---dark--green-11));
     --success--background: var(--lightningcss-light, var(--_color---light--green-2)) var(--lightningcss-dark, var(--_color---dark--green-2));
     --background--card: var(--lightningcss-light, var(--_color---light--light-3)) var(--lightningcss-dark, var(--_color---dark--dark-3));
-    --background--solid: var(--lightningcss-light, var(--_color---light--light-9)) var(--lightningcss-dark, var(--_color---dark--dark-9));
+    --background--solid-primary: var(--lightningcss-light, var(--_color---light--light-9)) var(--lightningcss-dark, var(--_color---dark--dark-9));
     --utility--scrollbar: var(--lightningcss-light, var(--_color---light--light-6)) var(--lightningcss-dark, var(--_color---dark--dark-6));
     --text-selection--background: var(--lightningcss-light, var(--_color---light--light-12)) var(--lightningcss-dark, var(--_color---dark--dark-12));
     --text-selection--foreground: var(--lightningcss-light, var(--_color---light--light-1)) var(--lightningcss-dark, var(--_color---dark--dark-1));
