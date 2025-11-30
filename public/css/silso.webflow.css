@@ -75,6 +75,10 @@
   --_typography---h6--font-weight: 690;
   --_typography---h6--letter-spacing: 0em;
   --_typography---paragraph-body--bottom-margin: 1em;
+  --link--background: var(--lightningcss-light, var(--_color---light--sky-5)) var(--lightningcss-dark, var(--_color---dark--sky-5));
+  --link--foreground: var(--lightningcss-light, var(--_color---light--sky-11)) var(--lightningcss-dark, var(--_color---dark--sky-11));
+  --link--hover: var(--lightningcss-light, var(--_color---light--sky-4)) var(--lightningcss-dark, var(--_color---dark--sky-4));
+  --link--foreground-hover: var(--lightningcss-light, var(--_color---light--sky-12)) var(--lightningcss-dark, var(--_color---dark--sky-12));
   --primary--background: var(--lightningcss-light, var(--_color---light--light-12)) var(--lightningcss-dark, var(--_color---dark--dark-12));
   --_typography---fonts--primary-font: "Epilogue Variablefont Wght", Impact, sans-serif;
   --_components---section--padding: clamp(var(--_components---section--padding-min-rem) * 1rem, ((var(--_components---section--padding-min-rem)  - ((var(--_components---section--padding-max-rem)  - var(--_components---section--padding-min-rem)) / (var(--_layout---fluid--max)  - var(--_layout---fluid--min)) * var(--_layout---fluid--min))) * 1rem + ((var(--_components---section--padding-max-rem)  - var(--_components---section--padding-min-rem)) / (var(--_layout---fluid--max)  - var(--_layout---fluid--min))) * 100vw), var(--_components---section--padding-max-rem) * 1rem);
@@ -216,6 +220,10 @@
   --_color---dark--red-11: #ff9592;
   --_color---dark--green-2: #121b17;
   --_color---dark--green-11: #3dd68c;
+  --_color---dark--sky-4: #113555;
+  --_color---dark--sky-5: #154467;
+  --_color---dark--sky-11: #75c7f0;
+  --_color---dark--sky-12: #c2f3ff;
   --_color---light--light-1: #fcfcfd;
   --_color---light--light-2: #f9f9fb;
   --_color---light--light-3: #f0f0f3;
@@ -232,6 +240,10 @@
   --_color---light--red-11: #ce2c31;
   --_color---light--green-2: #f4fbf6;
   --_color---light--green-11: #218358;
+  --_color---light--sky-4: #d1f0fa;
+  --_color---light--sky-5: #bee7f5;
+  --_color---light--sky-11: #00749e;
+  --_color---light--sky-12: #1d3e56;
   --_layout---fluid--min: 20;
   --_components---section--padding-min-rem: 3;
   --utility--scrollbar: var(--lightningcss-light, var(--_color---light--light-6)) var(--lightningcss-dark, var(--_color---dark--dark-6));
@@ -410,14 +422,23 @@ p {
 }
 
 a {
-  color: inherit;
+  background-color: var(--link--background);
+  color: var(--link--foreground);
   text-underline-offset: .1em;
   text-underline-position: under;
-  text-decoration: underline;
+  border-radius: .25rem;
+  padding-left: .125rem;
+  padding-right: .125rem;
+  text-decoration: none;
   text-decoration-thickness: .1em;
+  transition-property: background-color, color;
+  transition-duration: .3s, .3s;
+  transition-timing-function: cubic-bezier(.165, .84, .44, 1), cubic-bezier(.165, .84, .44, 1);
 }
 
 a:hover {
+  background-color: var(--link--hover);
+  color: var(--link--foreground-hover);
   text-decoration: none;
 }
 
@@ -535,6 +556,10 @@ figcaption {
   padding-bottom: var(--_components---section--padding);
   --background--default: var(--lightningcss-light, var(--_color---light--light-1)) var(--lightningcss-dark, var(--_color---dark--dark-1));
   --foreground--default: var(--lightningcss-light, var(--_color---light--light-12)) var(--lightningcss-dark, var(--_color---dark--dark-12));
+  --link--background: var(--lightningcss-light, var(--_color---light--sky-5)) var(--lightningcss-dark, var(--_color---dark--sky-5));
+  --link--foreground: var(--lightningcss-light, var(--_color---light--sky-11)) var(--lightningcss-dark, var(--_color---dark--sky-11));
+  --link--hover: var(--lightningcss-light, var(--_color---light--sky-4)) var(--lightningcss-dark, var(--_color---dark--sky-4));
+  --link--foreground-hover: var(--lightningcss-light, var(--_color---light--sky-12)) var(--lightningcss-dark, var(--_color---dark--sky-12));
   --primary--background: var(--lightningcss-light, var(--_color---light--light-12)) var(--lightningcss-dark, var(--_color---dark--dark-12));
   --primary--foreground: var(--lightningcss-light, var(--_color---light--light-1)) var(--lightningcss-dark, var(--_color---dark--dark-1));
   --secondary--background: var(--lightningcss-light, var(--_color---light--light-3)) var(--lightningcss-dark, var(--_color---dark--dark-3));
@@ -590,6 +615,10 @@ figcaption {
 .section.cc-footer:where(.w-variant-03470b75-1c46-84c5-1d69-d2bb1e4cbe42) {
   --background--default: var(--_color---neutral--dark\<deleted\|variable-53d573b6\>);
   --foreground--default: var(--_color---neutral--lighter\<deleted\|variable-0065a3d9\>);
+  --link--background: var(--lightningcss-light, var(--_color---light--sky-5)) var(--lightningcss-dark, var(--_color---dark--sky-5));
+  --link--foreground: var(--lightningcss-light, var(--_color---light--sky-11)) var(--lightningcss-dark, var(--_color---dark--sky-11));
+  --link--hover: var(--lightningcss-light, var(--_color---light--sky-4)) var(--lightningcss-dark, var(--_color---dark--sky-4));
+  --link--foreground-hover: var(--lightningcss-light, var(--_color---light--sky-12)) var(--lightningcss-dark, var(--_color---dark--sky-12));
   --primary--background: var(--lightningcss-light, var(--_color---light--light-12)) var(--lightningcss-dark, var(--_color---dark--dark-12));
   --primary--foreground: var(--lightningcss-light, var(--_color---light--light-1)) var(--lightningcss-dark, var(--_color---dark--dark-1));
   --secondary--background: var(--lightningcss-light, var(--_color---light--light-3)) var(--lightningcss-dark, var(--_color---dark--dark-3));
@@ -632,6 +661,10 @@ figcaption {
   color: var(--foreground--default);
   --background--default: var(--lightningcss-light, var(--_color---light--light-1)) var(--lightningcss-dark, var(--_color---dark--dark-1));
   --foreground--default: var(--lightningcss-light, var(--_color---light--light-12)) var(--lightningcss-dark, var(--_color---dark--dark-12));
+  --link--background: var(--lightningcss-light, var(--_color---light--sky-5)) var(--lightningcss-dark, var(--_color---dark--sky-5));
+  --link--foreground: var(--lightningcss-light, var(--_color---light--sky-11)) var(--lightningcss-dark, var(--_color---dark--sky-11));
+  --link--hover: var(--lightningcss-light, var(--_color---light--sky-4)) var(--lightningcss-dark, var(--_color---dark--sky-4));
+  --link--foreground-hover: var(--lightningcss-light, var(--_color---light--sky-12)) var(--lightningcss-dark, var(--_color---dark--sky-12));
   --primary--background: var(--lightningcss-light, var(--_color---light--light-12)) var(--lightningcss-dark, var(--_color---dark--dark-12));
   --primary--foreground: var(--lightningcss-light, var(--_color---light--light-1)) var(--lightningcss-dark, var(--_color---dark--dark-1));
   --secondary--background: var(--lightningcss-light, var(--_color---light--light-3)) var(--lightningcss-dark, var(--_color---dark--dark-3));
@@ -672,6 +705,10 @@ figcaption {
 .section.cc-themed:where(.w-variant-ffdae436-6d76-12b6-39d6-0e4201c47aad) {
   --background--default: var(--lightningcss-light, var(--_color---neutral--dark\<deleted\|variable-53d573b6\>)) var(--lightningcss-dark, var(--_color---neutral--light\<deleted\|variable-f16457a0\>));
   --foreground--default: var(--lightningcss-light, var(--_color---neutral--lighter\<deleted\|variable-0065a3d9\>)) var(--lightningcss-dark, var(--_color---neutral--dark\<deleted\|variable-53d573b6\>));
+  --link--background: var(--lightningcss-light, var(--_color---light--sky-5)) var(--lightningcss-dark, var(--_color---dark--sky-5));
+  --link--foreground: var(--lightningcss-light, var(--_color---light--sky-11)) var(--lightningcss-dark, var(--_color---dark--sky-11));
+  --link--hover: var(--lightningcss-light, var(--_color---light--sky-4)) var(--lightningcss-dark, var(--_color---dark--sky-4));
+  --link--foreground-hover: var(--lightningcss-light, var(--_color---light--sky-12)) var(--lightningcss-dark, var(--_color---dark--sky-12));
   --primary--background: var(--_color---neutral--gray\<deleted\|variable-65f33ecd\>);
   --primary--foreground: var(--lightningcss-light, var(--_color---light--light-1)) var(--lightningcss-dark, var(--_color---dark--dark-1));
   --secondary--background: var(--lightningcss-light, var(--_color---light--light-3)) var(--lightningcss-dark, var(--_color---dark--dark-3));
@@ -712,6 +749,10 @@ figcaption {
 .section.cc-themed:where(.w-variant-7ff62657-6bd1-7c9c-c099-b8b16154981e) {
   --background--default: var(--_color---neutral--gray\<deleted\|variable-65f33ecd\>);
   --foreground--default: var(--lightningcss-light, var(--_color---neutral--dark\<deleted\|variable-53d573b6\>)) var(--lightningcss-dark, var(--_color---neutral--dark\<deleted\|variable-53d573b6\>));
+  --link--background: var(--lightningcss-light, var(--_color---light--sky-5)) var(--lightningcss-dark, var(--_color---dark--sky-5));
+  --link--foreground: var(--lightningcss-light, var(--_color---light--sky-11)) var(--lightningcss-dark, var(--_color---dark--sky-11));
+  --link--hover: var(--lightningcss-light, var(--_color---light--sky-4)) var(--lightningcss-dark, var(--_color---dark--sky-4));
+  --link--foreground-hover: var(--lightningcss-light, var(--_color---light--sky-12)) var(--lightningcss-dark, var(--_color---dark--sky-12));
   --primary--background: var(--_color---neutral--lighter\<deleted\|variable-0065a3d9\>);
   --primary--foreground: var(--lightningcss-light, var(--_color---light--light-1)) var(--lightningcss-dark, var(--_color---dark--dark-1));
   --secondary--background: var(--lightningcss-light, var(--_color---light--light-3)) var(--lightningcss-dark, var(--_color---dark--dark-3));
@@ -1119,6 +1160,10 @@ figcaption {
   color: var(--primary--background);
   --background--default: var(--lightningcss-light, var(--_color---light--light-1)) var(--lightningcss-dark, var(--_color---dark--dark-1));
   --foreground--default: var(--lightningcss-light, var(--_color---light--light-12)) var(--lightningcss-dark, var(--_color---dark--dark-12));
+  --link--background: var(--lightningcss-light, var(--_color---light--sky-5)) var(--lightningcss-dark, var(--_color---dark--sky-5));
+  --link--foreground: var(--lightningcss-light, var(--_color---light--sky-11)) var(--lightningcss-dark, var(--_color---dark--sky-11));
+  --link--hover: var(--lightningcss-light, var(--_color---light--sky-4)) var(--lightningcss-dark, var(--_color---dark--sky-4));
+  --link--foreground-hover: var(--lightningcss-light, var(--_color---light--sky-12)) var(--lightningcss-dark, var(--_color---dark--sky-12));
   --primary--background: var(--lightningcss-light, var(--_color---light--light-12)) var(--lightningcss-dark, var(--_color---dark--dark-12));
   --primary--foreground: var(--lightningcss-light, var(--_color---light--light-1)) var(--lightningcss-dark, var(--_color---dark--dark-1));
   --secondary--background: var(--lightningcss-light, var(--_color---light--light-3)) var(--lightningcss-dark, var(--_color---dark--dark-3));
@@ -1166,6 +1211,10 @@ figcaption {
   font-size: var(--_components---button-small--font-size);
   --background--default: var(--lightningcss-light, var(--_color---light--light-1)) var(--lightningcss-dark, var(--_color---dark--dark-1));
   --foreground--default: var(--lightningcss-light, var(--_color---light--light-12)) var(--lightningcss-dark, var(--_color---dark--dark-12));
+  --link--background: var(--lightningcss-light, var(--_color---light--sky-5)) var(--lightningcss-dark, var(--_color---dark--sky-5));
+  --link--foreground: var(--lightningcss-light, var(--_color---light--sky-11)) var(--lightningcss-dark, var(--_color---dark--sky-11));
+  --link--hover: var(--lightningcss-light, var(--_color---light--sky-4)) var(--lightningcss-dark, var(--_color---dark--sky-4));
+  --link--foreground-hover: var(--lightningcss-light, var(--_color---light--sky-12)) var(--lightningcss-dark, var(--_color---dark--sky-12));
   --primary--background: var(--lightningcss-light, var(--_color---light--light-12)) var(--lightningcss-dark, var(--_color---dark--dark-12));
   --primary--foreground: var(--lightningcss-light, var(--_color---light--light-1)) var(--lightningcss-dark, var(--_color---dark--dark-1));
   --secondary--background: var(--lightningcss-light, var(--_color---light--light-3)) var(--lightningcss-dark, var(--_color---dark--dark-3));
@@ -1239,6 +1288,10 @@ figcaption {
   color: var(--foreground--default);
   --background--default: var(--lightningcss-light, var(--_color---neutral--dark\<deleted\|variable-53d573b6\>)) var(--lightningcss-dark, var(--_color---neutral--light\<deleted\|variable-f16457a0\>));
   --foreground--default: var(--lightningcss-light, var(--_color---neutral--lighter\<deleted\|variable-0065a3d9\>)) var(--lightningcss-dark, var(--_color---neutral--dark\<deleted\|variable-53d573b6\>));
+  --link--background: var(--lightningcss-light, var(--_color---light--sky-5)) var(--lightningcss-dark, var(--_color---dark--sky-5));
+  --link--foreground: var(--lightningcss-light, var(--_color---light--sky-11)) var(--lightningcss-dark, var(--_color---dark--sky-11));
+  --link--hover: var(--lightningcss-light, var(--_color---light--sky-4)) var(--lightningcss-dark, var(--_color---dark--sky-4));
+  --link--foreground-hover: var(--lightningcss-light, var(--_color---light--sky-12)) var(--lightningcss-dark, var(--_color---dark--sky-12));
   --primary--background: var(--_color---neutral--gray\<deleted\|variable-65f33ecd\>);
   --primary--foreground: var(--lightningcss-light, var(--_color---light--light-1)) var(--lightningcss-dark, var(--_color---dark--dark-1));
   --secondary--background: var(--lightningcss-light, var(--_color---light--light-3)) var(--lightningcss-dark, var(--_color---dark--dark-3));
@@ -1321,6 +1374,10 @@ figcaption {
   color: var(--foreground--default);
   --background--default: var(--lightningcss-light, var(--_color---light--light-1)) var(--lightningcss-dark, var(--_color---dark--dark-1));
   --foreground--default: var(--lightningcss-light, var(--_color---light--light-12)) var(--lightningcss-dark, var(--_color---dark--dark-12));
+  --link--background: var(--lightningcss-light, var(--_color---light--sky-5)) var(--lightningcss-dark, var(--_color---dark--sky-5));
+  --link--foreground: var(--lightningcss-light, var(--_color---light--sky-11)) var(--lightningcss-dark, var(--_color---dark--sky-11));
+  --link--hover: var(--lightningcss-light, var(--_color---light--sky-4)) var(--lightningcss-dark, var(--_color---dark--sky-4));
+  --link--foreground-hover: var(--lightningcss-light, var(--_color---light--sky-12)) var(--lightningcss-dark, var(--_color---dark--sky-12));
   --primary--background: var(--lightningcss-light, var(--_color---light--light-12)) var(--lightningcss-dark, var(--_color---dark--dark-12));
   --primary--foreground: var(--lightningcss-light, var(--_color---light--light-1)) var(--lightningcss-dark, var(--_color---dark--dark-1));
   --secondary--background: var(--lightningcss-light, var(--_color---light--light-3)) var(--lightningcss-dark, var(--_color---dark--dark-3));
@@ -1367,6 +1424,10 @@ figcaption {
   color: var(--foreground--default);
   --background--default: var(--lightningcss-light, var(--_color---light--light-1)) var(--lightningcss-dark, var(--_color---dark--dark-1));
   --foreground--default: var(--lightningcss-light, var(--_color---light--light-12)) var(--lightningcss-dark, var(--_color---dark--dark-12));
+  --link--background: var(--lightningcss-light, var(--_color---light--sky-5)) var(--lightningcss-dark, var(--_color---dark--sky-5));
+  --link--foreground: var(--lightningcss-light, var(--_color---light--sky-11)) var(--lightningcss-dark, var(--_color---dark--sky-11));
+  --link--hover: var(--lightningcss-light, var(--_color---light--sky-4)) var(--lightningcss-dark, var(--_color---dark--sky-4));
+  --link--foreground-hover: var(--lightningcss-light, var(--_color---light--sky-12)) var(--lightningcss-dark, var(--_color---dark--sky-12));
   --primary--background: var(--lightningcss-light, var(--_color---light--light-12)) var(--lightningcss-dark, var(--_color---dark--dark-12));
   --primary--foreground: var(--lightningcss-light, var(--_color---light--light-1)) var(--lightningcss-dark, var(--_color---dark--dark-1));
   --secondary--background: var(--lightningcss-light, var(--_color---light--light-3)) var(--lightningcss-dark, var(--_color---dark--dark-3));
@@ -1412,6 +1473,10 @@ figcaption {
   color: var(--foreground--default);
   --background--default: var(--lightningcss-light, var(--_color---light--light-1)) var(--lightningcss-dark, var(--_color---dark--dark-1));
   --foreground--default: var(--lightningcss-light, var(--_color---light--light-12)) var(--lightningcss-dark, var(--_color---dark--dark-12));
+  --link--background: var(--lightningcss-light, var(--_color---light--sky-5)) var(--lightningcss-dark, var(--_color---dark--sky-5));
+  --link--foreground: var(--lightningcss-light, var(--_color---light--sky-11)) var(--lightningcss-dark, var(--_color---dark--sky-11));
+  --link--hover: var(--lightningcss-light, var(--_color---light--sky-4)) var(--lightningcss-dark, var(--_color---dark--sky-4));
+  --link--foreground-hover: var(--lightningcss-light, var(--_color---light--sky-12)) var(--lightningcss-dark, var(--_color---dark--sky-12));
   --primary--background: var(--lightningcss-light, var(--_color---light--light-12)) var(--lightningcss-dark, var(--_color---dark--dark-12));
   --primary--foreground: var(--lightningcss-light, var(--_color---light--light-1)) var(--lightningcss-dark, var(--_color---dark--dark-1));
   --secondary--background: var(--lightningcss-light, var(--_color---light--light-3)) var(--lightningcss-dark, var(--_color---dark--dark-3));
@@ -2483,6 +2548,10 @@ figcaption {
 .nav:where(.w-variant-b23b0bfb-3285-ab6f-754f-ce412db82d06) {
   --background--default: var(--_color---neutral--dark\<deleted\|variable-53d573b6\>);
   --foreground--default: var(--_color---neutral--lighter\<deleted\|variable-0065a3d9\>);
+  --link--background: var(--lightningcss-light, var(--_color---light--sky-5)) var(--lightningcss-dark, var(--_color---dark--sky-5));
+  --link--foreground: var(--lightningcss-light, var(--_color---light--sky-11)) var(--lightningcss-dark, var(--_color---dark--sky-11));
+  --link--hover: var(--lightningcss-light, var(--_color---light--sky-4)) var(--lightningcss-dark, var(--_color---dark--sky-4));
+  --link--foreground-hover: var(--lightningcss-light, var(--_color---light--sky-12)) var(--lightningcss-dark, var(--_color---dark--sky-12));
   --primary--background: var(--lightningcss-light, var(--_color---light--light-12)) var(--lightningcss-dark, var(--_color---dark--dark-12));
   --primary--foreground: var(--lightningcss-light, var(--_color---light--light-1)) var(--lightningcss-dark, var(--_color---dark--dark-1));
   --secondary--background: var(--lightningcss-light, var(--_color---light--light-3)) var(--lightningcss-dark, var(--_color---dark--dark-3));
@@ -2717,12 +2786,15 @@ figcaption {
 
 .footer-social_link {
   width: var(--_size---1-5rem\<deleted\|variable-f3ca9317-f658-e5ae-7950-f14c04b8bdeb\>);
+  background-color: #0000;
   text-decoration: none;
-  transition: opacity .3s cubic-bezier(.165, .84, .44, 1);
+  transition-property: color;
+  transition-duration: .3s;
+  transition-timing-function: cubic-bezier(.165, .84, .44, 1);
 }
 
 .footer-social_link:hover {
-  color: var(--primary--hover);
+  background-color: #0000;
 }
 
 .footer-social_link.u-d-inline-flex {
@@ -2858,6 +2930,10 @@ figcaption {
   color: var(--foreground--default);
   --background--default: var(--lightningcss-light, var(--_color---light--light-1)) var(--lightningcss-dark, var(--_color---dark--dark-1));
   --foreground--default: var(--lightningcss-light, var(--_color---light--light-12)) var(--lightningcss-dark, var(--_color---dark--dark-12));
+  --link--background: var(--lightningcss-light, var(--_color---light--sky-5)) var(--lightningcss-dark, var(--_color---dark--sky-5));
+  --link--foreground: var(--lightningcss-light, var(--_color---light--sky-11)) var(--lightningcss-dark, var(--_color---dark--sky-11));
+  --link--hover: var(--lightningcss-light, var(--_color---light--sky-4)) var(--lightningcss-dark, var(--_color---dark--sky-4));
+  --link--foreground-hover: var(--lightningcss-light, var(--_color---light--sky-12)) var(--lightningcss-dark, var(--_color---dark--sky-12));
   --primary--background: var(--lightningcss-light, var(--_color---light--light-12)) var(--lightningcss-dark, var(--_color---dark--dark-12));
   --primary--foreground: var(--lightningcss-light, var(--_color---light--light-1)) var(--lightningcss-dark, var(--_color---dark--dark-1));
   --secondary--background: var(--lightningcss-light, var(--_color---light--light-3)) var(--lightningcss-dark, var(--_color---dark--dark-3));
@@ -2900,6 +2976,10 @@ figcaption {
   color: var(--foreground--default);
   --background--default: var(--lightningcss-light, var(--_color---neutral--dark\<deleted\|variable-53d573b6\>)) var(--lightningcss-dark, var(--_color---neutral--light\<deleted\|variable-f16457a0\>));
   --foreground--default: var(--lightningcss-light, var(--_color---neutral--lighter\<deleted\|variable-0065a3d9\>)) var(--lightningcss-dark, var(--_color---neutral--dark\<deleted\|variable-53d573b6\>));
+  --link--background: var(--lightningcss-light, var(--_color---light--sky-5)) var(--lightningcss-dark, var(--_color---dark--sky-5));
+  --link--foreground: var(--lightningcss-light, var(--_color---light--sky-11)) var(--lightningcss-dark, var(--_color---dark--sky-11));
+  --link--hover: var(--lightningcss-light, var(--_color---light--sky-4)) var(--lightningcss-dark, var(--_color---dark--sky-4));
+  --link--foreground-hover: var(--lightningcss-light, var(--_color---light--sky-12)) var(--lightningcss-dark, var(--_color---dark--sky-12));
   --primary--background: var(--_color---neutral--gray\<deleted\|variable-65f33ecd\>);
   --primary--foreground: var(--lightningcss-light, var(--_color---light--light-1)) var(--lightningcss-dark, var(--_color---dark--dark-1));
   --secondary--background: var(--lightningcss-light, var(--_color---light--light-3)) var(--lightningcss-dark, var(--_color---dark--dark-3));
@@ -2942,6 +3022,10 @@ figcaption {
   color: var(--foreground--default);
   --background--default: var(--_color---neutral--gray\<deleted\|variable-65f33ecd\>);
   --foreground--default: var(--lightningcss-light, var(--_color---neutral--dark\<deleted\|variable-53d573b6\>)) var(--lightningcss-dark, var(--_color---neutral--dark\<deleted\|variable-53d573b6\>));
+  --link--background: var(--lightningcss-light, var(--_color---light--sky-5)) var(--lightningcss-dark, var(--_color---dark--sky-5));
+  --link--foreground: var(--lightningcss-light, var(--_color---light--sky-11)) var(--lightningcss-dark, var(--_color---dark--sky-11));
+  --link--hover: var(--lightningcss-light, var(--_color---light--sky-4)) var(--lightningcss-dark, var(--_color---dark--sky-4));
+  --link--foreground-hover: var(--lightningcss-light, var(--_color---light--sky-12)) var(--lightningcss-dark, var(--_color---dark--sky-12));
   --primary--background: var(--_color---neutral--lighter\<deleted\|variable-0065a3d9\>);
   --primary--foreground: var(--lightningcss-light, var(--_color---light--light-1)) var(--lightningcss-dark, var(--_color---dark--dark-1));
   --secondary--background: var(--lightningcss-light, var(--_color---light--light-3)) var(--lightningcss-dark, var(--_color---dark--dark-3));
@@ -2984,6 +3068,10 @@ figcaption {
   color: var(--foreground--default);
   --background--default: var(--_color---neutral--mid-dark\<deleted\|variable-35755b90-8ee6-83e7-b09b-fd6e59aab6f1\>);
   --foreground--default: var(--_color---neutral--lighter\<deleted\|variable-0065a3d9\>);
+  --link--background: var(--lightningcss-light, var(--_color---light--sky-5)) var(--lightningcss-dark, var(--_color---dark--sky-5));
+  --link--foreground: var(--lightningcss-light, var(--_color---light--sky-11)) var(--lightningcss-dark, var(--_color---dark--sky-11));
+  --link--hover: var(--lightningcss-light, var(--_color---light--sky-4)) var(--lightningcss-dark, var(--_color---dark--sky-4));
+  --link--foreground-hover: var(--lightningcss-light, var(--_color---light--sky-12)) var(--lightningcss-dark, var(--_color---dark--sky-12));
   --primary--background: var(--lightningcss-light, var(--_color---light--light-12)) var(--lightningcss-dark, var(--_color---dark--dark-12));
   --primary--foreground: var(--lightningcss-light, var(--_color---light--light-1)) var(--lightningcss-dark, var(--_color---dark--dark-1));
   --secondary--background: var(--lightningcss-light, var(--_color---light--light-3)) var(--lightningcss-dark, var(--_color---dark--dark-3));
@@ -3690,6 +3778,10 @@ figcaption {
   color: var(--foreground--default);
   --background--default: var(--lightningcss-light, var(--_color---light--light-1)) var(--lightningcss-dark, var(--_color---dark--dark-1));
   --foreground--default: var(--lightningcss-light, var(--_color---light--light-12)) var(--lightningcss-dark, var(--_color---dark--dark-12));
+  --link--background: var(--lightningcss-light, var(--_color---light--sky-5)) var(--lightningcss-dark, var(--_color---dark--sky-5));
+  --link--foreground: var(--lightningcss-light, var(--_color---light--sky-11)) var(--lightningcss-dark, var(--_color---dark--sky-11));
+  --link--hover: var(--lightningcss-light, var(--_color---light--sky-4)) var(--lightningcss-dark, var(--_color---dark--sky-4));
+  --link--foreground-hover: var(--lightningcss-light, var(--_color---light--sky-12)) var(--lightningcss-dark, var(--_color---dark--sky-12));
   --primary--background: var(--lightningcss-light, var(--_color---light--light-12)) var(--lightningcss-dark, var(--_color---dark--dark-12));
   --primary--foreground: var(--lightningcss-light, var(--_color---light--light-1)) var(--lightningcss-dark, var(--_color---dark--dark-1));
   --secondary--background: var(--lightningcss-light, var(--_color---light--light-3)) var(--lightningcss-dark, var(--_color---dark--dark-3));
@@ -4183,6 +4275,10 @@ figcaption {
   .button:where(.w-variant-052759b4-b398-e98d-c28c-099b380d4426) {
     --background--default: var(--lightningcss-light, var(--_color---light--light-1)) var(--lightningcss-dark, var(--_color---dark--dark-1));
     --foreground--default: var(--lightningcss-light, var(--_color---light--light-12)) var(--lightningcss-dark, var(--_color---dark--dark-12));
+    --link--background: var(--lightningcss-light, var(--_color---light--sky-5)) var(--lightningcss-dark, var(--_color---dark--sky-5));
+    --link--foreground: var(--lightningcss-light, var(--_color---light--sky-11)) var(--lightningcss-dark, var(--_color---dark--sky-11));
+    --link--hover: var(--lightningcss-light, var(--_color---light--sky-4)) var(--lightningcss-dark, var(--_color---dark--sky-4));
+    --link--foreground-hover: var(--lightningcss-light, var(--_color---light--sky-12)) var(--lightningcss-dark, var(--_color---dark--sky-12));
     --primary--background: var(--lightningcss-light, var(--_color---light--light-12)) var(--lightningcss-dark, var(--_color---dark--dark-12));
     --primary--foreground: var(--lightningcss-light, var(--_color---light--light-1)) var(--lightningcss-dark, var(--_color---dark--dark-1));
     --secondary--background: var(--lightningcss-light, var(--_color---light--light-3)) var(--lightningcss-dark, var(--_color---dark--dark-3));
@@ -4224,6 +4320,10 @@ figcaption {
     background-color: var(--background--default);
     --background--default: var(--lightningcss-light, var(--_color---light--light-1)) var(--lightningcss-dark, var(--_color---dark--dark-1));
     --foreground--default: var(--lightningcss-light, var(--_color---light--light-12)) var(--lightningcss-dark, var(--_color---dark--dark-12));
+    --link--background: var(--lightningcss-light, var(--_color---light--sky-5)) var(--lightningcss-dark, var(--_color---dark--sky-5));
+    --link--foreground: var(--lightningcss-light, var(--_color---light--sky-11)) var(--lightningcss-dark, var(--_color---dark--sky-11));
+    --link--hover: var(--lightningcss-light, var(--_color---light--sky-4)) var(--lightningcss-dark, var(--_color---dark--sky-4));
+    --link--foreground-hover: var(--lightningcss-light, var(--_color---light--sky-12)) var(--lightningcss-dark, var(--_color---dark--sky-12));
     --primary--background: var(--lightningcss-light, var(--_color---light--light-12)) var(--lightningcss-dark, var(--_color---dark--dark-12));
     --primary--foreground: var(--lightningcss-light, var(--_color---light--light-1)) var(--lightningcss-dark, var(--_color---dark--dark-1));
     --secondary--background: var(--lightningcss-light, var(--_color---light--light-3)) var(--lightningcss-dark, var(--_color---dark--dark-3));
@@ -4266,6 +4366,10 @@ figcaption {
     color: var(--foreground--default);
     --background--default: var(--lightningcss-light, var(--_color---light--light-1)) var(--lightningcss-dark, var(--_color---dark--dark-1));
     --foreground--default: var(--lightningcss-light, var(--_color---light--light-12)) var(--lightningcss-dark, var(--_color---dark--dark-12));
+    --link--background: var(--lightningcss-light, var(--_color---light--sky-5)) var(--lightningcss-dark, var(--_color---dark--sky-5));
+    --link--foreground: var(--lightningcss-light, var(--_color---light--sky-11)) var(--lightningcss-dark, var(--_color---dark--sky-11));
+    --link--hover: var(--lightningcss-light, var(--_color---light--sky-4)) var(--lightningcss-dark, var(--_color---dark--sky-4));
+    --link--foreground-hover: var(--lightningcss-light, var(--_color---light--sky-12)) var(--lightningcss-dark, var(--_color---dark--sky-12));
     --primary--background: var(--lightningcss-light, var(--_color---light--light-12)) var(--lightningcss-dark, var(--_color---dark--dark-12));
     --primary--foreground: var(--lightningcss-light, var(--_color---light--light-1)) var(--lightningcss-dark, var(--_color---dark--dark-1));
     --secondary--background: var(--lightningcss-light, var(--_color---light--light-3)) var(--lightningcss-dark, var(--_color---dark--dark-3));
@@ -4306,6 +4410,10 @@ figcaption {
   .button:where(.w-variant-bde2eece-8f31-2b54-acd2-a6129cfc537d), .button:where(.w-variant-89fb0d3b-2c37-36f1-20d8-678673c44449) {
     --background--default: var(--lightningcss-light, var(--_color---light--light-1)) var(--lightningcss-dark, var(--_color---dark--dark-1));
     --foreground--default: var(--lightningcss-light, var(--_color---light--light-12)) var(--lightningcss-dark, var(--_color---dark--dark-12));
+    --link--background: var(--lightningcss-light, var(--_color---light--sky-5)) var(--lightningcss-dark, var(--_color---dark--sky-5));
+    --link--foreground: var(--lightningcss-light, var(--_color---light--sky-11)) var(--lightningcss-dark, var(--_color---dark--sky-11));
+    --link--hover: var(--lightningcss-light, var(--_color---light--sky-4)) var(--lightningcss-dark, var(--_color---dark--sky-4));
+    --link--foreground-hover: var(--lightningcss-light, var(--_color---light--sky-12)) var(--lightningcss-dark, var(--_color---dark--sky-12));
     --primary--background: var(--lightningcss-light, var(--_color---light--light-12)) var(--lightningcss-dark, var(--_color---dark--dark-12));
     --primary--foreground: var(--lightningcss-light, var(--_color---light--light-1)) var(--lightningcss-dark, var(--_color---dark--dark-1));
     --secondary--background: var(--lightningcss-light, var(--_color---light--light-3)) var(--lightningcss-dark, var(--_color---dark--dark-3));
