@@ -17,6 +17,7 @@ id = "8525b2a538b3463daf10ed46309bf482"
 crons = ["0 0 * * 1", "0 * * * *"]
 
 [env.production]
+name = "sil-so"
 workers_dev = false
 routes = [
   "sil.so/*",
