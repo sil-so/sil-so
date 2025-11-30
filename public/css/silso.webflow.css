@@ -1469,7 +1469,7 @@ figcaption {
   border-style: none;
 }
 
-.card:hover:where(.w-variant-7a49f1e4-82e5-f9b4-164d-70415eb8af86), .card:hover:where(.w-variant-c26a5dd5-d828-f993-f1dd-d1ef3edbf07a) {
+.card:hover:where(.w-variant-7a49f1e4-82e5-f9b4-164d-70415eb8af86), .card:hover:where(.w-variant-c26a5dd5-d828-f993-f1dd-d1ef3edbf07a), .card:hover:where(.w-variant-9a4cf119-ffa5-0787-a62e-5ea19dfcf668) {
   background-color: var(--background--muted);
 }
 
