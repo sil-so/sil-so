@@ -2508,6 +2508,7 @@ figcaption {
 
 .modal_close-button {
   z-index: 1001;
+  border-radius: var(--_components---button--border-radius);
   background-color: #0000;
   justify-content: center;
   align-items: center;
