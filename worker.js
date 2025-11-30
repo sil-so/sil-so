@@ -1,7 +1,7 @@
 export default {
   async scheduled(controller, env, ctx) {
     const RESET_CRON = "0 0 * * 1";
-
+    // nothing
     try {
       const userID = env.WHATPULSE_USER_ID;
       const token = env.WHATPULSE_API_TOKEN;
@@ -63,7 +63,7 @@ export default {
           maximumFractionDigits: 1,
         }).format(weeklyClicks),
         updatedAt: new Date().toISOString(),
-          };
+      };
 
       await env.WHATPULSE_DATA.put("stats", JSON.stringify(stats));
       console.log("Updated Stats Successfully:", stats);
@@ -80,7 +80,7 @@ export default {
     newHeaders.delete("If-None-Match");
     newHeaders.delete("If-Modified-Since");
 
-          const newRequest = new Request(request, {
+    const newRequest = new Request(request, {
       headers: newHeaders,
     });
 
@@ -89,7 +89,7 @@ export default {
     console.log("[fetch] Content-Type:", contentType);
 
     if (contentType && contentType.includes("text/html")) {
-                console.log("[fetch] HTML detected, fetching stats from KV...");
+      console.log("[fetch] HTML detected, fetching stats from KV...");
       const statsData = await env.WHATPULSE_DATA.get("stats", { type: "json" });
       console.log("[fetch] Stats data:", JSON.stringify(statsData));
 
@@ -97,7 +97,7 @@ export default {
         console.log("[fetch] Applying HTMLRewriter transformation...");
         try {
           const transformed = new HTMLRewriter()
-                      .on(
+            .on(
               "#activity-mouse-travel",
               new ElementHandler(statsData.distance)
             )
