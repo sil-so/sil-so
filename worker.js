@@ -25,8 +25,7 @@ export default {
         currentMiles = parseFloat(json.user.totals.distance_miles || 0);
         currentClicks = parseInt(json.user.totals.clicks || 0);
       } else {
-        console.error("Structure mismatch: 'user.totals' not found in response");
-        console.log("Full JSON:", JSON.stringify(json));
+        console.error("Structure mismatch: 'user.totals' not found");
         return; 
       }
 
@@ -41,12 +40,10 @@ export default {
         await env.WHATPULSE_DATA.put("baseline_clicks", currentClicks.toString());
         baselineMiles = currentMiles;
         baselineClicks = currentClicks;
-        console.log("Weekly Baseline Reset Performed");
       }
 
       const weeklyMiles = currentMiles - baselineMiles;
       const weeklyClicks = currentClicks - baselineClicks;
-
       const weeklyKm = (weeklyMiles * 1.60934).toFixed(2);
 
       const stats = {
@@ -60,23 +57,33 @@ export default {
 
     } catch (error) {
       console.error("Worker Error:", error.message);
-      console.error(error.stack);
     }
   },
 
   async fetch(request, env, ctx) {
-    const response = await env.ASSETS.fetch(request);
+    const newHeaders = new Headers(request.headers);
+    newHeaders.delete("If-None-Match");
+    newHeaders.delete("If-Modified-Since");
+
+    const newRequest = new Request(request, {
+      headers: newHeaders
+    });
+
+    const response = await env.ASSETS.fetch(newRequest);
     const contentType = response.headers.get("content-type");
 
     if (contentType && contentType.includes("text/html")) {
       const statsData = await env.WHATPULSE_DATA.get("stats", { type: "json" });
       
       if (statsData) {
-        return new HTMLRewriter()
+        const transformed = new HTMLRewriter()
           .on("#activity-mouse-travel", new ElementHandler(statsData.distance))
           .on("#activity-mouse-clicks", new ElementHandler(statsData.clicks))
           .on("#activity-last-update", new ElementHandler(formatUpdateTime(statsData.updatedAt)))
           .transform(response);
+          
+        transformed.headers.set("Cache-Control", "public, max-age=60");
+        return transformed;
       }
     }
     return response;
