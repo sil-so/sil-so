@@ -1,4 +1,4 @@
-<!DOCTYPE html><!--  This site was created in Webflow. https://webflow.com  --><!--  Last Published: Sun Nov 30 2025 15:10:40 GMT+0000 (Coordinated Universal Time)  -->
+<!DOCTYPE html><!--  This site was created in Webflow. https://webflow.com  --><!--  Last Published: Sun Nov 30 2025 17:13:15 GMT+0000 (Coordinated Universal Time)  -->
 <html data-wf-page="691924e41a8dc9bab2bb569b" data-wf-site="691924e21a8dc9bab2bb563e" lang="en">
 <head>
   <meta charset="utf-8">
@@ -587,8 +587,13 @@ html.wf-design-mode .grid-sizer {
 .modal-scroll {
   /* --- SETTINGS --- */
   --mask-inset: calc(var(--_components---card--padding)/2);
-  --fade-height: 10rem;    /* How TALL the gradient looks */
-  --activation-dist: 3rem; /* How FAST it turns on (Lower = Faster) */
+  --fade-height: 10rem;
+  --activation-dist: 3rem;
+  will-change: mask-image;
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  contain: paint;
   /* --- MASK GRADIENT (Eased) --- */
   mask-image: linear-gradient(
     to bottom,
@@ -627,7 +632,7 @@ html.wf-design-mode .grid-sizer {
     adjust-top-mask linear both, 
     adjust-bottom-mask linear both;
   animation-timeline: scroll(self);
-  /* FIXED RANGE: Uses activation-dist instead of fade-height */
+  /* FIXED RANGE */
   animation-range: 
     0px var(--activation-dist), 
     calc(100% - var(--activation-dist)) 100%;
@@ -641,7 +646,7 @@ html.wf-design-mode .grid-sizer {
   to   { --mask-bottom-alpha: 1; }
 }
 /* MODAL TRANSITION SYSTEM */
-/* Custom Persistent Backdrop - Using TRANSITIONS not animations */
+/* Custom Persistent Backdrop */
 #modal-backdrop {
   position: fixed;
   inset: 0;
@@ -688,29 +693,17 @@ dialog.modal.transitioning-in.animate-content {
   animation: slideUp 300ms ease-out forwards;
 }
 </style>
-        <!-- 
-  /* Active State: Slide Down */
-  [data-modal-blur="top"].is-visible {
-    transform: translate3d(0, 0, 0);
-  }
-  [data-modal-blur="bottom"] {
-    transform: scaleY(-1);
-  }
-  /* Active State: Slide Up */
-  [data-modal-blur="bottom"].is-visible {
-    /* Only the translation changes (from 100% to 0). Scale remains constant. */
-    transform: translate3d(0, 0, 0) scaleY(-1);
-  }
- -->
       </div>
       <div class="w-embed w-script"><!--  Mast Modal JS  -->
-        <script defer="" src="https://cdn.jsdelivr.net/gh/sil-so/mast@7248204/modal.min.js"></script>
+        <script defer="" src="https://cdn.jsdelivr.net/gh/sil-so/mast@91d5a0b/modal.min.js"></script>
         <!--  Modal Mask  -->
         <script>
 const scrollContainer = document.querySelector('.modal-scroll');
-const isOverflowing = scrollContainer.scrollHeight > scrollContainer.clientHeight;
-if (!isOverflowing) {
-  scrollContainer.style.maskImage = 'none';
+if (scrollContainer) {
+  const isOverflowing = scrollContainer.scrollHeight > scrollContainer.clientHeight;
+  if (!isOverflowing) {
+    scrollContainer.style.maskImage = 'none';
+  }
 }
 </script>
         <!--  Progressive Blur Logic
