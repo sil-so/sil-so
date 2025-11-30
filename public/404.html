@@ -1,4 +1,4 @@
-<!DOCTYPE html><!--  This site was created in Webflow. https://webflow.com  --><!--  Last Published: Sun Nov 30 2025 10:47:33 GMT+0000 (Coordinated Universal Time)  -->
+<!DOCTYPE html><!--  This site was created in Webflow. https://webflow.com  --><!--  Last Published: Sun Nov 30 2025 14:00:40 GMT+0000 (Coordinated Universal Time)  -->
 <html data-wf-page="691924e41a8dc9bab2bb569f" data-wf-site="691924e21a8dc9bab2bb563e" lang="en">
 <head>
   <meta charset="utf-8">
@@ -95,6 +95,28 @@ if (
   /* Carousel list items marker */
   html.wf-design-mode .carousel li {
   	list-style: none;
+  }
+  html.wf-design-mode .carousel .carousel-item:not(:first-of-type) {
+    display: none !important;
+  }
+  html.wf-design-mode [data-stack="wrapper"] [data-stack="item"]:not(:first-of-type) {
+    display: none !important;
+  }
+  html.wf-design-mode .masonry-container {
+    flex-flow: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    grid-auto-columns: 1fr;
+    gap: 2rem;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    column-count: 3;
+  }
+  @media (max-width: 768px) {
+    html.wf-design-mode .masonry-container {
+      gap: 1rem;
+      column-count: 2;
+    }
   }
 </style>
   <div class="w-embed">
@@ -780,22 +802,6 @@ document.addEventListener("DOMContentLoaded", function() {
       black 0% 50%,
       transparent 50% 100%
     );
-  }
-}
-html.wf-design-mode .masonry-container {
-  flex-flow: wrap;
-  justify-content: flex-start;
-  align-items: flex-start;
-  grid-auto-columns: 1fr;
-  gap: 2rem;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: auto;
-  column-count: 3;
-}
-@media (max-width: 768px) {
-  html.wf-design-mode .masonry-container {
-    gap: 1rem;
-  	column-count: 2;
   }
 }
 .view-controls:has(.button:hover) .button:not(:hover), 

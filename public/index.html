@@ -1,4 +1,4 @@
-<!DOCTYPE html><!--  This site was created in Webflow. https://webflow.com  --><!--  Last Published: Sun Nov 30 2025 10:47:33 GMT+0000 (Coordinated Universal Time)  -->
+<!DOCTYPE html><!--  This site was created in Webflow. https://webflow.com  --><!--  Last Published: Sun Nov 30 2025 14:00:40 GMT+0000 (Coordinated Universal Time)  -->
 <html data-wf-page="691924e41a8dc9bab2bb569b" data-wf-site="691924e21a8dc9bab2bb563e" lang="en">
 <head>
   <meta charset="utf-8">
@@ -105,6 +105,28 @@ fs-scrolldisable
   /* Carousel list items marker */
   html.wf-design-mode .carousel li {
   	list-style: none;
+  }
+  html.wf-design-mode .carousel .carousel-item:not(:first-of-type) {
+    display: none !important;
+  }
+  html.wf-design-mode [data-stack="wrapper"] [data-stack="item"]:not(:first-of-type) {
+    display: none !important;
+  }
+  html.wf-design-mode .masonry-container {
+    flex-flow: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    grid-auto-columns: 1fr;
+    gap: 2rem;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    column-count: 3;
+  }
+  @media (max-width: 768px) {
+    html.wf-design-mode .masonry-container {
+      gap: 1rem;
+      column-count: 2;
+    }
   }
 </style>
   <div class="w-embed">
@@ -790,22 +812,6 @@ document.addEventListener("DOMContentLoaded", function() {
       black 0% 50%,
       transparent 50% 100%
     );
-  }
-}
-html.wf-design-mode .masonry-container {
-  flex-flow: wrap;
-  justify-content: flex-start;
-  align-items: flex-start;
-  grid-auto-columns: 1fr;
-  gap: 2rem;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: auto;
-  column-count: 3;
-}
-@media (max-width: 768px) {
-  html.wf-design-mode .masonry-container {
-    gap: 1rem;
-  	column-count: 2;
   }
 }
 .view-controls:has(.button:hover) .button:not(:hover), 
@@ -2070,6 +2076,25 @@ html.wf-design-mode .masonry-container {
           <div class="modal-scroll">
             <div class="modal-content">
               <div class="slot cc-modal">
+                <div data-wf--grid-row--settings-column-alignment="top-left" id="" style="" class="row-component">
+                  <div class="row row-gap-sm u-mb-sm">
+                    <div class="col col-fixed">
+                      <div class="tag eyebrow">#Browser</div>
+                    </div>
+                    <div class="col col-fixed">
+                      <div class="tag eyebrow">#Extension</div>
+                    </div>
+                    <div class="col col-fixed">
+                      <div class="tag eyebrow">#VSCode</div>
+                    </div>
+                    <div class="col col-fixed">
+                      <div class="tag eyebrow">#Webflow</div>
+                    </div>
+                    <div class="col col-fixed">
+                      <div class="tag eyebrow">#Figma</div>
+                    </div>
+                  </div>
+                </div>
                 <div class="ipad-mockup u-mb-sm">
                   <div data-wf--inline-video--playback-control-position="bottom-right" id="" class="inline-video_component ipad-landscape-screen" style="aspect-ratio: 1366 / 1024;" data-video="component"><img alt="FlowTube website, Silvan Soeters, silso" loading="eager" src="images/flowtube-webflow-to-github-chrome-extension-webdesign-silvan-soeters.webp" sizes="(max-width: 479px) 92vw, (max-width: 767px) 95vw, (max-width: 991px) 96vw, (max-width: 1443px) 97vw, 1400px" srcset="images/flowtube-webflow-to-github-chrome-extension-webdesign-silvan-soeters-p-500.webp 500w, images/flowtube-webflow-to-github-chrome-extension-webdesign-silvan-soeters-p-800.webp 800w, images/flowtube-webflow-to-github-chrome-extension-webdesign-silvan-soeters-p-1080.webp 1080w, images/flowtube-webflow-to-github-chrome-extension-webdesign-silvan-soeters-p-1600.webp 1600w, images/flowtube-webflow-to-github-chrome-extension-webdesign-silvan-soeters-p-2000.webp 2000w, images/flowtube-webflow-to-github-chrome-extension-webdesign-silvan-soeters.webp 2186w" class="inline-video_poster"><video muted="" loop="" playsinline="true" preload="none" class="inline-video_video" data-video-desktop-only="false" data-video-scroll-in-play="true" data-video-hover="false" data-video="video">
                       <source data-src="https://cdn.sil.so/flowtube-website-silvan-soeters.mp4" type="video/mp4">
@@ -2118,6 +2143,34 @@ html.wf-design-mode .masonry-container {
           <div class="modal-scroll">
             <div class="modal-content">
               <div class="slot cc-modal">
+                <div data-wf--grid-row--settings-column-alignment="top-left" id="" style="" class="row-component">
+                  <div class="row row-gap-sm u-mb-sm">
+                    <div class="col col-fixed">
+                      <div class="tag eyebrow">#Webapp</div>
+                    </div>
+                    <div class="col col-fixed">
+                      <div class="tag eyebrow">#Webflow</div>
+                    </div>
+                    <div class="col col-fixed">
+                      <div class="tag eyebrow">#Wized</div>
+                    </div>
+                    <div class="col col-fixed">
+                      <div class="tag eyebrow">#Memberstack</div>
+                    </div>
+                    <div class="col col-fixed">
+                      <div class="tag eyebrow">#Stripe</div>
+                    </div>
+                    <div class="col col-fixed">
+                      <div class="tag eyebrow">#OpenAI</div>
+                    </div>
+                    <div class="col col-fixed">
+                      <div class="tag eyebrow">#Railway</div>
+                    </div>
+                    <div class="col col-fixed">
+                      <div class="tag eyebrow">#Figma</div>
+                    </div>
+                  </div>
+                </div>
                 <div class="ipad-mockup u-mb-sm">
                   <div data-wf--inline-video--playback-control-position="bottom-right" id="" class="inline-video_component ipad-landscape-screen" style="aspect-ratio: 1366 / 1024;" data-video="component"><img alt="Warp Domains website, Silvan Soeters, silso" loading="eager" src="images/warp-domains-webdesign-silvan-soeters.webp" sizes="(max-width: 479px) 92vw, (max-width: 767px) 95vw, (max-width: 991px) 96vw, (max-width: 1443px) 97vw, 1400px" srcset="images/warp-domains-webdesign-silvan-soeters-p-500.webp 500w, images/warp-domains-webdesign-silvan-soeters-p-800.webp 800w, images/warp-domains-webdesign-silvan-soeters-p-1080.webp 1080w, images/warp-domains-webdesign-silvan-soeters-p-1600.webp 1600w, images/warp-domains-webdesign-silvan-soeters-p-2000.webp 2000w, images/warp-domains-webdesign-silvan-soeters.webp 2186w" class="inline-video_poster"><video muted="" loop="" playsinline="true" preload="none" class="inline-video_video" data-video-desktop-only="false" data-video-scroll-in-play="true" data-video-hover="false" data-video="video">
                       <source data-src="https://cdn.sil.so/warp-domains-website-silvan-soeters.mp4" type="video/mp4">
@@ -2168,6 +2221,22 @@ html.wf-design-mode .masonry-container {
           <div class="modal-scroll">
             <div class="modal-content">
               <div class="slot cc-modal">
+                <div data-wf--grid-row--settings-column-alignment="top-left" id="" style="" class="row-component">
+                  <div class="row row-gap-sm u-mb-sm">
+                    <div class="col col-fixed">
+                      <div class="tag eyebrow">#CustomGPT</div>
+                    </div>
+                    <div class="col col-fixed">
+                      <div class="tag eyebrow">#OpenAI</div>
+                    </div>
+                    <div class="col col-fixed">
+                      <div class="tag eyebrow">#Webflow</div>
+                    </div>
+                    <div class="col col-fixed">
+                      <div class="tag eyebrow">#Figma</div>
+                    </div>
+                  </div>
+                </div>
                 <div class="ipad-mockup u-mb-sm">
                   <div data-wf--inline-video--playback-control-position="bottom-right" id="" class="inline-video_component ipad-landscape-screen" style="aspect-ratio: 1366 / 1024;" data-video="component"><img alt="Curatyy AI art website, Silvan Soeters, silso" loading="eager" src="images/curatyy-ai-art-webdesign-silvan-soeters.webp" sizes="(max-width: 479px) 92vw, (max-width: 767px) 95vw, (max-width: 991px) 96vw, (max-width: 1443px) 97vw, 1400px" srcset="images/curatyy-ai-art-webdesign-silvan-soeters-p-500.webp 500w, images/curatyy-ai-art-webdesign-silvan-soeters-p-800.webp 800w, images/curatyy-ai-art-webdesign-silvan-soeters-p-1080.webp 1080w, images/curatyy-ai-art-webdesign-silvan-soeters-p-1600.webp 1600w, images/curatyy-ai-art-webdesign-silvan-soeters-p-2000.webp 2000w, images/curatyy-ai-art-webdesign-silvan-soeters.webp 2186w" class="inline-video_poster"><video muted="" loop="" playsinline="true" preload="none" class="inline-video_video" data-video-desktop-only="false" data-video-scroll-in-play="true" data-video-hover="false" data-video="video">
                       <source data-src="https://cdn.sil.so/curatyy-art-website-silvan-soeters.mp4" type="video/mp4">
@@ -2216,6 +2285,22 @@ html.wf-design-mode .masonry-container {
           <div class="modal-scroll">
             <div class="modal-content">
               <div class="slot cc-modal">
+                <div data-wf--grid-row--settings-column-alignment="top-left" id="" style="" class="row-component">
+                  <div class="row row-gap-sm u-mb-sm">
+                    <div class="col col-fixed">
+                      <div class="tag eyebrow">#Webflow</div>
+                    </div>
+                    <div class="col col-fixed">
+                      <div class="tag eyebrow">#CMS</div>
+                    </div>
+                    <div class="col col-fixed">
+                      <div class="tag eyebrow">#Figma</div>
+                    </div>
+                    <div class="col col-fixed">
+                      <div class="tag eyebrow">#Photography</div>
+                    </div>
+                  </div>
+                </div>
                 <div class="ipad-mockup u-mb-sm">
                   <div data-wf--inline-video--playback-control-position="bottom-right" id="" class="inline-video_component ipad-landscape-screen" style="aspect-ratio: 1366 / 1024;" data-video="component"><img alt="Van Drunen Woondecoratie website, Silvan Soeters, silso" loading="eager" src="images/van-drunen-woondecoratie-webdesign-silvan-soeters.webp" sizes="(max-width: 479px) 92vw, (max-width: 767px) 95vw, (max-width: 991px) 96vw, (max-width: 1443px) 97vw, 1400px" srcset="images/van-drunen-woondecoratie-webdesign-silvan-soeters-p-500.webp 500w, images/van-drunen-woondecoratie-webdesign-silvan-soeters-p-800.webp 800w, images/van-drunen-woondecoratie-webdesign-silvan-soeters-p-1080.webp 1080w, images/van-drunen-woondecoratie-webdesign-silvan-soeters-p-1600.webp 1600w, images/van-drunen-woondecoratie-webdesign-silvan-soeters-p-2000.webp 2000w, images/van-drunen-woondecoratie-webdesign-silvan-soeters.webp 2186w" class="inline-video_poster"><video muted="" loop="" playsinline="true" preload="none" class="inline-video_video" data-video-desktop-only="false" data-video-scroll-in-play="true" data-video-hover="false" data-video="video">
                       <source data-src="https://cdn.sil.so/van-drunen-woondecoratie-website-silvan-soeters.mp4" type="video/mp4">
@@ -2263,6 +2348,25 @@ html.wf-design-mode .masonry-container {
           <div class="modal-scroll">
             <div class="modal-content">
               <div class="slot cc-modal">
+                <div data-wf--grid-row--settings-column-alignment="top-left" id="" style="" class="row-component">
+                  <div class="row row-gap-sm u-mb-sm">
+                    <div class="col col-fixed">
+                      <div class="tag eyebrow">#Webflow</div>
+                    </div>
+                    <div class="col col-fixed">
+                      <div class="tag eyebrow">#CMS</div>
+                    </div>
+                    <div class="col col-fixed">
+                      <div class="tag eyebrow">#Figma</div>
+                    </div>
+                    <div class="col col-fixed">
+                      <div class="tag eyebrow">#Logo</div>
+                    </div>
+                    <div class="col col-fixed">
+                      <div class="tag eyebrow">#Photography</div>
+                    </div>
+                  </div>
+                </div>
                 <div class="ipad-mockup u-mb-sm">
                   <div data-wf--inline-video--playback-control-position="bottom-right" id="" class="inline-video_component ipad-landscape-screen" style="aspect-ratio: 1366 / 1024;" data-video="component"><img alt="Stottercentrum Rotterdam website, Silvan Soeters, silso" loading="eager" src="images/stottercentrum-rotterdam-webdesign-silvan-soeters.webp" sizes="(max-width: 479px) 92vw, (max-width: 767px) 95vw, (max-width: 991px) 96vw, (max-width: 1443px) 97vw, 1400px" srcset="images/stottercentrum-rotterdam-webdesign-silvan-soeters-p-500.webp 500w, images/stottercentrum-rotterdam-webdesign-silvan-soeters-p-800.webp 800w, images/stottercentrum-rotterdam-webdesign-silvan-soeters-p-1080.webp 1080w, images/stottercentrum-rotterdam-webdesign-silvan-soeters-p-1600.webp 1600w, images/stottercentrum-rotterdam-webdesign-silvan-soeters-p-2000.webp 2000w, images/stottercentrum-rotterdam-webdesign-silvan-soeters.webp 2186w" class="inline-video_poster"><video muted="" loop="" playsinline="true" preload="none" class="inline-video_video" data-video-desktop-only="false" data-video-scroll-in-play="true" data-video-hover="false" data-video="video">
                       <source data-src="https://cdn.sil.so/stottercentrum-rotterdam-website-silvan-soeters.mp4" type="video/mp4">
@@ -2779,11 +2883,7 @@ html.wf-design-mode .masonry-container {
                       <div data-wf--heading--settings-alignment="left-align" id="" style="margin-top: auto" class="heading-component">
                         <h3 class="h5">FlowTube</h3>
                       </div>
-                      <div class="row row-gap-sm u-mb-sm">
-                        <div class="col col-fixed">
-                          <div class="tag eyebrow">#project</div>
-                        </div>
-                      </div>
+                      <div class="eyebrow">project</div>
                     </div>
                   </div>
                 </div><button data-open-modal="project-flowtube" aria-haspopup="dialog" aria-controls="project-flowtube" class="u-link-cover">
@@ -2825,11 +2925,7 @@ html.wf-design-mode .masonry-container {
                       <div data-wf--heading--settings-alignment="left-align" id="" style="margin-top: auto" class="heading-component">
                         <h3 class="h5">Warp Domains</h3>
                       </div>
-                      <div class="row row-gap-sm u-mb-sm">
-                        <div class="col col-fixed">
-                          <div class="tag eyebrow">#project</div>
-                        </div>
-                      </div>
+                      <div class="eyebrow">project</div>
                     </div>
                   </div>
                 </div><button data-open-modal="project-warpdomains" aria-haspopup="dialog" aria-controls="project-warpdomains" class="u-link-cover">
@@ -2912,11 +3008,7 @@ html.wf-design-mode .masonry-container {
                       <div data-wf--heading--settings-alignment="left-align" id="" style="margin-top: auto" class="heading-component">
                         <h3 class="h5">Curatyy™</h3>
                       </div>
-                      <div class="row row-gap-sm u-mb-sm">
-                        <div class="col col-fixed">
-                          <div class="tag eyebrow">#project</div>
-                        </div>
-                      </div>
+                      <div class="eyebrow">project</div>
                     </div>
                   </div>
                 </div><button data-open-modal="project-curatyy" aria-haspopup="dialog" aria-controls="project-curatyy" class="u-link-cover">
@@ -2942,15 +3034,104 @@ html.wf-design-mode .masonry-container {
                       <div data-wf--heading--settings-alignment="left-align" id="" style="margin-top: auto" class="heading-component">
                         <h3 class="h5">Van Drunen Woondecoratie</h3>
                       </div>
-                      <div class="row row-gap-sm u-mb-sm">
-                        <div class="col col-fixed">
-                          <div class="tag eyebrow">#project</div>
-                        </div>
-                      </div>
+                      <div class="eyebrow">project</div>
                     </div>
                   </div>
                 </div><button data-open-modal="case-vandrunenwoondecoratie" aria-haspopup="dialog" aria-controls="case-vandrunenwoondecoratie" class="u-link-cover">
                   <div class="u-sr-only">Learn more: Van Drunen Woondecoratie</div>
+                </button>
+              </div>
+            </div>
+            <div data-category="services" data-wf--masonry-service--variant="hoverable" class="masonry-item">
+              <div class="card w-variant-9a4cf119-ffa5-0787-a62e-5ea19dfcf668" id="" style="">
+                <div class="slot cc-card">
+                  <div class="card-body u-pb-0">
+                    <div data-wf--image--settings-aspect-ratio="custom-aspect-ratio" class="img-component w-variant-0375267a-29ec-433a-03b2-8f111c99a60b u-mlr-auto u-mt-sm" id="" style="aspect-ratio: 1384 / 1164; border-radius: 0;"><img class="u-img-cover" src="images/webflow-website-development-silso.png" width="Auto" alt="Webflow website development freelance service, Silvan Soeters, silso" sizes="(max-width: 800px) 100vw, 800px" data-wf--image-fit--image-fit="cover---center" loading="eager" fetchpriority="" srcset="images/webflow-website-development-silso-p-500.png 500w, images/webflow-website-development-silso-p-800.png 800w, images/webflow-website-development-silso-p-1080.png 1080w, images/webflow-website-development-silso.png 1384w">
+                      <div id="" style="" class="img-component_bg-overlay"></div>
+                    </div>
+                    <div data-wf--button--button-variant="primary" class="button cc-icon-only" id="" style="position: absolute; bottom: 0" data-open-modal="">
+                      <div class="btn-icon">
+                        <div data-wf--icon--settings-color="inherit" id="" style="" class="icon-color"><span data-wf--icon-size--variant="1-em" class="icon ph-fill ph-suitcase-simple">​</span></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <div class="slot cc-card-body">
+                      <div data-wf--heading--settings-alignment="left-align" id="" style="margin-top: auto" class="heading-component">
+                        <h3 class="h5">Webflow Development</h3>
+                      </div>
+                      <div data-wf--eyebrow--settings-alignment="left" class="eyebrow-component u-mb-0" id="" style="">
+                        <div class="eyebrow">service</div>
+                      </div>
+                      <div class="row row-gap-sm u-mb-sm">
+                        <div class="slot cc-tags"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div><button data-open-modal="service-website" aria-haspopup="dialog" aria-controls="service-website" class="u-link-cover">
+                  <div class="u-sr-only">Learn more: Webflow Development</div>
+                </button>
+              </div>
+            </div>
+            <div data-category="services" data-wf--masonry-service--variant="hoverable" class="masonry-item">
+              <div class="card w-variant-9a4cf119-ffa5-0787-a62e-5ea19dfcf668" id="" style="">
+                <div class="slot cc-card">
+                  <div class="card-body u-pb-0">
+                    <div data-wf--image--settings-aspect-ratio="custom-aspect-ratio" class="img-component w-variant-0375267a-29ec-433a-03b2-8f111c99a60b u-mlr-auto u-mt-sm" id="" style="aspect-ratio: 1408 / 1164; border-radius: 0;"><img class="u-img-cover" src="images/brand-identity-web-design-silso.png" width="Auto" alt="Brand identity and web design freelance service, Silvan Soeters, silso" sizes="(max-width: 800px) 100vw, 800px" data-wf--image-fit--image-fit="cover---center" loading="eager" fetchpriority="" srcset="images/brand-identity-web-design-silso-p-500.png 500w, images/brand-identity-web-design-silso-p-800.png 800w, images/brand-identity-web-design-silso-p-1080.png 1080w, images/brand-identity-web-design-silso.png 1408w">
+                      <div id="" style="" class="img-component_bg-overlay"></div>
+                    </div>
+                    <div data-wf--button--button-variant="primary" class="button cc-icon-only" id="" style="position: absolute; bottom: 0" data-open-modal="">
+                      <div class="btn-icon">
+                        <div data-wf--icon--settings-color="inherit" id="" style="" class="icon-color"><span data-wf--icon-size--variant="1-em" class="icon ph-fill ph-suitcase-simple">​</span></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <div class="slot cc-card-body">
+                      <div data-wf--heading--settings-alignment="left-align" id="" style="margin-top: auto" class="heading-component">
+                        <h3 class="h5">Brand &amp; Web Design</h3>
+                      </div>
+                      <div data-wf--eyebrow--settings-alignment="left" class="eyebrow-component u-mb-0" id="" style="">
+                        <div class="eyebrow">service</div>
+                      </div>
+                      <div class="row row-gap-sm u-mb-sm">
+                        <div class="slot cc-tags"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div><button data-open-modal="service-design" aria-haspopup="dialog" aria-controls="service-design" class="u-link-cover">
+                  <div class="u-sr-only">Learn more: Brand &amp; Web Design</div>
+                </button>
+              </div>
+            </div>
+            <div data-category="services" data-wf--masonry-service--variant="hoverable" class="masonry-item">
+              <div class="card w-variant-9a4cf119-ffa5-0787-a62e-5ea19dfcf668" id="" style="">
+                <div class="slot cc-card">
+                  <div class="card-body u-pb-0">
+                    <div data-wf--image--settings-aspect-ratio="custom-aspect-ratio" class="img-component w-variant-0375267a-29ec-433a-03b2-8f111c99a60b u-mlr-auto u-mt-sm" id="" style="aspect-ratio: 1577 / 1164; border-radius: 0;"><img class="u-img-cover" src="images/webflow-web-app-development-silso.png" width="Auto" alt="Webflow Wized web app development freelance service, Silvan Soeters, silso" sizes="(max-width: 800px) 100vw, 800px" data-wf--image-fit--image-fit="cover---center" loading="eager" fetchpriority="" srcset="images/webflow-web-app-development-silso-p-500.png 500w, images/webflow-web-app-development-silso-p-800.png 800w, images/webflow-web-app-development-silso-p-1080.png 1080w, images/webflow-web-app-development-silso.png 1577w">
+                      <div id="" style="" class="img-component_bg-overlay"></div>
+                    </div>
+                    <div data-wf--button--button-variant="primary" class="button cc-icon-only" id="" style="position: absolute; bottom: 0" data-open-modal="">
+                      <div class="btn-icon">
+                        <div data-wf--icon--settings-color="inherit" id="" style="" class="icon-color"><span data-wf--icon-size--variant="1-em" class="icon ph-fill ph-suitcase-simple">​</span></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <div class="slot cc-card-body">
+                      <div data-wf--heading--settings-alignment="left-align" id="" style="margin-top: auto" class="heading-component">
+                        <h3 class="h5">Business Web Application</h3>
+                      </div>
+                      <div data-wf--eyebrow--settings-alignment="left" class="eyebrow-component u-mb-0" id="" style="">
+                        <div class="eyebrow">service</div>
+                      </div>
+                      <div class="row row-gap-sm u-mb-sm">
+                        <div class="slot cc-tags"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div><button data-open-modal="service-webapp" aria-haspopup="dialog" aria-controls="service-webapp" class="u-link-cover">
+                  <div class="u-sr-only">Learn more: Business Web Application</div>
                 </button>
               </div>
             </div>
@@ -2989,11 +3170,7 @@ html.wf-design-mode .masonry-container {
                       <div data-wf--heading--settings-alignment="left-align" id="" style="margin-top: auto" class="heading-component">
                         <h3 class="h5">Stottercentrum Rotterdam</h3>
                       </div>
-                      <div class="row row-gap-sm u-mb-sm">
-                        <div class="col col-fixed">
-                          <div class="tag eyebrow">#project</div>
-                        </div>
-                      </div>
+                      <div class="eyebrow">project</div>
                     </div>
                   </div>
                 </div><button data-open-modal="case-stottercentrumrotterdam" aria-haspopup="dialog" aria-controls="case-stottercentrumrotterdam" class="u-link-cover">
@@ -3040,99 +3217,6 @@ html.wf-design-mode .masonry-container {
                   </div>
                 </div><button data-open-modal="contact-form" aria-haspopup="dialog" aria-controls="contact-form" class="u-link-cover">
                   <div class="u-sr-only">Open contact form</div>
-                </button>
-              </div>
-            </div>
-            <div data-category="services" data-wf--masonry-service--variant="hoverable" class="masonry-item">
-              <div class="card w-variant-9a4cf119-ffa5-0787-a62e-5ea19dfcf668" id="" style="">
-                <div class="slot cc-card">
-                  <div class="card-body u-pb-0">
-                    <div data-wf--image--settings-aspect-ratio="custom-aspect-ratio" class="img-component w-variant-0375267a-29ec-433a-03b2-8f111c99a60b u-mlr-auto u-mt-sm" id="" style="aspect-ratio: 1384 / 1164; border-radius: 0;"><img class="u-img-cover" src="images/webflow-website-development-silso.png" width="Auto" alt="Webflow website development freelance service, Silvan Soeters, silso" sizes="(max-width: 800px) 100vw, 800px" data-wf--image-fit--image-fit="cover---center" loading="eager" fetchpriority="" srcset="images/webflow-website-development-silso-p-500.png 500w, images/webflow-website-development-silso-p-800.png 800w, images/webflow-website-development-silso-p-1080.png 1080w, images/webflow-website-development-silso.png 1384w">
-                      <div id="" style="" class="img-component_bg-overlay"></div>
-                    </div>
-                    <div data-wf--button--button-variant="primary" class="button cc-icon-only" id="" style="position: absolute; bottom: 0" data-open-modal="">
-                      <div class="btn-icon">
-                        <div data-wf--icon--settings-color="inherit" id="" style="" class="icon-color"><span data-wf--icon-size--variant="1-em" class="icon ph-fill ph-suitcase-simple">​</span></div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card-body">
-                    <div class="slot cc-card-body">
-                      <div data-wf--eyebrow--settings-alignment="left" class="eyebrow-component" id="" style="">
-                        <div class="eyebrow">service</div>
-                      </div>
-                      <div data-wf--heading--settings-alignment="left-align" id="" style="margin-top: auto" class="heading-component">
-                        <h3 class="h5">Webflow Development</h3>
-                      </div>
-                      <div class="row row-gap-sm u-mb-sm">
-                        <div class="slot cc-tags"></div>
-                      </div>
-                    </div>
-                  </div>
-                </div><button data-open-modal="service-website" aria-haspopup="dialog" aria-controls="service-website" class="u-link-cover">
-                  <div class="u-sr-only">Learn more: Webflow Development</div>
-                </button>
-              </div>
-            </div>
-            <div data-category="services" data-wf--masonry-service--variant="hoverable" class="masonry-item">
-              <div class="card w-variant-9a4cf119-ffa5-0787-a62e-5ea19dfcf668" id="" style="">
-                <div class="slot cc-card">
-                  <div class="card-body u-pb-0">
-                    <div data-wf--image--settings-aspect-ratio="custom-aspect-ratio" class="img-component w-variant-0375267a-29ec-433a-03b2-8f111c99a60b u-mlr-auto u-mt-sm" id="" style="aspect-ratio: 1408 / 1164; border-radius: 0;"><img class="u-img-cover" src="images/brand-identity-web-design-silso.png" width="Auto" alt="Brand identity and web design freelance service, Silvan Soeters, silso" sizes="(max-width: 800px) 100vw, 800px" data-wf--image-fit--image-fit="cover---center" loading="eager" fetchpriority="" srcset="images/brand-identity-web-design-silso-p-500.png 500w, images/brand-identity-web-design-silso-p-800.png 800w, images/brand-identity-web-design-silso-p-1080.png 1080w, images/brand-identity-web-design-silso.png 1408w">
-                      <div id="" style="" class="img-component_bg-overlay"></div>
-                    </div>
-                    <div data-wf--button--button-variant="primary" class="button cc-icon-only" id="" style="position: absolute; bottom: 0" data-open-modal="">
-                      <div class="btn-icon">
-                        <div data-wf--icon--settings-color="inherit" id="" style="" class="icon-color"><span data-wf--icon-size--variant="1-em" class="icon ph-fill ph-suitcase-simple">​</span></div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card-body">
-                    <div class="slot cc-card-body">
-                      <div data-wf--eyebrow--settings-alignment="left" class="eyebrow-component" id="" style="">
-                        <div class="eyebrow">service</div>
-                      </div>
-                      <div data-wf--heading--settings-alignment="left-align" id="" style="margin-top: auto" class="heading-component">
-                        <h3 class="h5">Brand &amp; Web Design</h3>
-                      </div>
-                      <div class="row row-gap-sm u-mb-sm">
-                        <div class="slot cc-tags"></div>
-                      </div>
-                    </div>
-                  </div>
-                </div><button data-open-modal="service-design" aria-haspopup="dialog" aria-controls="service-design" class="u-link-cover">
-                  <div class="u-sr-only">Learn more: Brand &amp; Web Design</div>
-                </button>
-              </div>
-            </div>
-            <div data-category="services" data-wf--masonry-service--variant="hoverable" class="masonry-item">
-              <div class="card w-variant-9a4cf119-ffa5-0787-a62e-5ea19dfcf668" id="" style="">
-                <div class="slot cc-card">
-                  <div class="card-body u-pb-0">
-                    <div data-wf--image--settings-aspect-ratio="custom-aspect-ratio" class="img-component w-variant-0375267a-29ec-433a-03b2-8f111c99a60b u-mlr-auto u-mt-sm" id="" style="aspect-ratio: 1577 / 1164; border-radius: 0;"><img class="u-img-cover" src="images/webflow-web-app-development-silso.png" width="Auto" alt="Webflow Wized web app development freelance service, Silvan Soeters, silso" sizes="(max-width: 800px) 100vw, 800px" data-wf--image-fit--image-fit="cover---center" loading="eager" fetchpriority="" srcset="images/webflow-web-app-development-silso-p-500.png 500w, images/webflow-web-app-development-silso-p-800.png 800w, images/webflow-web-app-development-silso-p-1080.png 1080w, images/webflow-web-app-development-silso.png 1577w">
-                      <div id="" style="" class="img-component_bg-overlay"></div>
-                    </div>
-                    <div data-wf--button--button-variant="primary" class="button cc-icon-only" id="" style="position: absolute; bottom: 0" data-open-modal="">
-                      <div class="btn-icon">
-                        <div data-wf--icon--settings-color="inherit" id="" style="" class="icon-color"><span data-wf--icon-size--variant="1-em" class="icon ph-fill ph-suitcase-simple">​</span></div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card-body">
-                    <div class="slot cc-card-body">
-                      <div data-wf--eyebrow--settings-alignment="left" class="eyebrow-component" id="" style="">
-                        <div class="eyebrow">service</div>
-                      </div>
-                      <div data-wf--heading--settings-alignment="left-align" id="" style="margin-top: auto" class="heading-component">
-                        <h3 class="h5">Business Web Application</h3>
-                      </div>
-                      <div class="row row-gap-sm u-mb-sm">
-                        <div class="slot cc-tags"></div>
-                      </div>
-                    </div>
-                  </div>
-                </div><button data-open-modal="service-webapp" aria-haspopup="dialog" aria-controls="service-webapp" class="u-link-cover">
-                  <div class="u-sr-only">Learn more: Business Web Application</div>
                 </button>
               </div>
             </div>
