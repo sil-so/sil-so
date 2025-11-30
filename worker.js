@@ -1,37 +1,33 @@
 export default {
   async scheduled(controller, env, ctx) {
-    const RESET_CRON = "0 0 * * 1";
-    // nothing
+    const RESET_CRON = "0 0 * * 1"; // Mondays at midnight
+
     try {
-      const userID = env.WHATPULSE_USER_ID;
-      const token = env.WHATPULSE_API_TOKEN;
+      // 1. Fetch latest data from API
       const response = await fetch(
-        `https://whatpulse.org/api/v1/users/${userID}`,
+        `https://whatpulse.org/api/v1/users/${env.WHATPULSE_USER_ID}`,
         {
           headers: {
-            Authorization: `Bearer ${token}`,
+            Authorization: `Bearer ${env.WHATPULSE_API_TOKEN}`,
             Accept: "application/json",
           },
         }
       );
 
       if (!response.ok) {
-        console.error(`WhatPulse API Error: ${response.status}`);
-        return;
+        throw new Error(`WhatPulse API Error: ${response.status}`);
       }
+
       const json = await response.json();
-
-      let currentMiles = 0;
-      let currentClicks = 0;
-
-      if (json.user && json.user.totals) {
-        currentMiles = parseFloat(json.user.totals.distance_miles || 0);
-        currentClicks = parseInt(json.user.totals.clicks || 0);
-      } else {
-        console.error("Structure mismatch: 'user.totals' not found");
-        return;
+      if (!json.user?.totals) {
+        throw new Error("Structure mismatch: 'user.totals' not found");
       }
 
+      // 2. Parse current stats
+      const currentMiles = parseFloat(json.user.totals.distance_miles || 0);
+      const currentClicks = parseInt(json.user.totals.clicks || 0);
+
+      // 3. Get Baseline (Start of week)
       let baselineMiles = parseFloat(
         await env.WHATPULSE_DATA.get("baseline_miles")
       );
@@ -39,6 +35,7 @@ export default {
         await env.WHATPULSE_DATA.get("baseline_clicks")
       );
 
+      // 4. Check if we need to reset the baseline (Monday OR First Run)
       const isResetTime = controller.cron === RESET_CRON;
       const isFirstRun = isNaN(baselineMiles) || isNaN(baselineClicks);
 
@@ -52,9 +49,9 @@ export default {
         baselineClicks = currentClicks;
       }
 
-      const weeklyMiles = currentMiles - baselineMiles;
+      // 5. Calculate Weekly Progress
+      const weeklyKm = ((currentMiles - baselineMiles) * 1.60934).toFixed(2);
       const weeklyClicks = currentClicks - baselineClicks;
-      const weeklyKm = (weeklyMiles * 1.60934).toFixed(2);
 
       const stats = {
         distance: new Intl.NumberFormat("en-US").format(weeklyKm),
@@ -65,80 +62,67 @@ export default {
         updatedAt: new Date().toISOString(),
       };
 
+      // 6. Save to KV
       await env.WHATPULSE_DATA.put("stats", JSON.stringify(stats));
-      console.log("Updated Stats Successfully:", stats);
+      console.log("Stats updated:", stats);
     } catch (error) {
-      console.error("Worker Error:", error.message);
+      console.error("Scheduled Task Error:", error.message);
     }
   },
 
   async fetch(request, env, ctx) {
     const url = new URL(request.url);
-    console.log("[fetch] Handling request for:", url.pathname);
 
+    // 1. Prepare request for Assets
+    // We strip conditional headers to force the Asset to return the full HTML body
+    // Otherwise, it might return "304 Not Modified" and we can't rewrite an empty body.
     const newHeaders = new Headers(request.headers);
     newHeaders.delete("If-None-Match");
     newHeaders.delete("If-Modified-Since");
 
-    const newRequest = new Request(request, {
-      headers: newHeaders,
-    });
+    const response = await env.ASSETS.fetch(
+      new Request(request, { headers: newHeaders })
+    );
 
-    const response = await env.ASSETS.fetch(newRequest);
+    // 2. Only intercept HTML requests
     const contentType = response.headers.get("content-type");
-    console.log("[fetch] Content-Type:", contentType);
-
-    if (contentType && contentType.includes("text/html")) {
-      console.log("[fetch] HTML detected, fetching stats from KV...");
-      const statsData = await env.WHATPULSE_DATA.get("stats", { type: "json" });
-      console.log("[fetch] Stats data:", JSON.stringify(statsData));
-
-      if (statsData) {
-        console.log("[fetch] Applying HTMLRewriter transformation...");
-        try {
-          const transformed = new HTMLRewriter()
-            .on(
-              "#activity-mouse-travel",
-              new ElementHandler(statsData.distance)
-            )
-            .on("#activity-mouse-clicks", new ElementHandler(statsData.clicks))
-            .on(
-              "#activity-last-update",
-              new ElementHandler(formatUpdateTime(statsData.updatedAt))
-            )
-            .transform(response);
-
-          // Create a new response with modified headers to avoid immutability issues
-          const newResponse = new Response(transformed.body, {
-            status: transformed.status,
-            statusText: transformed.statusText,
-            headers: new Headers(transformed.headers),
-          });
-          newResponse.headers.set("Cache-Control", "public, max-age=60");
-
-          console.log(
-            "[fetch] Transformation successful, returning modified response"
-          );
-          return newResponse;
-        } catch (error) {
-          console.error("[fetch] HTMLRewriter error:", error.message);
-          return response;
-        }
-      } else {
-        console.log("[fetch] No stats data found in KV");
-      }
+    if (!contentType || !contentType.includes("text/html")) {
+      return response;
     }
-    console.log("[fetch] Returning original response");
-    return response;
+
+    // 3. Get Data and Rewrite
+    const statsData = await env.WHATPULSE_DATA.get("stats", { type: "json" });
+
+    // Fallback if KV is empty (prevents site crashing on fresh deploy)
+    const data = statsData || { distance: "--", clicks: "--", updatedAt: null };
+
+    const transformed = new HTMLRewriter()
+      .on("#activity-mouse-travel", new ElementHandler(data.distance))
+      .on("#activity-mouse-clicks", new ElementHandler(data.clicks))
+      .on(
+        "#activity-last-update",
+        new ElementHandler(formatUpdateTime(data.updatedAt))
+      )
+      .transform(response);
+
+    // 4. Return new response with Caching enabled
+    const finalResponse = new Response(transformed.body, transformed);
+    finalResponse.headers.set("Cache-Control", "public, max-age=60");
+
+    return finalResponse;
   },
 };
+
+// --- Helpers ---
 
 class ElementHandler {
   constructor(content) {
     this.content = content;
   }
   element(element) {
-    if (this.content) element.setInnerContent(this.content);
+    if (this.content !== undefined && this.content !== null) {
+      element.setInnerContent(this.content);
+    }
   }
 }
 
