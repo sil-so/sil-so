@@ -1,0 +1,16 @@
+<svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<title>Supabase</title>
+<path d="M11.38 19.6682C10.869 20.3117 9.83296 19.9591 9.82066 19.1375L9.64062 7.12109H17.721C19.1846 7.12109 20.0009 8.81142 19.0908 9.95758L11.38 19.6682Z" fill="url(#paint0_linear_8692_22370)" style=""/>
+<path d="M11.38 19.6682C10.869 20.3117 9.83296 19.9591 9.82066 19.1375L9.64062 7.12109H17.721C19.1846 7.12109 20.0009 8.81142 19.0908 9.95758L11.38 19.6682Z" fill="url(#paint1_linear_8692_22370)" fill-opacity="0.2" style=""/>
+<path d="M8.09339 0.332317C8.60435 -0.311179 9.64041 0.0414094 9.65273 0.862994L9.73162 12.8794H1.75234C0.288716 12.8794 -0.527572 11.189 0.382551 10.0429L8.09339 0.332317Z" fill="#3ECF8E" style="fill:#3ECF8E;fill:color(display-p3 0.2431 0.8118 0.5569);fill-opacity:1;"/>
+<defs>
+<linearGradient id="paint0_linear_8692_22370" x1="9.64062" y1="9.78544" x2="16.822" y2="12.7976" gradientUnits="userSpaceOnUse">
+<stop stop-color="#249361" style="stop-color:#249361;stop-color:color(display-p3 0.1412 0.5765 0.3804);stop-opacity:1;"/>
+<stop offset="1" stop-color="#3ECF8E" style="stop-color:#3ECF8E;stop-color:color(display-p3 0.2431 0.8118 0.5569);stop-opacity:1;"/>
+</linearGradient>
+<linearGradient id="paint1_linear_8692_22370" x1="6.4567" y1="5.42638" x2="9.7315" y2="11.5915" gradientUnits="userSpaceOnUse">
+<stop style="stop-color:black;stop-opacity:1;"/>
+<stop offset="1" stop-opacity="0" style="stop-color:none;stop-opacity:0;"/>
+</linearGradient>
+</defs>
+</svg>

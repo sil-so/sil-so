@@ -9,6 +9,13 @@ enabled = true
 directory = "public"
 binding = "ASSETS"
 
+[[kv_namespaces]]
+binding = "WHATPULSE_DATA"
+id = "8525b2a538b3463daf10ed46309bf482"
+
+[triggers]
+crons = ["0 0 * * 1", "0 * * * *"]
+
 [env.production]
 workers_dev = false
 routes = [
