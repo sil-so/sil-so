@@ -1,4 +1,4 @@
-<!DOCTYPE html><!--  This site was created in Webflow. https://webflow.com  --><!--  Last Published: Sun Nov 30 2025 04:06:49 GMT+0000 (Coordinated Universal Time)  -->
+<!DOCTYPE html><!--  This site was created in Webflow. https://webflow.com  --><!--  Last Published: Sun Nov 30 2025 05:47:12 GMT+0000 (Coordinated Universal Time)  -->
 <html data-wf-page="691924e41a8dc9bab2bb569f" data-wf-site="691924e21a8dc9bab2bb563e" lang="en">
 <head>
   <meta charset="utf-8">
@@ -1647,7 +1647,7 @@ html.wf-design-mode .masonry-container {
 }
 @media screen and (max-width: 768px) {
     [data-stack-grid="true"] {
-        padding: calc(var(--_components---card--padding-small) * 5);
+        padding: calc(var(--_components---card--padding-small) * 5.5);
     }
     .cols-2 [data-stack-grid="true"] {
         padding: calc(var(--_components---card--padding-small) * 2.5);
@@ -1730,16 +1730,24 @@ html.wf-design-mode .masonry-container {
 .compare-input {
   z-index: 3;
   appearance: none;
+  -webkit-appearance: none;
   background: transparent;
   cursor: ew-resize;
   margin: 0;
+  -webkit-tap-highlight-color: transparent; 
+}
+.compare-input:focus {
+  outline: none;
 }
 .compare-input::-webkit-slider-thumb {
+	-webkit-appearance: none;
   appearance: none;
   width: 40px;
   height: 40px;
   background: transparent;
   cursor: ew-resize;
+  box-shadow: none;
+  border: none;
 }
 .compare-input::-moz-range-thumb {
   appearance: none;

@@ -1,4 +1,4 @@
-<!DOCTYPE html><!--  This site was created in Webflow. https://webflow.com  --><!--  Last Published: Sun Nov 30 2025 04:06:49 GMT+0000 (Coordinated Universal Time)  -->
+<!DOCTYPE html><!--  This site was created in Webflow. https://webflow.com  --><!--  Last Published: Sun Nov 30 2025 05:47:12 GMT+0000 (Coordinated Universal Time)  -->
 <html data-wf-page="691924e41a8dc9bab2bb569b" data-wf-site="691924e21a8dc9bab2bb563e" lang="en">
 <head>
   <meta charset="utf-8">
@@ -1657,7 +1657,7 @@ html.wf-design-mode .masonry-container {
 }
 @media screen and (max-width: 768px) {
     [data-stack-grid="true"] {
-        padding: calc(var(--_components---card--padding-small) * 5);
+        padding: calc(var(--_components---card--padding-small) * 5.5);
     }
     .cols-2 [data-stack-grid="true"] {
         padding: calc(var(--_components---card--padding-small) * 2.5);
@@ -1740,16 +1740,24 @@ html.wf-design-mode .masonry-container {
 .compare-input {
   z-index: 3;
   appearance: none;
+  -webkit-appearance: none;
   background: transparent;
   cursor: ew-resize;
   margin: 0;
+  -webkit-tap-highlight-color: transparent; 
+}
+.compare-input:focus {
+  outline: none;
 }
 .compare-input::-webkit-slider-thumb {
+	-webkit-appearance: none;
   appearance: none;
   width: 40px;
   height: 40px;
   background: transparent;
   cursor: ew-resize;
+  box-shadow: none;
+  border: none;
 }
 .compare-input::-moz-range-thumb {
   appearance: none;
@@ -2628,7 +2636,7 @@ html.wf-design-mode .masonry-container {
                         <div id="" style="background-color: color-mix(in hsl, var(--_color---neutral--dark) 60%, transparent 40%)" class="img-component_bg-overlay"></div>
                       </div>
                       <div id="" class="paragraph-xs u-text-muted" style="padding-top: var(--_components---card--padding)">
-                        <div>setup, 2025</div>
+                        <div>Winter, 2025</div>
                       </div>
                     </div>
                   </div>
@@ -2662,7 +2670,7 @@ html.wf-design-mode .masonry-container {
                   <div data-wf--card-body--variant="padding-small" class="card-body w-variant-f75a83ff-af56-47cb-54c2-633c7e213177">
                     <div class="slot cc-card-body">
                       <div id="" class="paragraph-xs u-text-muted" style="">
-                        <div>workspace, late 2025</div>
+                        <div>Dedicated workspace, 2025</div>
                       </div>
                     </div>
                   </div>
@@ -2701,7 +2709,7 @@ html.wf-design-mode .masonry-container {
                   <div data-wf--card-body--variant="padding-small" class="card-body w-variant-f75a83ff-af56-47cb-54c2-633c7e213177">
                     <div class="slot cc-card-body">
                       <div id="" class="paragraph-xs u-text-muted" style="">
-                        <div>home office, early 2025</div>
+                        <div>Living room office, 2025</div>
                       </div>
                     </div>
                   </div>
@@ -2747,7 +2755,7 @@ html.wf-design-mode .masonry-container {
                         <div id="" style="background-color: color-mix(in hsl, var(--_color---neutral--dark) 60%, transparent 40%)" class="img-component_bg-overlay"></div>
                       </div>
                       <div id="" class="paragraph-xs u-text-muted" style="padding-top: var(--_components---card--padding)">
-                        <div>portrait, 2025</div>
+                        <div>Portrait, 2025</div>
                       </div>
                     </div>
                   </div>
@@ -2912,7 +2920,7 @@ html.wf-design-mode .masonry-container {
                 </div>
                 <blockquote data-wf-target="[[[&quot;c15adc0f-a635-01e8-aa00-658a049a4647&quot;,&quot;e4725f20-55a3-c6df-176f-ca1dcf6a7431&quot;],[&quot;c9311cd6-9ada-52e7-e993-1880d042406d&quot;,&quot;c9311cd6-9ada-52e7-e993-1880d0424069&quot;]]]" id="" class="testimonial-wrapper testimonial-gradient">
                   <p>Silvan has designed and created a new website for us. The collaboration went smoothly. Our wishes were listened to well. Silvan has good knowledge of the subject matter and has realized a beautiful website for us. We can easily reach Silvan if something needs to be adjusted. For the next project, we will definitely call on Silvan again. For our customers, it has become a user-friendly and professional website. You get a good atmospheric impression of our business and services. We are very happy with the result! Thank you!</p>
-                  <p class="u-m-0 paragraph-sm">– Kees van Drunen, owner</p>
+                  <p class="u-m-0 paragraph-sm">– Kees van Drunen, store owner</p>
                 </blockquote><button data-wf-target="[[[&quot;c15adc0f-a635-01e8-aa00-658a049a4647&quot;,&quot;1095f5a1-a988-a6fd-65f1-cb07b08f986c&quot;],[&quot;c9311cd6-9ada-52e7-e993-1880d042406d&quot;,&quot;c9311cd6-9ada-52e7-e993-1880d0424069&quot;]]]" class="testimonial-toggle paragraph-sm u-mb-0 u-z-index-1">
                   <div>...Read more</div>
                 </button>
@@ -3090,7 +3098,7 @@ html.wf-design-mode .masonry-container {
                     <div class="slot cc-card-body">
                       <div class="compare-slider u-radius-small"><img src="images/portrait-drawing-silvan-soeters.jpg" loading="lazy" alt="portrait 2025, Silvan Soeters, silso" sizes="100vw" srcset="images/portrait-drawing-silvan-soeters-p-500.jpg 500w, images/portrait-drawing-silvan-soeters-p-800.jpg 800w, images/portrait-drawing-silvan-soeters-p-1080.jpg 1080w, images/portrait-drawing-silvan-soeters.jpg 1600w" class="compare-before"><img src="images/portrait-ipad-silvan-soeters.jpg" loading="lazy" alt="portrait 2025, Silvan Soeters, silso" sizes="(max-width: 1920px) 100vw, 1920px" srcset="images/portrait-ipad-silvan-soeters-p-500.jpg 500w, images/portrait-ipad-silvan-soeters-p-800.jpg 800w, images/portrait-ipad-silvan-soeters-p-1080.jpg 1080w, images/portrait-ipad-silvan-soeters.jpg 1920w" class="compare-after"><input type="range" id="range" step="0.1" class="compare-input"></div>
                       <div id="" class="paragraph-xs u-text-muted" style="padding-top: var(--_components---card--padding)">
-                        <div>portraits, 2025</div>
+                        <div>Portraits, 2025</div>
                       </div>
                     </div>
                   </div>
@@ -3106,7 +3114,7 @@ html.wf-design-mode .masonry-container {
                         <div id="" style="background-color: color-mix(in hsl, var(--_color---neutral--dark) 60%, transparent 40%)" class="img-component_bg-overlay"></div>
                       </div>
                       <div id="" class="paragraph-xs u-text-muted" style="padding-top: var(--_components---card--padding)">
-                        <div>eco-packaging design, 2017</div>
+                        <div>Eco-packaging design, 2017</div>
                       </div>
                     </div>
                   </div>
@@ -3122,7 +3130,7 @@ html.wf-design-mode .masonry-container {
                         <div id="" style="background-color: color-mix(in hsl, var(--_color---neutral--dark) 60%, transparent 40%)" class="img-component_bg-overlay"></div>
                       </div>
                       <div id="" class="paragraph-xs u-text-muted" style="padding-top: var(--_components---card--padding)">
-                        <div>prints impression, 2017</div>
+                        <div>Prints impression, 2017</div>
                       </div>
                     </div>
                   </div>
@@ -3226,7 +3234,7 @@ html.wf-design-mode .masonry-container {
                   <div data-wf--card-body--variant="padding-small" class="card-body w-variant-f75a83ff-af56-47cb-54c2-633c7e213177">
                     <div class="slot cc-card-body">
                       <div id="" class="paragraph-xs u-text-muted" style="">
-                        <div>analog photography</div>
+                        <div>Analog photography</div>
                       </div>
                     </div>
                   </div>
@@ -3242,7 +3250,7 @@ html.wf-design-mode .masonry-container {
                         <div id="" style="background-color: color-mix(in hsl, var(--_color---neutral--dark) 60%, transparent 40%)" class="img-component_bg-overlay"></div>
                       </div>
                       <div id="" class="paragraph-xs u-text-muted" style="padding-top: var(--_components---card--padding)">
-                        <div>shot on film, 2015</div>
+                        <div>Shooting film, 2015</div>
                       </div>
                     </div>
                   </div>
@@ -3258,7 +3266,7 @@ html.wf-design-mode .masonry-container {
                         <div id="" style="background-color: color-mix(in hsl, var(--_color---neutral--dark) 60%, transparent 40%)" class="img-component_bg-overlay"></div>
                       </div>
                       <div id="" class="paragraph-xs u-text-muted" style="padding-top: var(--_components---card--padding)">
-                        <div>photo lab, 2017</div>
+                        <div>Photo lab, 2017</div>
                       </div>
                     </div>
                   </div>
@@ -3397,7 +3405,7 @@ html.wf-design-mode .masonry-container {
                   <div data-wf--card-body--variant="padding-small" class="card-body w-variant-f75a83ff-af56-47cb-54c2-633c7e213177">
                     <div class="slot cc-card-body">
                       <div id="" class="paragraph-xs u-text-muted" style="">
-                        <div>digital photography</div>
+                        <div>Digital photography</div>
                       </div>
                     </div>
                   </div>
@@ -3526,7 +3534,7 @@ html.wf-design-mode .masonry-container {
                   <div data-wf--card-body--variant="padding-small" class="card-body w-variant-f75a83ff-af56-47cb-54c2-633c7e213177">
                     <div class="slot cc-card-body">
                       <div id="" class="paragraph-xs u-text-muted" style="">
-                        <div>fine-liner drawings</div>
+                        <div>Fineliner drawings</div>
                       </div>
                     </div>
                   </div>
@@ -3542,7 +3550,7 @@ html.wf-design-mode .masonry-container {
                         <div id="" style="background-color: color-mix(in hsl, var(--_color---neutral--dark) 60%, transparent 40%)" class="img-component_bg-overlay"></div>
                       </div>
                       <div id="" class="paragraph-xs u-text-muted" style="padding-top: var(--_components---card--padding)">
-                        <div>flow state, 2012</div>
+                        <div>Flow state, 2012</div>
                       </div>
                     </div>
                   </div>
@@ -3577,6 +3585,22 @@ html.wf-design-mode .masonry-container {
                     <div class="slot cc-card-body">
                       <div id="" class="paragraph-xs u-text-muted" style="">
                         <div>Photoshop, 2013</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div data-category="posts" class="masonry-item">
+              <div data-wf--card--settings-variant="none" class="card" id="" style="">
+                <div class="slot cc-card">
+                  <div data-wf--card-body--variant="base" class="card-body">
+                    <div class="slot cc-card-body">
+                      <div data-wf--image--settings-aspect-ratio="custom-aspect-ratio" class="img-component w-variant-0375267a-29ec-433a-03b2-8f111c99a60b u-radius-small" id="" style="aspect-ratio: 1217 / 1400;"><img class="u-img-cover" src="images/portrait-2004.webp" width="Auto" alt="" sizes="(max-width: 800px) 100vw, 800px" data-wf--image-fit--image-fit="cover---center" loading="lazy" fetchpriority="" srcset="images/portrait-2004.webp 500w, images/portrait-2004.webp 800w, images/portrait-2004.webp 1080w, images/portrait-2004.webp 1217w">
+                        <div id="" style="background-color: color-mix(in hsl, var(--_color---neutral--dark) 60%, transparent 40%)" class="img-component_bg-overlay"></div>
+                      </div>
+                      <div id="" class="paragraph-xs u-text-muted" style="padding-top: var(--_components---card--padding)">
+                        <div>Portrait, 2004</div>
                       </div>
                     </div>
                   </div>
