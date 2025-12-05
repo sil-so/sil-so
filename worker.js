@@ -74,41 +74,36 @@ export default {
       if (slug) return handleBlogPost(slug, request, env);
     }
 
-    const newHeaders = new Headers(request.headers);
-    newHeaders.delete("If-None-Match");
-    newHeaders.delete("If-Modified-Since");
-
-    const response = await env.ASSETS.fetch(
-      new Request(request, { headers: newHeaders }),
-    );
+    const response = await env.ASSETS.fetch(request);
 
     const contentType = response.headers.get("content-type");
-    if (!contentType || !contentType.includes("text/html")) {
-      return response;
+    if (contentType && contentType.includes("text/html")) {
+      const statsData = await env.WHATPULSE_DATA.get("stats", { type: "json" });
+      const data = statsData || {
+        distance: "--",
+        clicks: "--",
+        updatedAt: null,
+      };
+
+      return new HTMLRewriter()
+        .on("#activity-mouse-travel", new TextHandler(data.distance))
+        .on("#activity-mouse-clicks", new TextHandler(data.clicks))
+        .on(
+          "#activity-last-update",
+          new TextHandler(formatUpdateTime(data.updatedAt)),
+        )
+        .transform(response);
     }
 
-    const statsData = await env.WHATPULSE_DATA.get("stats", { type: "json" });
-    const data = statsData || { distance: "--", clicks: "--", updatedAt: null };
-
-    const transformed = new HTMLRewriter()
-      .on("#activity-mouse-travel", new TextHandler(data.distance))
-      .on("#activity-mouse-clicks", new TextHandler(data.clicks))
-      .on(
-        "#activity-last-update",
-        new TextHandler(formatUpdateTime(data.updatedAt)),
-      )
-      .transform(response);
-
-    const finalResponse = new Response(transformed.body, transformed);
-    finalResponse.headers.set("Cache-Control", "public, max-age=60");
-
-    return finalResponse;
+    return response;
   },
 };
 
 async function handleBlogList(request, env) {
   const url = new URL(request.url);
-  const templateReq = new Request(`${url.origin}/blog.html`, request);
+  const templateReq = new Request(`${url.origin}/blog`, {
+    headers: request.headers,
+  });
   const templateRes = await env.ASSETS.fetch(templateReq);
 
   if (!templateRes.ok) return new Response("Not Found", { status: 404 });
@@ -121,99 +116,115 @@ async function handleBlogList(request, env) {
       status: 500,
     });
 
-  const posts = await getNotionPosts(env);
-  let generatedListHtml = "";
+  try {
+    const posts = await getNotionPosts(env);
+    let generatedListHtml = "";
 
-  for (const post of posts) {
-    const populatedItem = await populateTemplate(templateHtml, post);
-    generatedListHtml += populatedItem;
+    for (const post of posts) {
+      const populatedItem = await populateTemplate(templateHtml, post);
+      generatedListHtml += populatedItem;
+    }
+
+    const fullHtml = await templateRes.text();
+    const response = new Response(fullHtml, {
+      headers: { "Content-Type": "text/html" },
+    });
+
+    return new HTMLRewriter()
+      .on("#blog-list", {
+        element(el) {
+          el.setInnerContent(generatedListHtml, { html: true });
+        },
+      })
+      .on(
+        'script[type="application/ld+json"]',
+        new BlogListSchemaHandler(posts, `${url.origin}/blog`),
+      )
+      .transform(response);
+  } catch (error) {
+    return new Response(error.message, { status: 500 });
   }
-
-  const fullHtml = await templateRes.text();
-  const response = new Response(fullHtml, {
-    headers: { "Content-Type": "text/html" },
-  });
-
-  return new HTMLRewriter()
-    .on("#blog-list", {
-      element(el) {
-        el.setInnerContent(generatedListHtml, { html: true });
-      },
-    })
-    .on(
-      'script[type="application/ld+json"]',
-      new BlogListSchemaHandler(posts, `${url.origin}/blog`),
-    )
-    .transform(response);
 }
 
 async function handleBlogPost(slug, request, env) {
   const url = new URL(request.url);
-  const templateReq = new Request(`${url.origin}/blog-post.html`, request);
+  const templateReq = new Request(`${url.origin}/blog-post`, {
+    headers: request.headers,
+  });
   const templateRes = await env.ASSETS.fetch(templateReq);
 
   if (!templateRes.ok) return new Response("Not Found", { status: 404 });
 
-  const post = await getNotionPostBySlug(slug, env);
-  if (!post) return new Response("Not Found", { status: 404 });
+  try {
+    const post = await getNotionPostBySlug(slug, env);
+    if (!post) return new Response("Not Found", { status: 404 });
 
-  const datePublished = new Date(post.date);
-  const dateUpdated = post.updated ? new Date(post.updated) : datePublished;
-  const isoPublished = datePublished.toISOString();
-  const isoUpdated = dateUpdated.toISOString();
+    const datePublished = new Date(post.date);
+    const dateUpdated = post.updated ? new Date(post.updated) : datePublished;
+    const isoPublished = datePublished.toISOString();
+    const isoUpdated = dateUpdated.toISOString();
 
-  const readablePublished = datePublished.toLocaleDateString("en-GB", {
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-  });
-  const readableUpdated = dateUpdated.toLocaleDateString("en-GB", {
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-  });
+    const readablePublished = datePublished.toLocaleDateString("en-GB", {
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+    });
+    const readableUpdated = dateUpdated.toLocaleDateString("en-GB", {
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+    });
 
-  const metaDesc = post.description || `Read more about ${post.title}.`;
-  const metaTitle = `${post.title} | Silvan Soeters`;
+    const metaDesc = post.description || `Read more about ${post.title}.`;
+    const metaTitle = `${post.title} | Silvan Soeters`;
 
-  return new HTMLRewriter()
-    .on("title", new TextHandler(metaTitle))
-    .on('meta[name="description"]', new AttributeHandler("content", metaDesc))
-    .on('meta[property="og:title"]', new AttributeHandler("content", metaTitle))
-    .on(
-      'meta[property="og:description"]',
-      new AttributeHandler("content", metaDesc),
-    )
-    .on(
-      'meta[property="og:image"]',
-      new AttributeHandler("content", post.cover),
-    )
-    .on(
-      'meta[name="twitter:title"]',
-      new AttributeHandler("content", metaTitle),
-    )
-    .on(
-      'meta[name="twitter:description"]',
-      new AttributeHandler("content", metaDesc),
-    )
-    .on(
-      'meta[name="twitter:image"]',
-      new AttributeHandler("content", post.cover),
-    )
-    .on('link[rel="canonical"]', new AttributeHandler("href", url.href))
-    .on(
-      'script[type="application/ld+json"]',
-      new SchemaHandler(post, isoPublished, isoUpdated, url.href, metaDesc),
-    )
-    .on("#post-title", new TextHandler(post.title))
-    .on(
-      "#post-published",
-      new DateAttributeHandler(readablePublished, isoPublished),
-    )
-    .on("#post-updated", new DateAttributeHandler(readableUpdated, isoUpdated))
-    .on("#post-banner img", new ImageHandler(post.cover, post.title))
-    .on("#post-content", new TextHandler(post.contentHtml, true))
-    .transform(templateRes);
+    return new HTMLRewriter()
+      .on("title", new TextHandler(metaTitle))
+      .on('meta[name="description"]', new AttributeHandler("content", metaDesc))
+      .on(
+        'meta[property="og:title"]',
+        new AttributeHandler("content", metaTitle),
+      )
+      .on(
+        'meta[property="og:description"]',
+        new AttributeHandler("content", metaDesc),
+      )
+      .on(
+        'meta[property="og:image"]',
+        new AttributeHandler("content", post.cover),
+      )
+      .on(
+        'meta[name="twitter:title"]',
+        new AttributeHandler("content", metaTitle),
+      )
+      .on(
+        'meta[name="twitter:description"]',
+        new AttributeHandler("content", metaDesc),
+      )
+      .on(
+        'meta[name="twitter:image"]',
+        new AttributeHandler("content", post.cover),
+      )
+      .on('link[rel="canonical"]', new AttributeHandler("href", url.href))
+      .on(
+        'script[type="application/ld+json"]',
+        new SchemaHandler(post, isoPublished, isoUpdated, url.href, metaDesc),
+      )
+      .on("#post-title", new TextHandler(post.title))
+      .on(
+        "#post-published",
+        new DateAttributeHandler(readablePublished, isoPublished),
+      )
+      .on(
+        "#post-updated",
+        new DateAttributeHandler(readableUpdated, isoUpdated),
+      )
+      .on("#post-banner img", new ImageHandler(post.cover, post.title))
+      .on("#post-content", new TextHandler(post.contentHtml, true))
+      .transform(templateRes);
+  } catch (error) {
+    return new Response(error.message, { status: 500 });
+  }
 }
 
 async function extractTemplateRobust(resClone) {

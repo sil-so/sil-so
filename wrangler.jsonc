@@ -1,0 +1,47 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "sil-so",
+  "main": "worker.js",
+  "compatibility_date": "2025-07-05",
+
+  "assets": {
+    "directory": "public",
+    "binding": "ASSETS",
+    "html_handling": "auto-trailing-slash",
+    "run_worker_first": true
+  },
+
+  "observability": {
+    "logs": {
+      "enabled": true
+    }
+  },
+
+  "triggers": {
+    "crons": [
+      "0 0 * * 1",
+      "0 * * * *"
+    ]
+  },
+
+  "env": {
+    "production": {
+      "name": "sil-so",
+      "workers_dev": false,
+      "routes": [
+        "sil.so/*",
+        "www.sil.so/*"
+      ],
+      "kv_namespaces": [
+        {
+          "binding": "WHATPULSE_DATA",
+          "id": "8525b2a538b3463daf10ed46309bf482"
+        },
+        {
+          "binding": "BLOG_CACHE",
+          "id": "1f846adcf77849e5afbf580888de5768"
+        }
+      ]
+    }
+  }
+}
