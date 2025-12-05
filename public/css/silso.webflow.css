@@ -1430,6 +1430,10 @@ figcaption {
   background-color: var(--background--solid-secondary);
 }
 
+.card.cc-hoverable:hover {
+  background-color: var(--background--muted);
+}
+
 .card-body {
   padding: var(--_components---card--padding);
   flex-direction: column;
@@ -3756,8 +3760,8 @@ figcaption {
 
 .blog_toc-wrapper {
   padding: var(--_components---card--padding);
+  border: var(--_components---card--border-width) solid var(--border--default);
   border-radius: var(--_components---card--border-radius);
-  background-color: var(--background--muted);
   position: sticky;
   top: 6rem;
 }
