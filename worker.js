@@ -346,9 +346,8 @@ async function getNotionPosts(env, forceRefresh = false) {
     cover: page.cover?.external?.url || page.cover?.file?.url || null,
   }));
 
-  await env.BLOG_CACHE.put(cacheKey, JSON.stringify(posts), {
-    expirationTtl: 1800,
-  });
+  await env.BLOG_CACHE.put(cacheKey, JSON.stringify(posts));
+
   return posts;
 }
 
@@ -378,9 +377,8 @@ async function getNotionPostBySlug(slug, env, forceRefresh = false) {
   const htmlContent = convertBlocksToHtml(results);
   const fullPost = { ...postInfo, contentHtml: htmlContent };
 
-  await env.BLOG_CACHE.put(cacheKey, JSON.stringify(fullPost), {
-    expirationTtl: 1800,
-  });
+  await env.BLOG_CACHE.put(cacheKey, JSON.stringify(fullPost));
+
   return fullPost;
 }
 
