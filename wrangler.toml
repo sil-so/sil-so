@@ -24,3 +24,7 @@ routes = [
 [[env.production.kv_namespaces]]
 binding = "WHATPULSE_DATA"
 id = "8525b2a538b3463daf10ed46309bf482"
+
+[[env.production.kv_namespaces]]
+binding = "BLOG_CACHE"
+id = "1f846adcf77849e5afbf580888de5768"
