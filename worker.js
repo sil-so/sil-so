@@ -86,6 +86,7 @@ export default {
       };
 
       return new HTMLRewriter()
+        .on("a[href]", new CleanHtmlExtensionHandler())
         .on("#activity-mouse-travel", new TextHandler(data.distance))
         .on("#activity-mouse-clicks", new TextHandler(data.clicks))
         .on(
@@ -101,7 +102,7 @@ export default {
 
 async function handleBlogList(request, env) {
   const url = new URL(request.url);
-  const templateReq = new Request(`${url.origin}/blog`, {
+  const templateReq = new Request(`${url.origin}/blog.html`, {
     headers: request.headers,
   });
   const templateRes = await env.ASSETS.fetch(templateReq);
@@ -131,6 +132,7 @@ async function handleBlogList(request, env) {
     });
 
     return new HTMLRewriter()
+      .on("a[href]", new CleanHtmlExtensionHandler())
       .on("#blog-list", {
         element(el) {
           el.setInnerContent(generatedListHtml, { html: true });
@@ -148,16 +150,17 @@ async function handleBlogList(request, env) {
 
 async function handleBlogPost(slug, request, env) {
   const url = new URL(request.url);
-  const templateReq = new Request(`${url.origin}/blog-post`, {
+  const templateReq = new Request(`${url.origin}/blog-post.html`, {
     headers: request.headers,
   });
   const templateRes = await env.ASSETS.fetch(templateReq);
 
-  if (!templateRes.ok) return new Response("Not Found", { status: 404 });
+  if (!templateRes.ok)
+    return new Response("Template Not Found", { status: 404 });
 
   try {
     const post = await getNotionPostBySlug(slug, env);
-    if (!post) return new Response("Not Found", { status: 404 });
+    if (!post) return new Response("Post Not Found", { status: 404 });
 
     const datePublished = new Date(post.date);
     const dateUpdated = post.updated ? new Date(post.updated) : datePublished;
@@ -179,6 +182,8 @@ async function handleBlogPost(slug, request, env) {
     const metaTitle = `${post.title} | Silvan Soeters`;
 
     return new HTMLRewriter()
+      .on("head", new BaseTagHandler())
+      .on("a[href]", new CleanHtmlExtensionHandler())
       .on("title", new TextHandler(metaTitle))
       .on('meta[name="description"]', new AttributeHandler("content", metaDesc))
       .on(
@@ -479,6 +484,24 @@ function formatUpdateTime(isoString) {
       timeZoneName: "shortOffset",
     })
     .replace("GMT", "UTC");
+}
+
+class BaseTagHandler {
+  element(element) {
+    element.prepend('<base href="/">', { html: true });
+  }
+}
+
+class CleanHtmlExtensionHandler {
+  element(element) {
+    const href = element.getAttribute("href");
+    if (href && href.endsWith(".html")) {
+      element.setAttribute("href", href.replace(/\.html$/, ""));
+    }
+    if (href === "index.html") {
+      element.setAttribute("href", "/");
+    }
+  }
 }
 
 class TextHandler {
