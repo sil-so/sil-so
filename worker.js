@@ -141,11 +141,7 @@ async function handleBlogList(request, env) {
       .on("img[src]", new AssetPathHandler("src"))
       .on("img[srcset]", new SrcSetHandler())
       .on("a[href]", new LinkHandler())
-      .on('a[href="/blog"]', new ActiveLinkHandler())
-      .on('a[href="/blog/"]', new ActiveLinkHandler())
-      .on('a[href="/blog.html"]', new ActiveLinkHandler())
-      .on('a[href="blog.html"]', new ActiveLinkHandler())
-      .on('a[href="blog"]', new ActiveLinkHandler())
+      .on(".nav-link", new NavLinkActiveHandler("blog"))
       .on("#blog-list", {
         element(el) {
           el.setInnerContent(generatedListHtml, { html: true });
@@ -227,11 +223,7 @@ async function handleBlogPost(slug, request, env) {
       .on("img[src]", new AssetPathHandler("src"))
       .on("img[srcset]", new SrcSetHandler())
       .on("a[href]", new LinkHandler())
-      .on('a[href="/blog"]', new ActiveLinkHandler())
-      .on('a[href="/blog/"]', new ActiveLinkHandler())
-      .on('a[href="/blog.html"]', new ActiveLinkHandler())
-      .on('a[href="blog.html"]', new ActiveLinkHandler())
-      .on('a[href="blog"]', new ActiveLinkHandler())
+      .on(".nav-link", new NavLinkActiveHandler("blog"))
       .on("title", new TextHandler(metaTitle))
       .on('meta[name="description"]', new AttributeHandler("content", metaDesc))
       .on(
@@ -589,12 +581,26 @@ class LinkHandler {
   }
 }
 
-class ActiveLinkHandler {
+class NavLinkActiveHandler {
+  constructor(targetPath) {
+    this.targetPath = targetPath.toLowerCase().replace(/^\//, "");
+  }
   element(element) {
-    const currentClass = element.getAttribute("class") || "";
-    if (!currentClass.includes("w--current")) {
-      element.setAttribute("class", `${currentClass} w--current`.trim());
-      element.setAttribute("aria-current", "page");
+    const href = element.getAttribute("href");
+    if (!href) return;
+
+    const normalized = href
+      .toLowerCase()
+      .replace(/^\.?\/?/, "")
+      .replace(/\.html$/, "")
+      .replace(/\/$/, "");
+
+    if (normalized === this.targetPath) {
+      const currentClass = element.getAttribute("class") || "";
+      if (!currentClass.includes("w--current")) {
+        element.setAttribute("class", `${currentClass} w--current`.trim());
+        element.setAttribute("aria-current", "page");
+      }
     }
   }
 }
