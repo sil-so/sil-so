@@ -142,7 +142,10 @@ async function handleBlogList(request, env) {
       .on("img[srcset]", new SrcSetHandler())
       .on("a[href]", new LinkHandler())
       .on('a[href="/blog"]', new ActiveLinkHandler())
+      .on('a[href="/blog/"]', new ActiveLinkHandler())
       .on('a[href="/blog.html"]', new ActiveLinkHandler())
+      .on('a[href="blog.html"]', new ActiveLinkHandler())
+      .on('a[href="blog"]', new ActiveLinkHandler())
       .on("#blog-list", {
         element(el) {
           el.setInnerContent(generatedListHtml, { html: true });
@@ -225,7 +228,10 @@ async function handleBlogPost(slug, request, env) {
       .on("img[srcset]", new SrcSetHandler())
       .on("a[href]", new LinkHandler())
       .on('a[href="/blog"]', new ActiveLinkHandler())
+      .on('a[href="/blog/"]', new ActiveLinkHandler())
       .on('a[href="/blog.html"]', new ActiveLinkHandler())
+      .on('a[href="blog.html"]', new ActiveLinkHandler())
+      .on('a[href="blog"]', new ActiveLinkHandler())
       .on("title", new TextHandler(metaTitle))
       .on('meta[name="description"]', new AttributeHandler("content", metaDesc))
       .on(
