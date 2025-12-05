@@ -2969,6 +2969,7 @@ figcaption {
 
 .inline-video_poster {
   z-index: 1;
+  border-radius: var(--_components---image--border-radius-small);
   width: 100%;
   height: 100%;
   display: block;
@@ -3752,6 +3753,9 @@ figcaption {
 }
 
 .blog_toc-wrapper {
+  padding: var(--_components---card--padding);
+  border-radius: var(--_components---card--border-radius);
+  background-color: var(--background--muted);
   position: sticky;
   top: 6rem;
 }
