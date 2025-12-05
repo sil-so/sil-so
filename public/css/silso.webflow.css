@@ -80,6 +80,7 @@
   --primary--background: var(--lightningcss-light, var(--_color---light--light-12)) var(--lightningcss-dark, var(--_color---dark--dark-12));
   --_typography---fonts--primary-font: "Epilogue Variablefont Wght", Impact, sans-serif;
   --_components---section--padding: clamp(var(--_components---section--padding-min-rem) * 1rem, ((var(--_components---section--padding-min-rem)  - ((var(--_components---section--padding-max-rem)  - var(--_components---section--padding-min-rem)) / (var(--_layout---fluid--max)  - var(--_layout---fluid--min)) * var(--_layout---fluid--min))) * 1rem + ((var(--_components---section--padding-max-rem)  - var(--_components---section--padding-min-rem)) / (var(--_layout---fluid--max)  - var(--_layout---fluid--min))) * 100vw), var(--_components---section--padding-max-rem) * 1rem);
+  --_components---container--gutter: 6vw;
   --_components---container--max-width: calc(var(--_layout---fluid--max) * 1rem);
   --_layout---grid--gap-main: 40px;
   --_size---0rem\<deleted\|variable-76ad6b20-ba74-e8a2-27f3-884949ddcd06\>: 0rem;
@@ -113,6 +114,8 @@
   --tertiary--hover: var(--lightningcss-light, var(--_color---light--light-12)) var(--lightningcss-dark, var(--_color---dark--dark-12));
   --border--active: var(--lightningcss-light, var(--_color---light--light-8)) var(--lightningcss-dark, var(--_color---dark--dark-8));
   --border--default: var(--lightningcss-light, var(--_color---light--light-6)) var(--lightningcss-dark, var(--_color---dark--dark-6));
+  --_components---button-small--vertical-padding: .5em;
+  --_components---button-small--horizontal-padding: .8em;
   --_components---card--border-width: .0875rem;
   --_components---card--border-radius: 1.5rem;
   --colors--background-2\<deleted\|variable-c0d67656-a3fd-08cc-8b6c-e547c202831d\>: var(--lightningcss-light, var(--_color---neutral--dark\<deleted\|variable-53d573b6\>)) var(--lightningcss-dark, var(--_color---neutral--light\<deleted\|variable-f16457a0\>));
@@ -168,13 +171,13 @@
   --_typography---type-paragraph-lg--font-size-md\<deleted\|variable-cdbe9950-9272-2284-ccf6-60cab96acd5f\>: 1.25rem;
   --_typography---type-paragraph-lg--font-size-sm\<deleted\|variable-841c9cf1-74b8-7850-db1d-b82cdc8d3013\>: 1.1rem;
   --_typography---type-paragraph-lg--font-size-xs\<deleted\|variable-dab72a89-1875-a2f7-1d85-bd05f81dd817\>: 1.1rem;
+  --_components---image--border-radius-small: .625rem;
   --_typography---type-paragraph-sm--font-size-md\<deleted\|variable-94c5336e-6e13-9026-329b-a7b4ba64e183\>: .9rem;
   --_typography---type-paragraph-sm--font-size-sm\<deleted\|variable-dce65071-f183-75c5-98aa-d8afc83560a0\>: .9rem;
   --_typography---type-paragraph-sm--font-size-xs\<deleted\|variable-5ffbcc90-83d8-60d2-b7ba-601684d03f16\>: .9rem;
   --_layout---spacing--margin-xs: .5em;
   --_responsive---padding--card\<deleted\|variable-5fcf010a-6fe9-5ba2-24fb-53a12ac0d5b0\>: 1.5rem;
   --_components---card--card-body-padding-sm\<deleted\|variable-886aa6f6-843b-26b9-170b-96cc08ca36e2\>: 20px;
-  --_size---5rem\<deleted\|variable-ff14b77f-fe78-09a6-d1f0-e9e7c84aae7c\>: 5rem;
   --_color---primary--orange\<deleted\|variable-ba25d908\>: #d14424;
   --_size---0-25rem\<deleted\|variable-2d47388d-3251-c56b-03c9-35dfc0a59c39\>: .25rem;
   --_size---2rem\<deleted\|variable-703e76dd-22c1-0e62-be30-102e06bdb527\>: 2rem;
@@ -182,7 +185,9 @@
   --_size---1-5rem\<deleted\|variable-f3ca9317-f658-e5ae-7950-f14c04b8bdeb\>: 1.5rem;
   --_size---1rem\<deleted\|variable-461c7c57-ec3c-d23c-768b-c6de52a540e5\>: 1rem;
   --_size---0-75rem\<deleted\|variable-51df6ead-a71c-263d-332f-348c569f6d5f\>: .75rem;
+  --_color---dark--dark-1: #111113;
   --foreground--light-fixed: var(--lightningcss-light, var(--_color---light--light-1)) var(--lightningcss-dark, var(--_color---dark--dark-12));
+  --background--solid-primary: var(--lightningcss-light, var(--_color---light--light-9)) var(--lightningcss-dark, var(--_color---dark--dark-9));
   --error--background: var(--lightningcss-light, var(--_color---light--red-2)) var(--lightningcss-dark, var(--_color---dark--red-2));
   --error--foreground: var(--lightningcss-light, var(--_color---light--red-11)) var(--lightningcss-dark, var(--_color---dark--red-11));
   --success--foreground: var(--lightningcss-light, var(--_color---light--green-11)) var(--lightningcss-dark, var(--_color---dark--green-11));
@@ -194,11 +199,8 @@
   --_typography---paragraph-xs--font-weight: 400;
   --_typography---paragraph-xs--letter-spacing: 0em;
   --background--card: var(--lightningcss-light, var(--_color---light--light-3)) var(--lightningcss-dark, var(--_color---dark--dark-3));
-  --background--solid-primary: var(--lightningcss-light, var(--_color---light--light-9)) var(--lightningcss-dark, var(--_color---dark--dark-9));
-  --_components---image--border-radius-small: .625rem;
   --_layout---fluid--max: 90;
   --_typography---fonts--secondary-font: "Inter Variablefont Opsz Wght", Arial, sans-serif;
-  --_color---dark--dark-1: #111113;
   --_color---dark--dark-2: #18191b;
   --_color---dark--dark-3: #212225;
   --_color---dark--dark-4: #272a2d;
@@ -424,7 +426,6 @@ a {
   text-underline-offset: .1em;
   text-underline-position: under;
   background-color: #0000;
-  border-radius: .25rem;
   padding-left: .125rem;
   padding-right: .125rem;
   text-decoration: none;
@@ -551,6 +552,7 @@ figcaption {
 .section {
   padding-top: var(--_components---section--padding);
   padding-bottom: var(--_components---section--padding);
+  background-color: var(--background--default);
   --background--default: var(--lightningcss-light, var(--_color---light--light-1)) var(--lightningcss-dark, var(--_color---dark--dark-1));
   --foreground--default: var(--lightningcss-light, var(--_color---light--light-12)) var(--lightningcss-dark, var(--_color---dark--dark-12));
   --link--foreground: var(--lightningcss-light, var(--_color---light--sky-11)) var(--lightningcss-dark, var(--_color---dark--sky-11));
@@ -580,12 +582,12 @@ figcaption {
   --foreground--muted: var(--lightningcss-light, var(--_color---light--light-11)) var(--lightningcss-dark, var(--_color---dark--dark-11));
   --colors--primary-accent-dark\<deleted\|variable-a961bcf0-49c2-f8dd-291d-886c4a2afb3c\>: var(--_color---neutral--mid-dark\<deleted\|variable-35755b90-8ee6-83e7-b09b-fd6e59aab6f1\>);
   --foreground--light-fixed: var(--lightningcss-light, var(--_color---light--light-1)) var(--lightningcss-dark, var(--_color---dark--dark-12));
+  --background--solid-primary: var(--lightningcss-light, var(--_color---light--light-9)) var(--lightningcss-dark, var(--_color---dark--dark-9));
   --error--background: var(--lightningcss-light, var(--_color---light--red-2)) var(--lightningcss-dark, var(--_color---dark--red-2));
   --error--foreground: var(--lightningcss-light, var(--_color---light--red-11)) var(--lightningcss-dark, var(--_color---dark--red-11));
   --success--foreground: var(--lightningcss-light, var(--_color---light--green-11)) var(--lightningcss-dark, var(--_color---dark--green-11));
   --success--background: var(--lightningcss-light, var(--_color---light--green-2)) var(--lightningcss-dark, var(--_color---dark--green-2));
   --background--card: var(--lightningcss-light, var(--_color---light--light-3)) var(--lightningcss-dark, var(--_color---dark--dark-3));
-  --background--solid-primary: var(--lightningcss-light, var(--_color---light--light-9)) var(--lightningcss-dark, var(--_color---dark--dark-9));
   --utility--scrollbar: var(--lightningcss-light, var(--_color---light--light-6)) var(--lightningcss-dark, var(--_color---dark--dark-6));
   --text-selection--background: var(--lightningcss-light, var(--_color---light--light-12)) var(--lightningcss-dark, var(--_color---dark--dark-12));
   --text-selection--foreground: var(--lightningcss-light, var(--_color---light--light-1)) var(--lightningcss-dark, var(--_color---dark--dark-1));
@@ -595,7 +597,7 @@ figcaption {
   position: relative;
 }
 
-.section:where(.w-variant-ffdae436-6d76-12b6-39d6-0e4201c47aad), .section:where(.w-variant-7ff62657-6bd1-7c9c-c099-b8b16154981e) {
+.section:where(.w-variant-7ff62657-6bd1-7c9c-c099-b8b16154981e) {
   background-color: var(--foreground--default);
   color: var(--background--default);
 }
@@ -639,12 +641,12 @@ figcaption {
   --foreground--muted: var(--_color---neutral--lighter\<deleted\|variable-0065a3d9\>);
   --colors--primary-accent-dark\<deleted\|variable-a961bcf0-49c2-f8dd-291d-886c4a2afb3c\>: var(--_color---neutral--light\<deleted\|variable-f16457a0\>);
   --foreground--light-fixed: var(--lightningcss-light, var(--_color---light--light-1)) var(--lightningcss-dark, var(--_color---dark--dark-12));
+  --background--solid-primary: var(--lightningcss-light, var(--_color---light--light-9)) var(--lightningcss-dark, var(--_color---dark--dark-9));
   --error--background: var(--lightningcss-light, var(--_color---light--red-2)) var(--lightningcss-dark, var(--_color---dark--red-2));
   --error--foreground: var(--lightningcss-light, var(--_color---light--red-11)) var(--lightningcss-dark, var(--_color---dark--red-11));
   --success--foreground: var(--lightningcss-light, var(--_color---light--green-11)) var(--lightningcss-dark, var(--_color---dark--green-11));
   --success--background: var(--lightningcss-light, var(--_color---light--green-2)) var(--lightningcss-dark, var(--_color---dark--green-2));
   --background--card: var(--lightningcss-light, var(--_color---light--light-3)) var(--lightningcss-dark, var(--_color---dark--dark-3));
-  --background--solid-primary: var(--lightningcss-light, var(--_color---light--light-9)) var(--lightningcss-dark, var(--_color---dark--dark-9));
   --utility--scrollbar: var(--lightningcss-light, var(--_color---light--light-6)) var(--lightningcss-dark, var(--_color---dark--dark-6));
   --text-selection--background: var(--lightningcss-light, var(--_color---light--light-12)) var(--lightningcss-dark, var(--_color---dark--dark-12));
   --text-selection--foreground: var(--lightningcss-light, var(--_color---light--light-1)) var(--lightningcss-dark, var(--_color---dark--dark-1));
@@ -685,57 +687,13 @@ figcaption {
   --foreground--muted: var(--lightningcss-light, var(--_color---light--light-11)) var(--lightningcss-dark, var(--_color---dark--dark-11));
   --colors--primary-accent-dark\<deleted\|variable-a961bcf0-49c2-f8dd-291d-886c4a2afb3c\>: var(--_color---neutral--mid-dark\<deleted\|variable-35755b90-8ee6-83e7-b09b-fd6e59aab6f1\>);
   --foreground--light-fixed: var(--lightningcss-light, var(--_color---light--light-1)) var(--lightningcss-dark, var(--_color---dark--dark-12));
+  --background--solid-primary: var(--lightningcss-light, var(--_color---light--light-9)) var(--lightningcss-dark, var(--_color---dark--dark-9));
   --error--background: var(--lightningcss-light, var(--_color---light--red-2)) var(--lightningcss-dark, var(--_color---dark--red-2));
   --error--foreground: var(--lightningcss-light, var(--_color---light--red-11)) var(--lightningcss-dark, var(--_color---dark--red-11));
   --success--foreground: var(--lightningcss-light, var(--_color---light--green-11)) var(--lightningcss-dark, var(--_color---dark--green-11));
   --success--background: var(--lightningcss-light, var(--_color---light--green-2)) var(--lightningcss-dark, var(--_color---dark--green-2));
   --background--card: var(--lightningcss-light, var(--_color---light--light-3)) var(--lightningcss-dark, var(--_color---dark--dark-3));
-  --background--solid-primary: var(--lightningcss-light, var(--_color---light--light-9)) var(--lightningcss-dark, var(--_color---dark--dark-9));
   --utility--scrollbar: var(--lightningcss-light, var(--_color---light--light-6)) var(--lightningcss-dark, var(--_color---dark--dark-6));
-  --text-selection--background: var(--lightningcss-light, var(--_color---light--light-12)) var(--lightningcss-dark, var(--_color---dark--dark-12));
-  --text-selection--foreground: var(--lightningcss-light, var(--_color---light--light-1)) var(--lightningcss-dark, var(--_color---dark--dark-1));
-  --foreground--disabled: var(--lightningcss-light, var(--_color---light--light-10)) var(--lightningcss-dark, var(--_color---dark--dark-10));
-  --link--background: var(--lightningcss-light, var(--_color---light--sky-5)) var(--lightningcss-dark, var(--_color---dark--sky-5));
-  --link--hover: var(--lightningcss-light, var(--_color---light--sky-4)) var(--lightningcss-dark, var(--_color---dark--sky-4));
-}
-
-.section.cc-themed:where(.w-variant-ffdae436-6d76-12b6-39d6-0e4201c47aad) {
-  --background--default: var(--lightningcss-light, var(--_color---neutral--dark\<deleted\|variable-53d573b6\>)) var(--lightningcss-dark, var(--_color---neutral--light\<deleted\|variable-f16457a0\>));
-  --foreground--default: var(--lightningcss-light, var(--_color---neutral--lighter\<deleted\|variable-0065a3d9\>)) var(--lightningcss-dark, var(--_color---neutral--dark\<deleted\|variable-53d573b6\>));
-  --link--foreground: var(--lightningcss-light, var(--_color---light--sky-11)) var(--lightningcss-dark, var(--_color---dark--sky-11));
-  --link--foreground-hover: var(--lightningcss-light, var(--_color---light--sky-12)) var(--lightningcss-dark, var(--_color---dark--sky-12));
-  --primary--background: var(--_color---neutral--gray\<deleted\|variable-65f33ecd\>);
-  --primary--foreground: var(--lightningcss-light, var(--_color---light--light-1)) var(--lightningcss-dark, var(--_color---dark--dark-1));
-  --secondary--background: var(--lightningcss-light, var(--_color---light--light-3)) var(--lightningcss-dark, var(--_color---dark--dark-3));
-  --secondary--foreground: var(--lightningcss-light, var(--_color---light--light-12)) var(--lightningcss-dark, var(--_color---dark--dark-12));
-  --colors--background-4\<deleted\|variable-3d26bfde-7af1-5a38-c86f-14a5ee066c23\>: var(--_color---neutral--lighter\<deleted\|variable-0065a3d9\>);
-  --colors--text-2\<deleted\|variable-910539ac-1a51-c039-7275-1581d21105a4\>: var(--lightningcss-light, var(--_color---neutral--lighter\<deleted\|variable-0065a3d9\>)) var(--lightningcss-dark, var(--_color---neutral--dark\<deleted\|variable-53d573b6\>));
-  --colors--border-2\<deleted\|variable-415c3a40-2908-64dd-63f5-d4a8bab060cb\>: var(--lightningcss-light, var(--_color---neutral--lighter\<deleted\|variable-0065a3d9\>)) var(--lightningcss-dark, var(--_color---neutral--dark\<deleted\|variable-53d573b6\>));
-  --tertiary--foreground: var(--lightningcss-light, var(--_color---light--light-10)) var(--lightningcss-dark, var(--_color---dark--dark-10));
-  --ghost--foreground: var(--lightningcss-light, var(--_color---light--light-12)) var(--lightningcss-dark, var(--_color---dark--dark-12));
-  --outline--border: var(--lightningcss-light, var(--_color---light--light-7)) var(--lightningcss-dark, var(--_color---dark--dark-7));
-  --outline--foreground: var(--lightningcss-light, var(--_color---light--light-12)) var(--lightningcss-dark, var(--_color---dark--dark-12));
-  --primary--hover: var(--lightningcss-light, var(--_color---light--light-11)) var(--lightningcss-dark, var(--_color---dark--dark-11));
-  --secondary--hover: var(--lightningcss-light, var(--_color---light--light-4)) var(--lightningcss-dark, var(--_color---dark--dark-4));
-  --ghost--hover: var(--lightningcss-light, var(--_color---light--light-4)) var(--lightningcss-dark, var(--_color---dark--dark-4));
-  --outline--hover: var(--lightningcss-light, var(--_color---light--light-4)) var(--lightningcss-dark, var(--_color---dark--dark-4));
-  --tertiary--hover: var(--lightningcss-light, var(--_color---light--light-12)) var(--lightningcss-dark, var(--_color---dark--dark-12));
-  --border--active: var(--lightningcss-light, var(--_color---light--light-8)) var(--lightningcss-dark, var(--_color---dark--dark-8));
-  --border--default: var(--lightningcss-light, var(--_color---neutral--lighter\<deleted\|variable-0065a3d9\>)) var(--lightningcss-dark, var(--_color---neutral--dark\<deleted\|variable-53d573b6\>));
-  --colors--background-2\<deleted\|variable-c0d67656-a3fd-08cc-8b6c-e547c202831d\>: var(--lightningcss-light, var(--_color---neutral--dark\<deleted\|variable-53d573b6\>)) var(--lightningcss-dark, var(--_color---neutral--light\<deleted\|variable-f16457a0\>));
-  --background--muted: var(--lightningcss-light, var(--_color---neutral--mid-dark\<deleted\|variable-35755b90-8ee6-83e7-b09b-fd6e59aab6f1\>)) var(--lightningcss-dark, var(--_color---neutral--lighter\<deleted\|variable-0065a3d9\>));
-  --background--solid-secondary: var(--lightningcss-light, var(--_color---light--light-10)) var(--lightningcss-dark, var(--_color---dark--dark-10));
-  --border--input: var(--lightningcss-light, var(--_color---neutral--lighter\<deleted\|variable-0065a3d9\>)) var(--lightningcss-dark, var(--_color---neutral--dark\<deleted\|variable-53d573b6\>));
-  --foreground--muted: var(--lightningcss-light, var(--_color---neutral--lighter\<deleted\|variable-0065a3d9\>)) var(--lightningcss-dark, var(--_color---neutral--dark\<deleted\|variable-53d573b6\>));
-  --colors--primary-accent-dark\<deleted\|variable-a961bcf0-49c2-f8dd-291d-886c4a2afb3c\>: var(--_color---neutral--mid-dark\<deleted\|variable-35755b90-8ee6-83e7-b09b-fd6e59aab6f1\>);
-  --foreground--light-fixed: var(--lightningcss-light, var(--_color---light--light-1)) var(--lightningcss-dark, var(--_color---dark--dark-12));
-  --error--background: var(--lightningcss-light, var(--_color---light--red-2)) var(--lightningcss-dark, var(--_color---dark--red-2));
-  --error--foreground: var(--lightningcss-light, var(--_color---light--red-11)) var(--lightningcss-dark, var(--_color---dark--red-11));
-  --success--foreground: var(--lightningcss-light, var(--_color---light--green-11)) var(--lightningcss-dark, var(--_color---dark--green-11));
-  --success--background: var(--lightningcss-light, var(--_color---light--green-2)) var(--lightningcss-dark, var(--_color---dark--green-2));
-  --background--card: var(--lightningcss-light, var(--_color---light--light-3)) var(--lightningcss-dark, var(--_color---dark--dark-3));
-  --background--solid-primary: var(--lightningcss-light, var(--_color---light--light-9)) var(--lightningcss-dark, var(--_color---dark--dark-9));
-  --utility--scrollbar: var(--lightningcss-light, var(--_color---neutral--lighter\<deleted\|variable-0065a3d9\>)) var(--lightningcss-dark, var(--_color---neutral--dark\<deleted\|variable-53d573b6\>));
   --text-selection--background: var(--lightningcss-light, var(--_color---light--light-12)) var(--lightningcss-dark, var(--_color---dark--dark-12));
   --text-selection--foreground: var(--lightningcss-light, var(--_color---light--light-1)) var(--lightningcss-dark, var(--_color---dark--dark-1));
   --foreground--disabled: var(--lightningcss-light, var(--_color---light--light-10)) var(--lightningcss-dark, var(--_color---dark--dark-10));
@@ -773,12 +731,12 @@ figcaption {
   --foreground--muted: var(--lightningcss-light, var(--_color---neutral--dark\<deleted\|variable-53d573b6\>)) var(--lightningcss-dark, var(--_color---neutral--dark\<deleted\|variable-53d573b6\>));
   --colors--primary-accent-dark\<deleted\|variable-a961bcf0-49c2-f8dd-291d-886c4a2afb3c\>: var(--_color---neutral--mid-dark\<deleted\|variable-35755b90-8ee6-83e7-b09b-fd6e59aab6f1\>);
   --foreground--light-fixed: var(--lightningcss-light, var(--_color---light--light-1)) var(--lightningcss-dark, var(--_color---dark--dark-12));
+  --background--solid-primary: var(--lightningcss-light, var(--_color---light--light-9)) var(--lightningcss-dark, var(--_color---dark--dark-9));
   --error--background: var(--lightningcss-light, var(--_color---light--red-2)) var(--lightningcss-dark, var(--_color---dark--red-2));
   --error--foreground: var(--lightningcss-light, var(--_color---light--red-11)) var(--lightningcss-dark, var(--_color---dark--red-11));
   --success--foreground: var(--lightningcss-light, var(--_color---light--green-11)) var(--lightningcss-dark, var(--_color---dark--green-11));
   --success--background: var(--lightningcss-light, var(--_color---light--green-2)) var(--lightningcss-dark, var(--_color---dark--green-2));
   --background--card: var(--lightningcss-light, var(--_color---light--light-3)) var(--lightningcss-dark, var(--_color---dark--dark-3));
-  --background--solid-primary: var(--lightningcss-light, var(--_color---light--light-9)) var(--lightningcss-dark, var(--_color---dark--dark-9));
   --utility--scrollbar: var(--_color---neutral--dark\<deleted\|variable-53d573b6\>);
   --text-selection--background: var(--lightningcss-light, var(--_color---light--light-12)) var(--lightningcss-dark, var(--_color---dark--dark-12));
   --text-selection--foreground: var(--lightningcss-light, var(--_color---light--light-1)) var(--lightningcss-dark, var(--_color---dark--dark-1));
@@ -788,7 +746,7 @@ figcaption {
 }
 
 .container {
-  max-width: var(--_components---container--max-width);
+  max-width: min((100% - var(--_components---container--gutter) * 2), var(--_components---container--max-width));
   width: 88%;
   margin-left: auto;
   margin-right: auto;
@@ -912,6 +870,10 @@ figcaption {
   grid-row-gap: var(--_layout---grid--gap-button);
   margin-left: calc(var(--_layout---grid--gap-md) / 2 * -1);
   margin-right: calc(var(--_layout---grid--gap-md) / 2 * -1);
+}
+
+.row.row-align-start {
+  align-items: flex-start;
 }
 
 .col {
@@ -1080,7 +1042,7 @@ figcaption {
   margin-left: 50%;
 }
 
-.col.col-fixed {
+.col.col-nowrap {
   flex: none;
 }
 
@@ -1099,10 +1061,10 @@ figcaption {
   font-weight: var(--_components---button--font-weight);
   text-align: center;
   letter-spacing: var(--_components---button--letter-spacing);
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   text-decoration: none;
-  transition: background-color .3s cubic-bezier(.165, .84, .44, 1);
+  transition: color .3s cubic-bezier(.165, .84, .44, 1), background-color .3s cubic-bezier(.165, .84, .44, 1);
   display: inline-flex;
   position: relative;
 }
@@ -1184,12 +1146,12 @@ figcaption {
   --foreground--muted: var(--lightningcss-light, var(--_color---light--light-11)) var(--lightningcss-dark, var(--_color---dark--dark-11));
   --colors--primary-accent-dark\<deleted\|variable-a961bcf0-49c2-f8dd-291d-886c4a2afb3c\>: var(--_color---neutral--mid-dark\<deleted\|variable-35755b90-8ee6-83e7-b09b-fd6e59aab6f1\>);
   --foreground--light-fixed: var(--lightningcss-light, var(--_color---light--light-1)) var(--lightningcss-dark, var(--_color---dark--dark-12));
+  --background--solid-primary: var(--lightningcss-light, var(--_color---light--light-9)) var(--lightningcss-dark, var(--_color---dark--dark-9));
   --error--background: var(--lightningcss-light, var(--_color---light--red-2)) var(--lightningcss-dark, var(--_color---dark--red-2));
   --error--foreground: var(--lightningcss-light, var(--_color---light--red-11)) var(--lightningcss-dark, var(--_color---dark--red-11));
   --success--foreground: var(--lightningcss-light, var(--_color---light--green-11)) var(--lightningcss-dark, var(--_color---dark--green-11));
   --success--background: var(--lightningcss-light, var(--_color---light--green-2)) var(--lightningcss-dark, var(--_color---dark--green-2));
   --background--card: var(--lightningcss-light, var(--_color---light--light-3)) var(--lightningcss-dark, var(--_color---dark--dark-3));
-  --background--solid-primary: var(--lightningcss-light, var(--_color---light--light-9)) var(--lightningcss-dark, var(--_color---dark--dark-9));
   --utility--scrollbar: var(--lightningcss-light, var(--_color---light--light-6)) var(--lightningcss-dark, var(--_color---dark--dark-6));
   --text-selection--background: var(--lightningcss-light, var(--_color---light--light-12)) var(--lightningcss-dark, var(--_color---dark--dark-12));
   --text-selection--foreground: var(--lightningcss-light, var(--_color---light--light-1)) var(--lightningcss-dark, var(--_color---dark--dark-1));
@@ -1235,12 +1197,12 @@ figcaption {
   --foreground--muted: var(--lightningcss-light, var(--_color---light--light-11)) var(--lightningcss-dark, var(--_color---dark--dark-11));
   --colors--primary-accent-dark\<deleted\|variable-a961bcf0-49c2-f8dd-291d-886c4a2afb3c\>: var(--_color---neutral--mid-dark\<deleted\|variable-35755b90-8ee6-83e7-b09b-fd6e59aab6f1\>);
   --foreground--light-fixed: var(--lightningcss-light, var(--_color---light--light-1)) var(--lightningcss-dark, var(--_color---dark--dark-12));
+  --background--solid-primary: var(--lightningcss-light, var(--_color---light--light-9)) var(--lightningcss-dark, var(--_color---dark--dark-9));
   --error--background: var(--lightningcss-light, var(--_color---light--red-2)) var(--lightningcss-dark, var(--_color---dark--red-2));
   --error--foreground: var(--lightningcss-light, var(--_color---light--red-11)) var(--lightningcss-dark, var(--_color---dark--red-11));
   --success--foreground: var(--lightningcss-light, var(--_color---light--green-11)) var(--lightningcss-dark, var(--_color---dark--green-11));
   --success--background: var(--lightningcss-light, var(--_color---light--green-2)) var(--lightningcss-dark, var(--_color---dark--green-2));
   --background--card: var(--lightningcss-light, var(--_color---light--light-3)) var(--lightningcss-dark, var(--_color---dark--dark-3));
-  --background--solid-primary: var(--lightningcss-light, var(--_color---light--light-9)) var(--lightningcss-dark, var(--_color---dark--dark-9));
   --utility--scrollbar: var(--lightningcss-light, var(--_color---light--light-6)) var(--lightningcss-dark, var(--_color---dark--dark-6));
   --text-selection--background: var(--lightningcss-light, var(--_color---light--light-12)) var(--lightningcss-dark, var(--_color---dark--dark-12));
   --text-selection--foreground: var(--lightningcss-light, var(--_color---light--light-1)) var(--lightningcss-dark, var(--_color---dark--dark-1));
@@ -1270,6 +1232,12 @@ figcaption {
   border-left-color: var(--outline--border);
   color: var(--outline--foreground);
   background-color: #0000;
+}
+
+.button:where(.w-variant-ea990ac3-89d1-9883-7270-d170f3432e08) {
+  color: var(--link--foreground);
+  background-color: #0000;
+  padding: 0;
 }
 
 .button:hover {
@@ -1312,12 +1280,12 @@ figcaption {
   --foreground--muted: var(--lightningcss-light, var(--_color---neutral--lighter\<deleted\|variable-0065a3d9\>)) var(--lightningcss-dark, var(--_color---neutral--dark\<deleted\|variable-53d573b6\>));
   --colors--primary-accent-dark\<deleted\|variable-a961bcf0-49c2-f8dd-291d-886c4a2afb3c\>: var(--_color---neutral--mid-dark\<deleted\|variable-35755b90-8ee6-83e7-b09b-fd6e59aab6f1\>);
   --foreground--light-fixed: var(--lightningcss-light, var(--_color---light--light-1)) var(--lightningcss-dark, var(--_color---dark--dark-12));
+  --background--solid-primary: var(--lightningcss-light, var(--_color---light--light-9)) var(--lightningcss-dark, var(--_color---dark--dark-9));
   --error--background: var(--lightningcss-light, var(--_color---light--red-2)) var(--lightningcss-dark, var(--_color---dark--red-2));
   --error--foreground: var(--lightningcss-light, var(--_color---light--red-11)) var(--lightningcss-dark, var(--_color---dark--red-11));
   --success--foreground: var(--lightningcss-light, var(--_color---light--green-11)) var(--lightningcss-dark, var(--_color---dark--green-11));
   --success--background: var(--lightningcss-light, var(--_color---light--green-2)) var(--lightningcss-dark, var(--_color---dark--green-2));
   --background--card: var(--lightningcss-light, var(--_color---light--light-3)) var(--lightningcss-dark, var(--_color---dark--dark-3));
-  --background--solid-primary: var(--lightningcss-light, var(--_color---light--light-9)) var(--lightningcss-dark, var(--_color---dark--dark-9));
   --utility--scrollbar: var(--lightningcss-light, var(--_color---neutral--lighter\<deleted\|variable-0065a3d9\>)) var(--lightningcss-dark, var(--_color---neutral--dark\<deleted\|variable-53d573b6\>));
   --text-selection--background: var(--lightningcss-light, var(--_color---light--light-12)) var(--lightningcss-dark, var(--_color---dark--dark-12));
   --text-selection--foreground: var(--lightningcss-light, var(--_color---light--light-1)) var(--lightningcss-dark, var(--_color---dark--dark-1));
@@ -1353,6 +1321,11 @@ figcaption {
 
 .button:hover:where(.w-variant-a22cef60-9092-33c0-69b8-3e7399bf71b2) {
   color: var(--tertiary--hover);
+  background-color: #0000;
+}
+
+.button:hover:where(.w-variant-ea990ac3-89d1-9883-7270-d170f3432e08) {
+  color: var(--link--foreground-hover);
   background-color: #0000;
 }
 
@@ -1398,12 +1371,12 @@ figcaption {
   --foreground--muted: var(--lightningcss-light, var(--_color---light--light-11)) var(--lightningcss-dark, var(--_color---dark--dark-11));
   --colors--primary-accent-dark\<deleted\|variable-a961bcf0-49c2-f8dd-291d-886c4a2afb3c\>: var(--_color---neutral--mid-dark\<deleted\|variable-35755b90-8ee6-83e7-b09b-fd6e59aab6f1\>);
   --foreground--light-fixed: var(--lightningcss-light, var(--_color---light--light-1)) var(--lightningcss-dark, var(--_color---dark--dark-12));
+  --background--solid-primary: var(--lightningcss-light, var(--_color---light--light-9)) var(--lightningcss-dark, var(--_color---dark--dark-9));
   --error--background: var(--lightningcss-light, var(--_color---light--red-2)) var(--lightningcss-dark, var(--_color---dark--red-2));
   --error--foreground: var(--lightningcss-light, var(--_color---light--red-11)) var(--lightningcss-dark, var(--_color---dark--red-11));
   --success--foreground: var(--lightningcss-light, var(--_color---light--green-11)) var(--lightningcss-dark, var(--_color---dark--green-11));
   --success--background: var(--lightningcss-light, var(--_color---light--green-2)) var(--lightningcss-dark, var(--_color---dark--green-2));
   --background--card: var(--lightningcss-light, var(--_color---light--light-3)) var(--lightningcss-dark, var(--_color---dark--dark-3));
-  --background--solid-primary: var(--lightningcss-light, var(--_color---light--light-9)) var(--lightningcss-dark, var(--_color---dark--dark-9));
   --utility--scrollbar: var(--lightningcss-light, var(--_color---light--light-6)) var(--lightningcss-dark, var(--_color---dark--dark-6));
   --text-selection--background: var(--lightningcss-light, var(--_color---light--light-12)) var(--lightningcss-dark, var(--_color---dark--dark-12));
   --text-selection--foreground: var(--lightningcss-light, var(--_color---light--light-1)) var(--lightningcss-dark, var(--_color---dark--dark-1));
@@ -1419,6 +1392,11 @@ figcaption {
 .button.cc-icon-only {
   padding-right: var(--_components---button--vertical-padding);
   padding-left: var(--_components---button--vertical-padding);
+}
+
+.button.cc-small {
+  padding: var(--_components---button-small--vertical-padding) var(--_components---button-small--horizontal-padding);
+  font-size: var(--_components---button-small--font-size);
 }
 
 .card {
@@ -2213,14 +2191,14 @@ figcaption {
 }
 
 .rich-text figure {
-  border-radius: var(--_components---card--border-radius);
+  border-radius: var(--_components---image--border-radius-small);
   margin-top: 3em;
   margin-bottom: 3em;
   overflow: hidden;
 }
 
 .rich-text img {
-  border-radius: var(--_components---card--border-radius);
+  border-radius: var(--_components---image--border-radius-small);
   overflow: hidden;
 }
 
@@ -2245,9 +2223,9 @@ figcaption {
 }
 
 .u-aspect-16x9 {
-  aspect-ratio: 16 / 9;
   width: 100%;
   position: relative;
+  aspect-ratio: 16 / 9 !important;
 }
 
 .u-aspect-4x3 {
@@ -2372,8 +2350,9 @@ figcaption {
   background-color: var(--background--default);
   color: var(--foreground--default);
   width: 100%;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  margin-top: -1px;
+  padding-top: .625rem;
+  padding-bottom: .625rem;
   position: sticky;
   top: 0;
 }
@@ -2408,12 +2387,12 @@ figcaption {
   --foreground--muted: var(--_color---neutral--lighter\<deleted\|variable-0065a3d9\>);
   --colors--primary-accent-dark\<deleted\|variable-a961bcf0-49c2-f8dd-291d-886c4a2afb3c\>: var(--_color---neutral--light\<deleted\|variable-f16457a0\>);
   --foreground--light-fixed: var(--lightningcss-light, var(--_color---light--light-1)) var(--lightningcss-dark, var(--_color---dark--dark-12));
+  --background--solid-primary: var(--lightningcss-light, var(--_color---light--light-9)) var(--lightningcss-dark, var(--_color---dark--dark-9));
   --error--background: var(--lightningcss-light, var(--_color---light--red-2)) var(--lightningcss-dark, var(--_color---dark--red-2));
   --error--foreground: var(--lightningcss-light, var(--_color---light--red-11)) var(--lightningcss-dark, var(--_color---dark--red-11));
   --success--foreground: var(--lightningcss-light, var(--_color---light--green-11)) var(--lightningcss-dark, var(--_color---dark--green-11));
   --success--background: var(--lightningcss-light, var(--_color---light--green-2)) var(--lightningcss-dark, var(--_color---dark--green-2));
   --background--card: var(--lightningcss-light, var(--_color---light--light-3)) var(--lightningcss-dark, var(--_color---dark--dark-3));
-  --background--solid-primary: var(--lightningcss-light, var(--_color---light--light-9)) var(--lightningcss-dark, var(--_color---dark--dark-9));
   --utility--scrollbar: var(--lightningcss-light, var(--_color---light--light-6)) var(--lightningcss-dark, var(--_color---dark--dark-6));
   --text-selection--background: var(--lightningcss-light, var(--_color---light--light-12)) var(--lightningcss-dark, var(--_color---dark--dark-12));
   --text-selection--foreground: var(--lightningcss-light, var(--_color---light--light-1)) var(--lightningcss-dark, var(--_color---dark--dark-1));
@@ -2423,8 +2402,8 @@ figcaption {
 }
 
 .nav-logo_link {
-  width: var(--_size---5rem\<deleted\|variable-ff14b77f-fe78-09a6-d1f0-e9e7c84aae7c\>);
   color: var(--primary--background);
+  width: 1.5rem;
   padding-left: 0;
   line-height: 1;
 }
@@ -2445,8 +2424,16 @@ figcaption {
   display: inline-flex;
 }
 
-.nav-link:hover, .nav-link:focus-visible, .nav-link[data-wf-focus-visible] {
+.nav-link:hover {
+  color: var(--link--foreground-hover);
+}
+
+.nav-link:focus-visible, .nav-link[data-wf-focus-visible] {
   color: var(--primary--background);
+}
+
+.nav-link.w--current {
+  color: var(--link--foreground);
 }
 
 .nav-link.cc-dropdown-link {
@@ -2488,6 +2475,11 @@ figcaption {
   justify-content: flex-start;
   align-items: center;
   display: flex;
+}
+
+.breadcrumb-list.cc-center {
+  justify-content: center;
+  align-items: center;
 }
 
 .breadcrumb-item {
@@ -2676,12 +2668,10 @@ figcaption {
 }
 
 .slot.cc-tabs-menu {
-  grid-column-gap: var(--_layout---grid--gap-button);
-  grid-row-gap: var(--_layout---grid--gap-button);
   scrollbar-width: none;
   flex-flow: row;
   justify-content: flex-start;
-  align-items: center;
+  align-items: stretch;
   overflow-x: auto;
 }
 
@@ -2743,7 +2733,7 @@ figcaption {
 .nav-banner {
   padding-top: var(--_size---0-75rem\<deleted\|variable-51df6ead-a71c-263d-332f-348c569f6d5f\>);
   padding-bottom: var(--_size---0-75rem\<deleted\|variable-51df6ead-a71c-263d-332f-348c569f6d5f\>);
-  background-color: var(--primary--background);
+  background-color: var(--secondary--background);
   text-decoration: none;
   transition: box-shadow .3s cubic-bezier(.165, .84, .44, 1);
   display: block;
@@ -2775,11 +2765,8 @@ figcaption {
 
 .img-component {
   aspect-ratio: 4 / 3;
-  border-radius: 1.25rem;
-  border-radius: calc(var(--_components---card--border-radius) / 1.5);
   width: 100%;
   position: relative;
-  overflow: clip;
 }
 
 .img-component:where(.w-variant-b5e7a2df-0aae-a75d-3cfa-d5f2e50ac839) {
@@ -2803,7 +2790,7 @@ figcaption {
 }
 
 .img-component:where(.w-variant-bb15dbc4-816d-ba55-5a68-046b1d0e5917) {
-  z-index: -1;
+  z-index: 0;
   aspect-ratio: auto;
   height: 100%;
   position: absolute;
@@ -2844,7 +2831,7 @@ figcaption {
 }
 
 .img-component_bg-overlay:where(.w-variant-bb15dbc4-816d-ba55-5a68-046b1d0e5917) {
-  background-color: color-mix(in hsl, var(--_color---neutral--dark\<deleted\|variable-53d573b6\>) 60%, transparent 40%);
+  background-color: color-mix(in hsl, var(--_color---dark--dark-1) 60%, transparent 40%);
   width: 100%;
   height: 100%;
   display: block;
@@ -3098,22 +3085,33 @@ figcaption {
 }
 
 .tabs-autoplay-progress {
-  background-color: #d14424;
+  height: var(--_components---button--border-width);
+  background-color: var(--background--solid-primary);
+  top: auto;
+  left: 0%;
+  right: 0%;
+  bottom: calc(var(--_components---button--border-width) * -1);
+  color: color-mix(in hsl, var(--ghost--foreground) 40%, transparent 60%);
   width: 0%;
-  height: 2px;
   position: absolute;
-  inset: auto 0% -2px;
 }
 
 .tabs-link {
-  color: var(--ghost--foreground);
-  background-color: #0000;
+  border-bottom-style: solid;
+  border-bottom-width: var(--_components---button--border-width);
+  border-bottom-color: var(--border--default);
+  background-color: var(--background--default);
+  color: color-mix(in hsl, var(--ghost--foreground) 40%, transparent 60%);
   flex: 1 0 auto;
+  padding: .7em 1em;
   transition-property: background-color, border-color, color;
   transition-duration: .3s, .3s, .3s;
   transition-timing-function: cubic-bezier(.165, .84, .44, 1), cubic-bezier(.165, .84, .44, 1), cubic-bezier(.165, .84, .44, 1);
   position: relative;
-  flex: none !important;
+}
+
+.tabs-link:hover {
+  color: var(--ghost--foreground);
 }
 
 .tabs-link.cc-active {
@@ -3136,12 +3134,14 @@ figcaption {
 }
 
 .tabs-autoplay-toggle_play {
+  color: var(--foreground--default);
   justify-content: center;
   align-items: center;
   display: none;
 }
 
 .tabs-autoplay-toggle_pause {
+  color: var(--foreground--default);
   justify-content: center;
   align-items: center;
   display: flex;
@@ -3423,12 +3423,12 @@ figcaption {
   --foreground--muted: var(--lightningcss-light, var(--_color---light--light-11)) var(--lightningcss-dark, var(--_color---dark--dark-11));
   --colors--primary-accent-dark\<deleted\|variable-a961bcf0-49c2-f8dd-291d-886c4a2afb3c\>: var(--_color---neutral--mid-dark\<deleted\|variable-35755b90-8ee6-83e7-b09b-fd6e59aab6f1\>);
   --foreground--light-fixed: var(--lightningcss-light, var(--_color---light--light-1)) var(--lightningcss-dark, var(--_color---dark--dark-12));
+  --background--solid-primary: var(--lightningcss-light, var(--_color---light--light-9)) var(--lightningcss-dark, var(--_color---dark--dark-9));
   --error--background: var(--lightningcss-light, var(--_color---light--red-2)) var(--lightningcss-dark, var(--_color---dark--red-2));
   --error--foreground: var(--lightningcss-light, var(--_color---light--red-11)) var(--lightningcss-dark, var(--_color---dark--red-11));
   --success--foreground: var(--lightningcss-light, var(--_color---light--green-11)) var(--lightningcss-dark, var(--_color---dark--green-11));
   --success--background: var(--lightningcss-light, var(--_color---light--green-2)) var(--lightningcss-dark, var(--_color---dark--green-2));
   --background--card: var(--lightningcss-light, var(--_color---light--light-3)) var(--lightningcss-dark, var(--_color---dark--dark-3));
-  --background--solid-primary: var(--lightningcss-light, var(--_color---light--light-9)) var(--lightningcss-dark, var(--_color---dark--dark-9));
   --utility--scrollbar: var(--lightningcss-light, var(--_color---light--light-6)) var(--lightningcss-dark, var(--_color---dark--dark-6));
   --text-selection--background: var(--lightningcss-light, var(--_color---light--light-12)) var(--lightningcss-dark, var(--_color---dark--dark-12));
   --text-selection--foreground: var(--lightningcss-light, var(--_color---light--light-1)) var(--lightningcss-dark, var(--_color---dark--dark-1));
@@ -3751,6 +3751,57 @@ figcaption {
   display: contents;
 }
 
+.blog_toc-wrapper {
+  position: sticky;
+  top: 6rem;
+}
+
+.blog_toc-link-wrapper {
+  grid-column-gap: .4rem;
+  grid-row-gap: .4rem;
+  flex-flow: column;
+  display: flex;
+}
+
+.blog_toc-link-wrapper.cc-h2 {
+  color: color-mix(in srgb, var(--link--foreground), transparent 0%);
+}
+
+.blog_toc-link-wrapper.cc-h3 {
+  color: color-mix(in srgb, var(--link--foreground), transparent 15%);
+}
+
+.blog_toc-link-wrapper.cc-h4 {
+  color: color-mix(in srgb, var(--link--foreground), transparent 30%);
+}
+
+.blog_toc-link-wrapper.cc-h5 {
+  color: color-mix(in srgb, var(--link--foreground), transparent 45%);
+}
+
+.blog_toc-link-wrapper.cc-h6 {
+  color: color-mix(in srgb, var(--link--foreground), transparent 60%);
+}
+
+.blog_toc-link {
+  grid-column-gap: .25rem;
+  grid-row-gap: .25rem;
+  font-family: var(--_typography---h6--font);
+  font-size: var(--_typography---h6--font-size);
+  font-weight: var(--_typography---h6--font-weight);
+  color: inherit;
+  align-items: baseline;
+  display: flex;
+}
+
+.blog_toc-link.w--current {
+  color: var(--link--foreground-hover);
+}
+
+.u-text-bold {
+  font-weight: 700;
+}
+
 @media screen and (max-width: 991px) {
   .col:where(.w-variant-28e74f51-d7e2-a771-32c6-dda728ccfa16) {
     flex-basis: 50%;
@@ -3913,12 +3964,12 @@ figcaption {
     --foreground--muted: var(--lightningcss-light, var(--_color---light--light-11)) var(--lightningcss-dark, var(--_color---dark--dark-11));
     --colors--primary-accent-dark\<deleted\|variable-a961bcf0-49c2-f8dd-291d-886c4a2afb3c\>: var(--_color---neutral--mid-dark\<deleted\|variable-35755b90-8ee6-83e7-b09b-fd6e59aab6f1\>);
     --foreground--light-fixed: var(--lightningcss-light, var(--_color---light--light-1)) var(--lightningcss-dark, var(--_color---dark--dark-12));
+    --background--solid-primary: var(--lightningcss-light, var(--_color---light--light-9)) var(--lightningcss-dark, var(--_color---dark--dark-9));
     --error--background: var(--lightningcss-light, var(--_color---light--red-2)) var(--lightningcss-dark, var(--_color---dark--red-2));
     --error--foreground: var(--lightningcss-light, var(--_color---light--red-11)) var(--lightningcss-dark, var(--_color---dark--red-11));
     --success--foreground: var(--lightningcss-light, var(--_color---light--green-11)) var(--lightningcss-dark, var(--_color---dark--green-11));
     --success--background: var(--lightningcss-light, var(--_color---light--green-2)) var(--lightningcss-dark, var(--_color---dark--green-2));
     --background--card: var(--lightningcss-light, var(--_color---light--light-3)) var(--lightningcss-dark, var(--_color---dark--dark-3));
-    --background--solid-primary: var(--lightningcss-light, var(--_color---light--light-9)) var(--lightningcss-dark, var(--_color---dark--dark-9));
     --utility--scrollbar: var(--lightningcss-light, var(--_color---light--light-6)) var(--lightningcss-dark, var(--_color---dark--dark-6));
     --text-selection--background: var(--lightningcss-light, var(--_color---light--light-12)) var(--lightningcss-dark, var(--_color---dark--dark-12));
     --text-selection--foreground: var(--lightningcss-light, var(--_color---light--light-1)) var(--lightningcss-dark, var(--_color---dark--dark-1));
@@ -3958,12 +4009,12 @@ figcaption {
     --foreground--muted: var(--lightningcss-light, var(--_color---light--light-11)) var(--lightningcss-dark, var(--_color---dark--dark-11));
     --colors--primary-accent-dark\<deleted\|variable-a961bcf0-49c2-f8dd-291d-886c4a2afb3c\>: var(--_color---neutral--mid-dark\<deleted\|variable-35755b90-8ee6-83e7-b09b-fd6e59aab6f1\>);
     --foreground--light-fixed: var(--lightningcss-light, var(--_color---light--light-1)) var(--lightningcss-dark, var(--_color---dark--dark-12));
+    --background--solid-primary: var(--lightningcss-light, var(--_color---light--light-9)) var(--lightningcss-dark, var(--_color---dark--dark-9));
     --error--background: var(--lightningcss-light, var(--_color---light--red-2)) var(--lightningcss-dark, var(--_color---dark--red-2));
     --error--foreground: var(--lightningcss-light, var(--_color---light--red-11)) var(--lightningcss-dark, var(--_color---dark--red-11));
     --success--foreground: var(--lightningcss-light, var(--_color---light--green-11)) var(--lightningcss-dark, var(--_color---dark--green-11));
     --success--background: var(--lightningcss-light, var(--_color---light--green-2)) var(--lightningcss-dark, var(--_color---dark--green-2));
     --background--card: var(--lightningcss-light, var(--_color---light--light-3)) var(--lightningcss-dark, var(--_color---dark--dark-3));
-    --background--solid-primary: var(--lightningcss-light, var(--_color---light--light-9)) var(--lightningcss-dark, var(--_color---dark--dark-9));
     --utility--scrollbar: var(--lightningcss-light, var(--_color---light--light-6)) var(--lightningcss-dark, var(--_color---dark--dark-6));
     --text-selection--background: var(--lightningcss-light, var(--_color---light--light-12)) var(--lightningcss-dark, var(--_color---dark--dark-12));
     --text-selection--foreground: var(--lightningcss-light, var(--_color---light--light-1)) var(--lightningcss-dark, var(--_color---dark--dark-1));
@@ -4004,12 +4055,12 @@ figcaption {
     --foreground--muted: var(--lightningcss-light, var(--_color---light--light-11)) var(--lightningcss-dark, var(--_color---dark--dark-11));
     --colors--primary-accent-dark\<deleted\|variable-a961bcf0-49c2-f8dd-291d-886c4a2afb3c\>: var(--_color---neutral--mid-dark\<deleted\|variable-35755b90-8ee6-83e7-b09b-fd6e59aab6f1\>);
     --foreground--light-fixed: var(--lightningcss-light, var(--_color---light--light-1)) var(--lightningcss-dark, var(--_color---dark--dark-12));
+    --background--solid-primary: var(--lightningcss-light, var(--_color---light--light-9)) var(--lightningcss-dark, var(--_color---dark--dark-9));
     --error--background: var(--lightningcss-light, var(--_color---light--red-2)) var(--lightningcss-dark, var(--_color---dark--red-2));
     --error--foreground: var(--lightningcss-light, var(--_color---light--red-11)) var(--lightningcss-dark, var(--_color---dark--red-11));
     --success--foreground: var(--lightningcss-light, var(--_color---light--green-11)) var(--lightningcss-dark, var(--_color---dark--green-11));
     --success--background: var(--lightningcss-light, var(--_color---light--green-2)) var(--lightningcss-dark, var(--_color---dark--green-2));
     --background--card: var(--lightningcss-light, var(--_color---light--light-3)) var(--lightningcss-dark, var(--_color---dark--dark-3));
-    --background--solid-primary: var(--lightningcss-light, var(--_color---light--light-9)) var(--lightningcss-dark, var(--_color---dark--dark-9));
     --utility--scrollbar: var(--lightningcss-light, var(--_color---light--light-6)) var(--lightningcss-dark, var(--_color---dark--dark-6));
     --text-selection--background: var(--lightningcss-light, var(--_color---light--light-12)) var(--lightningcss-dark, var(--_color---dark--dark-12));
     --text-selection--foreground: var(--lightningcss-light, var(--_color---light--light-1)) var(--lightningcss-dark, var(--_color---dark--dark-1));
@@ -4048,12 +4099,12 @@ figcaption {
     --foreground--muted: var(--lightningcss-light, var(--_color---light--light-11)) var(--lightningcss-dark, var(--_color---dark--dark-11));
     --colors--primary-accent-dark\<deleted\|variable-a961bcf0-49c2-f8dd-291d-886c4a2afb3c\>: var(--_color---neutral--mid-dark\<deleted\|variable-35755b90-8ee6-83e7-b09b-fd6e59aab6f1\>);
     --foreground--light-fixed: var(--lightningcss-light, var(--_color---light--light-1)) var(--lightningcss-dark, var(--_color---dark--dark-12));
+    --background--solid-primary: var(--lightningcss-light, var(--_color---light--light-9)) var(--lightningcss-dark, var(--_color---dark--dark-9));
     --error--background: var(--lightningcss-light, var(--_color---light--red-2)) var(--lightningcss-dark, var(--_color---dark--red-2));
     --error--foreground: var(--lightningcss-light, var(--_color---light--red-11)) var(--lightningcss-dark, var(--_color---dark--red-11));
     --success--foreground: var(--lightningcss-light, var(--_color---light--green-11)) var(--lightningcss-dark, var(--_color---dark--green-11));
     --success--background: var(--lightningcss-light, var(--_color---light--green-2)) var(--lightningcss-dark, var(--_color---dark--green-2));
     --background--card: var(--lightningcss-light, var(--_color---light--light-3)) var(--lightningcss-dark, var(--_color---dark--dark-3));
-    --background--solid-primary: var(--lightningcss-light, var(--_color---light--light-9)) var(--lightningcss-dark, var(--_color---dark--dark-9));
     --utility--scrollbar: var(--lightningcss-light, var(--_color---light--light-6)) var(--lightningcss-dark, var(--_color---dark--dark-6));
     --text-selection--background: var(--lightningcss-light, var(--_color---light--light-12)) var(--lightningcss-dark, var(--_color---dark--dark-12));
     --text-selection--foreground: var(--lightningcss-light, var(--_color---light--light-1)) var(--lightningcss-dark, var(--_color---dark--dark-1));
