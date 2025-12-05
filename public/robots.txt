@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
 Disallow: /404.html
+Disallow: /blog.html
+Disallow: /blog-post.html
 Sitemap: https://sil.so/sitemap.xml
