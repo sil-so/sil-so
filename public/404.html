@@ -1,4 +1,4 @@
-<!DOCTYPE html><!--  This site was created in Webflow. https://webflow.com  --><!--  Last Published: Fri Dec 05 2025 13:58:21 GMT+0000 (Coordinated Universal Time)  -->
+<!DOCTYPE html><!--  This site was created in Webflow. https://webflow.com  --><!--  Last Published: Fri Dec 05 2025 17:31:18 GMT+0000 (Coordinated Universal Time)  -->
 <html data-wf-page="691924e41a8dc9bab2bb569f" data-wf-site="691924e21a8dc9bab2bb563e" lang="en">
 <head>
   <meta charset="utf-8">
@@ -1786,6 +1786,21 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   });
 </script>
+      </div>
+    </div>
+    <div>
+      <div class="w-embed">
+        <style>
+#blog-empty {
+  display: none;
+}
+#blog-list:not(:has(*)) {
+  display: none;
+}
+#blog-list:not(:has(*)) + #blog-empty {
+  display: block;
+}
+</style>
       </div>
     </div>
   </div>

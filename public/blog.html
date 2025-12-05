@@ -1,4 +1,4 @@
-<!DOCTYPE html><!--  This site was created in Webflow. https://webflow.com  --><!--  Last Published: Fri Dec 05 2025 13:58:21 GMT+0000 (Coordinated Universal Time)  -->
+<!DOCTYPE html><!--  This site was created in Webflow. https://webflow.com  --><!--  Last Published: Fri Dec 05 2025 17:31:18 GMT+0000 (Coordinated Universal Time)  -->
 <html data-wf-page="6930cfbd81f6bf2057ce8f12" data-wf-site="691924e21a8dc9bab2bb563e" lang="en">
 <head>
   <meta charset="utf-8">
@@ -1793,6 +1793,21 @@ document.addEventListener("DOMContentLoaded", function() {
 </script>
       </div>
     </div>
+    <div>
+      <div class="w-embed">
+        <style>
+#blog-empty {
+  display: none;
+}
+#blog-list:not(:has(*)) {
+  display: none;
+}
+#blog-list:not(:has(*)) + #blog-empty {
+  display: block;
+}
+</style>
+      </div>
+    </div>
   </div>
   <div class="per-page-css"></div>
   <div data-animation="default" class="nav w-nav" data-easing2="ease" data-wf--nav--settings-color-mode="base" data-easing="ease" data-collapse="medium" role="banner" data-duration="0" data-doc-height="1">
@@ -1863,17 +1878,17 @@ document.addEventListener("DOMContentLoaded", function() {
       <nav role="navigation" class="nav-menu w-nav-menu">
         <div class="nav-dropdown_overlay"></div>
         <div class="nav-menu_container">
-          <a href="index.html" class="nav-link w-nav-link">home</a>
+          <a href="index.html" class="nav-link w-nav-link">portfolio</a>
           <a href="blog.html" aria-current="page" class="nav-link w-nav-link w--current">blog</a>
         </div>
       </nav>
     </div>
   </div>
   <main class="page-main">
-    <section class="section">
+    <section class="section u-pb-0">
       <div class="container">
         <div data-wf--heading--settings-alignment="left-align" id="" style="" class="heading-component">
-          <h1 class="u-mb-sm">Blog</h1>
+          <h1 class="u-mb-sm">Silso&#x27;s Blog</h1>
         </div>
         <div id="blog-list" class="row">
           <div data-template="item" class="col col-lg-4 col-md-6 col-sm-12">
@@ -1888,6 +1903,11 @@ document.addEventListener("DOMContentLoaded", function() {
               </div>
               <a data-bind="link" href="#" title="Blog Title" class="u-link-cover"></a>
             </div>
+          </div>
+        </div>
+        <div data-wf--rich-text--settings-alignment="left-align" class="rich-text-component u-text-muted" id="blog-empty" style="">
+          <div class="rich-text w-richtext">
+            <p>There haven&#x27;t been any blogs published yet.</p>
           </div>
         </div>
       </div>

@@ -1,4 +1,4 @@
-<!DOCTYPE html><!--  This site was created in Webflow. https://webflow.com  --><!--  Last Published: Fri Dec 05 2025 13:58:21 GMT+0000 (Coordinated Universal Time)  -->
+<!DOCTYPE html><!--  This site was created in Webflow. https://webflow.com  --><!--  Last Published: Fri Dec 05 2025 17:31:18 GMT+0000 (Coordinated Universal Time)  -->
 <html data-wf-page="6930cfd0127e468d53c56807" data-wf-site="691924e21a8dc9bab2bb563e" lang="en">
 <head>
   <meta charset="utf-8">
@@ -1795,6 +1795,21 @@ document.addEventListener("DOMContentLoaded", function() {
 </script>
       </div>
     </div>
+    <div>
+      <div class="w-embed">
+        <style>
+#blog-empty {
+  display: none;
+}
+#blog-list:not(:has(*)) {
+  display: none;
+}
+#blog-list:not(:has(*)) + #blog-empty {
+  display: block;
+}
+</style>
+      </div>
+    </div>
   </div>
   <div class="per-page-css"></div>
   <div data-animation="default" class="nav w-nav" data-easing2="ease" data-wf--nav--settings-color-mode="base" data-easing="ease" data-collapse="medium" role="banner" data-duration="0" data-doc-height="1">
@@ -1865,15 +1880,16 @@ document.addEventListener("DOMContentLoaded", function() {
       <nav role="navigation" class="nav-menu w-nav-menu">
         <div class="nav-dropdown_overlay"></div>
         <div class="nav-menu_container">
-          <a href="index.html" class="nav-link w-nav-link">home</a>
+          <a href="index.html" class="nav-link w-nav-link">portfolio</a>
           <a href="blog.html" class="nav-link w-nav-link">blog</a>
         </div>
       </nav>
     </div>
   </div>
   <main class="page-main">
-    <article class="section" id="" style="">
+    <article class="section u-pt-0" id="" style="">
       <div class="container">
+        <div data-wf--spacer--settings-size="medium" class="spacer-component w-variant-60e88f1c-8990-2b60-1d3a-e5ec07d412dc" id="" style=""></div>
         <header>
           <div data-wf--button--button-variant="ghost" class="button w-variant-bde2eece-8f31-2b54-acd2-a6129cfc537d cc-small" id="" style="" data-open-modal="">
             <div class="btn-icon">
@@ -2054,10 +2070,10 @@ document.addEventListener("DOMContentLoaded", function() {
                                 <div class="row row-gap-button">
                                   <div data-wf--grid-column--settings-column-size="shrink" class="col w-variant-63569d8e-a8ac-61e1-0666-21eb6073c541" id="" style="">
                                     <div class="slot cc-column">
-                                      <div data-wf--button--button-variant="primary" class="button" id="" style="" data-open-modal="">
-                                        <div aria-hidden="false" class="btn-text">see his work</div>
+                                      <div data-wf--button--button-variant="outline" class="button w-variant-89fb0d3b-2c37-36f1-20d8-678673c44449" id="" style="" data-open-modal="">
+                                        <div aria-hidden="false" class="btn-text">view portfolio</div>
                                         <a href="index.html" class="u-link-cover w-inline-block">
-                                          <div class="u-sr-only">see his work</div>
+                                          <div class="u-sr-only">view portfolio</div>
                                         </a>
                                       </div>
                                     </div>
@@ -2114,10 +2130,10 @@ document.addEventListener("DOMContentLoaded", function() {
         </div>
       </div>
     </article>
-    <section id="continue-reading-section" aria-labelledby="continue-reading" class="section u-pt-0">
+    <section id="continue-reading-section" aria-labelledby="continue-reading" class="section u-p-0">
       <div class="container">
         <div data-wf--heading--settings-alignment="left-align" id="continue-reading" style="" class="heading-component">
-          <h2 class="h1 u-mb-sm u-text-muted">Continue reading</h2>
+          <h2 class="u-mb-sm">Continue reading</h2>
         </div>
         <div id="continue-reading-list" class="row"></div>
       </div>
