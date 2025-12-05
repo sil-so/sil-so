@@ -89,6 +89,7 @@ export default {
         .on("link[href]", new AssetPathHandler("href"))
         .on("script[src]", new AssetPathHandler("src"))
         .on("img[src]", new AssetPathHandler("src"))
+        .on("img[srcset]", new SrcSetHandler())
         .on("a[href]", new LinkHandler())
         .on("#activity-mouse-travel", new TextHandler(data.distance))
         .on("#activity-mouse-clicks", new TextHandler(data.clicks))
@@ -138,6 +139,7 @@ async function handleBlogList(request, env) {
       .on("link[href]", new AssetPathHandler("href"))
       .on("script[src]", new AssetPathHandler("src"))
       .on("img[src]", new AssetPathHandler("src"))
+      .on("img[srcset]", new SrcSetHandler())
       .on("a[href]", new LinkHandler())
       .on('a[href="/blog"]', new ActiveLinkHandler())
       .on('a[href="/blog.html"]', new ActiveLinkHandler())
@@ -220,6 +222,7 @@ async function handleBlogPost(slug, request, env) {
       .on("link[href]", new AssetPathHandler("href"))
       .on("script[src]", new AssetPathHandler("src"))
       .on("img[src]", new AssetPathHandler("src"))
+      .on("img[srcset]", new SrcSetHandler())
       .on("a[href]", new LinkHandler())
       .on('a[href="/blog"]', new ActiveLinkHandler())
       .on('a[href="/blog.html"]', new ActiveLinkHandler())
@@ -605,6 +608,35 @@ class AssetPathHandler {
     ) {
       element.setAttribute(this.attribute, "/" + val);
     }
+  }
+}
+
+class SrcSetHandler {
+  element(element) {
+    const srcset = element.getAttribute("srcset");
+    if (!srcset) return;
+
+    const newSrcset = srcset
+      .split(",")
+      .map((entry) => {
+        let parts = entry.trim().split(" ");
+        let url = parts[0];
+
+        if (
+          url &&
+          !url.startsWith("/") &&
+          !url.startsWith("http") &&
+          !url.startsWith("https") &&
+          !url.startsWith("data:")
+        ) {
+          parts[0] = "/" + url;
+        }
+
+        return parts.join(" ");
+      })
+      .join(", ");
+
+    element.setAttribute("srcset", newSrcset);
   }
 }
 
