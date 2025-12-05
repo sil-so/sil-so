@@ -86,7 +86,10 @@ export default {
       };
 
       return new HTMLRewriter()
-        .on("a[href]", new CleanHtmlExtensionHandler())
+        .on("link[href]", new AssetPathHandler("href"))
+        .on("script[src]", new AssetPathHandler("src"))
+        .on("img[src]", new AssetPathHandler("src"))
+        .on("a[href]", new LinkHandler())
         .on("#activity-mouse-travel", new TextHandler(data.distance))
         .on("#activity-mouse-clicks", new TextHandler(data.clicks))
         .on(
@@ -102,9 +105,7 @@ export default {
 
 async function handleBlogList(request, env) {
   const url = new URL(request.url);
-  const templateReq = new Request(`${url.origin}/blog.html`, {
-    headers: request.headers,
-  });
+  const templateReq = new Request(new URL("/blog.html", request.url));
   const templateRes = await env.ASSETS.fetch(templateReq);
 
   if (!templateRes.ok) return new Response("Not Found", { status: 404 });
@@ -117,8 +118,10 @@ async function handleBlogList(request, env) {
       status: 500,
     });
 
+  const shouldRefresh = url.searchParams.get("refresh") === "true";
+
   try {
-    const posts = await getNotionPosts(env);
+    const posts = await getNotionPosts(env, shouldRefresh);
     let generatedListHtml = "";
 
     for (const post of posts) {
@@ -132,7 +135,10 @@ async function handleBlogList(request, env) {
     });
 
     return new HTMLRewriter()
-      .on("a[href]", new CleanHtmlExtensionHandler())
+      .on("link[href]", new AssetPathHandler("href"))
+      .on("script[src]", new AssetPathHandler("src"))
+      .on("img[src]", new AssetPathHandler("src"))
+      .on("a[href]", new LinkHandler())
       .on("#blog-list", {
         element(el) {
           el.setInnerContent(generatedListHtml, { html: true });
@@ -150,16 +156,16 @@ async function handleBlogList(request, env) {
 
 async function handleBlogPost(slug, request, env) {
   const url = new URL(request.url);
-  const templateReq = new Request(`${url.origin}/blog-post.html`, {
-    headers: request.headers,
-  });
+  const templateReq = new Request(new URL("/blog-post.html", request.url));
   const templateRes = await env.ASSETS.fetch(templateReq);
 
   if (!templateRes.ok)
     return new Response("Template Not Found", { status: 404 });
 
+  const shouldRefresh = url.searchParams.get("refresh") === "true";
+
   try {
-    const post = await getNotionPostBySlug(slug, env);
+    const post = await getNotionPostBySlug(slug, env, shouldRefresh);
     if (!post) return new Response("Post Not Found", { status: 404 });
 
     const datePublished = new Date(post.date);
@@ -182,8 +188,10 @@ async function handleBlogPost(slug, request, env) {
     const metaTitle = `${post.title} | Silvan Soeters`;
 
     return new HTMLRewriter()
-      .on("head", new BaseTagHandler())
-      .on("a[href]", new CleanHtmlExtensionHandler())
+      .on("link[href]", new AssetPathHandler("href"))
+      .on("script[src]", new AssetPathHandler("src"))
+      .on("img[src]", new AssetPathHandler("src"))
+      .on("a[href]", new LinkHandler())
       .on("title", new TextHandler(metaTitle))
       .on('meta[name="description"]', new AttributeHandler("content", metaDesc))
       .on(
@@ -304,10 +312,12 @@ async function collectPaginatedAPI(url, options, bodyBase = null) {
   return results;
 }
 
-async function getNotionPosts(env) {
+async function getNotionPosts(env, forceRefresh = false) {
   const cacheKey = "notion_posts_list";
-  const cached = await env.BLOG_CACHE.get(cacheKey, { type: "json" });
-  if (cached) return cached;
+  if (!forceRefresh) {
+    const cached = await env.BLOG_CACHE.get(cacheKey, { type: "json" });
+    if (cached) return cached;
+  }
 
   const results = await collectPaginatedAPI(
     `https://api.notion.com/v1/databases/${env.NOTION_DB_ID}/query`,
@@ -342,14 +352,17 @@ async function getNotionPosts(env) {
   return posts;
 }
 
-async function getNotionPostBySlug(slug, env) {
-  const allPosts = await getNotionPosts(env);
+async function getNotionPostBySlug(slug, env, forceRefresh = false) {
+  const allPosts = await getNotionPosts(env, forceRefresh);
   const postInfo = allPosts.find((p) => p.slug === slug);
   if (!postInfo) return null;
 
   const cacheKey = `notion_post_${postInfo.id}`;
-  const cached = await env.BLOG_CACHE.get(cacheKey, { type: "json" });
-  if (cached) return cached;
+
+  if (!forceRefresh) {
+    const cached = await env.BLOG_CACHE.get(cacheKey, { type: "json" });
+    if (cached) return cached;
+  }
 
   const results = await collectPaginatedAPI(
     `https://api.notion.com/v1/blocks/${postInfo.id}/children?page_size=100`,
@@ -486,20 +499,50 @@ function formatUpdateTime(isoString) {
     .replace("GMT", "UTC");
 }
 
-class BaseTagHandler {
+class LinkHandler {
   element(element) {
-    element.prepend('<base href="/">', { html: true });
+    const href = element.getAttribute("href");
+    if (
+      !href ||
+      href.startsWith("http") ||
+      href.startsWith("mailto:") ||
+      href.startsWith("#")
+    ) {
+      return;
+    }
+
+    let newHref = href;
+
+    if (newHref.endsWith(".html")) {
+      newHref = newHref.slice(0, -5);
+    }
+
+    if (newHref === "index") {
+      newHref = "";
+    }
+
+    if (!newHref.startsWith("/")) {
+      newHref = "/" + newHref;
+    }
+
+    element.setAttribute("href", newHref);
   }
 }
 
-class CleanHtmlExtensionHandler {
+class AssetPathHandler {
+  constructor(attribute) {
+    this.attribute = attribute;
+  }
   element(element) {
-    const href = element.getAttribute("href");
-    if (href && href.endsWith(".html")) {
-      element.setAttribute("href", href.replace(/\.html$/, ""));
-    }
-    if (href === "index.html") {
-      element.setAttribute("href", "/");
+    const val = element.getAttribute(this.attribute);
+    if (
+      val &&
+      !val.startsWith("http") &&
+      !val.startsWith("//") &&
+      !val.startsWith("/") &&
+      !val.startsWith("data:")
+    ) {
+      element.setAttribute(this.attribute, "/" + val);
     }
   }
 }
