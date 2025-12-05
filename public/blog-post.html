@@ -1,4 +1,4 @@
-<!DOCTYPE html><!--  This site was created in Webflow. https://webflow.com  --><!--  Last Published: Fri Dec 05 2025 11:56:47 GMT+0000 (Coordinated Universal Time)  -->
+<!DOCTYPE html><!--  This site was created in Webflow. https://webflow.com  --><!--  Last Published: Fri Dec 05 2025 13:58:21 GMT+0000 (Coordinated Universal Time)  -->
 <html data-wf-page="6930cfd0127e468d53c56807" data-wf-site="691924e21a8dc9bab2bb563e" lang="en">
 <head>
   <meta charset="utf-8">
@@ -2184,4 +2184,23 @@ document.addEventListener("DOMContentLoaded", function() {
   <script src="js/webflow.js" type="text/javascript"></script>
   <script src="https://cdn.prod.website-files.com/gsap/3.13.0/gsap.min.js" type="text/javascript"></script><!--  Finsweet Attributes  -->
   <script async="" type="module" src="https://cdn.jsdelivr.net/npm/@finsweet/attributes@2/attributes.js" fs-socialshare="" fs-toc=""></script>
+  <!--  Fix active Blog menu item  -->
+  <script>
+(function(){
+  function fixBlogNav() {
+    document.querySelectorAll('a.nav-link').forEach(function(link) {
+      var href = link.getAttribute('href') || '';
+      if (href === '/blog' || href === '/blog/' || href.indexOf('blog') > -1 && href.indexOf('blog/') === -1) {
+        link.classList.add('w--current');
+        link.setAttribute('aria-current', 'page');
+      }
+    });
+  }
+  if (document.readyState === 'complete') {
+    setTimeout(fixBlogNav, 0);
+  } else {
+    window.addEventListener('load', function() { setTimeout(fixBlogNav, 0); });
+  }
+})();
+</script>
 </head></html>
