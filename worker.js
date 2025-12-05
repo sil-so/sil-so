@@ -281,7 +281,6 @@ async function handleBlogPost(slug, request, env) {
           }
         },
       })
-      .on("body", new BlogNavFixScript())
       .transform(templateRes);
   } catch (error) {
     return new Response(error.message, { status: 500 });
@@ -790,31 +789,5 @@ class BlogListSchemaHandler {
       },
     };
     element.setInnerContent(JSON.stringify(schema, null, 2), { html: true });
-  }
-}
-
-class BlogNavFixScript {
-  element(element) {
-    element.append(
-      `<script>
-(function(){
-  function fixBlogNav() {
-    document.querySelectorAll('a.nav-link').forEach(function(link) {
-      var href = link.getAttribute('href') || '';
-      if (href === '/blog' || href === '/blog/' || href.indexOf('blog') > -1 && href.indexOf('blog/') === -1) {
-        link.classList.add('w--current');
-        link.setAttribute('aria-current', 'page');
-      }
-    });
-  }
-  if (document.readyState === 'complete') {
-    setTimeout(fixBlogNav, 0);
-  } else {
-    window.addEventListener('load', function() { setTimeout(fixBlogNav, 0); });
-  }
-})();
-</script>`,
-      { html: true },
-    );
   }
 }
