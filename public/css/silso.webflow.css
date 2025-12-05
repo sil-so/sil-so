@@ -3767,20 +3767,8 @@ figcaption {
   color: color-mix(in srgb, var(--link--foreground), transparent 0%);
 }
 
-.blog_toc-link-wrapper.cc-h3 {
-  color: color-mix(in srgb, var(--link--foreground), transparent 15%);
-}
-
-.blog_toc-link-wrapper.cc-h4 {
-  color: color-mix(in srgb, var(--link--foreground), transparent 30%);
-}
-
-.blog_toc-link-wrapper.cc-h5 {
-  color: color-mix(in srgb, var(--link--foreground), transparent 45%);
-}
-
-.blog_toc-link-wrapper.cc-h6 {
-  color: color-mix(in srgb, var(--link--foreground), transparent 60%);
+.blog_toc-link-wrapper.cc-h3, .blog_toc-link-wrapper.cc-h4, .blog_toc-link-wrapper.cc-h5, .blog_toc-link-wrapper.cc-h6 {
+  margin-left: .25rem;
 }
 
 .blog_toc-link {
