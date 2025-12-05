@@ -139,6 +139,8 @@ async function handleBlogList(request, env) {
       .on("script[src]", new AssetPathHandler("src"))
       .on("img[src]", new AssetPathHandler("src"))
       .on("a[href]", new LinkHandler())
+      .on('a[href="/blog"]', new ActiveLinkHandler())
+      .on('a[href="/blog.html"]', new ActiveLinkHandler())
       .on("#blog-list", {
         element(el) {
           el.setInnerContent(generatedListHtml, { html: true });
@@ -156,6 +158,7 @@ async function handleBlogList(request, env) {
 
 async function handleBlogPost(slug, request, env) {
   const url = new URL(request.url);
+
   const templateReq = new Request(new URL("/blog-post.html", request.url));
   const templateRes = await env.ASSETS.fetch(templateReq);
 
@@ -167,6 +170,32 @@ async function handleBlogPost(slug, request, env) {
   try {
     const post = await getNotionPostBySlug(slug, env, shouldRefresh);
     if (!post) return new Response("Post Not Found", { status: 404 });
+
+    let continueReadingHtml = "";
+    try {
+      const listReq = new Request(new URL("/blog.html", request.url));
+      const listRes = await env.ASSETS.fetch(listReq);
+
+      if (listRes.ok) {
+        const itemTemplate = await extractTemplateRobust(listRes.clone());
+        if (itemTemplate) {
+          const allPosts = await getNotionPosts(env, false);
+
+          const otherPosts = allPosts
+            .filter((p) => p.slug !== slug)
+            .slice(0, 3);
+
+          for (const otherPost of otherPosts) {
+            continueReadingHtml += await populateTemplate(
+              itemTemplate,
+              otherPost,
+            );
+          }
+        }
+      }
+    } catch (e) {
+      console.error("Failed to generate continue reading:", e);
+    }
 
     const datePublished = new Date(post.date);
     const dateUpdated = post.updated ? new Date(post.updated) : datePublished;
@@ -192,6 +221,8 @@ async function handleBlogPost(slug, request, env) {
       .on("script[src]", new AssetPathHandler("src"))
       .on("img[src]", new AssetPathHandler("src"))
       .on("a[href]", new LinkHandler())
+      .on('a[href="/blog"]', new ActiveLinkHandler())
+      .on('a[href="/blog.html"]', new ActiveLinkHandler())
       .on("title", new TextHandler(metaTitle))
       .on('meta[name="description"]', new AttributeHandler("content", metaDesc))
       .on(
@@ -234,6 +265,22 @@ async function handleBlogPost(slug, request, env) {
       )
       .on("#post-banner img", new ImageHandler(post.cover, post.title))
       .on("#post-content", new TextHandler(post.contentHtml, true))
+      .on("#continue-reading-list", {
+        element(el) {
+          if (continueReadingHtml) {
+            el.setInnerContent(continueReadingHtml, { html: true });
+          } else {
+            el.setAttribute("style", "display: none;");
+          }
+        },
+      })
+      .on("#continue-reading-section", {
+        element(el) {
+          if (!continueReadingHtml) {
+            el.setAttribute("style", "display: none;");
+          }
+        },
+      })
       .transform(templateRes);
   } catch (error) {
     return new Response(error.message, { status: 500 });
@@ -269,7 +316,13 @@ async function populateTemplate(templateHtml, post) {
     .on('[data-bind="title"]', new TextHandler(post.title))
     .on(
       '[data-bind="date"]',
-      new TextHandler(new Date(post.date).toLocaleDateString("nl-NL")),
+      new TextHandler(
+        new Date(post.date).toLocaleDateString("en-GB", {
+          day: "numeric",
+          month: "long",
+          year: "numeric",
+        }),
+      ),
     )
     .on('[data-bind="description"]', new TextHandler(post.description))
     .on(
@@ -524,6 +577,16 @@ class LinkHandler {
     }
 
     element.setAttribute("href", newHref);
+  }
+}
+
+class ActiveLinkHandler {
+  element(element) {
+    const currentClass = element.getAttribute("class") || "";
+    if (!currentClass.includes("w--current")) {
+      element.setAttribute("class", `${currentClass} w--current`.trim());
+      element.setAttribute("aria-current", "page");
+    }
   }
 }
 
