@@ -2415,6 +2415,8 @@ figcaption {
   padding-left: var(--_components---button--horizontal-padding);
   grid-column-gap: .3em;
   grid-row-gap: .3em;
+  font-family: var(--_typography---fonts--primary-font);
+  font-weight: var(--_typography---h6--font-weight);
   color: currentColor;
   justify-content: center;
   align-items: center;
