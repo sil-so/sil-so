@@ -41,7 +41,7 @@
   --_typography---h1--bottom-margin: .2em;
   --_typography---h1--font: var(--_typography---fonts--primary-font);
   --_typography---h1--font-size: clamp(var(--_typography---h1--font-size-min-rem) * 1rem, ((var(--_typography---h1--font-size-min-rem)  - ((var(--_typography---h1--font-size-max-rem)  - var(--_typography---h1--font-size-min-rem)) / (var(--_layout---fluid--max)  - var(--_layout---fluid--min)) * var(--_layout---fluid--min))) * 1rem + ((var(--_typography---h1--font-size-max-rem)  - var(--_typography---h1--font-size-min-rem)) / (var(--_layout---fluid--max)  - var(--_layout---fluid--min))) * 100vw), var(--_typography---h1--font-size-max-rem) * 1rem);
-  --_typography---h1--line-height: 1;
+  --_typography---h1--line-height: 1.1;
   --_typography---h1--font-weight: 670;
   --_typography---h1--letter-spacing: -.02em;
   --_typography---h2--bottom-margin: .2em;
@@ -2202,11 +2202,11 @@ figcaption {
   text-align: right;
 }
 
-.rich-text h1 {
+.rich-text h1, .rich-text h2 {
   margin-top: 1em;
 }
 
-.rich-text h2, .rich-text h3, .rich-text h4 {
+.rich-text h3, .rich-text h4 {
   color: var(--foreground--muted);
   margin-top: 1em;
 }
