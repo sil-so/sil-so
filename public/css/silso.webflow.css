@@ -176,6 +176,8 @@
   --_typography---type-paragraph-sm--font-size-md\<deleted\|variable-94c5336e-6e13-9026-329b-a7b4ba64e183\>: .9rem;
   --_typography---type-paragraph-sm--font-size-sm\<deleted\|variable-dce65071-f183-75c5-98aa-d8afc83560a0\>: .9rem;
   --_typography---type-paragraph-sm--font-size-xs\<deleted\|variable-5ffbcc90-83d8-60d2-b7ba-601684d03f16\>: .9rem;
+  --rich-text--code-background: var(--lightningcss-light, var(--_color---light--light-4)) var(--lightningcss-dark, var(--_color---dark--dark-4));
+  --rich-text--code-foreground: var(--lightningcss-light, var(--_color---light--light-11)) var(--lightningcss-dark, var(--_color---dark--dark-11));
   --_layout---spacing--margin-xs: .5em;
   --_responsive---padding--card\<deleted\|variable-5fcf010a-6fe9-5ba2-24fb-53a12ac0d5b0\>: 1.5rem;
   --_components---card--card-body-padding-sm\<deleted\|variable-886aa6f6-843b-26b9-170b-96cc08ca36e2\>: 20px;
@@ -582,6 +584,8 @@ figcaption {
   --foreground--muted: var(--lightningcss-light, var(--_color---light--light-11)) var(--lightningcss-dark, var(--_color---dark--dark-11));
   --colors--primary-accent-dark\<deleted\|variable-a961bcf0-49c2-f8dd-291d-886c4a2afb3c\>: var(--_color---neutral--mid-dark\<deleted\|variable-35755b90-8ee6-83e7-b09b-fd6e59aab6f1\>);
   --foreground--disabled: var(--lightningcss-light, var(--_color---light--light-10)) var(--lightningcss-dark, var(--_color---dark--dark-10));
+  --rich-text--code-background: var(--lightningcss-light, var(--_color---light--light-4)) var(--lightningcss-dark, var(--_color---dark--dark-4));
+  --rich-text--code-foreground: var(--lightningcss-light, var(--_color---light--light-11)) var(--lightningcss-dark, var(--_color---dark--dark-11));
   --foreground--light-fixed: var(--lightningcss-light, var(--_color---light--light-1)) var(--lightningcss-dark, var(--_color---dark--dark-12));
   --error--background: var(--lightningcss-light, var(--_color---light--red-2)) var(--lightningcss-dark, var(--_color---dark--red-2));
   --error--foreground: var(--lightningcss-light, var(--_color---light--red-11)) var(--lightningcss-dark, var(--_color---dark--red-11));
@@ -641,6 +645,8 @@ figcaption {
   --foreground--muted: var(--_color---neutral--lighter\<deleted\|variable-0065a3d9\>);
   --colors--primary-accent-dark\<deleted\|variable-a961bcf0-49c2-f8dd-291d-886c4a2afb3c\>: var(--_color---neutral--light\<deleted\|variable-f16457a0\>);
   --foreground--disabled: var(--lightningcss-light, var(--_color---light--light-10)) var(--lightningcss-dark, var(--_color---dark--dark-10));
+  --rich-text--code-background: var(--lightningcss-light, var(--_color---light--light-4)) var(--lightningcss-dark, var(--_color---dark--dark-4));
+  --rich-text--code-foreground: var(--lightningcss-light, var(--_color---light--light-11)) var(--lightningcss-dark, var(--_color---dark--dark-11));
   --foreground--light-fixed: var(--lightningcss-light, var(--_color---light--light-1)) var(--lightningcss-dark, var(--_color---dark--dark-12));
   --error--background: var(--lightningcss-light, var(--_color---light--red-2)) var(--lightningcss-dark, var(--_color---dark--red-2));
   --error--foreground: var(--lightningcss-light, var(--_color---light--red-11)) var(--lightningcss-dark, var(--_color---dark--red-11));
@@ -687,6 +693,8 @@ figcaption {
   --foreground--muted: var(--lightningcss-light, var(--_color---light--light-11)) var(--lightningcss-dark, var(--_color---dark--dark-11));
   --colors--primary-accent-dark\<deleted\|variable-a961bcf0-49c2-f8dd-291d-886c4a2afb3c\>: var(--_color---neutral--mid-dark\<deleted\|variable-35755b90-8ee6-83e7-b09b-fd6e59aab6f1\>);
   --foreground--disabled: var(--lightningcss-light, var(--_color---light--light-10)) var(--lightningcss-dark, var(--_color---dark--dark-10));
+  --rich-text--code-background: var(--lightningcss-light, var(--_color---light--light-4)) var(--lightningcss-dark, var(--_color---dark--dark-4));
+  --rich-text--code-foreground: var(--lightningcss-light, var(--_color---light--light-11)) var(--lightningcss-dark, var(--_color---dark--dark-11));
   --foreground--light-fixed: var(--lightningcss-light, var(--_color---light--light-1)) var(--lightningcss-dark, var(--_color---dark--dark-12));
   --error--background: var(--lightningcss-light, var(--_color---light--red-2)) var(--lightningcss-dark, var(--_color---dark--red-2));
   --error--foreground: var(--lightningcss-light, var(--_color---light--red-11)) var(--lightningcss-dark, var(--_color---dark--red-11));
@@ -731,6 +739,8 @@ figcaption {
   --foreground--muted: var(--lightningcss-light, var(--_color---neutral--dark\<deleted\|variable-53d573b6\>)) var(--lightningcss-dark, var(--_color---neutral--dark\<deleted\|variable-53d573b6\>));
   --colors--primary-accent-dark\<deleted\|variable-a961bcf0-49c2-f8dd-291d-886c4a2afb3c\>: var(--_color---neutral--mid-dark\<deleted\|variable-35755b90-8ee6-83e7-b09b-fd6e59aab6f1\>);
   --foreground--disabled: var(--lightningcss-light, var(--_color---light--light-10)) var(--lightningcss-dark, var(--_color---dark--dark-10));
+  --rich-text--code-background: var(--lightningcss-light, var(--_color---light--light-4)) var(--lightningcss-dark, var(--_color---dark--dark-4));
+  --rich-text--code-foreground: var(--lightningcss-light, var(--_color---light--light-11)) var(--lightningcss-dark, var(--_color---dark--dark-11));
   --foreground--light-fixed: var(--lightningcss-light, var(--_color---light--light-1)) var(--lightningcss-dark, var(--_color---dark--dark-12));
   --error--background: var(--lightningcss-light, var(--_color---light--red-2)) var(--lightningcss-dark, var(--_color---dark--red-2));
   --error--foreground: var(--lightningcss-light, var(--_color---light--red-11)) var(--lightningcss-dark, var(--_color---dark--red-11));
@@ -1146,6 +1156,8 @@ figcaption {
   --foreground--muted: var(--lightningcss-light, var(--_color---light--light-11)) var(--lightningcss-dark, var(--_color---dark--dark-11));
   --colors--primary-accent-dark\<deleted\|variable-a961bcf0-49c2-f8dd-291d-886c4a2afb3c\>: var(--_color---neutral--mid-dark\<deleted\|variable-35755b90-8ee6-83e7-b09b-fd6e59aab6f1\>);
   --foreground--disabled: var(--lightningcss-light, var(--_color---light--light-10)) var(--lightningcss-dark, var(--_color---dark--dark-10));
+  --rich-text--code-background: var(--lightningcss-light, var(--_color---light--light-4)) var(--lightningcss-dark, var(--_color---dark--dark-4));
+  --rich-text--code-foreground: var(--lightningcss-light, var(--_color---light--light-11)) var(--lightningcss-dark, var(--_color---dark--dark-11));
   --foreground--light-fixed: var(--lightningcss-light, var(--_color---light--light-1)) var(--lightningcss-dark, var(--_color---dark--dark-12));
   --error--background: var(--lightningcss-light, var(--_color---light--red-2)) var(--lightningcss-dark, var(--_color---dark--red-2));
   --error--foreground: var(--lightningcss-light, var(--_color---light--red-11)) var(--lightningcss-dark, var(--_color---dark--red-11));
@@ -1197,6 +1209,8 @@ figcaption {
   --foreground--muted: var(--lightningcss-light, var(--_color---light--light-11)) var(--lightningcss-dark, var(--_color---dark--dark-11));
   --colors--primary-accent-dark\<deleted\|variable-a961bcf0-49c2-f8dd-291d-886c4a2afb3c\>: var(--_color---neutral--mid-dark\<deleted\|variable-35755b90-8ee6-83e7-b09b-fd6e59aab6f1\>);
   --foreground--disabled: var(--lightningcss-light, var(--_color---light--light-10)) var(--lightningcss-dark, var(--_color---dark--dark-10));
+  --rich-text--code-background: var(--lightningcss-light, var(--_color---light--light-4)) var(--lightningcss-dark, var(--_color---dark--dark-4));
+  --rich-text--code-foreground: var(--lightningcss-light, var(--_color---light--light-11)) var(--lightningcss-dark, var(--_color---dark--dark-11));
   --foreground--light-fixed: var(--lightningcss-light, var(--_color---light--light-1)) var(--lightningcss-dark, var(--_color---dark--dark-12));
   --error--background: var(--lightningcss-light, var(--_color---light--red-2)) var(--lightningcss-dark, var(--_color---dark--red-2));
   --error--foreground: var(--lightningcss-light, var(--_color---light--red-11)) var(--lightningcss-dark, var(--_color---dark--red-11));
@@ -1280,6 +1294,8 @@ figcaption {
   --foreground--muted: var(--lightningcss-light, var(--_color---neutral--lighter\<deleted\|variable-0065a3d9\>)) var(--lightningcss-dark, var(--_color---neutral--dark\<deleted\|variable-53d573b6\>));
   --colors--primary-accent-dark\<deleted\|variable-a961bcf0-49c2-f8dd-291d-886c4a2afb3c\>: var(--_color---neutral--mid-dark\<deleted\|variable-35755b90-8ee6-83e7-b09b-fd6e59aab6f1\>);
   --foreground--disabled: var(--lightningcss-light, var(--_color---light--light-10)) var(--lightningcss-dark, var(--_color---dark--dark-10));
+  --rich-text--code-background: var(--lightningcss-light, var(--_color---light--light-4)) var(--lightningcss-dark, var(--_color---dark--dark-4));
+  --rich-text--code-foreground: var(--lightningcss-light, var(--_color---light--light-11)) var(--lightningcss-dark, var(--_color---dark--dark-11));
   --foreground--light-fixed: var(--lightningcss-light, var(--_color---light--light-1)) var(--lightningcss-dark, var(--_color---dark--dark-12));
   --error--background: var(--lightningcss-light, var(--_color---light--red-2)) var(--lightningcss-dark, var(--_color---dark--red-2));
   --error--foreground: var(--lightningcss-light, var(--_color---light--red-11)) var(--lightningcss-dark, var(--_color---dark--red-11));
@@ -1371,6 +1387,8 @@ figcaption {
   --foreground--muted: var(--lightningcss-light, var(--_color---light--light-11)) var(--lightningcss-dark, var(--_color---dark--dark-11));
   --colors--primary-accent-dark\<deleted\|variable-a961bcf0-49c2-f8dd-291d-886c4a2afb3c\>: var(--_color---neutral--mid-dark\<deleted\|variable-35755b90-8ee6-83e7-b09b-fd6e59aab6f1\>);
   --foreground--disabled: var(--lightningcss-light, var(--_color---light--light-10)) var(--lightningcss-dark, var(--_color---dark--dark-10));
+  --rich-text--code-background: var(--lightningcss-light, var(--_color---light--light-4)) var(--lightningcss-dark, var(--_color---dark--dark-4));
+  --rich-text--code-foreground: var(--lightningcss-light, var(--_color---light--light-11)) var(--lightningcss-dark, var(--_color---dark--dark-11));
   --foreground--light-fixed: var(--lightningcss-light, var(--_color---light--light-1)) var(--lightningcss-dark, var(--_color---dark--dark-12));
   --error--background: var(--lightningcss-light, var(--_color---light--red-2)) var(--lightningcss-dark, var(--_color---dark--red-2));
   --error--foreground: var(--lightningcss-light, var(--_color---light--red-11)) var(--lightningcss-dark, var(--_color---dark--red-11));
@@ -2240,8 +2258,8 @@ figcaption {
 }
 
 .rich-text code {
-  background-color: var(--border--default);
-  color: var(--foreground--muted);
+  background-color: var(--rich-text--code-background);
+  color: var(--rich-text--code-foreground);
   border-radius: 4px;
   padding-left: .4em;
   padding-right: .4em;
@@ -2419,6 +2437,8 @@ figcaption {
   --foreground--muted: var(--_color---neutral--lighter\<deleted\|variable-0065a3d9\>);
   --colors--primary-accent-dark\<deleted\|variable-a961bcf0-49c2-f8dd-291d-886c4a2afb3c\>: var(--_color---neutral--light\<deleted\|variable-f16457a0\>);
   --foreground--disabled: var(--lightningcss-light, var(--_color---light--light-10)) var(--lightningcss-dark, var(--_color---dark--dark-10));
+  --rich-text--code-background: var(--lightningcss-light, var(--_color---light--light-4)) var(--lightningcss-dark, var(--_color---dark--dark-4));
+  --rich-text--code-foreground: var(--lightningcss-light, var(--_color---light--light-11)) var(--lightningcss-dark, var(--_color---dark--dark-11));
   --foreground--light-fixed: var(--lightningcss-light, var(--_color---light--light-1)) var(--lightningcss-dark, var(--_color---dark--dark-12));
   --error--background: var(--lightningcss-light, var(--_color---light--red-2)) var(--lightningcss-dark, var(--_color---dark--red-2));
   --error--foreground: var(--lightningcss-light, var(--_color---light--red-11)) var(--lightningcss-dark, var(--_color---dark--red-11));
@@ -3462,6 +3482,8 @@ figcaption {
   --foreground--muted: var(--lightningcss-light, var(--_color---light--light-11)) var(--lightningcss-dark, var(--_color---dark--dark-11));
   --colors--primary-accent-dark\<deleted\|variable-a961bcf0-49c2-f8dd-291d-886c4a2afb3c\>: var(--_color---neutral--mid-dark\<deleted\|variable-35755b90-8ee6-83e7-b09b-fd6e59aab6f1\>);
   --foreground--disabled: var(--lightningcss-light, var(--_color---light--light-10)) var(--lightningcss-dark, var(--_color---dark--dark-10));
+  --rich-text--code-background: var(--lightningcss-light, var(--_color---light--light-4)) var(--lightningcss-dark, var(--_color---dark--dark-4));
+  --rich-text--code-foreground: var(--lightningcss-light, var(--_color---light--light-11)) var(--lightningcss-dark, var(--_color---dark--dark-11));
   --foreground--light-fixed: var(--lightningcss-light, var(--_color---light--light-1)) var(--lightningcss-dark, var(--_color---dark--dark-12));
   --error--background: var(--lightningcss-light, var(--_color---light--red-2)) var(--lightningcss-dark, var(--_color---dark--red-2));
   --error--foreground: var(--lightningcss-light, var(--_color---light--red-11)) var(--lightningcss-dark, var(--_color---dark--red-11));
@@ -4009,6 +4031,8 @@ figcaption {
     --foreground--muted: var(--lightningcss-light, var(--_color---light--light-11)) var(--lightningcss-dark, var(--_color---dark--dark-11));
     --colors--primary-accent-dark\<deleted\|variable-a961bcf0-49c2-f8dd-291d-886c4a2afb3c\>: var(--_color---neutral--mid-dark\<deleted\|variable-35755b90-8ee6-83e7-b09b-fd6e59aab6f1\>);
     --foreground--disabled: var(--lightningcss-light, var(--_color---light--light-10)) var(--lightningcss-dark, var(--_color---dark--dark-10));
+    --rich-text--code-background: var(--lightningcss-light, var(--_color---light--light-4)) var(--lightningcss-dark, var(--_color---dark--dark-4));
+    --rich-text--code-foreground: var(--lightningcss-light, var(--_color---light--light-11)) var(--lightningcss-dark, var(--_color---dark--dark-11));
     --foreground--light-fixed: var(--lightningcss-light, var(--_color---light--light-1)) var(--lightningcss-dark, var(--_color---dark--dark-12));
     --error--background: var(--lightningcss-light, var(--_color---light--red-2)) var(--lightningcss-dark, var(--_color---dark--red-2));
     --error--foreground: var(--lightningcss-light, var(--_color---light--red-11)) var(--lightningcss-dark, var(--_color---dark--red-11));
@@ -4054,6 +4078,8 @@ figcaption {
     --foreground--muted: var(--lightningcss-light, var(--_color---light--light-11)) var(--lightningcss-dark, var(--_color---dark--dark-11));
     --colors--primary-accent-dark\<deleted\|variable-a961bcf0-49c2-f8dd-291d-886c4a2afb3c\>: var(--_color---neutral--mid-dark\<deleted\|variable-35755b90-8ee6-83e7-b09b-fd6e59aab6f1\>);
     --foreground--disabled: var(--lightningcss-light, var(--_color---light--light-10)) var(--lightningcss-dark, var(--_color---dark--dark-10));
+    --rich-text--code-background: var(--lightningcss-light, var(--_color---light--light-4)) var(--lightningcss-dark, var(--_color---dark--dark-4));
+    --rich-text--code-foreground: var(--lightningcss-light, var(--_color---light--light-11)) var(--lightningcss-dark, var(--_color---dark--dark-11));
     --foreground--light-fixed: var(--lightningcss-light, var(--_color---light--light-1)) var(--lightningcss-dark, var(--_color---dark--dark-12));
     --error--background: var(--lightningcss-light, var(--_color---light--red-2)) var(--lightningcss-dark, var(--_color---dark--red-2));
     --error--foreground: var(--lightningcss-light, var(--_color---light--red-11)) var(--lightningcss-dark, var(--_color---dark--red-11));
@@ -4100,6 +4126,8 @@ figcaption {
     --foreground--muted: var(--lightningcss-light, var(--_color---light--light-11)) var(--lightningcss-dark, var(--_color---dark--dark-11));
     --colors--primary-accent-dark\<deleted\|variable-a961bcf0-49c2-f8dd-291d-886c4a2afb3c\>: var(--_color---neutral--mid-dark\<deleted\|variable-35755b90-8ee6-83e7-b09b-fd6e59aab6f1\>);
     --foreground--disabled: var(--lightningcss-light, var(--_color---light--light-10)) var(--lightningcss-dark, var(--_color---dark--dark-10));
+    --rich-text--code-background: var(--lightningcss-light, var(--_color---light--light-4)) var(--lightningcss-dark, var(--_color---dark--dark-4));
+    --rich-text--code-foreground: var(--lightningcss-light, var(--_color---light--light-11)) var(--lightningcss-dark, var(--_color---dark--dark-11));
     --foreground--light-fixed: var(--lightningcss-light, var(--_color---light--light-1)) var(--lightningcss-dark, var(--_color---dark--dark-12));
     --error--background: var(--lightningcss-light, var(--_color---light--red-2)) var(--lightningcss-dark, var(--_color---dark--red-2));
     --error--foreground: var(--lightningcss-light, var(--_color---light--red-11)) var(--lightningcss-dark, var(--_color---dark--red-11));
@@ -4144,6 +4172,8 @@ figcaption {
     --foreground--muted: var(--lightningcss-light, var(--_color---light--light-11)) var(--lightningcss-dark, var(--_color---dark--dark-11));
     --colors--primary-accent-dark\<deleted\|variable-a961bcf0-49c2-f8dd-291d-886c4a2afb3c\>: var(--_color---neutral--mid-dark\<deleted\|variable-35755b90-8ee6-83e7-b09b-fd6e59aab6f1\>);
     --foreground--disabled: var(--lightningcss-light, var(--_color---light--light-10)) var(--lightningcss-dark, var(--_color---dark--dark-10));
+    --rich-text--code-background: var(--lightningcss-light, var(--_color---light--light-4)) var(--lightningcss-dark, var(--_color---dark--dark-4));
+    --rich-text--code-foreground: var(--lightningcss-light, var(--_color---light--light-11)) var(--lightningcss-dark, var(--_color---dark--dark-11));
     --foreground--light-fixed: var(--lightningcss-light, var(--_color---light--light-1)) var(--lightningcss-dark, var(--_color---dark--dark-12));
     --error--background: var(--lightningcss-light, var(--_color---light--red-2)) var(--lightningcss-dark, var(--_color---dark--red-2));
     --error--foreground: var(--lightningcss-light, var(--_color---light--red-11)) var(--lightningcss-dark, var(--_color---dark--red-11));
