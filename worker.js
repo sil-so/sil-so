@@ -728,7 +728,7 @@ class PrismHeadHandler {
           padding: 0.25rem 0.5rem;
           cursor: pointer;
           opacity: 0;
-          transition: opacity 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+          transition: opacity 0.3s ease, background-color 0.3s ease, color 0.3s ease;
           z-index: 10;
         }
 
@@ -750,8 +750,8 @@ class PrismHeadHandler {
         }
 
         .copy-btn.copied {
-          background: #4caf50 !important;
-          color: white !important;
+          background: var(--btn-hover-bg) !important;
+          color: var(--btn-hover-text) !important;
         }
 
         /* Fix Webflow .tag class conflict with Prism .tag */
