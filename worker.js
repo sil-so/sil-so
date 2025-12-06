@@ -1,6 +1,5 @@
 /**
  * SITE CONFIGURATION
- * Edit these values to match your Webflow site and personal details.
  */
 const SITE_CONFIG = {
   name: "Silvan Soeters",
@@ -23,10 +22,6 @@ const SITE_CONFIG = {
 };
 
 export default {
-  /**
-   * MAIN FETCH HANDLER
-   * Intercepts all incoming requests to the site.
-   */
   async fetch(request, env, ctx) {
     const url = new URL(request.url);
 
@@ -47,13 +42,13 @@ export default {
       if (slug) return handleBlogPost(slug, request, env);
     }
 
-    // 3. Handle Standard Webflow Assets (Static Site)
+    // 3. Handle Static Assets
     return await env.ASSETS.fetch(request);
   }
 };
 
 /**
- * LOGIC: Blog Listing Page
+ * LOGIC: Blog Listing
  */
 async function handleBlogList(request, env) {
   const url = new URL(request.url);
@@ -65,12 +60,10 @@ async function handleBlogList(request, env) {
 
   const cloneRes = templateRes.clone();
   const templateHtml = await extractTemplateRobust(cloneRes);
-
   if (!templateHtml)
-    return new Response(
-      "Error: data-template='item' not found in Webflow design",
-      { status: 500 }
-    );
+    return new Response("Error: data-template='item' not found", {
+      status: 500
+    });
 
   const shouldRefresh = url.searchParams.get("refresh") === "true";
 
@@ -79,8 +72,7 @@ async function handleBlogList(request, env) {
     let generatedListHtml = "";
 
     for (const post of posts) {
-      const populatedItem = await populateTemplate(templateHtml, post);
-      generatedListHtml += populatedItem;
+      generatedListHtml += await populateTemplate(templateHtml, post);
     }
 
     const fullHtml = await templateRes.text();
@@ -88,42 +80,35 @@ async function handleBlogList(request, env) {
       headers: { "Content-Type": "text/html" }
     });
 
-    return (
-      new HTMLRewriter()
-        .on("link[href]", new AssetPathHandler("href"))
-        .on("script[src]", new AssetPathHandler("src"))
-        .on("img[src]", new AssetPathHandler("src"))
-        .on("img[srcset]", new SrcSetHandler())
-        .on("a[href]", new LinkHandler())
-        // Inject the generated list of posts
-        .on("#blog-list", {
-          element(el) {
-            el.setInnerContent(generatedListHtml, { html: true });
-          }
-        })
-        // Inject SEO Schema
-        .on(
-          'script[type="application/ld+json"]',
-          new BlogListSchemaHandler(
-            posts,
-            `${url.origin}${SITE_CONFIG.blogRoute}`
-          )
+    return new HTMLRewriter()
+      .on("link[href]", new AssetPathHandler("href"))
+      .on("script[src]", new AssetPathHandler("src"))
+      .on("img[src]", new AssetPathHandler("src"))
+      .on("img[srcset]", new SrcSetHandler())
+      .on("a[href]", new LinkHandler())
+      .on("#blog-list", {
+        element(el) {
+          el.setInnerContent(generatedListHtml, { html: true });
+        }
+      })
+      .on(
+        'script[type="application/ld+json"]',
+        new BlogListSchemaHandler(
+          posts,
+          `${url.origin}${SITE_CONFIG.blogRoute}`
         )
-        .transform(response)
-    );
+      )
+      .transform(response);
   } catch (error) {
-    return new Response(`Error generating blog: ${error.message}`, {
-      status: 500
-    });
+    return new Response(`Error: ${error.message}`, { status: 500 });
   }
 }
 
 /**
- * LOGIC: Individual Blog Post
+ * LOGIC: Individual Post
  */
 async function handleBlogPost(slug, request, env) {
   const url = new URL(request.url);
-
   const templateReq = new Request(new URL("/blog-post.html", request.url));
   const templateRes = await env.ASSETS.fetch(templateReq);
 
@@ -136,12 +121,11 @@ async function handleBlogPost(slug, request, env) {
     const post = await getNotionPostBySlug(slug, env, shouldRefresh);
     if (!post) return new Response("Post Not Found", { status: 404 });
 
-    // Optional: Generate "Continue Reading" section
+    // Optional: Continue Reading Logic
     let continueReadingHtml = "";
     try {
       const listReq = new Request(new URL("/blog.html", request.url));
       const listRes = await env.ASSETS.fetch(listReq);
-
       if (listRes.ok) {
         const itemTemplate = await extractTemplateRobust(listRes.clone());
         if (itemTemplate) {
@@ -149,7 +133,6 @@ async function handleBlogPost(slug, request, env) {
           const otherPosts = allPosts
             .filter((p) => p.slug !== slug)
             .slice(0, 3);
-
           for (const otherPost of otherPosts) {
             continueReadingHtml += await populateTemplate(
               itemTemplate,
@@ -159,30 +142,11 @@ async function handleBlogPost(slug, request, env) {
         }
       }
     } catch (e) {
-      console.error("Failed to generate continue reading:", e);
+      console.error("Continue reading error", e);
     }
 
-    // Date Formatting
     const datePublished = new Date(post.date);
     const dateUpdated = post.updated ? new Date(post.updated) : datePublished;
-    const isoPublished = datePublished.toISOString();
-    const isoUpdated = dateUpdated.toISOString();
-
-    const readablePublished = datePublished.toLocaleDateString(
-      SITE_CONFIG.locale,
-      {
-        day: "numeric",
-        month: "long",
-        year: "numeric"
-      }
-    );
-    const readableUpdated = dateUpdated.toLocaleDateString(SITE_CONFIG.locale, {
-      day: "numeric",
-      month: "long",
-      year: "numeric"
-    });
-
-    const metaDesc = post.description || `Read more about ${post.title}.`;
     const metaTitle = `${post.title} | ${SITE_CONFIG.name}`;
 
     return (
@@ -192,11 +156,11 @@ async function handleBlogPost(slug, request, env) {
         .on("img[src]", new AssetPathHandler("src"))
         .on("img[srcset]", new SrcSetHandler())
         .on("a[href]", new LinkHandler())
-        // Meta Tags
+        // SEO & Meta
         .on("title", new TextHandler(metaTitle))
         .on(
           'meta[name="description"]',
-          new AttributeHandler("content", metaDesc)
+          new AttributeHandler("content", post.description)
         )
         .on(
           'meta[property="og:title"]',
@@ -204,57 +168,65 @@ async function handleBlogPost(slug, request, env) {
         )
         .on(
           'meta[property="og:description"]',
-          new AttributeHandler("content", metaDesc)
+          new AttributeHandler("content", post.description)
         )
         .on(
           'meta[property="og:image"]',
           new AttributeHandler("content", post.cover)
         )
         .on(
-          'meta[name="twitter:title"]',
-          new AttributeHandler("content", metaTitle)
-        )
-        .on(
-          'meta[name="twitter:description"]',
-          new AttributeHandler("content", metaDesc)
-        )
-        .on(
           'meta[name="twitter:image"]',
           new AttributeHandler("content", post.cover)
         )
         .on('link[rel="canonical"]', new AttributeHandler("href", url.href))
-        // JSON-LD Schema
         .on(
           'script[type="application/ld+json"]',
-          new SchemaHandler(post, isoPublished, isoUpdated, url.href, metaDesc)
+          new SchemaHandler(
+            post,
+            datePublished.toISOString(),
+            dateUpdated.toISOString(),
+            url.href,
+            post.description
+          )
         )
-        // Content Injection
+        // Content
         .on("#post-title", new TextHandler(post.title))
         .on(
           "#post-published",
-          new DateAttributeHandler(readablePublished, isoPublished)
+          new DateAttributeHandler(
+            datePublished.toLocaleDateString(SITE_CONFIG.locale, {
+              day: "numeric",
+              month: "long",
+              year: "numeric"
+            }),
+            datePublished.toISOString()
+          )
         )
         .on(
           "#post-updated",
-          new DateAttributeHandler(readableUpdated, isoUpdated)
+          new DateAttributeHandler(
+            dateUpdated.toLocaleDateString(SITE_CONFIG.locale, {
+              day: "numeric",
+              month: "long",
+              year: "numeric"
+            }),
+            dateUpdated.toISOString()
+          )
         )
         .on("#post-banner img", new ImageHandler(post.cover, post.title))
         .on("#post-content", new TextHandler(post.contentHtml, true))
         // Continue Reading
         .on("#continue-reading-list", {
           element(el) {
-            if (continueReadingHtml) {
+            if (continueReadingHtml)
               el.setInnerContent(continueReadingHtml, { html: true });
-            } else {
-              el.setAttribute("style", "display: none;");
-            }
+            else el.setAttribute("style", "display: none;");
           }
         })
         .on("#continue-reading-section", {
           element(el) {
-            if (!continueReadingHtml) {
+            if (!continueReadingHtml)
               el.setAttribute("style", "display: none;");
-            }
           }
         })
         .transform(templateRes)
@@ -267,7 +239,6 @@ async function handleBlogPost(slug, request, env) {
 /**
  * NOTION API HANDLERS
  */
-
 async function getNotionPosts(env, forceRefresh = false) {
   const cacheKey = "notion_posts_list";
   if (!forceRefresh) {
@@ -312,15 +283,13 @@ async function getNotionPostBySlug(slug, env, forceRefresh = false) {
   if (!postInfo) return null;
 
   const cacheKey = `notion_post_${postInfo.id}`;
-
   if (!forceRefresh) {
     const cached = await env.BLOG_CACHE.get(cacheKey, { type: "json" });
     if (cached) return cached;
   }
 
-  // Recursive fetch to handle nested lists
+  // Fetch blocks recursively (handles infinite nesting)
   const blocks = await getBlocksRecursive(postInfo.id, env);
-
   const htmlContent = convertBlocksToHtml(blocks);
   const fullPost = { ...postInfo, contentHtml: htmlContent };
 
@@ -328,8 +297,8 @@ async function getNotionPostBySlug(slug, env, forceRefresh = false) {
   return fullPost;
 }
 
-// Recursively fetch blocks to handle nested lists/indentation
 async function getBlocksRecursive(blockId, env) {
+  // Pass GET method. Pagination will now use URL params, not body.
   const results = await collectPaginatedAPI(
     `https://api.notion.com/v1/blocks/${blockId}/children?page_size=100`,
     {
@@ -341,7 +310,7 @@ async function getBlocksRecursive(blockId, env) {
     }
   );
 
-  // Parallel fetch for children blocks if they exist
+  // Parallel fetch for children (Recursion)
   await Promise.all(
     results.map(async (block) => {
       if (block.has_children) {
@@ -353,22 +322,42 @@ async function getBlocksRecursive(blockId, env) {
   return results;
 }
 
-async function collectPaginatedAPI(url, options, bodyBase = null) {
+/**
+ * FIXED: Pagination Handler
+ * Correctly switches between Body (POST) and URL (GET) for cursor
+ */
+async function collectPaginatedAPI(urlStr, options, bodyBase = null) {
   let results = [];
   let hasMore = true;
   let cursor = undefined;
+  const isGet = options.method === "GET";
 
   while (hasMore) {
-    const finalBody = bodyBase ? { ...bodyBase } : {};
-    if (cursor) finalBody.start_cursor = cursor;
-
+    let fetchUrl = urlStr;
     const fetchOptions = { ...options };
-    if (bodyBase || cursor) {
-      fetchOptions.body = JSON.stringify(finalBody);
+
+    if (isGet) {
+      // For GET: Append cursor to URL parameters
+      if (cursor) {
+        const urlObj = new URL(urlStr);
+        urlObj.searchParams.set("start_cursor", cursor);
+        fetchUrl = urlObj.toString();
+      }
+    } else {
+      // For POST: Send cursor in Body
+      const finalBody = bodyBase ? { ...bodyBase } : {};
+      if (cursor) finalBody.start_cursor = cursor;
+
+      if (Object.keys(finalBody).length > 0) {
+        fetchOptions.body = JSON.stringify(finalBody);
+      }
     }
 
-    const response = await fetch(url, fetchOptions);
-    if (!response.ok) return results; // Fail silently or log error
+    const response = await fetch(fetchUrl, fetchOptions);
+    if (!response.ok) {
+      console.error(`Notion API Error: ${response.status} on ${fetchUrl}`);
+      return results; // Return whatever we have so far
+    }
 
     const data = await response.json();
     results = results.concat(data.results);
@@ -379,13 +368,12 @@ async function collectPaginatedAPI(url, options, bodyBase = null) {
 }
 
 /**
- * BLOCK PARSER & HTML GENERATOR
+ * BLOCK PARSER
  */
 function convertBlocksToHtml(blocks) {
   if (!blocks) return "";
   let html = "";
   let listTag = null;
-
   const closeList = () => {
     if (listTag) {
       html += `</${listTag}>`;
@@ -394,7 +382,7 @@ function convertBlocksToHtml(blocks) {
   };
 
   blocks.forEach((block) => {
-    // Handle List Grouping
+    // List Handling
     if (block.type === "bulleted_list_item") {
       if (listTag !== "ul") {
         closeList();
@@ -411,14 +399,12 @@ function convertBlocksToHtml(blocks) {
       closeList();
     }
 
-    // Process Block Types
     switch (block.type) {
       case "paragraph":
         const p = parseRichText(block.paragraph.rich_text);
         html += p ? `<p>${p}</p>` : `<br>`;
         break;
-
-      // H1 -> H6 mapping (Webflow standard often uses H1 for title, so we shift)
+      // Headings (mapped to H2-H4 for SEO hierarchy)
       case "heading_1":
         html += `<h2>${parseRichText(block.heading_1.rich_text)}</h2>`;
         break;
@@ -429,24 +415,19 @@ function convertBlocksToHtml(blocks) {
         html += `<h4>${parseRichText(block.heading_3.rich_text)}</h4>`;
         break;
 
-      // Lists with Recursion for nesting
+      // Recursive Lists
       case "bulleted_list_item":
-        html += `<li>${parseRichText(block.bulleted_list_item.rich_text)}`;
-        if (block.children) {
-          html += convertBlocksToHtml(block.children); // Recursion
-        }
-        html += `</li>`;
+        html += `<li>${parseRichText(block.bulleted_list_item.rich_text)}${block.children ? convertBlocksToHtml(block.children) : ""}</li>`;
         break;
       case "numbered_list_item":
-        html += `<li>${parseRichText(block.numbered_list_item.rich_text)}`;
-        if (block.children) {
-          html += convertBlocksToHtml(block.children); // Recursion
-        }
-        html += `</li>`;
+        html += `<li>${parseRichText(block.numbered_list_item.rich_text)}${block.children ? convertBlocksToHtml(block.children) : ""}</li>`;
         break;
 
       case "quote":
         html += `<blockquote>${parseRichText(block.quote.rich_text)}</blockquote>`;
+        break;
+      case "divider":
+        html += `<div class="w-rich-separator"></div>`;
         break;
 
       case "image":
@@ -455,13 +436,10 @@ function convertBlocksToHtml(blocks) {
             ? block.image.external.url
             : block.image.file.url;
         const cap = parseRichText(block.image.caption);
-        html += `<figure class="w-richtext-align-fullwidth w-richtext-figure-type-image"><div><img src="${src}" alt="${cap}" loading="lazy"></div>${
-          cap ? `<figcaption>${cap}</figcaption>` : ""
-        }</figure>`;
+        html += `<figure class="w-richtext-align-fullwidth w-richtext-figure-type-image"><div><img src="${src}" alt="${cap}" loading="lazy"></div>${cap ? `<figcaption>${cap}</figcaption>` : ""}</figure>`;
         break;
 
       case "video":
-        // Basic video handler
         const vSrc =
           block.video.type === "external"
             ? block.video.external.url
@@ -470,25 +448,15 @@ function convertBlocksToHtml(blocks) {
         break;
 
       case "code":
-        // SPECIAL FEATURE: If language is "HTML", render as raw embed
-        const language = block.code.language;
+        const lang = block.code.language;
         const rawCode = block.code.rich_text[0]?.plain_text || "";
-
-        if (language === "html") {
-          // Raw HTML Injection
-          html += rawCode;
-        } else {
-          // Standard Syntax Highlighting
-          html += `<pre class="w-code-block"><code class="language-${language}">${parseRichText(block.code.rich_text)}</code></pre>`;
-        }
-        break;
-
-      case "divider":
-        html += `<div class="w-rich-separator"></div>`;
+        // FEATURE: If language is HTML, render as raw HTML (for embeds)
+        if (lang === "html") html += rawCode;
+        else
+          html += `<pre class="w-code-block"><code class="language-${lang}">${parseRichText(block.code.rich_text)}</code></pre>`;
         break;
     }
   });
-
   closeList();
   return html;
 }
@@ -501,7 +469,6 @@ function parseRichText(richTextArray) {
         .replace(/&/g, "&amp;")
         .replace(/</g, "&lt;")
         .replace(/>/g, "&gt;");
-
       if (chunk.annotations.bold) text = `<strong>${text}</strong>`;
       if (chunk.annotations.italic) text = `<em>${text}</em>`;
       if (chunk.annotations.code) text = `<code>${text}</code>`;
@@ -509,17 +476,15 @@ function parseRichText(richTextArray) {
         text = `<span style="text-decoration: underline;">${text}</span>`;
       if (chunk.annotations.strikethrough)
         text = `<span style="text-decoration: line-through;">${text}</span>`;
-
       if (chunk.href)
         text = `<a href="${chunk.href}" target="_blank" rel="noopener noreferrer">${text}</a>`;
-
       return text;
     })
     .join("");
 }
 
 /**
- * TEMPLATE EXTRACTION & POPULATION
+ * REWRITERS (Standard)
  */
 async function extractTemplateRobust(resClone) {
   let found = false;
@@ -530,22 +495,14 @@ async function extractTemplateRobust(resClone) {
       el.after("|||TEMPLATE_END|||");
     }
   });
-
-  const transformed = rewriter.transform(resClone);
-  const text = await transformed.text();
-
+  const text = await rewriter.transform(resClone).text();
   if (!found) return null;
-
-  const parts = text.split("|||TEMPLATE_START|||");
-  if (parts.length < 2) return null;
-
-  const endParts = parts[1].split("|||TEMPLATE_END|||");
-  return endParts[0];
+  return text.split("|||TEMPLATE_START|||")[1]?.split("|||TEMPLATE_END|||")[0];
 }
 
 async function populateTemplate(templateHtml, post) {
   const res = new Response(templateHtml);
-  const transformed = new HTMLRewriter()
+  return await new HTMLRewriter()
     .on('[data-bind="title"]', new TextHandler(post.title))
     .on(
       '[data-bind="date"]',
@@ -571,199 +528,162 @@ async function populateTemplate(templateHtml, post) {
         el.removeAttribute("data-template");
       }
     })
-    .transform(res);
-
-  return await transformed.text();
+    .transform(res)
+    .text();
 }
 
-/**
- * HTMLREWRITER HANDLERS
- */
 class LinkHandler {
-  element(element) {
-    const href = element.getAttribute("href");
-    if (
-      !href ||
-      href.startsWith("http") ||
-      href.startsWith("mailto:") ||
-      href.startsWith("#")
-    )
-      return;
-    let newHref = href;
-    if (newHref.endsWith(".html")) newHref = newHref.slice(0, -5);
-    if (newHref === "index") newHref = "";
-    if (!newHref.startsWith("/")) newHref = "/" + newHref;
-    element.setAttribute("href", newHref);
+  element(e) {
+    const h = e.getAttribute("href");
+    if (h && !h.match(/^(http|#|mailto)/))
+      e.setAttribute(
+        "href",
+        (h.endsWith(".html") ? h.slice(0, -5) : h).replace(/^([^/])/, "/$1")
+      );
   }
 }
-
 class AssetPathHandler {
-  constructor(attribute) {
-    this.attribute = attribute;
+  constructor(a) {
+    this.a = a;
   }
-  element(element) {
-    const val = element.getAttribute(this.attribute);
-    if (
-      val &&
-      !val.startsWith("http") &&
-      !val.startsWith("//") &&
-      !val.startsWith("/") &&
-      !val.startsWith("data:")
-    ) {
-      element.setAttribute(this.attribute, "/" + val);
-    }
+  element(e) {
+    const v = e.getAttribute(this.a);
+    if (v && !v.match(/^(http|\/|data:)/)) e.setAttribute(this.a, "/" + v);
   }
 }
-
 class SrcSetHandler {
-  element(element) {
-    const srcset = element.getAttribute("srcset");
-    if (!srcset) return;
-    const newSrcset = srcset
-      .split(",")
-      .map((entry) => {
-        let parts = entry.trim().split(" ");
-        let url = parts[0];
-        if (
-          url &&
-          !url.startsWith("/") &&
-          !url.startsWith("http") &&
-          !url.startsWith("https") &&
-          !url.startsWith("data:")
-        ) {
-          parts[0] = "/" + url;
-        }
-        return parts.join(" ");
-      })
-      .join(", ");
-    element.setAttribute("srcset", newSrcset);
+  element(e) {
+    const s = e.getAttribute("srcset");
+    if (s)
+      e.setAttribute(
+        "srcset",
+        s
+          .split(",")
+          .map((p) => {
+            const parts = p.trim().split(" ");
+            if (!parts[0].match(/^(http|\/|data:)/)) parts[0] = "/" + parts[0];
+            return parts.join(" ");
+          })
+          .join(", ")
+      );
   }
 }
-
 class TextHandler {
-  constructor(content, isHtml = false) {
-    this.content = content;
-    this.isHtml = isHtml;
+  constructor(c, h = false) {
+    this.c = c;
+    this.h = h;
   }
-  element(element) {
-    if (this.content !== undefined && this.content !== null)
-      this.isHtml
-        ? element.setInnerContent(this.content, { html: true })
-        : element.setInnerContent(this.content);
+  element(e) {
+    if (this.c)
+      this.h
+        ? e.setInnerContent(this.c, { html: true })
+        : e.setInnerContent(this.c);
   }
 }
-
 class AttributeHandler {
-  constructor(attribute, value) {
-    this.attribute = attribute;
-    this.value = value;
+  constructor(a, v) {
+    this.a = a;
+    this.v = v;
   }
-  element(element) {
-    if (this.value) element.setAttribute(this.attribute, this.value);
+  element(e) {
+    if (this.v) e.setAttribute(this.a, this.v);
   }
 }
-
 class LinkAttributeHandler {
-  constructor(href, title) {
-    this.href = href;
-    this.title = title;
+  constructor(h, t) {
+    this.h = h;
+    this.t = t;
   }
-  element(element) {
-    if (this.href) element.setAttribute("href", this.href);
-    if (this.title) element.setAttribute("title", this.title);
+  element(e) {
+    if (this.h) e.setAttribute("href", this.h);
+    if (this.t) e.setAttribute("title", this.t);
   }
 }
-
 class DateAttributeHandler {
-  constructor(readableDate, isoDate) {
-    this.readable = readableDate;
-    this.iso = isoDate;
+  constructor(r, i) {
+    this.r = r;
+    this.i = i;
   }
-  element(element) {
-    if (this.readable) element.setInnerContent(this.readable);
-    if (this.iso) element.setAttribute("datetime", this.iso);
+  element(e) {
+    if (this.r) e.setInnerContent(this.r);
+    if (this.i) e.setAttribute("datetime", this.i);
   }
 }
-
 class ImageHandler {
-  constructor(src, alt) {
-    this.src = src;
-    this.alt = alt || "";
+  constructor(s, a) {
+    this.s = s;
+    this.a = a;
   }
-  element(element) {
-    if (this.src) {
-      element.setAttribute("src", this.src);
-      element.setAttribute("alt", this.alt);
-      element.removeAttribute("srcset");
+  element(e) {
+    if (this.s) {
+      e.setAttribute("src", this.s);
+      e.setAttribute("alt", this.a || "");
+      e.removeAttribute("srcset");
     }
   }
 }
-
 class SchemaHandler {
-  constructor(post, datePublished, dateUpdated, url, desc) {
-    this.post = post;
-    this.published = datePublished;
-    this.updated = dateUpdated;
-    this.url = url;
-    this.desc = desc;
+  constructor(p, dp, du, u, d) {
+    this.p = p;
+    this.dp = dp;
+    this.du = du;
+    this.u = u;
+    this.d = d;
   }
-  element(element) {
-    const schema = {
-      "@context": "https://schema.org",
-      "@type": "BlogPosting",
-      headline: this.post.title,
-      description: this.desc,
-      datePublished: this.published,
-      dateModified: this.updated,
-      mainEntityOfPage: { "@type": "WebPage", "@id": this.url },
-      image: this.post.cover ? [this.post.cover] : [],
-      author: [
+  element(e) {
+    e.setInnerContent(
+      JSON.stringify(
         {
-          "@type": "Person",
-          name: SITE_CONFIG.author.name,
-          url: SITE_CONFIG.author.url
-        }
-      ]
-    };
-    element.setInnerContent(JSON.stringify(schema, null, 2), { html: true });
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          headline: this.p.title,
+          description: this.d,
+          datePublished: this.dp,
+          dateModified: this.du,
+          mainEntityOfPage: { "@type": "WebPage", "@id": this.u },
+          image: this.p.cover ? [this.p.cover] : [],
+          author: [
+            {
+              "@type": "Person",
+              name: SITE_CONFIG.author.name,
+              url: SITE_CONFIG.author.url
+            }
+          ]
+        },
+        null,
+        2
+      ),
+      { html: true }
+    );
   }
 }
-
 class BlogListSchemaHandler {
-  constructor(posts, url) {
-    this.posts = posts;
-    this.url = url;
+  constructor(p, u) {
+    this.p = p;
+    this.u = u;
   }
-  element(element) {
-    const schema = {
-      "@context": "https://schema.org",
-      "@type": "CollectionPage",
-      name: "Blog",
-      url: this.url,
-      inLanguage: SITE_CONFIG.locale.split("-")[0],
-      description: `Blog articles and posts by ${SITE_CONFIG.author.name}`,
-      mainEntity: {
-        "@type": "Blog",
-        name: `${SITE_CONFIG.name} Blog`,
-        author: {
-          "@type": "Person",
-          name: SITE_CONFIG.author.name,
-          url: SITE_CONFIG.domain,
-          sameAs: SITE_CONFIG.socials
+  element(e) {
+    e.setInnerContent(
+      JSON.stringify(
+        {
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          name: "Blog",
+          url: this.u,
+          description: `Blog by ${SITE_CONFIG.author.name}`,
+          mainEntity: {
+            "@type": "Blog",
+            blogPost: this.p.map((x) => ({
+              "@type": "BlogPosting",
+              headline: x.title,
+              url: `${this.u}/${x.slug}`
+            }))
+          }
         },
-        blogPost: this.posts.map((post) => ({
-          "@type": "BlogPosting",
-          headline: post.title,
-          description: post.description,
-          datePublished: post.date,
-          url: `${this.url}/${post.slug}`,
-          image: post.cover
-            ? { "@type": "ImageObject", url: post.cover }
-            : undefined,
-          author: { "@type": "Person", name: SITE_CONFIG.author.name }
-        }))
-      }
-    };
-    element.setInnerContent(JSON.stringify(schema, null, 2), { html: true });
+        null,
+        2
+      ),
+      { html: true }
+    );
   }
 }
