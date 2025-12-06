@@ -1405,7 +1405,7 @@ figcaption {
   background-color: var(--background--default);
   flex-direction: column;
   justify-content: flex-start;
-  transition: background-color .3s cubic-bezier(.165, .84, .44, 1);
+  transition: border-color .3s cubic-bezier(.165, .84, .44, 1), background-color .3s cubic-bezier(.165, .84, .44, 1);
   display: flex;
   position: relative;
   overflow: hidden;
@@ -1449,8 +1449,12 @@ figcaption {
   background-color: var(--background--solid-secondary);
 }
 
-.card.cc-hoverable:hover {
+.card.cc-hoverable {
   background-color: var(--background--muted);
+}
+
+.card.cc-hoverable:hover {
+  border-color: var(--border--active);
 }
 
 .card-body {
