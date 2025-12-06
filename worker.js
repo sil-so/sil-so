@@ -20,7 +20,7 @@ const SITE_CONFIG = {
   locale: "en-US",
   timeZone: "Europe/Amsterdam",
   // Options: "prism", "okaidia", "tomorrow", "solarizedlight", "twilight", "coy"
-  syntaxTheme: "prism-twilight"
+  syntaxTheme: "twilight"
 };
 
 export default {
@@ -553,7 +553,7 @@ function convertBlocksToHtml(blocks) {
           html +=
             `<div class="code-wrapper" style="position: relative; margin-bottom: 20px;">` +
             `<button class="copy-btn" aria-label="Copy code">Copy</button>` +
-            `<pre class="w-code-block" style="display:block; overflow-x:auto; background:#272822; color:#f8f8f2; padding:1em; border-radius: 1em; font-size: 0.875rem !important; margin: 0;">` +
+            `<pre class="w-code-block" style="display:block; overflow-x:auto; background:var(--background--muted); color:var(--foreground--default); padding:1em; border-radius: 1em; font-size: 0.875rem !important; margin: 0;">` +
             `<code class="language-${lang}" style="white-space:pre;">${escapedCode}</code>` +
             `</pre>` +
             `</div>`;
