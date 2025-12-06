@@ -19,7 +19,7 @@ const SITE_CONFIG = {
   blogRoute: "/blog",
   locale: "en-US",
   timeZone: "Europe/Amsterdam",
-  // OPTIONS: "prism", "okaidia", "tomorrow", "solarizedlight", "twilight", "coy"
+  // Options: "prism", "okaidia", "tomorrow", "solarizedlight", "twilight", "coy"
   syntaxTheme: "okaidia"
 };
 
@@ -50,7 +50,7 @@ export default {
 };
 
 /**
- * LOGIC: Blog Listing
+ * Route: Blog Listing
  */
 async function handleBlogList(request, env) {
   const url = new URL(request.url);
@@ -107,7 +107,7 @@ async function handleBlogList(request, env) {
 }
 
 /**
- * LOGIC: Individual Post
+ * Route: Individual Post
  */
 async function handleBlogPost(slug, request, env) {
   const url = new URL(request.url);
@@ -123,7 +123,7 @@ async function handleBlogPost(slug, request, env) {
     const post = await getNotionPostBySlug(slug, env, shouldRefresh);
     if (!post) return new Response("Post Not Found", { status: 404 });
 
-    // Optional: Continue Reading Logic
+    // Continue Reading Logic
     let continueReadingHtml = "";
     try {
       const listReq = new Request(new URL("/blog.html", request.url));
@@ -158,7 +158,7 @@ async function handleBlogPost(slug, request, env) {
         .on("img[src]", new AssetPathHandler("src"))
         .on("img[srcset]", new SrcSetHandler())
         .on("a[href]", new LinkHandler())
-        // Inject Syntax Highlighter (User configured theme)
+        // Syntax Highlighter & Clipboard Logic
         .on("head", new PrismHeadHandler(SITE_CONFIG.syntaxTheme))
         .on("body", new PrismBodyHandler())
         // SEO & Meta
@@ -220,7 +220,7 @@ async function handleBlogPost(slug, request, env) {
         )
         .on("#post-banner img", new ImageHandler(post.cover, post.title))
         .on("#post-content", new TextHandler(post.contentHtml, true))
-        // Continue Reading
+        // Continue Reading Section
         .on("#continue-reading-list", {
           element(el) {
             if (continueReadingHtml)
@@ -242,7 +242,7 @@ async function handleBlogPost(slug, request, env) {
 }
 
 /**
- * NOTION API HANDLERS
+ * Notion API Interaction
  */
 async function getNotionPosts(env, forceRefresh = false) {
   const cacheKey = "notion_posts_list";
@@ -293,7 +293,6 @@ async function getNotionPostBySlug(slug, env, forceRefresh = false) {
     if (cached) return cached;
   }
 
-  // Fetch blocks recursively (handles infinite nesting)
   const blocks = await getBlocksRecursive(postInfo.id, env);
   const htmlContent = convertBlocksToHtml(blocks);
   const fullPost = { ...postInfo, contentHtml: htmlContent };
@@ -314,7 +313,6 @@ async function getBlocksRecursive(blockId, env) {
     }
   );
 
-  // Parallel fetch for children (Recursion)
   await Promise.all(
     results.map(async (block) => {
       if (block.has_children) {
@@ -365,7 +363,7 @@ async function collectPaginatedAPI(urlStr, options, bodyBase = null) {
 }
 
 /**
- * BLOCK PARSER
+ * Block Parser to HTML
  */
 function convertBlocksToHtml(blocks) {
   if (!blocks) return "";
@@ -444,21 +442,30 @@ function convertBlocksToHtml(blocks) {
 
       case "code":
         const lang = block.code.language;
-        const rawCode = block.code.rich_text[0]?.plain_text || "";
-        // FEATURE: Check Caption for "Embed" keyword
         const captionText = block.code.caption?.[0]?.plain_text || "";
+
+        // Extract raw text to prevent internal HTML tags from breaking the <pre> block layout
+        const rawCode = block.code.rich_text.map((t) => t.plain_text).join("");
 
         if (captionText.trim() === "Embed") {
           // Render as Raw HTML
           html += rawCode;
         } else {
-          // Render as Styled Code Block (Webflow style + Prism support)
-          // Note: Background color and padding match Prism Okaidia defaults
-          // to prevent FOUC (Flash of Unstyled Content).
-          html += `
-            <pre class="w-code-block" style="display:block; overflow-x:auto; background:#272822; color:#f8f8f2; padding:1em; border-radius: 0.3em;">
-              <code class="language-${lang}" style="white-space:pre;">${parseRichText(block.code.rich_text)}</code>
-            </pre>`;
+          // Manually escape HTML entities for display
+          const escapedCode = rawCode
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;");
+
+          // String concatenation is used here to avoid source-code indentation
+          // appearing in the final rendered HTML within the <pre> tag.
+          html +=
+            `<div class="code-wrapper" style="position: relative; margin-bottom: 20px;">` +
+            `<button class="copy-btn" aria-label="Copy code">Copy</button>` +
+            `<pre class="w-code-block" style="display:block; overflow-x:auto; background:#272822; color:#f8f8f2; padding:1em; border-radius: 0.3em; margin: 0;">` +
+            `<code class="language-${lang}" style="white-space:pre;">${escapedCode}</code>` +
+            `</pre>` +
+            `</div>`;
         }
         break;
     }
@@ -539,19 +546,18 @@ async function populateTemplate(templateHtml, post) {
 }
 
 /**
- * HANDLERS
+ * HTML Handler Classes
  */
 
 class LinkHandler {
   element(e) {
     const h = e.getAttribute("href");
     if (h && !h.match(/^(http|#|mailto)/)) {
-      // Remove .html
+      // Clean .html extension and ensure root formatting
       let newHref = (h.endsWith(".html") ? h.slice(0, -5) : h).replace(
         /^([^/])/,
         "/$1"
       );
-      // Correctly handle root rewrite: /index -> /
       if (newHref === "/index") newHref = "/";
       e.setAttribute("href", newHref);
     }
@@ -563,23 +569,97 @@ class PrismHeadHandler {
     this.theme = theme;
   }
   element(e) {
-    // Generates CSS link for the selected theme
+    // 1. Prism Theme CSS
     const cssUrl =
       this.theme === "prism"
         ? `https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css`
         : `https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-${this.theme}.min.css`;
 
     e.append(`<link href="${cssUrl}" rel="stylesheet" />`, { html: true });
+
+    // 2. Copy Button CSS (Includes mobile responsive rules)
+    const customCss = `
+      <style>
+        .copy-btn {
+          position: absolute;
+          top: 0.5rem;
+          right: 0.5rem;
+          background: rgba(255, 255, 255, 0.2);
+          border: none;
+          border-radius: 4px;
+          color: #fff;
+          font-size: 0.75rem;
+          font-family: sans-serif;
+          padding: 0.25rem 0.5rem;
+          cursor: pointer;
+          opacity: 0;
+          transition: opacity 0.2s ease, background 0.2s ease;
+          z-index: 10;
+        }
+        /* Show on hover for desktop */
+        .code-wrapper:hover .copy-btn {
+          opacity: 1;
+        }
+        /* Always show on Touch Devices */
+        @media (max-width: 768px) {
+          .copy-btn {
+            opacity: 1 !important;
+            background: rgba(255, 255, 255, 0.3);
+          }
+        }
+        .copy-btn:hover {
+          background: rgba(255, 255, 255, 0.4);
+        }
+        .copy-btn.copied {
+          background: #4caf50;
+          color: white;
+        }
+      </style>
+    `;
+    e.append(customCss, { html: true });
   }
 }
 
 class PrismBodyHandler {
   element(e) {
+    // 1. Prism Core & Autoloader
     e.append(
       `<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>`,
       { html: true }
     );
+
+    // 2. Clipboard Logic
+    const copyScript = `
+      <script>
+        document.addEventListener('DOMContentLoaded', () => {
+          document.querySelectorAll('.copy-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+              const wrapper = btn.closest('.code-wrapper');
+              const codeEl = wrapper.querySelector('code');
+
+              if (!codeEl) return;
+
+              const textToCopy = codeEl.innerText;
+
+              navigator.clipboard.writeText(textToCopy).then(() => {
+                const originalText = btn.innerText;
+                btn.innerText = 'Copied!';
+                btn.classList.add('copied');
+
+                setTimeout(() => {
+                  btn.innerText = originalText;
+                  btn.classList.remove('copied');
+                }, 2000);
+              }).catch(err => {
+                console.error('Failed to copy:', err);
+              });
+            });
+          });
+        });
+      </script>
+    `;
+    e.append(copyScript, { html: true });
   }
 }
 
