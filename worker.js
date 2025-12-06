@@ -20,7 +20,7 @@ const SITE_CONFIG = {
   locale: "en-US",
   timeZone: "Europe/Amsterdam",
   // Options: "prism", "okaidia", "tomorrow", "solarizedlight", "twilight", "coy"
-  syntaxTheme: "tomorrow"
+  syntaxTheme: "prism-twilight"
 };
 
 export default {
