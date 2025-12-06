@@ -6,7 +6,7 @@ const SITE_CONFIG = {
   domain: "https://sil.so",
   author: {
     name: "Silvan Soeters",
-    url: "https://sil.so/about" // URL to your about page
+    url: "https://sil.so/about"
   },
   socials: [
     "https://x.com/silvansoeters",
@@ -18,7 +18,9 @@ const SITE_CONFIG = {
   ],
   blogRoute: "/blog",
   locale: "en-US",
-  timeZone: "Europe/Amsterdam"
+  timeZone: "Europe/Amsterdam",
+  // OPTIONS: "prism", "okaidia", "tomorrow", "solarizedlight", "twilight", "coy"
+  syntaxTheme: "okaidia"
 };
 
 export default {
@@ -156,6 +158,9 @@ async function handleBlogPost(slug, request, env) {
         .on("img[src]", new AssetPathHandler("src"))
         .on("img[srcset]", new SrcSetHandler())
         .on("a[href]", new LinkHandler())
+        // Inject Syntax Highlighter (User configured theme)
+        .on("head", new PrismHeadHandler(SITE_CONFIG.syntaxTheme))
+        .on("body", new PrismBodyHandler())
         // SEO & Meta
         .on("title", new TextHandler(metaTitle))
         .on(
@@ -298,7 +303,6 @@ async function getNotionPostBySlug(slug, env, forceRefresh = false) {
 }
 
 async function getBlocksRecursive(blockId, env) {
-  // Pass GET method. Pagination will now use URL params, not body.
   const results = await collectPaginatedAPI(
     `https://api.notion.com/v1/blocks/${blockId}/children?page_size=100`,
     {
@@ -322,10 +326,6 @@ async function getBlocksRecursive(blockId, env) {
   return results;
 }
 
-/**
- * FIXED: Pagination Handler
- * Correctly switches between Body (POST) and URL (GET) for cursor
- */
 async function collectPaginatedAPI(urlStr, options, bodyBase = null) {
   let results = [];
   let hasMore = true;
@@ -337,17 +337,14 @@ async function collectPaginatedAPI(urlStr, options, bodyBase = null) {
     const fetchOptions = { ...options };
 
     if (isGet) {
-      // For GET: Append cursor to URL parameters
       if (cursor) {
         const urlObj = new URL(urlStr);
         urlObj.searchParams.set("start_cursor", cursor);
         fetchUrl = urlObj.toString();
       }
     } else {
-      // For POST: Send cursor in Body
       const finalBody = bodyBase ? { ...bodyBase } : {};
       if (cursor) finalBody.start_cursor = cursor;
-
       if (Object.keys(finalBody).length > 0) {
         fetchOptions.body = JSON.stringify(finalBody);
       }
@@ -356,7 +353,7 @@ async function collectPaginatedAPI(urlStr, options, bodyBase = null) {
     const response = await fetch(fetchUrl, fetchOptions);
     if (!response.ok) {
       console.error(`Notion API Error: ${response.status} on ${fetchUrl}`);
-      return results; // Return whatever we have so far
+      return results;
     }
 
     const data = await response.json();
@@ -404,7 +401,6 @@ function convertBlocksToHtml(blocks) {
         const p = parseRichText(block.paragraph.rich_text);
         html += p ? `<p>${p}</p>` : `<br>`;
         break;
-      // Headings (mapped to H2-H4 for SEO hierarchy)
       case "heading_1":
         html += `<h2>${parseRichText(block.heading_1.rich_text)}</h2>`;
         break;
@@ -415,7 +411,6 @@ function convertBlocksToHtml(blocks) {
         html += `<h4>${parseRichText(block.heading_3.rich_text)}</h4>`;
         break;
 
-      // Recursive Lists
       case "bulleted_list_item":
         html += `<li>${parseRichText(block.bulleted_list_item.rich_text)}${block.children ? convertBlocksToHtml(block.children) : ""}</li>`;
         break;
@@ -450,10 +445,21 @@ function convertBlocksToHtml(blocks) {
       case "code":
         const lang = block.code.language;
         const rawCode = block.code.rich_text[0]?.plain_text || "";
-        // FEATURE: If language is HTML, render as raw HTML (for embeds)
-        if (lang === "html") html += rawCode;
-        else
-          html += `<pre class="w-code-block"><code class="language-${lang}">${parseRichText(block.code.rich_text)}</code></pre>`;
+        // FEATURE: Check Caption for "Embed" keyword
+        const captionText = block.code.caption?.[0]?.plain_text || "";
+
+        if (captionText.trim() === "Embed") {
+          // Render as Raw HTML
+          html += rawCode;
+        } else {
+          // Render as Styled Code Block (Webflow style + Prism support)
+          // Note: Background color and padding match Prism Okaidia defaults
+          // to prevent FOUC (Flash of Unstyled Content).
+          html += `
+            <pre class="w-code-block" style="display:block; overflow-x:auto; background:#272822; color:#f8f8f2; padding:1em; border-radius: 0.3em;">
+              <code class="language-${lang}" style="white-space:pre;">${parseRichText(block.code.rich_text)}</code>
+            </pre>`;
+        }
         break;
     }
   });
@@ -484,7 +490,7 @@ function parseRichText(richTextArray) {
 }
 
 /**
- * REWRITERS (Standard)
+ * REWRITERS
  */
 async function extractTemplateRobust(resClone) {
   let found = false;
@@ -532,16 +538,51 @@ async function populateTemplate(templateHtml, post) {
     .text();
 }
 
+/**
+ * HANDLERS
+ */
+
 class LinkHandler {
   element(e) {
     const h = e.getAttribute("href");
-    if (h && !h.match(/^(http|#|mailto)/))
-      e.setAttribute(
-        "href",
-        (h.endsWith(".html") ? h.slice(0, -5) : h).replace(/^([^/])/, "/$1")
+    if (h && !h.match(/^(http|#|mailto)/)) {
+      // Remove .html
+      let newHref = (h.endsWith(".html") ? h.slice(0, -5) : h).replace(
+        /^([^/])/,
+        "/$1"
       );
+      // Correctly handle root rewrite: /index -> /
+      if (newHref === "/index") newHref = "/";
+      e.setAttribute("href", newHref);
+    }
   }
 }
+
+class PrismHeadHandler {
+  constructor(theme = "okaidia") {
+    this.theme = theme;
+  }
+  element(e) {
+    // Generates CSS link for the selected theme
+    const cssUrl =
+      this.theme === "prism"
+        ? `https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css`
+        : `https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-${this.theme}.min.css`;
+
+    e.append(`<link href="${cssUrl}" rel="stylesheet" />`, { html: true });
+  }
+}
+
+class PrismBodyHandler {
+  element(e) {
+    e.append(
+      `<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>`,
+      { html: true }
+    );
+  }
+}
+
 class AssetPathHandler {
   constructor(a) {
     this.a = a;
