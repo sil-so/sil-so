@@ -78,7 +78,6 @@
   --link--foreground: var(--lightningcss-light, var(--_color---light--sky-11)) var(--lightningcss-dark, var(--_color---dark--sky-11));
   --link--foreground-hover: var(--lightningcss-light, var(--_color---light--sky-12)) var(--lightningcss-dark, var(--_color---dark--sky-12));
   --primary--background: var(--lightningcss-light, var(--_color---light--light-12)) var(--lightningcss-dark, var(--_color---dark--dark-12));
-  --_typography---fonts--primary-font: "Epilogue Variablefont Wght", Impact, sans-serif;
   --_components---section--padding: clamp(var(--_components---section--padding-min-rem) * 1rem, ((var(--_components---section--padding-min-rem)  - ((var(--_components---section--padding-max-rem)  - var(--_components---section--padding-min-rem)) / (var(--_layout---fluid--max)  - var(--_layout---fluid--min)) * var(--_layout---fluid--min))) * 1rem + ((var(--_components---section--padding-max-rem)  - var(--_components---section--padding-min-rem)) / (var(--_layout---fluid--max)  - var(--_layout---fluid--min))) * 100vw), var(--_components---section--padding-max-rem) * 1rem);
   --_components---container--gutter: 6vw;
   --_components---container--max-width: calc(var(--_layout---fluid--max) * 1rem);
@@ -180,6 +179,7 @@
   --_layout---spacing--margin-xs: .5em;
   --_responsive---padding--card\<deleted\|variable-5fcf010a-6fe9-5ba2-24fb-53a12ac0d5b0\>: 1.5rem;
   --_components---card--card-body-padding-sm\<deleted\|variable-886aa6f6-843b-26b9-170b-96cc08ca36e2\>: 20px;
+  --_typography---fonts--primary-font: "Epilogue Variablefont Wght", Impact, sans-serif;
   --_color---primary--orange\<deleted\|variable-ba25d908\>: #d14424;
   --_size---0-25rem\<deleted\|variable-2d47388d-3251-c56b-03c9-35dfc0a59c39\>: .25rem;
   --_size---2rem\<deleted\|variable-703e76dd-22c1-0e62-be30-102e06bdb527\>: 2rem;
@@ -468,7 +468,6 @@ label {
 }
 
 strong {
-  font-family: var(--_typography---fonts--primary-font);
   font-weight: 700;
 }
 
