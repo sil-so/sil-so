@@ -19,8 +19,8 @@ const SITE_CONFIG = {
   blogRoute: "/blog",
   locale: "en-US",
   timeZone: "Europe/Amsterdam",
-  // Options: "prism", "okaidia", "tomorrow", "solarizedlight", "twilight", "coy"
-  syntaxTheme: "twilight"
+  // Options: "prism" (Default Light), "tomorrow" (Neutral Dark), "okaidia", "solarizedlight", "twilight", "coy"
+  syntaxTheme: "tomorrow"
 };
 
 export default {
@@ -548,12 +548,12 @@ function convertBlocksToHtml(blocks) {
             .replace(/</g, "&lt;")
             .replace(/>/g, "&gt;");
 
-          // String concatenation is used here to avoid source-code indentation
-          // appearing in the final rendered HTML within the <pre> tag.
+          // IMPORTANT: Removed inline background/color styles here to allow
+          // CSS variables and Prism themes to take effect.
           html +=
             `<div class="code-wrapper" style="position: relative; margin-bottom: 20px;">` +
             `<button class="copy-btn" aria-label="Copy code">Copy</button>` +
-            `<pre class="w-code-block" style="display:block; overflow-x:auto; background:#838383; color:#202020; padding:1em; border-radius: 1em; font-size: 0.875rem !important; margin: 0;">` +
+            `<pre class="w-code-block" style="display:block; overflow-x:auto; padding:1em; border-radius: 1em; font-size: 0.875rem !important; margin: 0;">` +
             `<code class="language-${lang}" style="white-space:pre;">${escapedCode}</code>` +
             `</pre>` +
             `</div>`;
@@ -682,42 +682,76 @@ class PrismHeadHandler {
 
     e.append(`<link href="${cssUrl}" rel="stylesheet" />`, { html: true });
 
-    // 2. Custom CSS: Copy Button + Webflow .tag override
+    // 2. Custom CSS: Light-Dark Logic, Copy Button, and Overrides
     const customCss = `
       <style>
+        :root {
+            /* Light Mode Defaults */
+            --code-bg: #f0f0f3;
+            --code-text: #1c2024;
+            --btn-bg: #bee7f5;
+            --btn-text: #00749e;
+            --btn-hover-bg: #d1f0fa;
+            --btn-hover-text: #1d3e56;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                /* Dark Mode Overrides */
+                --code-bg: #212225;
+                --code-text: #edeef0;
+                --btn-bg: #154467;
+                --btn-text: #75c7f0;
+                --btn-hover-bg: #113555;
+                --btn-hover-text: #c2f3ff;
+            }
+        }
+
+        /* Enforce Background and Color on the Code Block */
+        /* Note: This overrides Prism's default container color */
+        .w-code-block {
+          background-color: var(--code-bg) !important;
+          color: var(--code-text) !important;
+        }
+
+        /* Copy Button Styling */
         .copy-btn {
           position: absolute;
           top: 0.5rem;
           right: 0.5rem;
-          background: rgba(255, 255, 255, 0.2);
+          background-color: var(--btn-bg);
+          color: var(--btn-text);
           border: none;
           border-radius: 0.5rem;
-          color: #fff;
           font-size: 0.75rem;
           font-family: sans-serif;
           padding: 0.25rem 0.5rem;
           cursor: pointer;
           opacity: 0;
-          transition: opacity 0.2s ease, background 0.2s ease;
+          transition: opacity 0.2s ease, background-color 0.2s ease, color 0.2s ease;
           z-index: 10;
         }
+
         /* Show on hover for desktop */
         .code-wrapper:hover .copy-btn {
           opacity: 1;
         }
+
         /* Always show on Touch Devices */
         @media (max-width: 768px) {
           .copy-btn {
             opacity: 1 !important;
-            background: rgba(255, 255, 255, 0.3);
           }
         }
+
         .copy-btn:hover {
-          background: rgba(255, 255, 255, 0.4);
+          background-color: var(--btn-hover-bg);
+          color: var(--btn-hover-text);
         }
+
         .copy-btn.copied {
-          background: #4caf50;
-          color: white;
+          background: #4caf50 !important;
+          color: white !important;
         }
 
         /* Fix Webflow .tag class conflict with Prism .tag */
