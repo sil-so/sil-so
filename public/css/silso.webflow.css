@@ -3830,6 +3830,22 @@ figcaption {
   font-weight: 700;
 }
 
+.container-small {
+  max-width: min((100% - var(--_components---container--gutter) * 2), var(--_components---container--max-width));
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.container-small.cc-nav {
+  grid-column-gap: 1rem;
+  grid-row-gap: 1rem;
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+}
+
 @media screen and (max-width: 991px) {
   .col:where(.w-variant-28e74f51-d7e2-a771-32c6-dda728ccfa16) {
     flex-basis: 50%;
@@ -4663,6 +4679,11 @@ figcaption {
 
   .u-xs-d-block {
     display: block;
+  }
+
+  .container-small.cc-nav {
+    grid-column-gap: .5rem;
+    grid-row-gap: .5rem;
   }
 }
 
