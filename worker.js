@@ -523,6 +523,21 @@ function convertBlocksToHtml(blocks) {
         html += `<figure class="w-richtext-align-fullwidth w-richtext-figure-type-image"><div><img src="${src}" alt="${cap}" loading="lazy"></div>${cap ? `<figcaption>${cap}</figcaption>` : ""}</figure>`;
         break;
 
+      case "embed":
+        const embedUrl = block.embed.url;
+        const embedCap = parseRichText(block.embed.caption);
+
+        // Check if the URL string looks like an image file
+        const isImage = /\.(jpg|jpeg|png|gif|webp|svg)(\?.*)?$/i.test(embedUrl);
+
+        if (isImage) {
+          html += `<figure class="w-richtext-align-fullwidth w-richtext-figure-type-image"><div><img src="${embedUrl}" alt="${embedCap}" loading="lazy"></div>${embedCap ? `<figcaption>${embedCap}</figcaption>` : ""}</figure>`;
+        } else {
+          // Fallback for non-image embeds (PDFs, Tweets, or generic URLs)
+          html += `<div class="w-embed w-iframe"><iframe src="${embedUrl}" style="width: 100%; height: 450px; border: 0;" allowfullscreen loading="lazy"></iframe>${embedCap ? `<figcaption>${embedCap}</figcaption>` : ""}</div>`;
+        }
+        break;
+
       case "video":
         const vSrc =
           block.video.type === "external"
