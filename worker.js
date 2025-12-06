@@ -577,7 +577,7 @@ class PrismHeadHandler {
 
     e.append(`<link href="${cssUrl}" rel="stylesheet" />`, { html: true });
 
-    // 2. Copy Button CSS (Includes mobile responsive rules)
+    // 2. Custom CSS: Copy Button + Webflow .tag override
     const customCss = `
       <style>
         .copy-btn {
@@ -613,6 +613,16 @@ class PrismHeadHandler {
         .copy-btn.copied {
           background: #4caf50;
           color: white;
+        }
+
+        /* Fix Webflow .tag class conflict with Prism .tag */
+        .w-code-block .token.tag {
+          border: none !important;
+          background: transparent !important;
+          padding: 0 !important;
+          border-radius: 0 !important;
+          margin: 0 !important;
+          box-shadow: none !important;
         }
       </style>
     `;
