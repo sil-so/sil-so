@@ -513,17 +513,29 @@ function convertBlocksToHtml(blocks) {
           ? convertBlocksToHtml(block.children)
           : "";
 
+        const uniqueId = "toggle-" + Math.random().toString(36).substr(2, 9);
+        const contentId = `${uniqueId}-content`;
+        const headerId = `${uniqueId}-header`;
+
         html += `
-            <details class="accordion-item" data-accordion-start-open="false">
-              <summary class="accordion-trigger"><div class="accordion-title h6">${summary}</div><svg class="accordion-icon" xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 32 32" fill="none" class="accordion-icon">
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M17 17L27.3137 17L27.3137 15H17V4.68631L15 4.68631L15 15H4.68629L4.68629 17L15 17V27.3137H17V17Z" fill="currentColor"></path>
-              </svg></summary>
-              <div data-accordion="content" class="accordion-content" style="overflow: clip; height: 0px;">
-                <div class="accordion-content_spacer">
+          <div class="accordion">
+            <details class="accordion-trigger">
+              <summary class="accordion-summary" aria-controls="${contentId}" id="${headerId}">
+                <span class="accordion-term" role="term">${summary}</span>
+              </summary>
+            </details>
+
+            <div class="accordion-content"
+                  id="${contentId}"
+                  role="region"
+                  aria-labelledby="${headerId}">
+              <div class="accordion-container">
+                <div class="accordion-inner">
                   ${childrenHtml}
                 </div>
               </div>
-            </details>`;
+            </div>
+          </div>`;
         break;
 
       case "quote":
@@ -693,98 +705,12 @@ class PrismHeadHandler {
     this.theme = theme;
   }
   element(e) {
-    // 1. Prism Theme CSS
     const cssUrl =
       this.theme === "prism"
         ? `https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css`
         : `https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-${this.theme}.min.css`;
 
     e.append(`<link href="${cssUrl}" rel="stylesheet" />`, { html: true });
-
-    // 2. Custom CSS: Light-Dark Logic, Copy Button, and Overrides
-    const customCss = `
-      <style>
-        :root {
-            /* Light Mode Defaults */
-            --code-bg: #f0f0f3;
-            --code-text: #1c2024;
-            --btn-bg: #bee7f5;
-            --btn-text: #00749e;
-            --btn-hover-bg: #d1f0fa;
-            --btn-hover-text: #1d3e56;
-        }
-
-        @media (prefers-color-scheme: dark) {
-            :root {
-                /* Dark Mode Overrides */
-                --code-bg: #212225;
-                --code-text: #edeef0;
-                --btn-bg: #154467;
-                --btn-text: #75c7f0;
-                --btn-hover-bg: #113555;
-                --btn-hover-text: #c2f3ff;
-            }
-        }
-
-        /* Enforce Background and Color on the Code Block */
-        /* Note: This overrides Prism's default container color */
-        .w-code-block {
-          background-color: var(--code-bg) !important;
-          color: var(--code-text) !important;
-        }
-
-        /* Copy Button Styling */
-        .copy-btn {
-          position: absolute;
-          top: 0.5rem;
-          right: 0.5rem;
-          background-color: var(--btn-bg);
-          color: var(--btn-text);
-          border: none;
-          border-radius: 0.5rem;
-          font-size: 0.75rem;
-          font-family: sans-serif;
-          padding: 0.25rem 0.5rem;
-          cursor: pointer;
-          opacity: 0;
-          transition: opacity 0.3s ease, background-color 0.3s ease, color 0.3s ease;
-          z-index: 10;
-        }
-
-        /* Show on hover for desktop */
-        .code-wrapper:hover .copy-btn {
-          opacity: 1;
-        }
-
-        /* Always show on Touch Devices */
-        @media (max-width: 768px) {
-          .copy-btn {
-            opacity: 1 !important;
-          }
-        }
-
-        .copy-btn:hover {
-          background-color: var(--btn-hover-bg);
-          color: var(--btn-hover-text);
-        }
-
-        .copy-btn.copied {
-          background: var(--btn-hover-bg) !important;
-          color: var(--btn-hover-text) !important;
-        }
-
-        /* Fix Webflow .tag class conflict with Prism .tag */
-        .w-code-block .token.tag {
-          border: none !important;
-          background: transparent !important;
-          padding: 0 !important;
-          border-radius: 0 !important;
-          margin: 0 !important;
-          box-shadow: none !important;
-        }
-      </style>
-    `;
-    e.append(customCss, { html: true });
   }
 }
 
