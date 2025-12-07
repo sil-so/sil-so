@@ -515,7 +515,7 @@ function convertBlocksToHtml(blocks) {
 
         html += `
             <details class="accordion-item">
-              <summary><label class="accordion-title h6">${summary}</label><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 32 32" fill="none" class="accordion-icon">
+              <summary class="accordion-trigger"><div class="accordion-title h6">${summary}</div><svg class="accordion-icon" xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 32 32" fill="none" class="accordion-icon">
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M17 17L27.3137 17L27.3137 15H17V4.68631L15 4.68631L15 15H4.68629L4.68629 17L15 17V27.3137H17V17Z" fill="currentColor"></path>
               </svg></summary>
               <div class="accordion-content">
