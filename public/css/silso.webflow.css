@@ -179,7 +179,6 @@
   --rich-text--code-background: var(--lightningcss-light, var(--_color---light--light-4)) var(--lightningcss-dark, var(--_color---dark--dark-4));
   --rich-text--code-foreground: var(--lightningcss-light, var(--_color---light--light-11)) var(--lightningcss-dark, var(--_color---dark--dark-11));
   --_layout---spacing--margin-xs: .5em;
-  --_responsive---padding--card\<deleted\|variable-5fcf010a-6fe9-5ba2-24fb-53a12ac0d5b0\>: 1.5rem;
   --_components---card--card-body-padding-sm\<deleted\|variable-886aa6f6-843b-26b9-170b-96cc08ca36e2\>: 20px;
   --_typography---fonts--primary-font: "Epilogue Variablefont Wght", Impact, sans-serif;
   --_color---primary--orange\<deleted\|variable-ba25d908\>: #d14424;
@@ -2296,15 +2295,15 @@ figcaption {
 }
 
 .accordion-item {
-  border: 1px solid var(--border--default);
-  border-radius: var(--_components---card--border-radius);
+  border: var(--_components---card--border-width) solid var(--border--default);
+  border-radius: var(--_components---button--border-radius);
   text-align: left;
   flex-direction: column;
   display: flex;
 }
 
 .accordion-trigger {
-  padding: var(--_responsive---padding--card\<deleted\|variable-5fcf010a-6fe9-5ba2-24fb-53a12ac0d5b0\>);
+  padding: var(--_components---card--padding-small);
   border-bottom: var(--_components---button--border-width) none black;
   border-radius: var(--_components---card--border-radius);
   cursor: pointer;
@@ -2344,15 +2343,15 @@ figcaption {
 }
 
 .accordion-content {
-  padding-right: var(--_responsive---padding--card\<deleted\|variable-5fcf010a-6fe9-5ba2-24fb-53a12ac0d5b0\>);
-  padding-left: var(--_responsive---padding--card\<deleted\|variable-5fcf010a-6fe9-5ba2-24fb-53a12ac0d5b0\>);
+  padding-right: var(--_components---card--padding-small);
+  padding-left: var(--_components---card--padding-small);
   width: 100%;
   height: auto;
   overflow: hidden;
 }
 
 .accordion-content_spacer {
-  padding-bottom: var(--_components---card--padding);
+  padding-bottom: var(--_components---card--padding-small);
 }
 
 .modal {
