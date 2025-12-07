@@ -2218,12 +2218,7 @@ figcaption {
   text-align: right;
 }
 
-.rich-text h1, .rich-text h2 {
-  margin-top: 1em;
-}
-
-.rich-text h3, .rich-text h4 {
-  color: var(--foreground--muted);
+.rich-text h1, .rich-text h2, .rich-text h3, .rich-text h4 {
   margin-top: 1em;
 }
 
