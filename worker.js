@@ -507,6 +507,21 @@ function convertBlocksToHtml(blocks) {
         html += `<li>${parseRichText(block.numbered_list_item.rich_text)}${block.children ? convertBlocksToHtml(block.children) : ""}</li>`;
         break;
 
+      case "toggle":
+        const summary = parseRichText(block.toggle.rich_text);
+        const childrenHtml = block.children
+          ? convertBlocksToHtml(block.children)
+          : "";
+
+        html += `
+            <details class="notion-toggle">
+              <summary>${summary}</summary>
+              <div class="notion-toggle-content">
+                ${childrenHtml}
+              </div>
+            </details>`;
+        break;
+
       case "quote":
         html += `<blockquote>${parseRichText(block.quote.rich_text)}</blockquote>`;
         break;
