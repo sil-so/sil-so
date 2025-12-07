@@ -1,4 +1,4 @@
-<!DOCTYPE html><!--  This site was created in Webflow. https://webflow.com  --><!--  Last Published: Sun Dec 07 2025 21:38:16 GMT+0000 (Coordinated Universal Time)  -->
+<!DOCTYPE html><!--  This site was created in Webflow. https://webflow.com  --><!--  Last Published: Sun Dec 07 2025 21:59:50 GMT+0000 (Coordinated Universal Time)  -->
 <html data-wf-page="6930cfbd81f6bf2057ce8f12" data-wf-site="691924e21a8dc9bab2bb563e" lang="en">
 <head>
   <meta charset="utf-8">
@@ -1753,11 +1753,12 @@ document.addEventListener('DOMContentLoaded', () => {
           <div class="w-embed">
             <style>
 :root {
-    --copy-btn-bg: rgba(31, 116, 246, 0.2);
-    --copy-btn-bg-mobile: rgba(31, 116, 246, 0.3);
-    --copy-btn-bg-hover: rgba(31, 116, 246, 0.4);
-    --copy-btn-bg-copied: #1f74f6;
-    --copy-btn-text: #fff;
+    --copy-btn-bg: var(--link--background);
+    --copy-btn-bg-mobile: var(--link--background);
+    --copy-btn-bg-hover: var(--link--hover);
+    --copy-btn-bg-copied: var(--link--background);
+    --copy-btn-text: var(--link--foreground);
+    --copy-btn-text-hover: var(--link--foreground-hover);
 }
 #blog-empty {
   display: none;
@@ -1782,7 +1783,7 @@ document.addEventListener('DOMContentLoaded', () => {
     right: 0.5rem;
     background: var(--copy-btn-bg);
     border: none;
-    border-radius: 4px;
+    border-radius: 0.625rem;
     color: var(--copy-btn-text);
     font-size: 0.75rem;
     font-family: sans-serif;
@@ -1807,6 +1808,7 @@ document.addEventListener('DOMContentLoaded', () => {
 }
 .copy-btn:hover {
     background: var(--copy-btn-bg-hover);
+    color: --copy-btn-text-hover;
 }
 .copy-btn.copied {
     background: var(--copy-btn-bg-copied);
