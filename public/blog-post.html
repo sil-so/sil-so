@@ -1,4 +1,4 @@
-<!DOCTYPE html><!--  This site was created in Webflow. https://webflow.com  --><!--  Last Published: Sun Dec 07 2025 13:53:31 GMT+0000 (Coordinated Universal Time)  -->
+<!DOCTYPE html><!--  This site was created in Webflow. https://webflow.com  --><!--  Last Published: Sun Dec 07 2025 13:57:17 GMT+0000 (Coordinated Universal Time)  -->
 <html data-wf-page="6930cfd0127e468d53c56807" data-wf-site="691924e21a8dc9bab2bb563e" lang="en">
 <head>
   <meta charset="utf-8">
@@ -700,33 +700,6 @@ dialog.modal.transitioning-in {
 }
 dialog.modal.transitioning-in.animate-content {
   animation: slideUp 300ms ease-out forwards;
-}
-/* Disable the expensive mask on mobile devices/tablets */
-@media (max-width: 991px), (hover: none) and (pointer: coarse) {
-  .modal-scroll {
-    mask-image: none !important;
-    -webkit-mask-image: none !important;
-    animation: none !important;
-    --mask-top-alpha: 1 !important;
-    --mask-bottom-alpha: 1 !important;
-  }
-}
-@media (max-width: 991px) {
-  .modal .ipad_mockup {
-  	display: none !important;
-  }
-  #modal_backdrop {
-		backdrop-filter: none;
-  }
-  .modal_scroll {
-  	animation-timeline: none;
-  }
-  body:has(dialog[open]) {
-    overflow: auto !important;
-  }
-  dialog.modal::backdrop {
-    backdrop-filter: none;
-  }
 }
 </style>
           </div>
