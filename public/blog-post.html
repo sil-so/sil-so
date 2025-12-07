@@ -1,4 +1,4 @@
-<!DOCTYPE html><!--  This site was created in Webflow. https://webflow.com  --><!--  Last Published: Sun Dec 07 2025 15:12:01 GMT+0000 (Coordinated Universal Time)  -->
+<!DOCTYPE html><!--  This site was created in Webflow. https://webflow.com  --><!--  Last Published: Sun Dec 07 2025 15:29:37 GMT+0000 (Coordinated Universal Time)  -->
 <html data-wf-page="6930cfd0127e468d53c56807" data-wf-site="691924e21a8dc9bab2bb563e" lang="en">
 <head>
   <meta charset="utf-8">
@@ -569,6 +569,16 @@ dialog.modal[open] {
     transition: none;
   }
 }
+dialog.swap-incoming::backdrop {
+  transition: none !important;
+  animation: none !important;
+  opacity: 1 !important;
+}
+dialog.swap-outgoing::backdrop {
+  transition: none !important;
+  animation: none !important;
+  opacity: 0 !important;
+}
 @property --mask-top-alpha {
   syntax: '<number>';
   inherits: false;
@@ -645,26 +655,41 @@ dialog.modal[open] {
           <div class="w-embed w-script">
             <script>
 document.addEventListener('DOMContentLoaded', () => {
+  let isSwapping = false;
   document.body.addEventListener('click', (e) => {
     const trigger = e.target.closest('[data-open-modal]');
     if (trigger) {
       const modalId = trigger.getAttribute('data-open-modal');
-      const dialog = document.getElementById(modalId);
-      if (dialog) {
+      const newDialog = document.getElementById(modalId);
+      const currentDialog = trigger.closest('dialog[open]');
+      if (currentDialog && newDialog) {
+        isSwapping = true;
+        currentDialog.classList.add('swap-outgoing');
+        newDialog.classList.add('swap-incoming');
+        newDialog.showModal(); 
+        currentDialog.close();
+        requestAnimationFrame(() => {
+          newDialog.classList.remove('swap-incoming');
+        });
+        setTimeout(() => {
+          currentDialog.classList.remove('swap-outgoing');
+        }, 500); 
+        setTimeout(() => { isSwapping = false; }, 50);
+      } else if (newDialog) {
         document.body.style.overflow = 'hidden';
-        dialog.showModal();
+        newDialog.showModal();
       }
     }
   });
   const dialogs = document.querySelectorAll('dialog');
   dialogs.forEach(dialog => {
     dialog.addEventListener('close', () => {
-      document.body.style.overflow = '';
+      if (!isSwapping) {
+        document.body.style.overflow = '';
+      }
     });
     dialog.addEventListener('click', (e) => {
-      if (e.target === dialog) {
-        dialog.close();
-      }
+      if (e.target === dialog) dialog.close();
     });
   });
 });
