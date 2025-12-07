@@ -2557,20 +2557,23 @@ figcaption {
 
 .nav-skip-link {
   z-index: 9998;
+  padding: var(--_components---button-small--vertical-padding) var(--_components---button-small--horizontal-padding);
   border-radius: var(--_components---button--border-radius);
   background-color: var(--primary--background);
   opacity: 0;
+  font-family: var(--_components---button--font);
   color: var(--primary--foreground);
-  letter-spacing: .05em;
-  text-transform: uppercase;
+  font-size: var(--_components---button-small--font-size);
+  line-height: 1;
+  font-weight: var(--_components---button--font-weight);
+  letter-spacing: var(--_components---button--letter-spacing);
+  justify-content: center;
+  align-items: center;
   height: 3em;
   margin-top: -8em;
-  padding: .8em 1.5em;
-  font-size: .75rem;
-  font-weight: 500;
-  line-height: 1;
   text-decoration: none;
   transition: opacity .3s cubic-bezier(.165, .84, .44, 1), margin .3s cubic-bezier(.165, .84, .44, 1);
+  display: flex;
   position: absolute;
   inset: 0% auto auto 50%;
   transform: translate(-50%);
@@ -2578,11 +2581,11 @@ figcaption {
 
 .nav-skip-link:focus-visible, .nav-skip-link[data-wf-focus-visible] {
   opacity: 1;
-  outline-color: var(--_color---primary--orange\<deleted\|variable-ba25d908\>);
-  outline-offset: 2px;
+  outline-color: var(--border--active);
+  outline-offset: 3px;
   outline-width: 2px;
   outline-style: solid;
-  margin-top: .2em;
+  margin-top: 6px;
 }
 
 .nav-cta-wrapper {

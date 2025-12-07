@@ -1,4 +1,4 @@
-<!DOCTYPE html><!--  This site was created in Webflow. https://webflow.com  --><!--  Last Published: Sun Dec 07 2025 21:59:50 GMT+0000 (Coordinated Universal Time)  -->
+<!DOCTYPE html><!--  This site was created in Webflow. https://webflow.com  --><!--  Last Published: Sun Dec 07 2025 22:14:50 GMT+0000 (Coordinated Universal Time)  -->
 <html data-wf-page="691924e41a8dc9bab2bb569f" data-wf-site="691924e21a8dc9bab2bb563e" lang="en">
 <head>
   <meta charset="utf-8">
@@ -282,9 +282,6 @@ html.wf-design-mode .grid-sizer {
 li::marker {
   color: var(--foreground--disabled);
 }
-.w-richtext > :last-child {
-	margin-bottom: 0;
-}
 </style>
       </div>
       <div class="w-embed w-script">
@@ -542,6 +539,12 @@ details[open] + .accordion-content .accordion-container {
     opacity: 1;
 }
 .accordion-inner > :last-child {
+  margin-bottom: 0;
+}
+.accordion-inner:has(> .code-wrapper:last-child) > .code-wrapper:last-child {
+    margin-bottom: 0 !important;
+}
+.accordion-inner > .w-richtext:last-child {
   margin-bottom: 0;
 }
 </style>
@@ -1750,10 +1753,9 @@ document.addEventListener('DOMContentLoaded', () => {
 :root {
     --copy-btn-bg: var(--link--background);
     --copy-btn-bg-mobile: var(--link--background);
-    --copy-btn-bg-hover: var(--link--hover);
+    --copy-btn-bg-hover: var(--link--background);
     --copy-btn-bg-copied: var(--link--background);
     --copy-btn-text: var(--link--foreground);
-    --copy-btn-text-hover: var(--link--foreground-hover);
 }
 #blog-empty {
   display: none;
@@ -1763,9 +1765,6 @@ document.addEventListener('DOMContentLoaded', () => {
 }
 #blog-list:not(:has(*)) + #blog-empty {
   display: block;
-}
-.accordion-inner:has(> .code-wrapper:last-child) > .code-wrapper:last-child {
-    margin-bottom: 0 !important;
 }
 /* --- 2. CODE BLOCK & COPY BUTTON STYLES --- */
 .code-wrapper {
@@ -1803,7 +1802,6 @@ document.addEventListener('DOMContentLoaded', () => {
 }
 .copy-btn:hover {
     background: var(--copy-btn-bg-hover);
-    color: --copy-btn-text-hover;
 }
 .copy-btn.copied {
     background: var(--copy-btn-bg-copied);
