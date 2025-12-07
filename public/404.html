@@ -1,4 +1,4 @@
-<!DOCTYPE html><!--  This site was created in Webflow. https://webflow.com  --><!--  Last Published: Sun Dec 07 2025 14:01:21 GMT+0000 (Coordinated Universal Time)  -->
+<!DOCTYPE html><!--  This site was created in Webflow. https://webflow.com  --><!--  Last Published: Sun Dec 07 2025 15:12:01 GMT+0000 (Coordinated Universal Time)  -->
 <html data-wf-page="691924e41a8dc9bab2bb569f" data-wf-site="691924e21a8dc9bab2bb563e" lang="en">
 <head>
   <meta charset="utf-8">
@@ -528,54 +528,40 @@ li::marker {
         <div>
           <div class="w-embed">
             <style>
-  /* Modal */
-  body:has(dialog[open]) {
-    overflow: hidden !important;
+dialog.modal::backdrop {
+  background: color-mix(in srgb, var(--background--default) 80%, transparent);
+  backdrop-filter: blur(2px);
+  opacity: 0;
+  transition-property: opacity, display, overlay;
+  transition-duration: 0.45s;
+  transition-behavior: allow-discrete;
+}
+dialog.modal[open]::backdrop {
+  opacity: 1;
+  @starting-style {
+    opacity: 0;
   }
-  dialog.modal[open] {
-    animation: slideUp 300ms ease-out forwards;
+}
+dialog.modal {
+  opacity: 0;
+  translate: 0 1.5rem; 
+  transition-property: translate, opacity, display, overlay;
+  transition-duration: 0.45s;
+  transition-behavior: allow-discrete;
+}
+dialog.modal[open] {
+  translate: 0 0;
+  opacity: 1;
+  @starting-style {
+    opacity: 0;
+    translate: 0 1.5rem;
   }
-  dialog.modal.closing {
-    animation: slideDown 250ms ease-in forwards;
+}
+@media (prefers-reduced-motion) {
+  dialog.modal, dialog.modal::backdrop {
+    transition: none;
   }
-  @keyframes slideUp{
-    0%{
-      opacity:0;
-      transform: translateY(10px);
-    }
-    100%{
-      opacity:1;
-      transform: translateY(0);
-    }
-  }
-  @keyframes slideDown{
-    0%{
-      opacity:1;
-      transform: translateY(0);
-    }
-    100%{
-      opacity:0;
-      transform: translateY(10px);
-    }
-  }
-  dialog.modal[open]::backdrop {
-    animation: fadeIn 300ms ease-out forwards;
-  }
-  dialog.modal.closing::backdrop {
-    animation: fadeOut 250ms ease-in forwards;
-  }
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to   { opacity: 1; }
-  }
-  @keyframes fadeOut {
-    from { opacity: 1; }
-    to   { opacity: 0; }
-  }
-  dialog.modal::backdrop {
-    background: color-mix(in srgb, var(--background--default) 80%, transparent);
-    backdrop-filter: blur(2px);
-  }
+}
 @property --mask-top-alpha {
   syntax: '<number>';
   inherits: false;
@@ -647,122 +633,35 @@ li::marker {
   from { --mask-bottom-alpha: 0; }
   to   { --mask-bottom-alpha: 1; }
 }
-/* MODAL TRANSITION SYSTEM */
-/* Custom Persistent Backdrop */
-#modal-backdrop {
-  position: fixed;
-  inset: 0;
-  background: color-mix(in srgb, var(--background--default) 80%, transparent);
-  backdrop-filter: blur(2px);
-  z-index: 2147483646;
-  pointer-events: none;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 300ms ease-out, visibility 300ms ease-out;
-}
-#modal-backdrop.visible {
-  opacity: 1;
-  visibility: visible;
-}
-#modal-backdrop.no-transition {
-  transition: none !important;
-}
-/* Hide native backdrop during transitions */
-dialog.modal.transitioning-out::backdrop,
-dialog.modal.transitioning-in::backdrop {
-  background: transparent !important;
-  backdrop-filter: none !important;
-  animation: none !important;
-}
-/* IMPORTANT: After transition completes, prevent native backdrop from animating */
-dialog.modal.transitioned::backdrop {
-  animation: none !important;
-  opacity: 1 !important;
-  background: transparent !important;
-  backdrop-filter: none !important;
-}
-/* Transitioning OUT */
-dialog.modal.transitioning-out {
-  animation: slideDown 250ms ease-in forwards;
-}
-/* Transitioning IN */
-dialog.modal.transitioning-in {
-  opacity: 0;
-  transform: translateY(10px);
-  animation: none;
-}
-dialog.modal.transitioning-in.animate-content {
-  animation: slideUp 300ms ease-out forwards;
-}
 </style>
           </div>
-          <div class="w-embed w-script"><!--  Mast Modal JS  -->
-            <script defer="" src="https://cdn.jsdelivr.net/gh/sil-so/mast@91d5a0b/modal.min.js"></script>
-            <!--  Modal Mask  -->
+          <div class="w-embed w-script">
             <script>
-const scrollContainer = document.querySelector('.modal-scroll');
-if (scrollContainer) {
-  const isOverflowing = scrollContainer.scrollHeight > scrollContainer.clientHeight;
-  if (!isOverflowing) {
-    scrollContainer.style.maskImage = 'none';
-  }
-}
-</script>
-            <!--  Progressive Blur Logic
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-  // 1. Select all scrollable modal containers
-  const scrollContainers = document.querySelectorAll('.modal-scroll');
-  // 2. The Logic Function
-  function updateBlurVisibility(container) {
-    requestAnimationFrame(() => {
-      const topBlur = container.querySelector('[data-modal-blur="top"]');
-      const bottomBlur = container.querySelector('[data-modal-blur="bottom"]');
-      if (!topBlur && !bottomBlur) return;
-      const scrollTop = container.scrollTop;
-      const scrollHeight = container.scrollHeight;
-      const clientHeight = container.clientHeight;
-      const maxScroll = scrollHeight - clientHeight;
-      // Tolerance: How many pixels from edge before it slides out
-      const buffer = 10; 
-      // --- TOP BLUR LOGIC ---
-      if (topBlur) {
-        // If we have scrolled down past 10px, slide the top blur IN
-        if (scrollTop > buffer) {
-          topBlur.classList.add('is-visible');
-        } else {
-          topBlur.classList.remove('is-visible');
-        }
+document.addEventListener('DOMContentLoaded', () => {
+  document.body.addEventListener('click', (e) => {
+    const trigger = e.target.closest('[data-open-modal]');
+    if (trigger) {
+      const modalId = trigger.getAttribute('data-open-modal');
+      const dialog = document.getElementById(modalId);
+      if (dialog) {
+        document.body.style.overflow = 'hidden';
+        dialog.showModal();
       }
-      // --- BOTTOM BLUR LOGIC ---
-      if (bottomBlur) {
-        // 1. Is there overflowing content?
-        // 2. Are we NOT at the very bottom yet?
-        if (maxScroll > 1 && scrollTop < (maxScroll - buffer)) {
-          bottomBlur.classList.add('is-visible');
-        } else {
-          bottomBlur.classList.remove('is-visible');
-        }
+    }
+  });
+  const dialogs = document.querySelectorAll('dialog');
+  dialogs.forEach(dialog => {
+    dialog.addEventListener('close', () => {
+      document.body.style.overflow = '';
+    });
+    dialog.addEventListener('click', (e) => {
+      if (e.target === dialog) {
+        dialog.close();
       }
     });
-  }
-  // 3. Initialize Watchers
-  scrollContainers.forEach(container => {
-    // Trigger on Scroll
-    container.addEventListener('scroll', () => {
-      updateBlurVisibility(container);
-    });
-    // Trigger on Resize / Modal Open
-    const resizeObserver = new ResizeObserver(() => {
-      updateBlurVisibility(container);
-    });
-    resizeObserver.observe(container);
-    // Initial Run
-    updateBlurVisibility(container);
   });
 });
 </script>
- -->
           </div>
         </div>
         <div>
