@@ -2234,7 +2234,7 @@ figcaption {
   margin-top: 2em;
   margin-bottom: 2em;
   padding: .75em 1em;
-  font-size: 1.3em;
+  font-size: 1.1em;
   line-height: 1.5em;
 }
 
@@ -2585,7 +2585,7 @@ figcaption {
   border-radius: var(--_components---button--border-radius);
   background-color: var(--primary--background);
   opacity: 0;
-  color: var(--foreground--default);
+  color: var(--primary--foreground);
   letter-spacing: .05em;
   text-transform: uppercase;
   height: 3em;
