@@ -2389,7 +2389,6 @@ figcaption {
 
 .nav {
   z-index: 999;
-  border-bottom: 1px solid var(--_color---neutral--dark-gray\<deleted\|variable-8b5806af\>);
   background-color: var(--background--default);
   color: var(--foreground--default);
   width: 100%;
