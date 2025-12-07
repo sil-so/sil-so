@@ -2297,21 +2297,6 @@ figcaption {
   display: flex;
 }
 
-.accordion-trigger {
-  padding: var(--_components---card--padding-small);
-  border-bottom: var(--_components---button--border-width) none black;
-  border-radius: var(--_components---card--border-radius);
-  cursor: pointer;
-  background-color: #0000;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  text-decoration: none;
-  transition: color .3s cubic-bezier(.165, .84, .44, 1);
-  display: flex;
-  overflow: hidden;
-}
-
 .accordion-trigger:hover {
   color: var(--primary--hover);
 }
@@ -2338,10 +2323,7 @@ figcaption {
 }
 
 .accordion-content {
-  padding-right: var(--_components---card--padding-small);
-  padding-left: var(--_components---card--padding-small);
-  width: 100%;
-  height: auto;
+  visibility: hidden;
   overflow: hidden;
 }
 
@@ -3859,6 +3841,46 @@ figcaption {
   justify-content: space-between;
   align-items: center;
   display: flex;
+}
+
+.accordion {
+  border: var(--_components---card--border-width) solid var(--border--default);
+  border-radius: var(--_components---card--border-radius);
+  overflow: hidden;
+}
+
+.accordion-term {
+  padding-top: var(--_components---card--padding-small);
+  padding-right: var(--_components---card--padding);
+  padding-bottom: var(--_components---card--padding-small);
+  padding-left: var(--_components---card--padding);
+  border-top-left-radius: var(--_components---button--border-radius);
+  border-top-right-radius: var(--_components---button--border-radius);
+  border-bottom-left-radius: var(--_components---button--border-radius);
+  border-bottom-right-radius: var(--_components---button--border-radius);
+  font-family: var(--_typography---h6--font);
+  font-size: var(--_typography---h6--font-size);
+  line-height: var(--_typography---h6--line-height);
+  font-weight: var(--_typography---h6--font-weight);
+  cursor: pointer;
+  -webkit-user-select: none;
+  user-select: none;
+  justify-content: space-between;
+  align-items: center;
+  transition-property: color;
+  transition-duration: .3s;
+  transition-timing-function: cubic-bezier(.165, .84, .44, 1);
+  display: flex;
+}
+
+.accordion-container {
+  opacity: 0;
+  min-height: 0;
+  transition: opacity .3s cubic-bezier(.165, .84, .44, 1);
+}
+
+.accordion-inner {
+  padding: var(--_components---card--padding-small) var(--_components---card--padding);
 }
 
 @media screen and (max-width: 991px) {

@@ -1,4 +1,4 @@
-<!DOCTYPE html><!--  This site was created in Webflow. https://webflow.com  --><!--  Last Published: Sun Dec 07 2025 15:29:37 GMT+0000 (Coordinated Universal Time)  -->
+<!DOCTYPE html><!--  This site was created in Webflow. https://webflow.com  --><!--  Last Published: Sun Dec 07 2025 21:38:16 GMT+0000 (Coordinated Universal Time)  -->
 <html data-wf-page="6930cfbd81f6bf2057ce8f12" data-wf-site="691924e21a8dc9bab2bb563e" lang="en">
 <head>
   <meta charset="utf-8">
@@ -287,6 +287,9 @@ html.wf-design-mode .grid-sizer {
 li::marker {
   color: var(--foreground--disabled);
 }
+.w-richtext > :last-child {
+	margin-bottom: 0;
+}
 </style>
       </div>
       <div class="w-embed w-script">
@@ -514,20 +517,39 @@ li::marker {
         <div>
           <div class="w-embed">
             <style>
-  /* Accordion */
-  :root {
-    interpolate-size: allow-keywords; /* To animate accordions */
-  }
-  details[open] .accordion-icon{
-    transform: rotate(45deg);
-  }
-  summary::-webkit-details-marker {
-    display: none; /* Hide older Safari's default disclosure arrow */
-  }
+summary.accordion-summary::-webkit-details-marker {
+    display: none;
+}
+span.accordion-term:after {
+    content: "\276F";
+    font-size: 0.9em;
+    transform: rotate(90deg);
+    transition: transform 0.3s ease;
+}
+/* Rotate arrow when open */
+details[open] span.accordion-term:after {
+    transform: rotate(270deg);
+}
+/* Animation Engine */
+.accordion-content {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.3s ease-out;
+    padding: 0 !important;
+  	margin: 0 !important;
+}
+/* The Active State (Sibling Selector) */
+details[open] + .accordion-content {
+    grid-template-rows: 1fr;
+    visibility: visible;
+}
+details[open] + .accordion-content .accordion-container {
+    opacity: 1;
+}
+.accordion-inner > :last-child {
+  margin-bottom: 0;
+}
 </style>
-          </div>
-          <div class="w-embed w-script"><!--  Mast Accordion JS  -->
-            <script defer="" src="https://cdn.jsdelivr.net/gh/nocodesupplyco/mast@latest/accordion.min.js"></script>
           </div>
         </div>
         <div>
@@ -1730,6 +1752,13 @@ document.addEventListener('DOMContentLoaded', () => {
         <div>
           <div class="w-embed">
             <style>
+:root {
+    --copy-btn-bg: rgba(31, 116, 246, 0.2);
+    --copy-btn-bg-mobile: rgba(31, 116, 246, 0.3);
+    --copy-btn-bg-hover: rgba(31, 116, 246, 0.4);
+    --copy-btn-bg-copied: #1f74f6;
+    --copy-btn-text: #fff;
+}
 #blog-empty {
   display: none;
 }
@@ -1739,8 +1768,59 @@ document.addEventListener('DOMContentLoaded', () => {
 #blog-list:not(:has(*)) + #blog-empty {
   display: block;
 }
-.accordion-content_spacer:has(> .code-wrapper:last-child) > .code-wrapper:last-child {
+.accordion-inner:has(> .code-wrapper:last-child) > .code-wrapper:last-child {
     margin-bottom: 0 !important;
+}
+/* --- 2. CODE BLOCK & COPY BUTTON STYLES --- */
+.code-wrapper {
+    position: relative;
+    margin-bottom: 20px;
+}
+.copy-btn {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    background: var(--copy-btn-bg);
+    border: none;
+    border-radius: 4px;
+    color: var(--copy-btn-text);
+    font-size: 0.75rem;
+    font-family: sans-serif;
+    padding: 0.25rem 0.5rem;
+    cursor: pointer;
+    opacity: 0;
+    transition:
+        opacity 0.2s ease,
+        background 0.2s ease;
+    z-index: 10;
+}
+/* Show on hover for desktop */
+.code-wrapper:hover .copy-btn {
+    opacity: 1;
+}
+/* Always show on Touch Devices */
+@media (max-width: 768px) {
+    .copy-btn {
+        opacity: 1 !important;
+        background: var(--copy-btn-bg-mobile);
+    }
+}
+.copy-btn:hover {
+    background: var(--copy-btn-bg-hover);
+}
+.copy-btn.copied {
+    background: var(--copy-btn-bg-copied);
+    color: var(--copy-btn-text);
+}
+/* --- 3. WEBFLOW CONFLICT FIXES --- */
+/* Fix Webflow .tag class conflict with Prism .tag */
+.w-code-block .token.tag {
+    border: none !important;
+    background: transparent !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+    margin: 0 !important;
+    box-shadow: none !important;
 }
 </style>
           </div>
