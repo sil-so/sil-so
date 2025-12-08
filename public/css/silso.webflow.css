@@ -3934,6 +3934,10 @@ figcaption {
   z-index: -1;
 }
 
+.blog_toc-link-trigger {
+  display: block;
+}
+
 @media screen and (max-width: 991px) {
   .col:where(.w-variant-28e74f51-d7e2-a771-32c6-dda728ccfa16) {
     flex-basis: 50%;
