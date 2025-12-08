@@ -594,7 +594,7 @@ function convertBlocksToHtml(blocks) {
           html +=
             `<div class="code-wrapper" style="position: relative; margin-bottom: 20px;">` +
             `<button class="copy-btn" aria-label="Copy code">Copy</button>` +
-            `<pre class="w-code-block" style="display:block; overflow-x:auto; padding:1em; border-radius: var(--_components---button--border-radius); font-size: 0.875rem !important; margin: 0;">` +
+            `<pre class="w-code-block" style="display:block; overflow-x:auto; padding:1em; border-radius: var(--_components---image--border-radius-small); font-size: 0.875rem !important; margin: 0;">` +
             `<code class="language-${lang}" style="white-space:pre;">${escapedCode}</code>` +
             `</pre>` +
             `</div>`;
