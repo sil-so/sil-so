@@ -455,7 +455,7 @@ ul, ol {
 }
 
 li {
-  margin-bottom: .3em;
+  margin-bottom: .5em;
 }
 
 img {
@@ -2219,8 +2219,12 @@ figcaption {
   text-align: right;
 }
 
-.rich-text h1, .rich-text h2, .rich-text h3, .rich-text h4 {
+.rich-text h1 {
   margin-top: 1em;
+}
+
+.rich-text h2, .rich-text h3, .rich-text h4 {
+  margin-top: 1.5em;
 }
 
 .rich-text blockquote {
@@ -3795,10 +3799,6 @@ figcaption {
 
 .blog_toc-wrapper {
   padding: var(--_components---card--padding);
-  border: var(--_components---card--border-width) solid var(--border--default);
-  border-radius: var(--_components---card--border-radius);
-  position: sticky;
-  top: 6rem;
 }
 
 .blog_toc-link-wrapper {
@@ -3852,7 +3852,7 @@ figcaption {
 
 .accordion {
   border: var(--_components---card--border-width) solid var(--border--default);
-  border-radius: var(--_components---card--border-radius);
+  border-radius: var(--_components---button--border-radius);
   overflow: hidden;
 }
 
@@ -3861,10 +3861,6 @@ figcaption {
   padding-right: var(--_components---card--padding);
   padding-bottom: var(--_components---card--padding);
   padding-left: var(--_components---card--padding);
-  border-top-left-radius: var(--_components---button--border-radius);
-  border-top-right-radius: var(--_components---button--border-radius);
-  border-bottom-left-radius: var(--_components---button--border-radius);
-  border-bottom-right-radius: var(--_components---button--border-radius);
   font-family: var(--_typography---h6--font);
   font-size: var(--_typography---h6--font-size);
   line-height: var(--_typography---h6--line-height);
@@ -3889,11 +3885,6 @@ figcaption {
 
 .accordion-inner {
   padding: var(--_components---card--padding);
-}
-
-.article-content {
-  padding-right: var(--_components---card--padding);
-  padding-left: var(--_components---card--padding);
 }
 
 .nav-menu_btn-line {
