@@ -2228,7 +2228,7 @@ figcaption {
 }
 
 .rich-text blockquote {
-  border-left: var(--_components---card--border-width) solid var(--border--active);
+  border-left: var(--_components---card--border-width) solid var(--border--default);
   color: var(--foreground--muted);
   margin-top: 2em;
   margin-bottom: 2em;
