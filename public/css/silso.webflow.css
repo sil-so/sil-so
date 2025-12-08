@@ -2241,7 +2241,7 @@ figcaption {
 }
 
 .rich-text img {
-  border-radius: var(--_components---card--border-radius);
+  border-radius: var(--_components---image--border-radius-small);
   overflow: hidden;
 }
 
@@ -4329,7 +4329,7 @@ figcaption {
     border-top-right-radius: var(--_components---card--border-radius);
     border-bottom-left-radius: var(--_components---card--border-radius);
     border-bottom-right-radius: var(--_components---card--border-radius);
-    background-color: var(--background--default);
+    background-color: var(--background--muted);
     order: -1;
     width: 100%;
     height: calc(100svh - 4.5rem);
