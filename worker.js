@@ -131,18 +131,27 @@ async function handleBlogList(request, env) {
  * Route: Individual Post
  */
 async function handleBlogPost(slug, request, env) {
+  console.log(`[Debug] Handling blog post: ${slug}`);
   const url = new URL(request.url);
   const templateReq = new Request(new URL("/blog-post.html", request.url));
   const templateRes = await env.ASSETS.fetch(templateReq);
+  console.log(`[Debug] Template status: ${templateRes.status}`);
 
-  if (!templateRes.ok)
+  if (!templateRes.ok) {
+    console.error("[Debug] Template not found");
     return new Response("Post Template Not Found", { status: 404 });
+  }
 
   const shouldRefresh = url.searchParams.get("refresh") === "true";
 
   try {
     const post = await getNotionPostBySlug(slug, env, shouldRefresh);
-    if (!post) return new Response("Post Not Found", { status: 404 });
+    console.log(`[Debug] Post found: ${!!post}`);
+
+    if (!post) {
+      console.error(`[Debug] Post not found in Notion/Cache for slug: ${slug}`);
+      return new Response("Post Not Found", { status: 404 });
+    }
 
     // Continue Reading Logic
     let continueReadingHtml = "";
@@ -258,6 +267,9 @@ async function handleBlogPost(slug, request, env) {
         .transform(templateRes)
     );
   } catch (error) {
+    console.error(
+      `[Debug] Error in handleBlogPost: ${error.message}\n${error.stack}`
+    );
     return new Response(error.message, { status: 500 });
   }
 }
@@ -770,30 +782,35 @@ class SchemaHandler {
     this.d = d;
   }
   element(e) {
-    e.setInnerContent(
-      JSON.stringify(
-        {
-          "@context": "https://schema.org",
-          "@type": "BlogPosting",
-          headline: this.p.title,
-          description: this.d,
-          datePublished: this.dp,
-          dateModified: this.du,
-          mainEntityOfPage: { "@type": "WebPage", "@id": this.u },
-          image: this.p.cover ? [this.p.cover] : [],
-          author: [
-            {
-              "@type": "Person",
-              name: SITE_CONFIG.author.name,
-              url: SITE_CONFIG.author.url
-            }
-          ]
-        },
-        null,
-        2
-      ),
-      { html: true }
-    );
+    console.log("[Debug] Injecting Schema");
+    try {
+      e.setInnerContent(
+        JSON.stringify(
+          {
+            "@context": "https://schema.org",
+            "@type": "BlogPosting",
+            headline: this.p.title,
+            description: this.d,
+            datePublished: this.dp,
+            dateModified: this.du,
+            mainEntityOfPage: { "@type": "WebPage", "@id": this.u },
+            image: this.p.cover ? [this.p.cover] : [],
+            author: [
+              {
+                "@type": "Person",
+                name: SITE_CONFIG.author.name,
+                url: SITE_CONFIG.author.url
+              }
+            ]
+          },
+          null,
+          2
+        ),
+        { html: true }
+      );
+    } catch (err) {
+      console.error("[Debug] Schema injection failed:", err);
+    }
   }
 }
 class BlogListSchemaHandler {
