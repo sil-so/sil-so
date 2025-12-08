@@ -3802,8 +3802,6 @@ figcaption {
 }
 
 .blog_toc-link-wrapper {
-  grid-column-gap: .4rem;
-  grid-row-gap: .4rem;
   flex-flow: column;
   display: flex;
   overflow: hidden;
@@ -3821,7 +3819,7 @@ figcaption {
   font-size: var(--_typography---h6--font-size);
   justify-content: flex-start;
   align-items: center;
-  margin-bottom: .25rem;
+  margin-bottom: .75rem;
   display: flex;
 }
 
