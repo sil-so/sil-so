@@ -766,6 +766,7 @@ figcaption {
   grid-row-gap: 1rem;
   justify-content: space-between;
   align-items: center;
+  height: 100%;
   display: flex;
 }
 
@@ -2240,7 +2241,7 @@ figcaption {
 }
 
 .rich-text img {
-  border-radius: var(--_components---image--border-radius-small);
+  border-radius: var(--_components---card--border-radius);
   overflow: hidden;
 }
 
@@ -2371,14 +2372,19 @@ figcaption {
 
 .nav {
   z-index: 999;
-  background-color: var(--background--default);
+  border-top-left-radius: var(--_components---card--border-radius);
+  border-top-right-radius: var(--_components---card--border-radius);
+  border-bottom-left-radius: var(--_components---card--border-radius);
+  border-bottom-right-radius: var(--_components---card--border-radius);
+  background-color: var(--background--muted);
   color: var(--foreground--default);
-  width: 100%;
-  margin-top: -1px;
-  padding-top: .625rem;
-  padding-bottom: .625rem;
+  max-width: min((100% - var(--_components---container--gutter) * 2), var(--_components---container--max-width));
+  width: calc(88% - (var(--_components---card--border-width) * 2));
+  height: 3.75rem;
+  margin-left: auto;
+  margin-right: auto;
   position: sticky;
-  top: 0;
+  top: .5rem;
 }
 
 .nav:where(.w-variant-b23b0bfb-3285-ab6f-754f-ce412db82d06) {
@@ -2430,6 +2436,7 @@ figcaption {
 .nav-logo_link {
   color: var(--primary--background);
   width: 1.25rem;
+  margin-left: 1rem;
   padding-left: 0;
   line-height: 1;
 }
@@ -3738,7 +3745,9 @@ figcaption {
 
 .masonry-nav {
   z-index: 9999;
-  margin-bottom: 2rem;
+  padding-top: var(--_components---card--padding-small);
+  padding-bottom: var(--_components---card--padding-small);
+  margin-bottom: 1rem;
   position: sticky;
   top: 0;
 }
@@ -3879,7 +3888,7 @@ figcaption {
 }
 
 .accordion-inner {
-  padding: var(--_components---card--padding-small) var(--_components---card--padding);
+  padding: var(--_components---card--padding);
 }
 
 .article-content {
@@ -3920,11 +3929,20 @@ figcaption {
   position: absolute;
 }
 
-@media screen and (max-width: 991px) {
-  .container.cc-nav {
-    height: 100%;
-  }
+.nav-container {
+  padding-right: var(--_components---card--padding-small);
+  padding-left: var(--_components---card--padding-small);
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  display: flex;
+}
 
+.svg-mask {
+  z-index: -1;
+}
+
+@media screen and (max-width: 991px) {
   .col:where(.w-variant-28e74f51-d7e2-a771-32c6-dda728ccfa16) {
     flex-basis: 50%;
     max-width: 33.3333%;
@@ -4295,13 +4313,29 @@ figcaption {
   }
 
   .nav-menu {
+    border-top-style: solid;
+    border-top-width: var(--_components---card--border-width);
+    border-top-color: var(--border--default);
+    border-right-style: solid;
+    border-right-width: var(--_components---card--border-width);
+    border-right-color: var(--border--default);
+    border-bottom-style: solid;
+    border-bottom-width: var(--_components---card--border-width);
+    border-bottom-color: var(--border--default);
+    border-left-style: solid;
+    border-left-width: var(--_components---card--border-width);
+    border-left-color: var(--border--default);
+    border-top-left-radius: var(--_components---card--border-radius);
+    border-top-right-radius: var(--_components---card--border-radius);
+    border-bottom-left-radius: var(--_components---card--border-radius);
+    border-bottom-right-radius: var(--_components---card--border-radius);
     background-color: var(--background--default);
     order: -1;
-    width: 100vw;
-    height: calc(100svh - 3.5rem);
+    width: 100%;
+    height: calc(100svh - 4.5rem);
     position: absolute;
     inset: 100% 0% 0%;
-    overflow-y: auto;
+    overflow: hidden auto;
   }
 
   .nav-dropdown_content {
@@ -4331,6 +4365,7 @@ figcaption {
     order: 1;
     width: 1.5rem;
     height: auto;
+    margin-right: 1rem;
     padding: 0;
   }
 
@@ -4350,8 +4385,8 @@ figcaption {
   }
 
   .nav-menu_container {
+    width: calc(88% + (var(--_components---card--padding) * 2));
     flex-flow: column;
-    width: calc(88% + 2em);
     height: 100%;
     margin-left: auto;
     margin-right: auto;
@@ -4590,7 +4625,7 @@ figcaption {
   }
 
   .nav-menu {
-    height: calc(100svh - 3.25rem);
+    height: calc(100svh - 4.25rem);
   }
 
   .nav-dropdown_content.cc-mega.w--open {

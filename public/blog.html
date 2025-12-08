@@ -1,4 +1,4 @@
-<!DOCTYPE html><!--  This site was created in Webflow. https://webflow.com  --><!--  Last Published: Mon Dec 08 2025 02:50:11 GMT+0000 (Coordinated Universal Time)  -->
+<!DOCTYPE html><!--  This site was created in Webflow. https://webflow.com  --><!--  Last Published: Mon Dec 08 2025 04:16:45 GMT+0000 (Coordinated Universal Time)  -->
 <html data-wf-page="6930cfbd81f6bf2057ce8f12" data-wf-site="691924e21a8dc9bab2bb563e" lang="en">
 <head>
   <meta charset="utf-8">
@@ -722,14 +722,14 @@ document.addEventListener('DOMContentLoaded', () => {
         <div>
           <div class="w-embed">
             <style>
-.masonry-nav, .nav {
+.masonry-nav {
   background: var(--background--default);
 }
 @supports
   (backdrop-filter: blur(16px)) or
   (-webkit-backdrop-filter: blur(16px))
 {
-  .masonry-nav, .nav {
+  .masonry-nav {
     background: color-mix(in srgb, var(--background--default) 50%, transparent);
   }
   .backdrop {
@@ -1855,6 +1855,32 @@ tbody tr:last-child td {
 </style>
           </div>
         </div>
+        <div>
+          <div class="w-embed">
+            <style>
+@supports
+  (backdrop-filter: blur(16px)) or
+  (-webkit-backdrop-filter: blur(16px))
+{
+  .nav {
+    background: color-mix(in srgb, var(--background--muted) 50%, transparent);
+  }
+  .backdrop.cc-nav {
+    position: absolute;
+    inset: 0;
+    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(16px);
+    background: linear-gradient(
+      to bottom,
+      var(--background--muted),
+      transparent 50%
+    );
+    pointer-events: none;
+  }
+}
+</style>
+          </div>
+        </div>
       </div>
       <div class="per-page-css"></div>
     </div>
@@ -1893,6 +1919,13 @@ tbody tr:last-child td {
       margin-left: 0;
     }
   }
+  .nav .backdrop {
+  	mask-image: url(#frostyGlassMask);
+  }
+  .svg-mask {
+    position: absolute;
+    inset: 0;
+  }
 </style>
       </div>
       <div class="u-d-none w-embed w-script">
@@ -1914,7 +1947,7 @@ tbody tr:last-child td {
 </script>
       </div>
       <a id="skip-link" href="#main" class="nav-skip-link">Skip to Main Content</a>
-      <div class="container cc-nav">
+      <div class="nav-container">
         <a href="index.html" class="nav-logo_link w-nav-brand"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 19 26" fill="var(--foreground--default)" aria-hidden="true" style="" height="100%" class="u-svg u-overflow-visible u-w-100 u-h-100">
             <path d="M16.7375 0.0639034C16.8541 0.040438 17.8551 -0.163736 18.0088 0.308528C18.1603 0.770482 17.1531 1.17293 17.0368 1.21891C15.8968 1.68124 4.57911 6.26855 15.983 10.8949C24.6682 14.2754 12.8335 23.144 2.81464 25.8893C2.70115 25.9202 1.73803 26.183 1.47379 25.7697C1.21422 25.3644 2.11994 24.915 2.22462 24.8637C3.32843 24.308 12.8378 19.5328 3.01838 14.9504C-6.3303 9.91196 8.25146 1.79854 16.7375 0.0639034Z" class="u-path"></path>
           </svg></a>
@@ -1968,7 +2001,11 @@ tbody tr:last-child td {
           </div>
         </nav>
       </div>
-      <div class="backdrop"></div>
+      <div class="backdrop cc-nav"></div><svg width="100%" height="100%" preserveaspectratio="none" class="svg-mask">
+        <mask id="frostyGlassMask">
+          <rect width="100%" height="100%" fill="white" rx="1.5rem" ry="1.5rem" class="header-rect"></rect>
+        </mask>
+      </svg>
     </div>
     <main class="page-main">
       <section class="section u-pb-0">
@@ -2002,57 +2039,59 @@ tbody tr:last-child td {
     </main>
     <section data-wf--footer--settings-color-mode="base" class="section cc-footer">
       <div class="container">
-        <div class="row row-justify-between">
-          <div class="col col-shrink">
-            <div id="" class="theme-toggle-component"><label class="theme-toggle-label"><span data-theme-toggle="dark-label" class="theme-toggle-state cc-base">
-                  <div data-wf--icon--settings-color="inherit" id="" style="" class="icon-color u-mb-0"><span data-wf--icon-size--variant="1-em" class="icon ph-fill ph-moon-stars">​</span></div>
-                </span><span data-theme-toggle="light-label" class="theme-toggle-state cc-invert">
-                  <div data-wf--icon--settings-color="inherit" id="" style="" class="icon-color u-mb-0"><span data-wf--icon-size--variant="1-em" class="icon ph-fill ph-sun">​</span></div>
-                </span><input type="checkbox" data-theme-toggle="checkbox" class="theme-toggle-checkbox"></label></div>
-          </div>
-          <div class="col col-shrink col-sm-first">
-            <ul role="list" class="footer-social_list w-list-unstyled">
-              <li class="u-mb-0 u-d-inline-flex">
-                <a href="https://x.com/silvansoeters" target="_blank" class="footer-social_link u-d-inline-flex w-inline-block">
-                  <div class="u-sr-only">X/Twitter</div>
-                  <div data-wf--icon--settings-color="inherit" id="" style="" class="icon-color"><span data-wf--icon-size--variant="sm" class="icon w-variant-cdea1590-5e30-cc7c-cd65-a8b7cf1f5b9e ph-fill ph-x-logo">​</span></div>
-                </a>
-              </li>
-              <li class="u-mb-0 u-d-inline-flex">
-                <a href="https://www.linkedin.com/in/silvansoeters/" target="_blank" class="footer-social_link u-d-inline-flex w-inline-block">
-                  <div class="u-sr-only">Linkedin</div>
-                  <div data-wf--icon--settings-color="inherit" id="" style="" class="icon-color"><span data-wf--icon-size--variant="sm" class="icon w-variant-cdea1590-5e30-cc7c-cd65-a8b7cf1f5b9e ph-fill ph-linkedin-logo">​</span></div>
-                </a>
-              </li>
-              <li class="u-mb-0 u-d-inline-flex">
-                <a href="https://bsky.app/profile/sil.so" target="_blank" class="footer-social_link u-d-inline-flex w-inline-block">
-                  <div class="u-sr-only">Bluesky</div><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 28 28" fill="none" class="u-w-100">
-                    <path d="M18.8527 15.5679C18.719 15.5517 18.5813 15.5355 18.4476 15.5152C18.5853 15.5314 18.719 15.5517 18.8527 15.5679ZM13.9997 12.8295C12.9424 10.7756 10.0662 6.94751 7.39261 5.05977C4.82838 3.24901 3.85211 3.56093 3.20801 3.8526C2.46669 4.18883 2.33301 5.32714 2.33301 5.99554C2.33301 6.66394 2.70164 11.4886 2.94065 12.2947C3.73058 14.9562 6.55002 15.8555 9.14667 15.5638C9.28035 15.5436 9.41403 15.5274 9.55176 15.5071C9.41808 15.5274 9.2844 15.5476 9.14667 15.5638C5.34285 16.131 1.96437 17.5164 6.39609 22.4463C11.2694 27.4938 13.072 21.3647 13.9997 18.2577C14.9273 21.3647 15.9927 27.271 21.5182 22.4463C25.6663 18.2577 22.6565 16.1269 18.8527 15.5638C18.719 15.5476 18.5813 15.5314 18.4476 15.5112C18.5853 15.5274 18.719 15.5476 18.8527 15.5638C21.4493 15.8514 24.2647 14.9521 25.0587 12.2947C25.2977 11.4886 25.6663 6.66799 25.6663 5.99554C25.6663 5.32308 25.5327 4.18477 24.7913 3.8526C24.1513 3.56498 23.171 3.24901 20.6108 5.05977C17.9331 6.94751 15.057 10.7756 13.9997 12.8295Z" fill="currentColor"></path>
-                  </svg>
-                </a>
-              </li>
-              <li class="u-mb-0 u-d-inline-flex">
-                <a href="https://www.instagram.com/silvansoeters/" target="_blank" class="footer-social_link u-d-inline-flex w-inline-block">
-                  <div class="u-sr-only">Instagram</div>
-                  <div data-wf--icon--settings-color="inherit" id="" style="" class="icon-color"><span data-wf--icon-size--variant="sm" class="icon w-variant-cdea1590-5e30-cc7c-cd65-a8b7cf1f5b9e ph-fill ph-instagram-logo">​</span></div>
-                </a>
-              </li>
-              <li class="u-mb-0 u-d-inline-flex">
-                <a href="https://threads.com/@silvansoeters" target="_blank" class="footer-social_link u-d-inline-flex w-inline-block">
-                  <div class="u-sr-only">X/Twitter</div>
-                  <div data-wf--icon--settings-color="inherit" id="" style="" class="icon-color"><span data-wf--icon-size--variant="sm" class="icon w-variant-cdea1590-5e30-cc7c-cd65-a8b7cf1f5b9e ph-fill ph-threads-logo">​</span></div>
-                </a>
-              </li>
-              <li class="u-mb-0 u-d-inline-flex">
-                <a href="https://github.com/sil-so" target="_blank" class="footer-social_link u-d-inline-flex w-inline-block">
-                  <div class="u-sr-only">GitHub</div>
-                  <div data-wf--icon--settings-color="inherit" id="" style="" class="icon-color"><span data-wf--icon-size--variant="sm" class="icon w-variant-cdea1590-5e30-cc7c-cd65-a8b7cf1f5b9e ph-fill ph-github-logo">​</span></div>
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div class="col col-shrink">
-            <div class="paragraph-xs u-mb-0 u-text-muted">© <span data-footer-year="">2025</span> silso</div>
+        <div class="card-body u-pb-0 u-pt-0">
+          <div class="row row-align-center row-justify-between">
+            <div class="col col-shrink">
+              <ul role="list" class="footer-social_list w-list-unstyled">
+                <li class="u-mb-0 u-d-inline-flex">
+                  <a href="https://x.com/silvansoeters" target="_blank" class="footer-social_link u-d-inline-flex w-inline-block">
+                    <div class="u-sr-only">X/Twitter</div>
+                    <div data-wf--icon--settings-color="inherit" id="" style="" class="icon-color"><span data-wf--icon-size--variant="sm" class="icon w-variant-cdea1590-5e30-cc7c-cd65-a8b7cf1f5b9e ph-fill ph-x-logo">​</span></div>
+                  </a>
+                </li>
+                <li class="u-mb-0 u-d-inline-flex">
+                  <a href="https://www.linkedin.com/in/silvansoeters/" target="_blank" class="footer-social_link u-d-inline-flex w-inline-block">
+                    <div class="u-sr-only">Linkedin</div>
+                    <div data-wf--icon--settings-color="inherit" id="" style="" class="icon-color"><span data-wf--icon-size--variant="sm" class="icon w-variant-cdea1590-5e30-cc7c-cd65-a8b7cf1f5b9e ph-fill ph-linkedin-logo">​</span></div>
+                  </a>
+                </li>
+                <li class="u-mb-0 u-d-inline-flex">
+                  <a href="https://www.instagram.com/silvansoeters/" target="_blank" class="footer-social_link u-d-inline-flex w-inline-block">
+                    <div class="u-sr-only">Instagram</div>
+                    <div data-wf--icon--settings-color="inherit" id="" style="" class="icon-color"><span data-wf--icon-size--variant="sm" class="icon w-variant-cdea1590-5e30-cc7c-cd65-a8b7cf1f5b9e ph-fill ph-instagram-logo">​</span></div>
+                  </a>
+                </li>
+                <li class="u-mb-0 u-d-inline-flex">
+                  <a href="https://bsky.app/profile/sil.so" target="_blank" class="footer-social_link u-d-inline-flex w-inline-block">
+                    <div class="u-sr-only">Bluesky</div><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 28 28" fill="none" class="u-w-100">
+                      <path d="M18.8527 15.5679C18.719 15.5517 18.5813 15.5355 18.4476 15.5152C18.5853 15.5314 18.719 15.5517 18.8527 15.5679ZM13.9997 12.8295C12.9424 10.7756 10.0662 6.94751 7.39261 5.05977C4.82838 3.24901 3.85211 3.56093 3.20801 3.8526C2.46669 4.18883 2.33301 5.32714 2.33301 5.99554C2.33301 6.66394 2.70164 11.4886 2.94065 12.2947C3.73058 14.9562 6.55002 15.8555 9.14667 15.5638C9.28035 15.5436 9.41403 15.5274 9.55176 15.5071C9.41808 15.5274 9.2844 15.5476 9.14667 15.5638C5.34285 16.131 1.96437 17.5164 6.39609 22.4463C11.2694 27.4938 13.072 21.3647 13.9997 18.2577C14.9273 21.3647 15.9927 27.271 21.5182 22.4463C25.6663 18.2577 22.6565 16.1269 18.8527 15.5638C18.719 15.5476 18.5813 15.5314 18.4476 15.5112C18.5853 15.5274 18.719 15.5476 18.8527 15.5638C21.4493 15.8514 24.2647 14.9521 25.0587 12.2947C25.2977 11.4886 25.6663 6.66799 25.6663 5.99554C25.6663 5.32308 25.5327 4.18477 24.7913 3.8526C24.1513 3.56498 23.171 3.24901 20.6108 5.05977C17.9331 6.94751 15.057 10.7756 13.9997 12.8295Z" fill="currentColor"></path>
+                    </svg>
+                  </a>
+                </li>
+                <li class="u-mb-0 u-d-inline-flex">
+                  <a href="https://threads.com/@silvansoeters" target="_blank" class="footer-social_link u-d-inline-flex w-inline-block">
+                    <div class="u-sr-only">X/Twitter</div>
+                    <div data-wf--icon--settings-color="inherit" id="" style="" class="icon-color"><span data-wf--icon-size--variant="sm" class="icon w-variant-cdea1590-5e30-cc7c-cd65-a8b7cf1f5b9e ph-fill ph-threads-logo">​</span></div>
+                  </a>
+                </li>
+                <li class="u-mb-0 u-d-inline-flex">
+                  <a href="https://github.com/sil-so" target="_blank" class="footer-social_link u-d-inline-flex w-inline-block">
+                    <div class="u-sr-only">GitHub</div>
+                    <div data-wf--icon--settings-color="inherit" id="" style="" class="icon-color"><span data-wf--icon-size--variant="sm" class="icon w-variant-cdea1590-5e30-cc7c-cd65-a8b7cf1f5b9e ph-fill ph-github-logo">​</span></div>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div class="col col-shrink">
+              <div id="" class="theme-toggle-component"><label class="theme-toggle-label"><span data-theme-toggle="dark-label" class="theme-toggle-state cc-base">
+                    <div data-wf--icon--settings-color="inherit" id="" style="" class="icon-color u-mb-0"><span data-wf--icon-size--variant="1-em" class="icon ph-fill ph-moon-stars">​</span></div>
+                  </span><span data-theme-toggle="light-label" class="theme-toggle-state cc-invert">
+                    <div data-wf--icon--settings-color="inherit" id="" style="" class="icon-color u-mb-0"><span data-wf--icon-size--variant="1-em" class="icon ph-fill ph-sun">​</span></div>
+                  </span><input type="checkbox" data-theme-toggle="checkbox" class="theme-toggle-checkbox"></label></div>
+            </div>
+            <div class="col col-shrink">
+              <div class="paragraph-xs u-mb-0 u-text-muted">© <span data-footer-year="">2025</span> silso</div>
+            </div>
           </div>
         </div>
       </div>
