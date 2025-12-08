@@ -27,6 +27,10 @@ export default {
   // --- RESTORED: Scheduled Event for WhatPulse ---
   async scheduled(controller, env, ctx) {
     const RESET_CRON = "0 0 * * 1";
+    console.log(`[Cron Trigger] Time: ${new Date().toISOString()}`);
+    console.log(`[Cron Trigger] Scheduled Cron: "${controller.cron}"`);
+    console.log(`[Cron Trigger] Reset Target: "${RESET_CRON}"`);
+
     try {
       const response = await fetch(
         `https://whatpulse.org/api/v1/users/${env.WHATPULSE_USER_ID}`,
@@ -57,7 +61,12 @@ export default {
       const isResetTime = controller.cron === RESET_CRON;
       const isFirstRun = isNaN(baselineMiles) || isNaN(baselineClicks);
 
+      console.log(
+        `[Cron Logic] isResetTime: ${isResetTime}, isFirstRun: ${isFirstRun}`
+      );
+
       if (isResetTime || isFirstRun) {
+        console.log("[Cron Action] Resetting baseline stats...");
         await env.WHATPULSE_DATA.put("baseline_miles", currentMiles.toString());
         await env.WHATPULSE_DATA.put(
           "baseline_clicks",
@@ -501,10 +510,14 @@ function convertBlocksToHtml(blocks) {
         break;
 
       case "bulleted_list_item":
-        html += `<li>${parseRichText(block.bulleted_list_item.rich_text)}${block.children ? convertBlocksToHtml(block.children) : ""}</li>`;
+        html += `<li>${parseRichText(block.bulleted_list_item.rich_text)}${
+          block.children ? convertBlocksToHtml(block.children) : ""
+        }</li>`;
         break;
       case "numbered_list_item":
-        html += `<li>${parseRichText(block.numbered_list_item.rich_text)}${block.children ? convertBlocksToHtml(block.children) : ""}</li>`;
+        html += `<li>${parseRichText(block.numbered_list_item.rich_text)}${
+          block.children ? convertBlocksToHtml(block.children) : ""
+        }</li>`;
         break;
 
       case "toggle":
@@ -539,7 +552,9 @@ function convertBlocksToHtml(blocks) {
         break;
 
       case "quote":
-        html += `<blockquote>${parseRichText(block.quote.rich_text)}</blockquote>`;
+        html += `<blockquote>${parseRichText(
+          block.quote.rich_text
+        )}</blockquote>`;
         break;
       case "divider":
         html += `<div class="w-rich-separator"></div>`;
@@ -551,7 +566,9 @@ function convertBlocksToHtml(blocks) {
             ? block.image.external.url
             : block.image.file.url;
         const cap = parseRichText(block.image.caption);
-        html += `<figure class="w-richtext-align-fullwidth w-richtext-figure-type-image"><div><img src="${src}" alt="${cap}" loading="lazy"></div>${cap ? `<figcaption>${cap}</figcaption>` : ""}</figure>`;
+        html += `<figure class="w-richtext-align-fullwidth w-richtext-figure-type-image"><div><img src="${src}" alt="${cap}" loading="lazy"></div>${
+          cap ? `<figcaption>${cap}</figcaption>` : ""
+        }</figure>`;
         break;
 
       case "video":
