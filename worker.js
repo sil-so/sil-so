@@ -26,11 +26,7 @@ const SITE_CONFIG = {
 export default {
   // --- RESTORED: Scheduled Event for WhatPulse ---
   async scheduled(controller, env, ctx) {
-    const RESET_CRON = "0 0 * * 1";
-    console.log(`[Cron Trigger] Time: ${new Date().toISOString()}`);
-    console.log(`[Cron Trigger] Scheduled Cron: "${controller.cron}"`);
-    console.log(`[Cron Trigger] Reset Target: "${RESET_CRON}"`);
-
+    const RESET_CRON = "0 23 * * 0";
     try {
       const response = await fetch(
         `https://whatpulse.org/api/v1/users/${env.WHATPULSE_USER_ID}`,
@@ -58,15 +54,12 @@ export default {
         await env.WHATPULSE_DATA.get("baseline_clicks")
       );
 
+      // Allow manual testing via "Test" button (controller.cron is empty string)
+      const isManualTest = controller.cron === "";
       const isResetTime = controller.cron === RESET_CRON;
       const isFirstRun = isNaN(baselineMiles) || isNaN(baselineClicks);
 
-      console.log(
-        `[Cron Logic] isResetTime: ${isResetTime}, isFirstRun: ${isFirstRun}`
-      );
-
-      if (isResetTime || isFirstRun) {
-        console.log("[Cron Action] Resetting baseline stats...");
+      if (isResetTime || isFirstRun || isManualTest) {
         await env.WHATPULSE_DATA.put("baseline_miles", currentMiles.toString());
         await env.WHATPULSE_DATA.put(
           "baseline_clicks",
