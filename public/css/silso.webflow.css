@@ -4396,6 +4396,7 @@ figcaption {
   }
 
   .blog_toc-wrapper {
+    margin-top: .75rem;
     padding-top: 0;
     padding-bottom: 0;
   }
