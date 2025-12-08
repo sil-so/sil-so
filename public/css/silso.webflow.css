@@ -3819,6 +3819,7 @@ figcaption {
   color: var(--foreground--disabled);
   font-size: var(--_typography---h6--font-size);
   align-items: baseline;
+  margin-bottom: .125rem;
   display: flex;
 }
 
@@ -4388,6 +4389,11 @@ figcaption {
   .masonry-nav {
     padding-top: var(--_layout---spacing--margin-xs) !important;
     padding-bottom: var(--_layout---spacing--margin-xs) !important;
+  }
+
+  .blog_toc-wrapper {
+    padding-top: 0;
+    padding-bottom: 0;
   }
 }
 
