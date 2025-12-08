@@ -32,8 +32,14 @@ export default {
   },
 
   async fetch(request, env, ctx) {
+    console.log(
+      `[Debug] Incoming request: ${request.url} | UA: ${request.headers.get(
+        "user-agent"
+      )}`
+    );
     try {
       const url = new URL(request.url);
+      console.log(`[Debug] Parsed Pathname: ${url.pathname}`);
 
       // 1. Handle Blog Index
       if (
@@ -53,6 +59,7 @@ export default {
       }
 
       // 3. Handle Static Assets (With WhatPulse Stats Injection)
+      console.log(`[Debug] Falling through to assets for: ${url.pathname}`);
       const response = await env.ASSETS.fetch(request);
 
       // --- RESTORED: Stats Injection Logic ---
