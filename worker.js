@@ -1,4 +1,3 @@
-/**
 import { handleScheduled, injectWhatPulseStats } from "./whatpulse.js";
 
 /**
