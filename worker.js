@@ -33,35 +33,41 @@ export default {
   },
 
   async fetch(request, env, ctx) {
-    const url = new URL(request.url);
+    try {
+      const url = new URL(request.url);
 
-    // 1. Handle Blog Index
-    if (
-      url.pathname === SITE_CONFIG.blogRoute ||
-      url.pathname === `${SITE_CONFIG.blogRoute}/`
-    ) {
-      return handleBlogList(request, env);
+      // 1. Handle Blog Index
+      if (
+        url.pathname === SITE_CONFIG.blogRoute ||
+        url.pathname === `${SITE_CONFIG.blogRoute}/`
+      ) {
+        return handleBlogList(request, env);
+      }
+
+      // 2. Handle Individual Blog Posts
+      if (
+        url.pathname.startsWith(`${SITE_CONFIG.blogRoute}/`) &&
+        url.pathname.split("/").length > 2
+      ) {
+        const slug = url.pathname.split("/")[2];
+        if (slug) return handleBlogPost(slug, request, env);
+      }
+
+      // 3. Handle Static Assets (With WhatPulse Stats Injection)
+      const response = await env.ASSETS.fetch(request);
+
+      // --- RESTORED: Stats Injection Logic ---
+      return await injectWhatPulseStats(response, env, {
+        AssetPathHandler,
+        SrcSetHandler,
+        LinkHandler,
+        TextHandler
+      });
+    } catch (e) {
+      return new Response(`Worker Error: ${e.message}\nStack: ${e.stack}`, {
+        status: 500
+      });
     }
-
-    // 2. Handle Individual Blog Posts
-    if (
-      url.pathname.startsWith(`${SITE_CONFIG.blogRoute}/`) &&
-      url.pathname.split("/").length > 2
-    ) {
-      const slug = url.pathname.split("/")[2];
-      if (slug) return handleBlogPost(slug, request, env);
-    }
-
-    // 3. Handle Static Assets (With WhatPulse Stats Injection)
-    const response = await env.ASSETS.fetch(request);
-
-    // --- RESTORED: Stats Injection Logic ---
-    return injectWhatPulseStats(response, env, {
-      AssetPathHandler,
-      SrcSetHandler,
-      LinkHandler,
-      TextHandler
-    });
   }
 };
 
