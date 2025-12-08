@@ -27,7 +27,10 @@ export default {
   // --- RESTORED: Scheduled Event for WhatPulse ---
   async scheduled(controller, env, ctx) {
     const RESET_CRON = "0 23 * * SUN";
+    console.log(`[Cron] Starting execution. Cron: "${controller.cron}"`);
+
     try {
+      // 1. Fetch from WhatPulse
       const response = await fetch(
         `https://whatpulse.org/api/v1/users/${env.WHATPULSE_USER_ID}`,
         {
@@ -42,11 +45,13 @@ export default {
         throw new Error(`WhatPulse API Error: ${response.status}`);
 
       const json = await response.json();
-      if (!json.user?.totals) throw new Error("Structure mismatch");
+      if (!json.user?.totals)
+        throw new Error("Structure mismatch: missing user.totals");
 
       const currentMiles = parseFloat(json.user.totals.distance_miles || 0);
       const currentClicks = parseInt(json.user.totals.clicks || 0);
 
+      // 2. Get Baselines
       let baselineMiles = parseFloat(
         await env.WHATPULSE_DATA.get("baseline_miles")
       );
@@ -54,23 +59,39 @@ export default {
         await env.WHATPULSE_DATA.get("baseline_clicks")
       );
 
-      // Allow manual testing via "Test" button (controller.cron is empty string)
-      const isManualTest = controller.cron === "";
+      // 3. Determine Reset Condition
+      const isManualTest = controller.cron === "" || !controller.cron;
       const isResetTime = controller.cron === RESET_CRON;
       const isFirstRun = isNaN(baselineMiles) || isNaN(baselineClicks);
 
+      console.log(
+        `[Cron] Conditions -> Manual: ${isManualTest}, ResetTime: ${isResetTime}, FirstRun: ${isFirstRun}`
+      );
+
+      // 4. Update Baselines if needed
       if (isResetTime || isFirstRun || isManualTest) {
+        console.log(
+          `[Cron] Resetting baselines to: Miles=${currentMiles}, Clicks=${currentClicks}`
+        );
         await env.WHATPULSE_DATA.put("baseline_miles", currentMiles.toString());
         await env.WHATPULSE_DATA.put(
           "baseline_clicks",
           currentClicks.toString()
         );
+
+        // Update local variables to reflect the reset immediately
         baselineMiles = currentMiles;
         baselineClicks = currentClicks;
       }
 
+      // 5. Calculate Weekly Stats
+      // If we just reset, these should be 0.
       const weeklyKm = ((currentMiles - baselineMiles) * 1.60934).toFixed(2);
       const weeklyClicks = currentClicks - baselineClicks;
+
+      console.log(
+        `[Cron] Calculated Stats -> Km: ${weeklyKm}, Clicks: ${weeklyClicks}`
+      );
 
       const stats = {
         distance: new Intl.NumberFormat("en-US").format(weeklyKm),
@@ -81,9 +102,12 @@ export default {
         updatedAt: new Date().toISOString()
       };
 
+      // 6. Save Stats
       await env.WHATPULSE_DATA.put("stats", JSON.stringify(stats));
+      console.log(`[Cron] Stats saved successfully: ${JSON.stringify(stats)}`);
     } catch (error) {
-      console.error(error.message);
+      console.error(`[Cron Error] ${error.message}`);
+      console.error(error.stack);
     }
   },
 
