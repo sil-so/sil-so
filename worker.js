@@ -26,7 +26,7 @@ const SITE_CONFIG = {
 export default {
   // --- RESTORED: Scheduled Event for WhatPulse ---
   async scheduled(controller, env, ctx) {
-    const RESET_CRON = "0 23 * * 0";
+    const RESET_CRON = "0 23 * * SUN";
     try {
       const response = await fetch(
         `https://whatpulse.org/api/v1/users/${env.WHATPULSE_USER_ID}`,
