@@ -1,4 +1,4 @@
-<!DOCTYPE html><!--  This site was created in Webflow. https://webflow.com  --><!--  Last Published: Sun Dec 07 2025 22:40:06 GMT+0000 (Coordinated Universal Time)  -->
+<!DOCTYPE html><!--  This site was created in Webflow. https://webflow.com  --><!--  Last Published: Mon Dec 08 2025 01:43:06 GMT+0000 (Coordinated Universal Time)  -->
 <html data-wf-page="6930cfd0127e468d53c56807" data-wf-site="691924e21a8dc9bab2bb563e" lang="en">
 <head>
   <meta charset="utf-8">
@@ -724,14 +724,14 @@ document.addEventListener('DOMContentLoaded', () => {
         <div>
           <div class="w-embed">
             <style>
-.masonry-nav {
+.masonry-nav, .nav {
   background: var(--background--default);
 }
 @supports
   (backdrop-filter: blur(16px)) or
   (-webkit-backdrop-filter: blur(16px))
 {
-  .masonry-nav {
+  .masonry-nav, .nav {
     background: color-mix(in srgb, var(--background--default) 50%, transparent);
   }
   .backdrop {
@@ -1912,9 +1912,46 @@ tbody tr:last-child td {
             <path d="M16.7375 0.0639034C16.8541 0.040438 17.8551 -0.163736 18.0088 0.308528C18.1603 0.770482 17.1531 1.17293 17.0368 1.21891C15.8968 1.68124 4.57911 6.26855 15.983 10.8949C24.6682 14.2754 12.8335 23.144 2.81464 25.8893C2.70115 25.9202 1.73803 26.183 1.47379 25.7697C1.21422 25.3644 2.11994 24.915 2.22462 24.8637C3.32843 24.308 12.8378 19.5328 3.01838 14.9504C-6.3303 9.91196 8.25146 1.79854 16.7375 0.0639034Z" class="u-path"></path>
           </svg></a>
         <div class="nav-menu_btn w-nav-button">
-          <div class="nav-menu_btn-bar cc-top"></div>
-          <div class="nav-menu_btn-bar cc-middle"></div>
-          <div class="nav-menu_btn-bar cc-bottom"></div>
+          <div class="nav-menu_btn-wrap">
+            <div class="nav-menu_btn-line">
+              <div class="nav-menu_btn-inner"></div>
+            </div>
+            <div class="nav-menu_btn-embed w-embed">
+              <style>
+.nav-menu_btn-wrap {
+  --nav-btn-thickness: 0.15rem;
+  --nav-btn-gap: 0.35rem;
+  --nav-btn-rotate: 45;
+  --nav-btn-width: 100%;
+}
+.nav-menu_btn-line {
+  overflow: visible !important; 
+}
+.w--open .nav-menu_btn-line > *,
+.nav-menu_btn-line {
+  transition-delay: 200ms;
+}
+.w--open .nav-menu_btn-line {
+  transition-delay: 0ms;
+}
+.w--open .nav-menu_btn-line:first-child {
+	transform: translateY(calc(var(--nav-btn-thickness) * 0.5 + var(--nav-btn-gap) * 0.5));
+}
+.w--open .nav-menu_btn-line:first-child > * {
+	transform: rotate(calc(var(--nav-btn-rotate) * 1deg));
+}
+.w--open .nav-menu_btn-line:last-child {
+	transform: translateY(calc(var(--nav-btn-thickness) * -0.5  + var(--nav-btn-gap) * -0.5));
+}
+.w--open .nav-menu_btn-line:last-child > * {
+	transform: rotate(calc(var(--nav-btn-rotate) * -1deg));
+}
+</style>
+            </div>
+            <div class="nav-menu_btn-line">
+              <div class="nav-menu_btn-inner"></div>
+            </div>
+          </div>
         </div>
         <nav role="navigation" class="nav-menu w-nav-menu">
           <div class="nav-dropdown_overlay"></div>
@@ -1924,6 +1961,7 @@ tbody tr:last-child td {
           </div>
         </nav>
       </div>
+      <div class="backdrop"></div>
     </div>
     <main class="page-main">
       <article class="section u-p-0" id="" style="">
@@ -2022,7 +2060,7 @@ tbody tr:last-child td {
             </div>
           </header>
           <div data-wf--spacer--settings-size="large" class="spacer-component w-variant-aea45f07-8b30-d181-0430-911625064b03" id="" style=""></div>
-          <div class="card-body u-pt-0 u-pb-0">
+          <div class="article-content">
             <div class="row">
               <div class="col col-lg-8 col-md-12" id="" style="">
                 <div id="post-content" fs-toc-element="contents" fs-toc-offsettop="6rem" class="rich-text w-richtext">
@@ -2117,11 +2155,11 @@ tbody tr:last-child td {
                           </div>
                           <div data-wf--spacer--settings-size="medium" class="spacer-component w-variant-60e88f1c-8990-2b60-1d3a-e5ec07d412dc" id="" style=""></div>
                           <div data-wf--heading--settings-alignment="left-align" id="author-heading" style="" class="heading-component">
-                            <h3 class="h4">About Silvan Soeters</h3>
+                            <h3 class="h4">About the author</h3>
                           </div>
                           <div data-wf--rich-text--settings-alignment="left-align" class="rich-text-component" id="" style="">
                             <div class="rich-text w-richtext">
-                              <p>Freelance Webflow developer and designer based in Rotterdam.</p>
+                              <p><strong>Silvan Soeters</strong> is a full-stack Webflow developer and creative based in Rotterdam.</p>
                             </div>
                           </div>
                           <div data-wf--grid-row--settings-column-alignment="top-left" id="" style="" class="row-component">
@@ -2168,7 +2206,7 @@ tbody tr:last-child td {
                   <div data-wf--icon--settings-color="inherit" id="" style="" class="icon-color u-mb-0"><span data-wf--icon-size--variant="1-em" class="icon ph-fill ph-sun">​</span></div>
                 </span><input type="checkbox" data-theme-toggle="checkbox" class="theme-toggle-checkbox"></label></div>
           </div>
-          <div class="col col-shrink">
+          <div class="col col-shrink col-sm-first">
             <ul role="list" class="footer-social_list w-list-unstyled">
               <li class="u-mb-0 u-d-inline-flex">
                 <a href="https://x.com/silvansoeters" target="_blank" class="footer-social_link u-d-inline-flex w-inline-block">
@@ -2210,18 +2248,7 @@ tbody tr:last-child td {
             </ul>
           </div>
           <div class="col col-shrink">
-            <div data-wf--button--button-variant="link" class="button w-variant-ea990ac3-89d1-9883-7270-d170f3432e08" id="" style="" data-open-modal="">
-              <div aria-hidden="true" class="btn-text">blog</div>
-              <div class="btn-icon">
-                <div data-wf--icon--settings-color="inherit" id="" style="" class="icon-color"><span data-wf--icon-size--variant="1-em" class="icon ph-fill ph-text-align-left">​</span></div>
-              </div>
-              <a href="blog.html" class="u-link-cover w-inline-block">
-                <div class="u-sr-only">blog</div>
-              </a>
-            </div>
-          </div>
-          <div class="col col-shrink">
-            <div class="paragraph-sm u-mb-0">© <span data-footer-year="">2025</span> silso</div>
+            <div class="paragraph-xs u-mb-0 u-text-muted">© <span data-footer-year="">2025</span> silso</div>
           </div>
         </div>
       </div>
