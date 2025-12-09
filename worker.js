@@ -32,14 +32,8 @@ export default {
   },
 
   async fetch(request, env, ctx) {
-    console.log(
-      `[Debug] Incoming request: ${request.url} | UA: ${request.headers.get(
-        "user-agent"
-      )}`
-    );
     try {
       const url = new URL(request.url);
-      console.log(`[Debug] Parsed Pathname: ${url.pathname}`);
 
       // 1. Handle Blog Index
       if (
@@ -59,7 +53,6 @@ export default {
       }
 
       // 3. Handle Static Assets (With WhatPulse Stats Injection)
-      console.log(`[Debug] Falling through to assets for: ${url.pathname}`);
       const response = await env.ASSETS.fetch(request);
 
       // --- RESTORED: Stats Injection Logic ---
@@ -138,27 +131,18 @@ async function handleBlogList(request, env) {
  * Route: Individual Post
  */
 async function handleBlogPost(slug, request, env) {
-  console.log(`[Debug] Handling blog post: ${slug}`);
   const url = new URL(request.url);
   const templateReq = new Request(new URL("/blog-post.html", request.url));
   const templateRes = await env.ASSETS.fetch(templateReq);
-  console.log(`[Debug] Template status: ${templateRes.status}`);
 
-  if (!templateRes.ok) {
-    console.error("[Debug] Template not found");
+  if (!templateRes.ok)
     return new Response("Post Template Not Found", { status: 404 });
-  }
 
   const shouldRefresh = url.searchParams.get("refresh") === "true";
 
   try {
     const post = await getNotionPostBySlug(slug, env, shouldRefresh);
-    console.log(`[Debug] Post found: ${!!post}`);
-
-    if (!post) {
-      console.error(`[Debug] Post not found in Notion/Cache for slug: ${slug}`);
-      return new Response("Post Not Found", { status: 404 });
-    }
+    if (!post) return new Response("Post Not Found", { status: 404 });
 
     // Continue Reading Logic
     let continueReadingHtml = "";
@@ -274,9 +258,6 @@ async function handleBlogPost(slug, request, env) {
         .transform(templateRes)
     );
   } catch (error) {
-    console.error(
-      `[Debug] Error in handleBlogPost: ${error.message}\n${error.stack}`
-    );
     return new Response(error.message, { status: 500 });
   }
 }
@@ -789,35 +770,30 @@ class SchemaHandler {
     this.d = d;
   }
   element(e) {
-    console.log("[Debug] Injecting Schema");
-    try {
-      e.setInnerContent(
-        JSON.stringify(
-          {
-            "@context": "https://schema.org",
-            "@type": "BlogPosting",
-            headline: this.p.title,
-            description: this.d,
-            datePublished: this.dp,
-            dateModified: this.du,
-            mainEntityOfPage: { "@type": "WebPage", "@id": this.u },
-            image: this.p.cover ? [this.p.cover] : [],
-            author: [
-              {
-                "@type": "Person",
-                name: SITE_CONFIG.author.name,
-                url: SITE_CONFIG.author.url
-              }
-            ]
-          },
-          null,
-          2
-        ),
-        { html: true }
-      );
-    } catch (err) {
-      console.error("[Debug] Schema injection failed:", err);
-    }
+    e.setInnerContent(
+      JSON.stringify(
+        {
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          headline: this.p.title,
+          description: this.d,
+          datePublished: this.dp,
+          dateModified: this.du,
+          mainEntityOfPage: { "@type": "WebPage", "@id": this.u },
+          image: this.p.cover ? [this.p.cover] : [],
+          author: [
+            {
+              "@type": "Person",
+              name: SITE_CONFIG.author.name,
+              url: SITE_CONFIG.author.url
+            }
+          ]
+        },
+        null,
+        2
+      ),
+      { html: true }
+    );
   }
 }
 class BlogListSchemaHandler {
