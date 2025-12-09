@@ -4400,6 +4400,10 @@ figcaption {
     padding-top: 0;
     padding-bottom: 0;
   }
+
+  .blog_toc-link-trigger {
+    display: none !important;
+  }
 }
 
 @media screen and (max-width: 767px) {
