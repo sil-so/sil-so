@@ -3895,7 +3895,8 @@ figcaption {
 }
 
 .nav-menu_btn-inner {
-  background-color: currentColor;
+  background-color: var(--primary--background);
+  border-radius: 1rem;
   width: 100%;
   height: 100%;
   transition: transform .2s;
@@ -4630,6 +4631,10 @@ figcaption {
 
   .nav {
     height: 3.25rem;
+  }
+
+  .nav-logo_link {
+    width: 1.125rem;
   }
 
   .nav-menu {

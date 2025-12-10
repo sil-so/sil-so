@@ -1,4 +1,4 @@
-<!DOCTYPE html><!--  This site was created in Webflow. https://webflow.com  --><!--  Last Published: Wed Dec 10 2025 02:40:37 GMT+0000 (Coordinated Universal Time)  -->
+<!DOCTYPE html><!--  This site was created in Webflow. https://webflow.com  --><!--  Last Published: Wed Dec 10 2025 03:13:59 GMT+0000 (Coordinated Universal Time)  -->
 <html data-wf-page="6930cfbd81f6bf2057ce8f12" data-wf-site="691924e21a8dc9bab2bb563e" lang="en">
 <head>
   <meta charset="utf-8">
@@ -722,14 +722,14 @@ document.addEventListener('DOMContentLoaded', () => {
         <div>
           <div class="w-embed">
             <style>
-.masonry-nav {
+.masonry-nav, .nav {
   background: var(--background--default);
 }
 @supports
   (backdrop-filter: blur(16px)) or
   (-webkit-backdrop-filter: blur(16px))
 {
-  .masonry-nav {
+  .masonry-nav, .nav {
     background: color-mix(in srgb, var(--background--default) 50%, transparent);
   }
   .backdrop {
@@ -788,12 +788,12 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   .filter-list {
     display: none;
-    flex-direction: column;
+    flex-direction: column !important;
     position: absolute;
     top: 100%;
     right: auto;
 		margin-top: var(--_layout---spacing--margin-xs);
-    width: 100%;
+    width: max-content;
     background: var(--background--default);
     z-index: 100;
     border: var(--_components---button--border-width) solid var(--border--default);
@@ -805,7 +805,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   .filter-list button {
     width: 100%;
-    text-align: left;
+    justify-content: start;
   }
 }
 </style>
@@ -1975,7 +1975,9 @@ tbody tr:last-child td {
         <nav role="navigation" class="nav-menu w-nav-menu">
           <div class="nav-dropdown_overlay"></div>
           <div class="nav-menu_container">
-            <a href="index.html" class="nav-link w-nav-link">home</a>
+            <a aria-label="home" href="index.html" class="nav-link w-inline-block">
+              <div data-wf--icon--settings-color="inherit" id="" style="" class="icon-color"><span data-wf--icon-size--variant="1-em" class="icon ph-fill ph-house">​</span></div>
+            </a>
             <a href="blog.html" aria-current="page" class="nav-link w-nav-link w--current">blog</a>
           </div>
         </nav>
