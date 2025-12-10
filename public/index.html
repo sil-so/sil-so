@@ -1,4 +1,4 @@
-<!DOCTYPE html><!--  This site was created in Webflow. https://webflow.com  --><!--  Last Published: Wed Dec 10 2025 05:35:50 GMT+0000 (Coordinated Universal Time)  -->
+<!DOCTYPE html><!--  This site was created in Webflow. https://webflow.com  --><!--  Last Published: Wed Dec 10 2025 07:38:08 GMT+0000 (Coordinated Universal Time)  -->
 <html data-wf-page="691924e41a8dc9bab2bb569b" data-wf-site="691924e21a8dc9bab2bb563e" lang="en">
 <head>
   <meta charset="utf-8">
@@ -725,44 +725,29 @@ document.addEventListener('DOMContentLoaded', () => {
           <div class="w-embed">
             <style>
 .masonry-nav, .nav {
+  /* Fallback for browsers that don't support backdrop-filter */
   background: var(--background--default);
 }
-@supports
-  (backdrop-filter: blur(16px)) or
-  (-webkit-backdrop-filter: blur(16px))
-{
+@supports (backdrop-filter: blur(16px)) or (-webkit-backdrop-filter: blur(16px)) {
   .masonry-nav, .nav {
-    background: color-mix(in srgb, var(--background--default) 50%, transparent);
+    /* 
+      1. Apply the tint ONLY here to ensure uniformity. 
+         Using color-mix allows for easy opacity adjustments while keeping CSS variables.
+    */
+    background: color-mix(in srgb, var(--background--default) 75%, transparent);
   }
   .backdrop {
     position: absolute;
     inset: 0;
+    z-index: -1; /* Ensure backdrop stays behind nav content/text */
     -webkit-backdrop-filter: blur(16px);
     backdrop-filter: blur(16px);
-    background: linear-gradient(
-      to bottom,
-      var(--background--default),
-      transparent 50%
-    );
+    /* 
+      2. REMOVED: background: linear-gradient(...) 
+         This was causing the "dark top" effect by stacking extra color 
+         on top of the nav's background.
+    */
     pointer-events: none;
-  }
-}
-@supports
-  (mask-image: none) or
-  (-webkit-mask-image: none)
-{
-  .backdrop {
-    height: 200%;
-    -webkit-mask-image: linear-gradient(
-      to bottom,
-      black 0% 50%,
-      transparent 50% 100%
-    );
-    mask-image: linear-gradient(
-      to bottom,
-      black 0% 50%,
-      transparent 50% 100%
-    );
   }
 }
 .view-controls:has(.button:hover) .button:not(:hover), 
@@ -794,7 +779,7 @@ document.addEventListener('DOMContentLoaded', () => {
     position: absolute;
     top: 100%;
     right: auto;
-		margin-top: var(--_layout---spacing--margin-xs);
+		margin-top: calc(var(--_layout---spacing--margin-xs) + 0.5rem);
     width: max-content;
     background: var(--background--default);
     z-index: 100;
@@ -2741,19 +2726,19 @@ tbody tr:last-child td {
             <div class="row row-align-center">
               <div data-wf--grid-column--settings-column-size="fill" class="col filter-component" id="" style="">
                 <div class="slot cc-column">
-                  <div id="" style="flex-direction: row;" class="filter-list"><button data-wf--button--button-variant="tertiary" class="button w-variant-a22cef60-9092-33c0-69b8-3e7399bf71b2 cc-filter-active" id="" style="font-size: var(--_components---button-small--font-size)" data-filter="*" data-filter-name="all" data-open-modal="">
+                  <div id="" style="flex-direction: row;" class="filter-list"><button data-wf--button--button-variant="tertiary" class="button w-variant-a22cef60-9092-33c0-69b8-3e7399bf71b2 cc-filter-active cc-small" id="" style="font-size: var(--_components---button-small--font-size)" data-filter="*" data-filter-name="all" data-open-modal="">
                       <div aria-hidden="true" class="btn-text">all</div>
-                    </button><button data-wf--button--button-variant="tertiary" class="button w-variant-a22cef60-9092-33c0-69b8-3e7399bf71b2" id="" style="font-size: var(--_components---button-small--font-size)" data-filter="cases" data-filter-name="cases" data-open-modal="">
+                    </button><button data-wf--button--button-variant="tertiary" class="button w-variant-a22cef60-9092-33c0-69b8-3e7399bf71b2 cc-small" id="" style="font-size: var(--_components---button-small--font-size)" data-filter="cases" data-filter-name="cases" data-open-modal="">
                       <div aria-hidden="true" class="btn-text">cases</div>
-                    </button><button data-wf--button--button-variant="tertiary" class="button w-variant-a22cef60-9092-33c0-69b8-3e7399bf71b2" id="" style="font-size: var(--_components---button-small--font-size)" data-filter="services" data-filter-name="services" data-open-modal="">
+                    </button><button data-wf--button--button-variant="tertiary" class="button w-variant-a22cef60-9092-33c0-69b8-3e7399bf71b2 cc-small" id="" style="font-size: var(--_components---button-small--font-size)" data-filter="services" data-filter-name="services" data-open-modal="">
                       <div aria-hidden="true" class="btn-text">services</div>
-                    </button><button data-wf--button--button-variant="tertiary" class="button w-variant-a22cef60-9092-33c0-69b8-3e7399bf71b2" id="" style="font-size: var(--_components---button-small--font-size)" data-filter="blogs" data-filter-name="blogs" data-open-modal="">
+                    </button><button data-wf--button--button-variant="tertiary" class="button w-variant-a22cef60-9092-33c0-69b8-3e7399bf71b2 cc-small" id="" style="font-size: var(--_components---button-small--font-size)" data-filter="blogs" data-filter-name="blogs" data-open-modal="">
                       <div aria-hidden="true" class="btn-text">blogs</div>
-                    </button><button data-wf--button--button-variant="tertiary" class="button w-variant-a22cef60-9092-33c0-69b8-3e7399bf71b2" id="" style="font-size: var(--_components---button-small--font-size)" data-filter="posts" data-filter-name="posts" data-open-modal="">
+                    </button><button data-wf--button--button-variant="tertiary" class="button w-variant-a22cef60-9092-33c0-69b8-3e7399bf71b2 cc-small" id="" style="font-size: var(--_components---button-small--font-size)" data-filter="posts" data-filter-name="posts" data-open-modal="">
                       <div aria-hidden="true" class="btn-text">posts</div>
-                    </button><button data-wf--button--button-variant="tertiary" class="button w-variant-a22cef60-9092-33c0-69b8-3e7399bf71b2" id="" style="font-size: var(--_components---button-small--font-size)" data-filter="collections" data-filter-name="collections" data-open-modal="">
+                    </button><button data-wf--button--button-variant="tertiary" class="button w-variant-a22cef60-9092-33c0-69b8-3e7399bf71b2 cc-small" id="" style="font-size: var(--_components---button-small--font-size)" data-filter="collections" data-filter-name="collections" data-open-modal="">
                       <div aria-hidden="true" class="btn-text">collections</div>
-                    </button></div><button data-wf--button--button-variant="secondary" class="button w-variant-052759b4-b398-e98d-c28c-099b380d4426 filter-mobile-toggle" id="" style="width: 100%; justify-content: space-between;" aria-expanded="false" data-open-modal="">
+                    </button></div><button data-wf--button--button-variant="secondary" class="button w-variant-052759b4-b398-e98d-c28c-099b380d4426 filter-mobile-toggle cc-small" id="" style="width: 100%; justify-content: space-between;" aria-expanded="false" data-open-modal="">
                     <div aria-hidden="true" class="btn-text toggle-text">all</div>
                     <div class="btn-icon">
                       <div data-wf--icon--settings-color="inherit" id="" style="" class="icon-color"><span data-wf--icon-size--variant="1-em" class="icon ph-fill ph-caret-down toggle-icon">​</span></div>
@@ -2767,20 +2752,20 @@ tbody tr:last-child td {
               <div data-wf--grid-column--settings-column-size="shrink" class="col w-variant-63569d8e-a8ac-61e1-0666-21eb6073c541" id="" style="">
                 <div class="slot cc-column">
                   <div class="view-controls u-d-flex">
-                    <div class="u-d-none u-md-d-block"><button data-wf--button--button-variant="tertiary" class="button w-variant-a22cef60-9092-33c0-69b8-3e7399bf71b2" id="" style="padding: 0.25rem 0.5rem;" data-columns="1" data-open-modal="">
+                    <div class="u-d-none u-md-d-block"><button data-wf--button--button-variant="tertiary" class="button w-variant-a22cef60-9092-33c0-69b8-3e7399bf71b2 cc-small" id="" style="padding: 0.25rem 0.5rem;" data-columns="1" data-open-modal="">
                         <div class="btn-icon">
                           <div data-wf--icon--settings-color="inherit" id="" style="" class="icon-color"><span data-wf--icon-size--variant="sm" class="icon w-variant-cdea1590-5e30-cc7c-cd65-a8b7cf1f5b9e ph-fill ph-rows">​</span></div>
                         </div>
                       </button></div>
-                    <div class="u-d-none u-md-d-block"><button data-wf--button--button-variant="tertiary" class="button w-variant-a22cef60-9092-33c0-69b8-3e7399bf71b2" id="" style="padding: 0.25rem 0.5rem;" data-columns="2" data-open-modal="">
+                    <div class="u-d-none u-md-d-block"><button data-wf--button--button-variant="tertiary" class="button w-variant-a22cef60-9092-33c0-69b8-3e7399bf71b2 cc-small" id="" style="padding: 0.25rem 0.5rem;" data-columns="2" data-open-modal="">
                         <div class="btn-icon">
                           <div data-wf--icon--settings-color="inherit" id="" style="" class="icon-color"><span data-wf--icon-size--variant="sm" class="icon w-variant-cdea1590-5e30-cc7c-cd65-a8b7cf1f5b9e ph-fill ph-grid-four">​</span></div>
                         </div>
-                      </button></div><button data-wf--button--button-variant="tertiary" class="button w-variant-a22cef60-9092-33c0-69b8-3e7399bf71b2 u-md-d-none" id="" style="padding: 0.25rem 0.5rem;" data-columns="3" data-open-modal="">
+                      </button></div><button data-wf--button--button-variant="tertiary" class="button w-variant-a22cef60-9092-33c0-69b8-3e7399bf71b2 u-md-d-none cc-small" id="" style="padding: 0.25rem 0.5rem;" data-columns="3" data-open-modal="">
                       <div class="btn-icon">
                         <div data-wf--icon--settings-color="inherit" id="" style="" class="icon-color"><span data-wf--icon-size--variant="sm" class="icon w-variant-cdea1590-5e30-cc7c-cd65-a8b7cf1f5b9e ph-fill ph-grid-four">​</span></div>
                       </div>
-                    </button><button data-wf--button--button-variant="tertiary" class="button w-variant-a22cef60-9092-33c0-69b8-3e7399bf71b2 u-md-d-none" id="" style="padding: 0.25rem 0.5rem;" data-columns="4" data-open-modal="">
+                    </button><button data-wf--button--button-variant="tertiary" class="button w-variant-a22cef60-9092-33c0-69b8-3e7399bf71b2 u-md-d-none cc-small" id="" style="padding: 0.25rem 0.5rem;" data-columns="4" data-open-modal="">
                       <div class="btn-icon">
                         <div data-wf--icon--settings-color="inherit" id="" style="" class="icon-color"><span data-wf--icon-size--variant="sm" class="icon w-variant-cdea1590-5e30-cc7c-cd65-a8b7cf1f5b9e ph-fill ph-grid-nine">​</span></div>
                       </div>

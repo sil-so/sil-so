@@ -1,4 +1,4 @@
-<!DOCTYPE html><!--  This site was created in Webflow. https://webflow.com  --><!--  Last Published: Wed Dec 10 2025 05:35:50 GMT+0000 (Coordinated Universal Time)  -->
+<!DOCTYPE html><!--  This site was created in Webflow. https://webflow.com  --><!--  Last Published: Wed Dec 10 2025 07:38:08 GMT+0000 (Coordinated Universal Time)  -->
 <html data-wf-page="6930cfbd81f6bf2057ce8f12" data-wf-site="691924e21a8dc9bab2bb563e" lang="en">
 <head>
   <meta charset="utf-8">
@@ -723,44 +723,29 @@ document.addEventListener('DOMContentLoaded', () => {
           <div class="w-embed">
             <style>
 .masonry-nav, .nav {
+  /* Fallback for browsers that don't support backdrop-filter */
   background: var(--background--default);
 }
-@supports
-  (backdrop-filter: blur(16px)) or
-  (-webkit-backdrop-filter: blur(16px))
-{
+@supports (backdrop-filter: blur(16px)) or (-webkit-backdrop-filter: blur(16px)) {
   .masonry-nav, .nav {
-    background: color-mix(in srgb, var(--background--default) 50%, transparent);
+    /* 
+      1. Apply the tint ONLY here to ensure uniformity. 
+         Using color-mix allows for easy opacity adjustments while keeping CSS variables.
+    */
+    background: color-mix(in srgb, var(--background--default) 75%, transparent);
   }
   .backdrop {
     position: absolute;
     inset: 0;
+    z-index: -1; /* Ensure backdrop stays behind nav content/text */
     -webkit-backdrop-filter: blur(16px);
     backdrop-filter: blur(16px);
-    background: linear-gradient(
-      to bottom,
-      var(--background--default),
-      transparent 50%
-    );
+    /* 
+      2. REMOVED: background: linear-gradient(...) 
+         This was causing the "dark top" effect by stacking extra color 
+         on top of the nav's background.
+    */
     pointer-events: none;
-  }
-}
-@supports
-  (mask-image: none) or
-  (-webkit-mask-image: none)
-{
-  .backdrop {
-    height: 200%;
-    -webkit-mask-image: linear-gradient(
-      to bottom,
-      black 0% 50%,
-      transparent 50% 100%
-    );
-    mask-image: linear-gradient(
-      to bottom,
-      black 0% 50%,
-      transparent 50% 100%
-    );
   }
 }
 .view-controls:has(.button:hover) .button:not(:hover), 
@@ -792,7 +777,7 @@ document.addEventListener('DOMContentLoaded', () => {
     position: absolute;
     top: 100%;
     right: auto;
-		margin-top: var(--_layout---spacing--margin-xs);
+		margin-top: calc(var(--_layout---spacing--margin-xs) + 0.5rem);
     width: max-content;
     background: var(--background--default);
     z-index: 100;

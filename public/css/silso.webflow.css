@@ -3741,9 +3741,12 @@ figcaption {
 
 .masonry-nav {
   z-index: 9999;
-  padding-top: var(--_components---card--padding-small);
-  padding-bottom: var(--_components---card--padding-small);
+  align-items: center;
+  height: 3.75rem;
   margin-bottom: 1rem;
+  padding-top: 0;
+  padding-bottom: 0;
+  display: flex;
   position: sticky;
   top: 0;
 }
@@ -4392,8 +4395,7 @@ figcaption {
   }
 
   .masonry-nav {
-    padding-top: var(--_layout---spacing--margin-xs) !important;
-    padding-bottom: var(--_layout---spacing--margin-xs) !important;
+    height: 3.5rem;
   }
 
   .blog_toc-wrapper {
@@ -4656,6 +4658,7 @@ figcaption {
   }
 
   .masonry-nav {
+    height: 3.25rem;
     margin-bottom: 1rem;
   }
 
