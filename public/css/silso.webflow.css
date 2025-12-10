@@ -173,9 +173,6 @@
   --_typography---type-paragraph-lg--font-size-xs\<deleted\|variable-dab72a89-1875-a2f7-1d85-bd05f81dd817\>: 1.1rem;
   --_components---image--border-radius-small: .625rem;
   --foreground--disabled: var(--lightningcss-light, var(--_color---light--light-10)) var(--lightningcss-dark, var(--_color---dark--dark-10));
-  --_typography---type-paragraph-sm--font-size-md\<deleted\|variable-94c5336e-6e13-9026-329b-a7b4ba64e183\>: .9rem;
-  --_typography---type-paragraph-sm--font-size-sm\<deleted\|variable-dce65071-f183-75c5-98aa-d8afc83560a0\>: .9rem;
-  --_typography---type-paragraph-sm--font-size-xs\<deleted\|variable-5ffbcc90-83d8-60d2-b7ba-601684d03f16\>: .9rem;
   --rich-text--code-background: var(--lightningcss-light, var(--_color---light--light-4)) var(--lightningcss-dark, var(--_color---dark--dark-4));
   --rich-text--code-foreground: var(--lightningcss-light, var(--_color---light--light-11)) var(--lightningcss-dark, var(--_color---dark--dark-11));
   --_layout---spacing--margin-xs: .5em;
@@ -3940,6 +3937,11 @@ figcaption {
   white-space: nowrap;
 }
 
+.input-caption {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
 @media screen and (max-width: 991px) {
   .col:where(.w-variant-28e74f51-d7e2-a771-32c6-dda728ccfa16) {
     flex-basis: 50%;
@@ -4287,10 +4289,6 @@ figcaption {
     font-size: var(--_typography---type-paragraph-lg--font-size-md\<deleted\|variable-cdbe9950-9272-2284-ccf6-60cab96acd5f\>);
   }
 
-  .rich-text figcaption {
-    font-size: var(--_typography---type-paragraph-sm--font-size-md\<deleted\|variable-94c5336e-6e13-9026-329b-a7b4ba64e183\>);
-  }
-
   .u-md-d-none {
     display: none;
   }
@@ -4601,10 +4599,6 @@ figcaption {
     font-size: var(--_typography---type-paragraph-lg--font-size-sm\<deleted\|variable-841c9cf1-74b8-7850-db1d-b82cdc8d3013\>);
   }
 
-  .rich-text figcaption {
-    font-size: var(--_typography---type-paragraph-sm--font-size-sm\<deleted\|variable-dce65071-f183-75c5-98aa-d8afc83560a0\>);
-  }
-
   .u-sm-d-none {
     display: none;
   }
@@ -4817,10 +4811,6 @@ figcaption {
 
   .rich-text blockquote {
     font-size: var(--_typography---type-paragraph-lg--font-size-xs\<deleted\|variable-dab72a89-1875-a2f7-1d85-bd05f81dd817\>);
-  }
-
-  .rich-text figcaption {
-    font-size: var(--_typography---type-paragraph-sm--font-size-xs\<deleted\|variable-5ffbcc90-83d8-60d2-b7ba-601684d03f16\>);
   }
 
   .u-xs-d-none {
