@@ -1,4 +1,4 @@
-<!DOCTYPE html><!--  This site was created in Webflow. https://webflow.com  --><!--  Last Published: Wed Dec 10 2025 03:13:59 GMT+0000 (Coordinated Universal Time)  -->
+<!DOCTYPE html><!--  This site was created in Webflow. https://webflow.com  --><!--  Last Published: Wed Dec 10 2025 04:07:00 GMT+0000 (Coordinated Universal Time)  -->
 <html data-wf-page="691924e41a8dc9bab2bb569b" data-wf-site="691924e21a8dc9bab2bb563e" lang="en">
 <head>
   <meta charset="utf-8">
@@ -4000,5 +4000,45 @@ tbody tr:last-child td {
     flex-direction: column;
 }
 </style>
+  <script src="https://cdn.jsdelivr.net/gh/sil-so/cf-sde@0.0.2/cloudflare-turnstile-handler.js"></script>
+  <script>
+function waitForVisible(el, timeout = 1500) {
+  return new Promise((resolve, reject) => {
+    const start = performance.now();
+    function check() {
+      if (!el.isConnected) return; 
+      const cs = getComputedStyle(el);
+      const r = el.getBoundingClientRect();
+      const visible = r.width > 0 && r.height > 0 && cs.display !== "none" && cs.visibility !== "hidden";
+      if (visible) return resolve();
+      if (performance.now() - start > timeout) return reject(new Error("Timeout waiting for visibility"));
+      requestAnimationFrame(check);
+    }
+    check();
+  });
+}
+document.addEventListener('DOMContentLoaded', () => {
+  const contactModal = document.getElementById('contact-form');
+  if (contactModal) {
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.type === 'attributes' && mutation.attributeName === 'open') {
+          if (contactModal.hasAttribute('open')) {
+            const form = contactModal.querySelector("form[cf-form]");
+            if (!form) return;
+            waitForVisible(form).then(() => {
+              form.dispatchEvent(new CustomEvent('cf-security-refresh'));
+              console.log("[Turnstile] Contact Modal opened → Security token refreshed.");
+            }).catch(err => {
+              console.warn("[Turnstile] Form verify skipped (not visible)", err);
+            });
+          }
+        }
+      });
+    });
+    observer.observe(contactModal, { attributes: true, attributeFilter: ['open'] });
+  }
+});
+</script>
 </body>
 </html>
