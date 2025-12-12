@@ -4,11 +4,11 @@ import { handleScheduled, injectWhatPulseStats } from "./whatpulse.js";
  * SITE CONFIGURATION
  */
 const SITE_CONFIG = {
-  name: "Silvan Soeters",
+  name: "Silso",
   domain: "https://sil.so",
   author: {
     name: "Silvan Soeters",
-    url: "https://sil.so/about"
+    url: "https://sil.so"
   },
   socials: [
     "https://x.com/silvansoeters",
@@ -170,7 +170,7 @@ async function handleBlogPost(slug, request, env) {
 
     const datePublished = new Date(post.date);
     const dateUpdated = post.updated ? new Date(post.updated) : datePublished;
-    const metaTitle = `${post.title} | ${SITE_CONFIG.name}`;
+    const metaTitle = `${post.title} | Blog | ${SITE_CONFIG.name}`;
 
     return (
       new HTMLRewriter()
