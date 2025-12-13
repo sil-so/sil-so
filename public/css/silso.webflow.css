@@ -86,13 +86,13 @@
   --_layout---grid--gap-md: 24px;
   --_layout---grid--gap-sm: 8px;
   --_layout---grid--gap-button: 16px;
-  --_components---button--vertical-padding: .7em;
-  --_components---button--horizontal-padding: 1em;
+  --_components---button--vertical-padding: .5em;
+  --_components---button--horizontal-padding: .8em;
   --_components---button--border-width: .0875rem;
-  --_components---button--border-radius: 1.25rem;
+  --_components---button--border-radius: .6rem;
   --_components---button--font: var(--_typography---fonts--primary-font);
   --primary--foreground: var(--lightningcss-light, var(--_color---light--light-1)) var(--lightningcss-dark, var(--_color---dark--dark-1));
-  --_components---button--font-size: 1rem;
+  --_components---button--font-size: .95rem;
   --_components---button--line-height: 1.3em;
   --_components---button--font-weight: 670;
   --_components---button--letter-spacing: 0em;
@@ -101,7 +101,7 @@
   --colors--background-4\<deleted\|variable-3d26bfde-7af1-5a38-c86f-14a5ee066c23\>: var(--_color---neutral--lighter\<deleted\|variable-0065a3d9\>);
   --colors--text-2\<deleted\|variable-910539ac-1a51-c039-7275-1581d21105a4\>: var(--lightningcss-light, var(--_color---neutral--lighter\<deleted\|variable-0065a3d9\>)) var(--lightningcss-dark, var(--_color---neutral--dark\<deleted\|variable-53d573b6\>));
   --colors--border-2\<deleted\|variable-415c3a40-2908-64dd-63f5-d4a8bab060cb\>: var(--lightningcss-light, var(--_color---neutral--lighter\<deleted\|variable-0065a3d9\>)) var(--lightningcss-dark, var(--_color---neutral--dark\<deleted\|variable-53d573b6\>));
-  --_components---button-small--font-size: .9rem;
+  --_components---button-small--font-size: .85rem;
   --tertiary--foreground: var(--lightningcss-light, var(--_color---light--light-10)) var(--lightningcss-dark, var(--_color---dark--dark-10));
   --ghost--foreground: var(--lightningcss-light, var(--_color---light--light-12)) var(--lightningcss-dark, var(--_color---dark--dark-12));
   --outline--border: var(--lightningcss-light, var(--_color---light--light-7)) var(--lightningcss-dark, var(--_color---dark--dark-7));
@@ -113,10 +113,10 @@
   --tertiary--hover: var(--lightningcss-light, var(--_color---light--light-12)) var(--lightningcss-dark, var(--_color---dark--dark-12));
   --border--active: var(--lightningcss-light, var(--_color---light--light-8)) var(--lightningcss-dark, var(--_color---dark--dark-8));
   --border--default: var(--lightningcss-light, var(--_color---light--light-6)) var(--lightningcss-dark, var(--_color---dark--dark-6));
-  --_components---button-small--vertical-padding: .5em;
-  --_components---button-small--horizontal-padding: .8em;
+  --_components---button-small--vertical-padding: .4em;
+  --_components---button-small--horizontal-padding: .7em;
   --_components---card--border-width: .0875rem;
-  --_components---card--border-radius: 1.5rem;
+  --_components---card--border-radius: 1.4rem;
   --colors--background-2\<deleted\|variable-c0d67656-a3fd-08cc-8b6c-e547c202831d\>: var(--lightningcss-light, var(--_color---neutral--dark\<deleted\|variable-53d573b6\>)) var(--lightningcss-dark, var(--_color---neutral--light\<deleted\|variable-f16457a0\>));
   --background--muted: var(--lightningcss-light, var(--_color---light--light-2)) var(--lightningcss-dark, var(--_color---dark--dark-2));
   --background--solid-primary: var(--lightningcss-light, var(--_color---light--light-9)) var(--lightningcss-dark, var(--_color---dark--dark-9));
@@ -127,7 +127,7 @@
   --_size---0-5rem\<deleted\|variable-70a8c3ac-c656-f79e-479c-716ec38165c2\>: .5rem;
   --_components---input--border-width: .0875rem;
   --border--input: var(--lightningcss-light, var(--_color---light--light-7)) var(--lightningcss-dark, var(--_color---dark--dark-7));
-  --_components---input--border-radius: 1.25rem;
+  --_components---input--border-radius: .6rem;
   --_components---input--font: var(--_typography---fonts--primary-font);
   --foreground--muted: var(--lightningcss-light, var(--_color---light--light-11)) var(--lightningcss-dark, var(--_color---dark--dark-11));
   --_components---input--font-size: 1rem;
@@ -253,7 +253,7 @@
   --_components---button-large--font-size: 1.3rem;
   --_components---scrollbar--size: 10px;
   --_typography---h1--font-size-min-rem: 2.3;
-  --_typography---h1--font-size-max-rem: 3.5;
+  --_typography---h1--font-size-max-rem: 3.3;
   --_typography---h2--font-size-min-rem: 1.7;
   --_typography---h2--font-size-max-rem: 2.3;
   --_typography---h3--font-size-min-rem: 1.4;
@@ -424,8 +424,6 @@ a {
   text-underline-offset: .1em;
   text-underline-position: under;
   background-color: #0000;
-  padding-left: .125rem;
-  padding-right: .125rem;
   text-decoration: none;
   text-decoration-thickness: .1em;
   transition-property: background-color, color;
@@ -3510,12 +3508,15 @@ figcaption {
 }
 
 .theme-toggle-checkbox {
+  border-top-left-radius: var(--_components---button--border-radius);
+  border-top-right-radius: var(--_components---button--border-radius);
+  border-bottom-left-radius: var(--_components---button--border-radius);
+  border-bottom-right-radius: var(--_components---button--border-radius);
   background-color: var(--background--default);
   box-shadow: 0 0 0 var(--_components---button--border-width) var(--border--default);
   cursor: pointer;
   -webkit-appearance: none;
   appearance: none;
-  border-radius: 1.5em;
   width: 3em;
   height: 1.5em;
   transition-property: background-color;
