@@ -3854,10 +3854,10 @@ figcaption {
 }
 
 .accordion-term {
-  padding-top: var(--_components---card--padding);
-  padding-right: var(--_components---card--padding);
-  padding-bottom: var(--_components---card--padding);
-  padding-left: var(--_components---card--padding);
+  padding-top: var(--_components---card--padding-small);
+  padding-right: var(--_components---card--padding-small);
+  padding-bottom: var(--_components---card--padding-small);
+  padding-left: var(--_components---card--padding-small);
   font-family: var(--_typography---h6--font);
   font-size: var(--_typography---h6--font-size);
   line-height: var(--_typography---h6--line-height);
@@ -3881,7 +3881,7 @@ figcaption {
 }
 
 .accordion-inner {
-  padding: var(--_components---card--padding);
+  padding: var(--_components---card--padding-small);
 }
 
 .nav-menu_btn-line {

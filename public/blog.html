@@ -1,4 +1,4 @@
-<!DOCTYPE html><!--  This site was created in Webflow. https://webflow.com  --><!--  Last Published: Sat Dec 13 2025 19:08:11 GMT+0000 (Coordinated Universal Time)  -->
+<!DOCTYPE html><!--  This site was created in Webflow. https://webflow.com  --><!--  Last Published: Sun Dec 14 2025 00:17:24 GMT+0000 (Coordinated Universal Time)  -->
 <html data-wf-page="6930cfbd81f6bf2057ce8f12" data-wf-site="691924e21a8dc9bab2bb563e" lang="en">
 <head>
   <meta charset="utf-8">
@@ -525,16 +525,27 @@ summary.accordion-summary::-webkit-details-marker {
     display: none;
 }
 span.accordion-term:after {
-    content: "\276F";
-    font-size: 0.9em;
-    transform: rotate(90deg);
+    content: "";
+    display: inline-block;
+    width: 1em; 
+    height: 1em;
+    vertical-align: middle;
+    margin-left: 5px;
+    background-color: currentColor; 
+    -webkit-mask-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"%3E%3Cpath d="M215.39,92.94A8,8,0,0,0,208,88H48a8,8,0,0,0-5.66,13.66l80,80a8,8,0,0,0,11.32,0l80-80A8,8,0,0,0,215.39,92.94Z"/%3E%3C/svg%3E');
+    mask-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"%3E%3Cpath d="M215.39,92.94A8,8,0,0,0,208,88H48a8,8,0,0,0-5.66,13.66l80,80a8,8,0,0,0,11.32,0l80-80A8,8,0,0,0,215.39,92.94Z"/%3E%3C/svg%3E');
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+    -webkit-mask-size: contain;
+    mask-size: contain;
     transition: transform 0.3s ease;
+    transform: rotate(0deg); 
 }
-/* Rotate arrow when open */
 details[open] span.accordion-term:after {
-    transform: rotate(270deg);
+    transform: rotate(180deg);
 }
-/* Animation Engine */
 .accordion-content {
     display: grid;
     grid-template-rows: 0fr;
@@ -542,7 +553,6 @@ details[open] span.accordion-term:after {
     padding: 0 !important;
   	margin: 0 !important;
 }
-/* The Active State (Sibling Selector) */
 details[open] + .accordion-content {
     grid-template-rows: 1fr;
     visibility: visible;
