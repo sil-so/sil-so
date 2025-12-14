@@ -1483,7 +1483,7 @@ figcaption {
 }
 
 .card-body:where(.w-variant-f75a83ff-af56-47cb-54c2-633c7e213177) {
-  padding: var(--_components---card--padding-small) var(--_components---card--padding);
+  padding: var(--_components---card--padding-small);
 }
 
 .form {
@@ -2430,7 +2430,7 @@ figcaption {
 
 .nav-logo_link {
   color: var(--primary--background);
-  width: 1.25rem;
+  width: 1.15rem;
   padding-left: 0;
   line-height: 1;
 }
@@ -3681,13 +3681,16 @@ figcaption {
   z-index: 21;
   grid-column-gap: .25rem;
   grid-row-gap: .25rem;
+  border-top-left-radius: var(--_components---button--border-radius);
+  border-top-right-radius: var(--_components---button--border-radius);
+  border-bottom-left-radius: var(--_components---button--border-radius);
+  border-bottom-right-radius: var(--_components---button--border-radius);
   background-color: color-mix(in srgb, var(--background--solid-primary), transparent 45%);
   -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
   pointer-events: none;
   color: var(--foreground--default);
   font-size: var(--_typography---paragraph-xs--font-size);
-  border-radius: 1rem;
   justify-content: center;
   align-items: center;
   padding: .5rem .7rem;
