@@ -35,7 +35,6 @@ export default {
     try {
       const url = new URL(request.url);
 
-      // 1. Handle Blog Index
       if (
         url.pathname === SITE_CONFIG.blogRoute ||
         url.pathname === `${SITE_CONFIG.blogRoute}/`
@@ -43,7 +42,6 @@ export default {
         return handleBlogList(request, env);
       }
 
-      // 2. Handle Individual Blog Posts
       if (
         url.pathname.startsWith(`${SITE_CONFIG.blogRoute}/`) &&
         url.pathname.split("/").length > 2
@@ -52,16 +50,23 @@ export default {
         if (slug) return handleBlogPost(slug, request, env);
       }
 
-      // 3. Handle Static Assets (With WhatPulse Stats Injection)
       const response = await env.ASSETS.fetch(request);
 
-      // --- RESTORED: Stats Injection Logic ---
-      return await injectWhatPulseStats(response, env, {
+      let finalResponse = await injectWhatPulseStats(response, env, {
         AssetPathHandler,
         SrcSetHandler,
         LinkHandler,
         TextHandler
       });
+
+      finalResponse = new Response(finalResponse.body, finalResponse);
+
+      finalResponse.headers.set(
+        "Cache-Control",
+        "public, max-age=0, must-revalidate"
+      );
+
+      return finalResponse;
     } catch (e) {
       return new Response(`Worker Error: ${e.message}\nStack: ${e.stack}`, {
         status: 500
@@ -497,7 +502,7 @@ function convertBlocksToHtml(blocks) {
           block.video.type === "external"
             ? block.video.external.url
             : block.video.file.url;
-        html += `<div class="w-embed w-script"><video controls playsinline style="width: 100%; height: auto; border-radius: 8px;"><source src="${vSrc}" type="video/mp4"></video></div>`;
+        html += `<div class="w-embed w-script"><video controls playsinline style="width: 100%; height: auto; border-radius: var(--_components---image--border-radius-small);"><source src="${vSrc}" type="video/mp4"></video></div>`;
         break;
 
       case "code":
