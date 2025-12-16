@@ -2378,7 +2378,7 @@ figcaption {
   color: var(--foreground--default);
   width: 100%;
   max-width: 100%;
-  height: 3.75rem;
+  height: 3rem;
   margin-left: auto;
   margin-right: auto;
   position: sticky;
@@ -2433,7 +2433,7 @@ figcaption {
 
 .nav-logo_link {
   color: var(--primary--background);
-  width: 1.15rem;
+  width: 1.1rem;
   padding-left: 0;
   line-height: 1;
 }
@@ -3253,9 +3253,9 @@ figcaption {
 }
 
 .masonry-item {
+  margin-bottom: var(--_layout---grid--gap-md);
   background-color: var(--background--default);
   flex: none;
-  margin-bottom: 2rem;
   position: relative;
 }
 
@@ -3548,7 +3548,7 @@ figcaption {
   z-index: 2;
   justify-content: center;
   align-items: center;
-  width: 4rem;
+  width: 3rem;
   height: auto;
   display: flex;
   position: relative;
@@ -3749,7 +3749,7 @@ figcaption {
 .masonry-nav {
   z-index: 9999;
   align-items: center;
-  height: 3.75rem;
+  height: 3rem;
   margin-bottom: 1rem;
   padding-top: 0;
   padding-bottom: 0;
@@ -4318,10 +4318,6 @@ figcaption {
     display: block;
   }
 
-  .nav {
-    height: 3.5rem;
-  }
-
   .nav-link {
     font-size: var(--_typography---h4--font-size);
     justify-content: flex-start;
@@ -4411,10 +4407,6 @@ figcaption {
     margin-right: auto;
     padding-top: 2rem;
     padding-bottom: 2rem;
-  }
-
-  .masonry-nav {
-    height: 3.5rem;
   }
 
   .blog_toc-wrapper {
@@ -4644,14 +4636,6 @@ figcaption {
     padding: var(--_components---card--card-body-padding-sm\<deleted\|variable-886aa6f6-843b-26b9-170b-96cc08ca36e2\>);
   }
 
-  .nav {
-    height: 3.25rem;
-  }
-
-  .nav-logo_link {
-    width: 1.125rem;
-  }
-
   .nav-menu {
     height: calc(100svh - 5.25rem);
   }
@@ -4673,11 +4657,10 @@ figcaption {
   }
 
   .masonry-item {
-    margin-bottom: .5rem;
+    margin-bottom: var(--_layout---grid--gap-md);
   }
 
   .masonry-nav {
-    height: 3.25rem;
     margin-bottom: 1rem;
   }
 

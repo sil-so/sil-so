@@ -1,4 +1,4 @@
-<!DOCTYPE html><!--  This site was created in Webflow. https://webflow.com  --><!--  Last Published: Tue Dec 16 2025 04:51:10 GMT+0000 (Coordinated Universal Time)  -->
+<!DOCTYPE html><!--  This site was created in Webflow. https://webflow.com  --><!--  Last Published: Tue Dec 16 2025 06:14:39 GMT+0000 (Coordinated Universal Time)  -->
 <html data-wf-page="6930cfd0127e468d53c56807" data-wf-site="691924e21a8dc9bab2bb563e" lang="en">
 <head>
   <meta charset="utf-8">
@@ -122,22 +122,6 @@
   }
   html.wf-design-mode [data-stack="wrapper"] [data-stack="item"]:not(:first-of-type) {
     display: none !important;
-  }
-  html.wf-design-mode .masonry-container {
-    flex-flow: wrap;
-    justify-content: flex-start;
-    align-items: flex-start;
-    grid-auto-columns: 1fr;
-    gap: 2rem;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: auto;
-    column-count: 3;
-  }
-  @media (max-width: 768px) {
-    html.wf-design-mode .masonry-container {
-      gap: 1rem;
-      column-count: 2;
-    }
   }
 </style>
       </div>
@@ -331,6 +315,26 @@ li::marker {
 </script>
       </div>
       <div>
+        <div>
+          <div class="w-embed">
+            <style>
+.preloader-content {
+  animation: preloader-pulse 2.4s ease-in-out infinite;
+}
+@keyframes preloader-pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+</style>
+          </div>
+        </div>
         <div>
           <div class="w-embed">
             <style>
@@ -740,29 +744,41 @@ document.addEventListener('DOMContentLoaded', () => {
         <div>
           <div class="w-embed">
             <style>
+  html.wf-design-mode .masonry-container {
+    flex-flow: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    grid-auto-columns: 1fr;
+    gap: var(--_layout---grid--gap-md);
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    column-count: 3;
+  }
+  @media (max-width: 991px) {
+    html.wf-design-mode .masonry-container {
+      gap: var(--_layout---grid--gap-md);
+      column-count: 2;
+    }
+  }
+  @media (max-width: 479px) {
+    html.wf-design-mode .masonry-container {
+      gap: var(--_layout---grid--gap-md);
+      column-count: 1;
+    }
+  }
 .masonry-nav, .nav {
-  /* Fallback for browsers that don't support backdrop-filter */
   background: var(--background--default);
 }
 @supports (backdrop-filter: blur(16px)) or (-webkit-backdrop-filter: blur(16px)) {
   .masonry-nav, .nav {
-    /* 
-      1. Apply the tint ONLY here to ensure uniformity. 
-         Using color-mix allows for easy opacity adjustments while keeping CSS variables.
-    */
     background: color-mix(in srgb, var(--background--default) 75%, transparent);
   }
   .backdrop {
     position: absolute;
     inset: 0;
-    z-index: -1; /* Ensure backdrop stays behind nav content/text */
+    z-index: -1;
     -webkit-backdrop-filter: blur(16px);
     backdrop-filter: blur(16px);
-    /* 
-      2. REMOVED: background: linear-gradient(...) 
-         This was causing the "dark top" effect by stacking extra color 
-         on top of the nav's background.
-    */
     pointer-events: none;
   }
 }
@@ -796,6 +812,7 @@ document.addEventListener('DOMContentLoaded', () => {
     top: 100%;
     right: auto;
 		margin-top: calc(var(--_layout---spacing--margin-xs) + 0.5rem);
+    padding: var(--_components---button--vertical-padding) 0;
     width: max-content;
     background: var(--background--default);
     z-index: 100;
@@ -804,7 +821,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   .filter-list.is-open {
     display: flex;
-    gap: 0;
+    gap: 0.125rem;
   }
   .filter-list button {
     width: 100%;
@@ -1936,7 +1953,7 @@ tbody tr:last-child td {
       </div>
       <a id="skip-link" href="#main" class="nav-skip-link">Skip to Main Content</a>
       <div class="nav-container">
-        <a href="index.html" class="nav-logo_link w-nav-brand"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 19 26" fill="var(--foreground--default)" aria-hidden="true" style="" height="100%" class="u-svg u-overflow-visible u-w-100 u-h-100">
+        <a href="index.html" class="nav-logo_link u-d-flex w-nav-brand"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 19 26" fill="var(--foreground--default)" aria-hidden="true" style="" height="100%" class="u-svg u-overflow-visible u-w-100 u-h-100">
             <path d="M16.7375 0.0639034C16.8541 0.040438 17.8551 -0.163736 18.0088 0.308528C18.1603 0.770482 17.1531 1.17293 17.0368 1.21891C15.8968 1.68124 4.57911 6.26855 15.983 10.8949C24.6682 14.2754 12.8335 23.144 2.81464 25.8893C2.70115 25.9202 1.73803 26.183 1.47379 25.7697C1.21422 25.3644 2.11994 24.915 2.22462 24.8637C3.32843 24.308 12.8378 19.5328 3.01838 14.9504C-6.3303 9.91196 8.25146 1.79854 16.7375 0.0639034Z" class="u-path"></path>
           </svg></a>
         <div class="nav-menu_btn w-nav-button">

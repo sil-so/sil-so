@@ -1,4 +1,4 @@
-<!DOCTYPE html><!--  This site was created in Webflow. https://webflow.com  --><!--  Last Published: Tue Dec 16 2025 04:51:10 GMT+0000 (Coordinated Universal Time)  -->
+<!DOCTYPE html><!--  This site was created in Webflow. https://webflow.com  --><!--  Last Published: Tue Dec 16 2025 06:14:39 GMT+0000 (Coordinated Universal Time)  -->
 <html data-wf-page="691924e41a8dc9bab2bb569b" data-wf-site="691924e21a8dc9bab2bb563e" lang="en">
 <head>
   <meta charset="utf-8">
@@ -122,22 +122,6 @@
   }
   html.wf-design-mode [data-stack="wrapper"] [data-stack="item"]:not(:first-of-type) {
     display: none !important;
-  }
-  html.wf-design-mode .masonry-container {
-    flex-flow: wrap;
-    justify-content: flex-start;
-    align-items: flex-start;
-    grid-auto-columns: 1fr;
-    gap: 2rem;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: auto;
-    column-count: 3;
-  }
-  @media (max-width: 768px) {
-    html.wf-design-mode .masonry-container {
-      gap: 1rem;
-      column-count: 2;
-    }
   }
 </style>
       </div>
@@ -331,6 +315,26 @@ li::marker {
 </script>
       </div>
       <div>
+        <div>
+          <div class="w-embed">
+            <style>
+.preloader-content {
+  animation: preloader-pulse 2.4s ease-in-out infinite;
+}
+@keyframes preloader-pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+</style>
+          </div>
+        </div>
         <div>
           <div class="w-embed">
             <style>
@@ -740,29 +744,41 @@ document.addEventListener('DOMContentLoaded', () => {
         <div>
           <div class="w-embed">
             <style>
+  html.wf-design-mode .masonry-container {
+    flex-flow: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    grid-auto-columns: 1fr;
+    gap: var(--_layout---grid--gap-md);
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    column-count: 3;
+  }
+  @media (max-width: 991px) {
+    html.wf-design-mode .masonry-container {
+      gap: var(--_layout---grid--gap-md);
+      column-count: 2;
+    }
+  }
+  @media (max-width: 479px) {
+    html.wf-design-mode .masonry-container {
+      gap: var(--_layout---grid--gap-md);
+      column-count: 1;
+    }
+  }
 .masonry-nav, .nav {
-  /* Fallback for browsers that don't support backdrop-filter */
   background: var(--background--default);
 }
 @supports (backdrop-filter: blur(16px)) or (-webkit-backdrop-filter: blur(16px)) {
   .masonry-nav, .nav {
-    /* 
-      1. Apply the tint ONLY here to ensure uniformity. 
-         Using color-mix allows for easy opacity adjustments while keeping CSS variables.
-    */
     background: color-mix(in srgb, var(--background--default) 75%, transparent);
   }
   .backdrop {
     position: absolute;
     inset: 0;
-    z-index: -1; /* Ensure backdrop stays behind nav content/text */
+    z-index: -1;
     -webkit-backdrop-filter: blur(16px);
     backdrop-filter: blur(16px);
-    /* 
-      2. REMOVED: background: linear-gradient(...) 
-         This was causing the "dark top" effect by stacking extra color 
-         on top of the nav's background.
-    */
     pointer-events: none;
   }
 }
@@ -796,6 +812,7 @@ document.addEventListener('DOMContentLoaded', () => {
     top: 100%;
     right: auto;
 		margin-top: calc(var(--_layout---spacing--margin-xs) + 0.5rem);
+    padding: var(--_components---button--vertical-padding) 0;
     width: max-content;
     background: var(--background--default);
     z-index: 100;
@@ -804,7 +821,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   .filter-list.is-open {
     display: flex;
-    gap: 0;
+    gap: 0.125rem;
   }
   .filter-list button {
     width: 100%;
@@ -2512,9 +2529,9 @@ tbody tr:last-child td {
                   </div>
                   <div data-wf--spacer--settings-size="small" class="spacer-component w-variant-e4fc4cad-f8e2-63d7-bb51-6c5b9af34c38" id="" style=""></div>
                   <div data-wf--button--button-variant="link" class="button w-variant-ea990ac3-89d1-9883-7270-d170f3432e08" id="" style="" data-open-modal="">
-                    <div aria-hidden="false" class="btn-text">hello@sil.so</div>
-                    <a href="mailto:hello@sil.so?subject=Contact%20%7C%20sil.so" class="u-link-cover w-inline-block">
-                      <div class="u-sr-only">hello@sil.so</div>
+                    <div aria-hidden="false" class="btn-text">hi@sil.so</div>
+                    <a href="mailto:hi@sil.so?subject=Contact%20%7C%20Silso" class="u-link-cover w-inline-block">
+                      <div class="u-sr-only">hi@sil.so</div>
                     </a>
                   </div>
                   <div data-wf--spacer--settings-size="medium" class="spacer-component w-variant-60e88f1c-8990-2b60-1d3a-e5ec07d412dc" id="" style=""></div>
@@ -2754,7 +2771,7 @@ tbody tr:last-child td {
         <div class="container">
           <div data-wf--grid-row--settings-column-alignment="top-left" id="" style="" class="row-component">
             <div class="row row-align-center">
-              <div data-wf--grid-column--settings-column-size="fill" class="col filter-component" id="" style="">
+              <div data-wf--grid-column--settings-column-size="shrink" class="col w-variant-63569d8e-a8ac-61e1-0666-21eb6073c541 filter-component" id="" style="">
                 <div class="slot cc-column">
                   <div id="" style="flex-direction: row;" class="filter-list"><button data-wf--button--button-variant="tertiary" class="button w-variant-a22cef60-9092-33c0-69b8-3e7399bf71b2 cc-filter-active cc-small" id="" style="font-size: var(--_components---button-small--font-size)" data-filter="*" data-filter-name="all" data-open-modal="">
                       <div aria-hidden="true" class="btn-text">all</div>
@@ -2773,13 +2790,10 @@ tbody tr:last-child td {
                     <div class="btn-icon">
                       <div data-wf--icon--settings-color="inherit" id="" style="" class="icon-color"><span data-wf--icon-size--variant="1-em" class="icon ph-fill ph-caret-down toggle-icon">​</span></div>
                     </div>
-                    <a href="#" class="u-link-cover w-inline-block">
-                      <div class="u-sr-only">all</div>
-                    </a>
                   </button>
                 </div>
               </div>
-              <div data-wf--grid-column--settings-column-size="shrink" class="col w-variant-63569d8e-a8ac-61e1-0666-21eb6073c541" id="" style="">
+              <div data-wf--grid-column--settings-column-size="shrink" class="col w-variant-63569d8e-a8ac-61e1-0666-21eb6073c541 u-md-d-none" id="" style="margin-left: auto">
                 <div class="slot cc-column">
                   <div class="view-controls u-d-flex">
                     <div class="u-d-none u-md-d-block"><button data-wf--button--button-variant="tertiary" class="button w-variant-a22cef60-9092-33c0-69b8-3e7399bf71b2 cc-small" id="" style="padding: 0.25rem 0.5rem;" data-columns="1" data-open-modal="">
@@ -3963,12 +3977,7 @@ tbody tr:last-child td {
   <style>
 /* Masonry Layout */
 :root {
-    --masonry-item-padding: 1rem;
-}
-@media screen and (max-width: 768px) {
-    :root {
-        --masonry-item-padding: 0.25rem;
-    }
+    --masonry-item-padding: calc(var(--_layout---grid--gap-md) / 2);
 }
 .masonry-container {
     margin-left: calc(var(--masonry-item-padding) * -1);
