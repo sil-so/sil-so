@@ -1,9 +1,9 @@
 <details open>
-<summary>🙋‍♂️ About</summary>
+<summary>👤 Intro</summary>
 
 <br>
 
-Hey, I'm Silvan - a passionate maker from Rotterdam.
+I'm Silvan, a passionate maker living in Rotterdam 🇳🇱
 
 </details>
 
@@ -12,13 +12,15 @@ Hey, I'm Silvan - a passionate maker from Rotterdam.
 
 <br>
 
-[sil.so](https://sil.so) • Personal website  
+[Silso](https://sil.so) • Portfolio website  
 
-[flowtu.be](https://flowtu.be) • Webflow-to-GitHub Sync  
+[FlowTube](https://flowtu.be) • Webflow-to-GitHub automator  
 
-[warp.domains](https://warp.domains) • AI domain name generator  
+[Curatyy™](https://curatyy.art) • AI art curation  
 
-[curatyy.ai](https://curatyy.ai) • AI art curation  
+[Muxt](https://github.com/sil-so/muxt) • Multi-column social media viewer  
+
+[Warp Domains](https://warp.domains) • AI domain name generator  
 
 </details>
 
@@ -29,6 +31,6 @@ Hey, I'm Silvan - a passionate maker from Rotterdam.
 
 [support my work](https://ko-fi.com/M4M11AXHXH)  
 
-[hello@sil.so](mailto:hello@sil.so?subject=Contact%20%7C%20sil.so)  
+[hi@sil.so](mailto:hi@sil.so?subject=Contact%20%7C%20Silso)  
 
 </details>
