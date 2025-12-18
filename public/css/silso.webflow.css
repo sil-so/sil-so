@@ -1,31 +1,31 @@
 @font-face {
-  font-family: Inter Variablefont Opsz Wght;
+  font-family: Nunitosans Variablefont Ytlc Opsz Wdth Wght;
   src: url('../images/') format("truetype");
-  font-weight: 100 900;
+  font-weight: 200 1000;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: Inter Variablefont Opsz Wght;
+  font-family: Nunitosans Variablefont Ytlc Opsz Wdth Wght;
   src: url('../images/') format("truetype");
-  font-weight: 100 900;
+  font-weight: 200 1000;
   font-style: italic;
   font-display: swap;
 }
 
 @font-face {
-  font-family: Karla Variablefont Wght;
-  src: url('../fonts/Karla-VariableFont_wght.ttf') format("truetype");
-  font-weight: 200 800;
+  font-family: Figtree Variablefont Wght;
+  src: url('../fonts/Figtree-VariableFont_wght.ttf') format("truetype");
+  font-weight: 300 900;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: Karla Variablefont Wght;
-  src: url('../fonts/Karla-Italic-VariableFont_wght.ttf') format("truetype");
-  font-weight: 200 800;
+  font-family: Figtree Variablefont Wght;
+  src: url('../fonts/Figtree-Italic-VariableFont_wght.ttf') format("truetype");
+  font-weight: 300 900;
   font-style: italic;
   font-display: swap;
 }
@@ -42,37 +42,37 @@
   --_typography---h1--font: var(--_typography---fonts--primary-font);
   --_typography---h1--font-size: clamp(var(--_typography---h1--font-size-min-rem) * 1rem, ((var(--_typography---h1--font-size-min-rem)  - ((var(--_typography---h1--font-size-max-rem)  - var(--_typography---h1--font-size-min-rem)) / (var(--_layout---fluid--max)  - var(--_layout---fluid--min)) * var(--_layout---fluid--min))) * 1rem + ((var(--_typography---h1--font-size-max-rem)  - var(--_typography---h1--font-size-min-rem)) / (var(--_layout---fluid--max)  - var(--_layout---fluid--min))) * 100vw), var(--_typography---h1--font-size-max-rem) * 1rem);
   --_typography---h1--line-height: 1.1;
-  --_typography---h1--font-weight: 730;
+  --_typography---h1--font-weight: 700;
   --_typography---h1--letter-spacing: -.02em;
   --_typography---h2--bottom-margin: .2em;
   --_typography---h2--font: var(--_typography---fonts--primary-font);
   --_typography---h2--font-size: clamp(var(--_typography---h2--font-size-min-rem) * 1rem, ((var(--_typography---h2--font-size-min-rem)  - ((var(--_typography---h2--font-size-max-rem)  - var(--_typography---h2--font-size-min-rem)) / (var(--_layout---fluid--max)  - var(--_layout---fluid--min)) * var(--_layout---fluid--min))) * 1rem + ((var(--_typography---h2--font-size-max-rem)  - var(--_typography---h2--font-size-min-rem)) / (var(--_layout---fluid--max)  - var(--_layout---fluid--min))) * 100vw), var(--_typography---h2--font-size-max-rem) * 1rem);
   --_typography---h2--line-height: 1.1;
-  --_typography---h2--font-weight: 730;
+  --_typography---h2--font-weight: 700;
   --_typography---h2--letter-spacing: -.02em;
   --_typography---h3--bottom-margin: .3em;
   --_typography---h3--font: var(--_typography---fonts--primary-font);
   --_typography---h3--font-size: clamp(var(--_typography---h3--font-size-min-rem) * 1rem, ((var(--_typography---h3--font-size-min-rem)  - ((var(--_typography---h3--font-size-max-rem)  - var(--_typography---h3--font-size-min-rem)) / (var(--_layout---fluid--max)  - var(--_layout---fluid--min)) * var(--_layout---fluid--min))) * 1rem + ((var(--_typography---h3--font-size-max-rem)  - var(--_typography---h3--font-size-min-rem)) / (var(--_layout---fluid--max)  - var(--_layout---fluid--min))) * 100vw), var(--_typography---h3--font-size-max-rem) * 1rem);
   --_typography---h3--line-height: 1.2;
-  --_typography---h3--font-weight: 730;
+  --_typography---h3--font-weight: 700;
   --_typography---h3--letter-spacing: 0em;
   --_typography---h4--bottom-margin: .4em;
   --_typography---h4--font: var(--_typography---fonts--primary-font);
   --_typography---h4--font-size: clamp(var(--_typography---h4--font-size-min-rem) * 1rem, ((var(--_typography---h4--font-size-min-rem)  - ((var(--_typography---h4--font-size-max-rem)  - var(--_typography---h4--font-size-min-rem)) / (var(--_layout---fluid--max)  - var(--_layout---fluid--min)) * var(--_layout---fluid--min))) * 1rem + ((var(--_typography---h4--font-size-max-rem)  - var(--_typography---h4--font-size-min-rem)) / (var(--_layout---fluid--max)  - var(--_layout---fluid--min))) * 100vw), var(--_typography---h4--font-size-max-rem) * 1rem);
   --_typography---h4--line-height: 1.4;
-  --_typography---h4--font-weight: 730;
+  --_typography---h4--font-weight: 700;
   --_typography---h4--letter-spacing: 0em;
   --_typography---h5--bottom-margin: .5em;
   --_typography---h5--font: var(--_typography---fonts--primary-font);
   --_typography---h5--font-size: clamp(var(--_typography---h5--font-size-min-rem) * 1rem, ((var(--_typography---h5--font-size-min-rem)  - ((var(--_typography---h5--font-size-max-rem)  - var(--_typography---h5--font-size-min-rem)) / (var(--_layout---fluid--max)  - var(--_layout---fluid--min)) * var(--_layout---fluid--min))) * 1rem + ((var(--_typography---h5--font-size-max-rem)  - var(--_typography---h5--font-size-min-rem)) / (var(--_layout---fluid--max)  - var(--_layout---fluid--min))) * 100vw), var(--_typography---h5--font-size-max-rem) * 1rem);
   --_typography---h5--line-height: 1.4;
-  --_typography---h5--font-weight: 730;
+  --_typography---h5--font-weight: 700;
   --_typography---h5--letter-spacing: 0em;
   --_typography---h6--bottom-margin: .6em;
   --_typography---h6--font: var(--_typography---fonts--primary-font);
   --_typography---h6--font-size: clamp(var(--_typography---h6--font-size-min-rem) * 1rem, ((var(--_typography---h6--font-size-min-rem)  - ((var(--_typography---h6--font-size-max-rem)  - var(--_typography---h6--font-size-min-rem)) / (var(--_layout---fluid--max)  - var(--_layout---fluid--min)) * var(--_layout---fluid--min))) * 1rem + ((var(--_typography---h6--font-size-max-rem)  - var(--_typography---h6--font-size-min-rem)) / (var(--_layout---fluid--max)  - var(--_layout---fluid--min))) * 100vw), var(--_typography---h6--font-size-max-rem) * 1rem);
   --_typography---h6--line-height: 1.4;
-  --_typography---h6--font-weight: 730;
+  --_typography---h6--font-weight: 700;
   --_typography---h6--letter-spacing: 0em;
   --_typography---paragraph-body--bottom-margin: 1em;
   --link--foreground: var(--lightningcss-light, var(--_color---light--sky-11)) var(--lightningcss-dark, var(--_color---dark--sky-11));
@@ -147,7 +147,8 @@
   --_typography---eyebrow--font: var(--_typography---fonts--primary-font);
   --_typography---eyebrow--font-size: clamp(var(--_typography---eyebrow--font-size-min-rem) * 1rem, ((var(--_typography---eyebrow--font-size-min-rem)  - ((var(--_typography---eyebrow--font-size-max-rem)  - var(--_typography---eyebrow--font-size-min-rem)) / (var(--_layout---fluid--max)  - var(--_layout---fluid--min)) * var(--_layout---fluid--min))) * 1rem + ((var(--_typography---eyebrow--font-size-max-rem)  - var(--_typography---eyebrow--font-size-min-rem)) / (var(--_layout---fluid--max)  - var(--_layout---fluid--min))) * 100vw), var(--_typography---eyebrow--font-size-max-rem) * 1rem);
   --_typography---eyebrow--line-height: 1.2;
-  --_typography---eyebrow--font-weight: 730;
+  --_typography---eyebrow--font-weight: 700;
+  --_typography---eyebrow--letter-spacing: .14em;
   --_typography---paragraph-sm--bottom-margin: 1em;
   --_typography---paragraph-sm--font: var(--_typography---fonts--secondary-font);
   --_typography---paragraph-sm--font-size: clamp(var(--_typography---paragraph-sm--font-size-min-rem) * 1rem, ((var(--_typography---paragraph-sm--font-size-min-rem)  - ((var(--_typography---paragraph-sm--font-size-max-rem)  - var(--_typography---paragraph-sm--font-size-min-rem)) / (var(--_layout---fluid--max)  - var(--_layout---fluid--min)) * var(--_layout---fluid--min))) * 1rem + ((var(--_typography---paragraph-sm--font-size-max-rem)  - var(--_typography---paragraph-sm--font-size-min-rem)) / (var(--_layout---fluid--max)  - var(--_layout---fluid--min))) * 100vw), var(--_typography---paragraph-sm--font-size-max-rem) * 1rem);
@@ -177,7 +178,7 @@
   --rich-text--code-foreground: var(--lightningcss-light, var(--_color---light--light-11)) var(--lightningcss-dark, var(--_color---dark--dark-11));
   --_layout---spacing--margin-xs: .5em;
   --_components---card--card-body-padding-sm\<deleted\|variable-886aa6f6-843b-26b9-170b-96cc08ca36e2\>: 20px;
-  --_typography---fonts--primary-font: "Karla Variablefont Wght", Arial, sans-serif;
+  --_typography---fonts--primary-font: "Figtree Variablefont Wght", Arial, sans-serif;
   --_color---primary--orange\<deleted\|variable-ba25d908\>: #d14424;
   --_size---0-25rem\<deleted\|variable-2d47388d-3251-c56b-03c9-35dfc0a59c39\>: .25rem;
   --_size---2rem\<deleted\|variable-703e76dd-22c1-0e62-be30-102e06bdb527\>: 2rem;
@@ -198,7 +199,7 @@
   --_typography---paragraph-xs--letter-spacing: 0em;
   --background--card: var(--lightningcss-light, var(--_color---light--light-3)) var(--lightningcss-dark, var(--_color---dark--dark-3));
   --_layout---fluid--max: 90;
-  --_typography---fonts--secondary-font: "Inter Variablefont Opsz Wght", Arial, sans-serif;
+  --_typography---fonts--secondary-font: "Nunitosans Variablefont Ytlc Opsz Wdth Wght", Arial, sans-serif;
   --_color---dark--dark-2: #18191b;
   --_color---dark--dark-3: #212225;
   --_color---dark--dark-4: #272a2d;
@@ -277,7 +278,6 @@
   --_typography---paragraph-xs--font-size-max-rem: .8;
   --_typography---eyebrow--font-size-min-rem: .7;
   --_typography---eyebrow--font-size-max-rem: .8;
-  --_typography---eyebrow--letter-spacing: .1em;
   --_color---neutral--mid-dark\<deleted\|variable-35755b90-8ee6-83e7-b09b-fd6e59aab6f1\>: #272727;
   --_color---neutral--light\<deleted\|variable-f16457a0\>: #f2f0e5;
   --_color---neutral--lighter\<deleted\|variable-0065a3d9\>: #eeeeec;
@@ -1613,7 +1613,7 @@ figcaption {
 }
 
 .input-label.cc-static.cc-tiny {
-  font-family: Inter Variablefont Opsz Wght, Arial, sans-serif;
+  font-family: Inter Variablefont Opsz Wght;
   font-size: .8rem;
   font-weight: var(--_typography---paragraph-body--font-weight);
 }
@@ -1891,7 +1891,7 @@ figcaption {
   font-size: var(--_typography---eyebrow--font-size);
   line-height: var(--_typography---eyebrow--line-height);
   font-weight: var(--_typography---eyebrow--font-weight);
-  letter-spacing: .1em;
+  letter-spacing: var(--_typography---eyebrow--letter-spacing);
 }
 
 .eyebrow.cc-breadcrumb {
@@ -3963,6 +3963,10 @@ figcaption {
   position: absolute;
 }
 
+.desktop-mockup {
+  width: 100%;
+}
+
 @media screen and (max-width: 991px) {
   .col:where(.w-variant-28e74f51-d7e2-a771-32c6-dda728ccfa16) {
     flex-basis: 50%;
@@ -4834,30 +4838,30 @@ figcaption {
 
 
 @font-face {
-  font-family: 'Inter Variablefont Opsz Wght';
+  font-family: 'Nunitosans Variablefont Ytlc Opsz Wdth Wght';
   src: url('../images/') format('truetype');
-  font-weight: 100 900;
+  font-weight: 200 1000;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: 'Inter Variablefont Opsz Wght';
+  font-family: 'Nunitosans Variablefont Ytlc Opsz Wdth Wght';
   src: url('../images/') format('truetype');
-  font-weight: 100 900;
+  font-weight: 200 1000;
   font-style: italic;
   font-display: swap;
 }
 @font-face {
-  font-family: 'Karla Variablefont Wght';
-  src: url('../fonts/Karla-VariableFont_wght.ttf') format('truetype');
-  font-weight: 200 800;
+  font-family: 'Figtree Variablefont Wght';
+  src: url('../fonts/Figtree-VariableFont_wght.ttf') format('truetype');
+  font-weight: 300 900;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: 'Karla Variablefont Wght';
-  src: url('../fonts/Karla-Italic-VariableFont_wght.ttf') format('truetype');
-  font-weight: 200 800;
+  font-family: 'Figtree Variablefont Wght';
+  src: url('../fonts/Figtree-Italic-VariableFont_wght.ttf') format('truetype');
+  font-weight: 300 900;
   font-style: italic;
   font-display: swap;
 }
