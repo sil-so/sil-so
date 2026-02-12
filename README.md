@@ -14,11 +14,9 @@ I'm Silvan, a passionate maker living in Rotterdam 🇳🇱
 
 [Silso](https://sil.so) • Portfolio website  
 
-[FlowTube](https://flowtu.be) • Webflow-to-GitHub automator  
+[FlowTube](https://flowtu.be) • Webflow-to-GitHub automation  
 
-[Curatyy™](https://curatyy.art) • AI art curation  
-
-[Muxt](https://github.com/sil-so/muxt) • Multi-column social media viewer  
+[Curatyy™](https://curatyy.art) • Personal AI art curator  
 
 [Warp Domains](https://warp.domains) • AI domain name generator  
 
