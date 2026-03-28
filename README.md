@@ -14,7 +14,9 @@ I'm Silvan, a passionate maker living in Rotterdam 🇳🇱
 
 [Silso](https://sil.so) • Portfolio website  
 
-[FlowTube](https://flowtu.be) • Webflow-to-GitHub automation  
+[JotTab](https://jottab.com) • Design your New Tab  
+
+[FlowTube](https://flowtu.be) • Automate Webflow to GitHub
 
 [Curatyy™](https://curatyy.art) • Personal AI art curator  
 
