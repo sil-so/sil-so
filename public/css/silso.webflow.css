@@ -759,8 +759,8 @@ figcaption {
 }
 
 .container {
-  max-width: min((100% - var(--_components---container--gutter) * 2), var(--_components---container--max-width));
   width: 88%;
+  max-width: min((100% - var(--_components---container--gutter) * 2), var(--_components---container--max-width));
   margin-left: auto;
   margin-right: auto;
   display: block;
@@ -1544,7 +1544,6 @@ figcaption {
 .form_required-note {
   justify-content: flex-end;
   align-items: center;
-  max-width: -moz-fit-content;
   max-width: fit-content;
   margin-top: -1.25rem;
   margin-left: auto;
@@ -1603,6 +1602,8 @@ figcaption {
 .input {
   border: var(--_components---input--border-width) solid var(--border--input);
   border-radius: var(--_components---input--border-radius);
+  height: 100%;
+  min-height: 4rem;
   font-family: var(--_components---input--font);
   color: var(--foreground--muted);
   font-size: var(--_components---input--font-size);
@@ -1610,8 +1611,6 @@ figcaption {
   font-weight: var(--_components---input--font-weight);
   letter-spacing: var(--_components---input--letter-spacing);
   background-color: #0000;
-  height: 100%;
-  min-height: 4rem;
   margin-bottom: 0;
   padding: 2rem 1rem .5rem;
   transition: color .3s cubic-bezier(.165, .84, .44, 1), border-color .3s cubic-bezier(.165, .84, .44, 1);
@@ -1670,10 +1669,10 @@ figcaption {
 
 .input-radio {
   border: var(--_components---input--border-width) solid var(--border--input);
-  box-shadow: inset 0 0 0 3px var(--background--default);
-  background-color: #0000;
   width: 20px;
   height: 20px;
+  box-shadow: inset 0 0 0 3px var(--background--default);
+  background-color: #0000;
   margin-top: 2px;
   margin-left: -28px;
   transition: background-color .3s cubic-bezier(.165, .84, .44, 1), border-color .3s cubic-bezier(.165, .84, .44, 1);
@@ -1924,8 +1923,8 @@ figcaption {
 }
 
 .styles__nav-logo {
-  color: var(--primary--background);
   width: 64px;
+  color: var(--primary--background);
   line-height: .8;
 }
 
@@ -2181,14 +2180,14 @@ figcaption {
 }
 
 .u-border {
+  width: 100%;
+  height: 1px;
   margin-top: var(--_layout---grid--gap-main);
   margin-right: 0;
   margin-bottom: var(--_layout---grid--gap-main);
   background-color: var(--border--default);
   box-shadow: none;
   border: 1px #000;
-  width: 100%;
-  height: 1px;
   margin-left: 0;
   padding: 0;
 }
@@ -2388,9 +2387,9 @@ figcaption {
   border: var(--_components---card--border-width) solid var(--border--default);
   border-radius: var(--_components---card--border-radius);
   background-color: var(--background--default);
-  color: var(--foreground--default);
   width: 90%;
   max-width: 32rem;
+  color: var(--foreground--default);
   padding: 0;
   transition: all .3s cubic-bezier(.165, .84, .44, 1);
   overflow: hidden;
@@ -2424,10 +2423,10 @@ figcaption {
 .nav {
   z-index: 999;
   background-color: var(--background--muted);
-  color: var(--foreground--default);
   width: 100%;
   max-width: 100%;
   height: 3rem;
+  color: var(--foreground--default);
   margin-left: auto;
   margin-right: auto;
   position: sticky;
@@ -2482,8 +2481,8 @@ figcaption {
 }
 
 .nav-logo_link {
-  color: var(--primary--background);
   width: 1.1rem;
+  color: var(--primary--background);
   padding-left: 0;
   line-height: 1;
 }
@@ -2606,6 +2605,7 @@ figcaption {
 
 .nav-skip-link {
   z-index: 9998;
+  height: 3em;
   padding: var(--_components---button-small--vertical-padding) var(--_components---button-small--horizontal-padding);
   border-radius: var(--_components---button--border-radius);
   background-color: var(--primary--background);
@@ -2618,7 +2618,6 @@ figcaption {
   letter-spacing: var(--_components---button--letter-spacing);
   justify-content: center;
   align-items: center;
-  height: 3em;
   margin-top: -8em;
   text-decoration: none;
   transition: opacity .3s cubic-bezier(.165, .84, .44, 1), margin .3s cubic-bezier(.165, .84, .44, 1);
@@ -2882,9 +2881,9 @@ figcaption {
 }
 
 .spacer-component {
+  width: 100%;
   height: var(--_layout---grid--gap-main);
   box-shadow: none;
-  width: 100%;
   padding: 0;
   outline: none !important;
 }
@@ -3170,6 +3169,7 @@ figcaption {
 }
 
 .tabs-autoplay-progress {
+  width: 0%;
   height: var(--_components---button--border-width);
   background-color: var(--background--solid-primary);
   top: auto;
@@ -3177,7 +3177,6 @@ figcaption {
   right: 0%;
   bottom: calc(var(--_components---button--border-width) * -1);
   color: color-mix(in hsl, var(--ghost--foreground) 40%, transparent 60%);
-  width: 0%;
   position: absolute;
 }
 
@@ -3205,6 +3204,7 @@ figcaption {
 }
 
 .tabs-menu_dropdown-toggle {
+  width: 100%;
   padding: var(--_components---button--vertical-padding) var(--_components---button--horizontal-padding);
   border: var(--_components---button--border-width) solid var(--border--default);
   border-radius: var(--_components---button--border-radius);
@@ -3214,7 +3214,6 @@ figcaption {
   letter-spacing: var(--_components---button--letter-spacing);
   justify-content: space-between;
   align-items: center;
-  width: 100%;
   display: none;
 }
 
@@ -3335,9 +3334,9 @@ figcaption {
 }
 
 .testimonial-wrapper {
+  height: 10rem;
   font-size: var(--_typography---paragraph-body--font-size);
   line-height: var(--_typography---paragraph-body--line-height);
-  height: 10rem;
   margin-bottom: 0;
 }
 
@@ -3396,10 +3395,10 @@ figcaption {
 }
 
 .progressive-blur_panel {
-  -webkit-backdrop-filter: blur(calc(var(--blur) / (var(--ratio) * var(--ratio) * var(--ratio) * var(--ratio) * var(--ratio) * var(--ratio))));
-  backdrop-filter: blur(calc(var(--blur) / (var(--ratio) * var(--ratio) * var(--ratio) * var(--ratio) * var(--ratio) * var(--ratio))));
   width: 100%;
   height: 100%;
+  -webkit-backdrop-filter: blur(calc(var(--blur) / (var(--ratio) * var(--ratio) * var(--ratio) * var(--ratio) * var(--ratio) * var(--ratio))));
+  backdrop-filter: blur(calc(var(--blur) / (var(--ratio) * var(--ratio) * var(--ratio) * var(--ratio) * var(--ratio) * var(--ratio))));
   padding: 0;
   position: absolute;
   -webkit-mask: linear-gradient(#0000 10%, #000 20% 40%, #0000 50%);
@@ -3567,12 +3566,11 @@ figcaption {
   border-bottom-left-radius: var(--_components---button--border-radius);
   border-bottom-right-radius: var(--_components---button--border-radius);
   background-color: var(--background--default);
-  box-shadow: 0 0 0 var(--_components---button--border-width) var(--border--default);
-  cursor: pointer;
-  -webkit-appearance: none;
-  appearance: none;
   width: 3em;
   height: 1.5em;
+  box-shadow: 0 0 0 var(--_components---button--border-width) var(--border--default);
+  cursor: pointer;
+  appearance: none;
   transition-property: background-color;
   transition-duration: .3s;
   transition-timing-function: cubic-bezier(.165, .84, .44, 1);
@@ -3824,20 +3822,20 @@ figcaption {
 .compare-before {
   background-color: var(--background--solid-primary);
   object-fit: cover;
-  -webkit-mask: linear-gradient(to right, #000 0, var(--pos, 50%), transparent 0);
-  mask: linear-gradient(to right, #000 0, var(--pos, 50%), transparent 0);
   width: 100%;
   height: 100%;
+  -webkit-mask: linear-gradient(to right, #000 0, var(--pos, 50%), transparent 0);
+  mask: linear-gradient(to right, #000 0, var(--pos, 50%), transparent 0);
   display: block;
 }
 
 .compare-after {
   background-color: var(--background--solid-primary);
   object-fit: cover;
-  -webkit-mask: linear-gradient(to right, transparent 0, var(--pos, 50%), #000 0);
-  mask: linear-gradient(to right, transparent 0, var(--pos, 50%), #000 0);
   width: 100%;
   height: 100%;
+  -webkit-mask: linear-gradient(to right, transparent 0, var(--pos, 50%), #000 0);
+  mask: linear-gradient(to right, transparent 0, var(--pos, 50%), #000 0);
   display: block;
 }
 
@@ -3889,8 +3887,8 @@ figcaption {
 }
 
 .container-small {
-  max-width: min((100% - var(--_components---container--gutter) * 2), var(--_components---container--max-width));
   width: 80%;
+  max-width: min((100% - var(--_components---container--gutter) * 2), var(--_components---container--max-width));
   margin-left: auto;
   margin-right: auto;
   display: block;
@@ -3976,11 +3974,11 @@ figcaption {
 }
 
 .nav-container {
+  width: 88%;
+  height: 100%;
   max-width: min((100% - var(--_components---container--gutter) * 2), var(--_components---container--max-width));
   justify-content: space-between;
   align-items: center;
-  width: 88%;
-  height: 100%;
   margin-left: auto;
   margin-right: auto;
   display: flex;
@@ -4390,10 +4388,10 @@ figcaption {
   }
 
   .nav-link {
+    width: 100%;
     font-size: var(--_typography---h4--font-size);
     justify-content: flex-start;
     align-items: center;
-    width: 100%;
     display: flex;
   }
 
@@ -4471,9 +4469,9 @@ figcaption {
   }
 
   .nav-menu_container {
+    height: 100%;
     width: calc(88% + (var(--_components---card--padding) * 2));
     flex-flow: column;
-    height: 100%;
     margin-left: auto;
     margin-right: auto;
     padding-top: 2rem;
