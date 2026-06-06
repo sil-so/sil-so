@@ -14,13 +14,15 @@ I'm Silvan, a passionate maker living in Rotterdam 🇳🇱
 
 [Silso](https://sil.so) • Portfolio website  
 
+[Oriel](https://github.com/sil-so/oriel) • Native macOS time tracker  
+
 [JotTab](https://jottab.com) • Design your New Tab  
 
-[FlowTube](https://flowtu.be) • Automate Webflow to GitHub
-
-[Curatyy™](https://curatyy.art) • Personal AI art curator  
+[FlowTube](https://flowtu.be) • Automate Webflow to GitHub  
 
 [Warp Domains](https://warp.domains) • AI domain name generator  
+
+[Curatyy™](https://curatyy.art) • Personal AI art curator  
 
 </details>
 
