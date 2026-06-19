@@ -14,7 +14,7 @@ I'm Silvan, a passionate maker living in Rotterdam 🇳🇱
 
 [Silso](https://sil.so) • Portfolio website  
 
-[Oriel](https://github.com/sil-so/oriel) • Native macOS time tracker  
+[Oriel](https://github.com/sil-so/oriel) • Local-first macOS time tracker  
 
 [JotTab](https://jottab.com) • Design your New Tab  
 
